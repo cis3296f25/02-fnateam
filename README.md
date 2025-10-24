@@ -1,5 +1,5 @@
-# Project Name
-Put here a short paragraph describing your project. 
+# FIVE NIGHTS AT TEMPLE
+This is a FNAF fan game. 
 Adding an screenshot or a mockup of your application in action would be nice.  
 
 ![This is a screenshot.](images.png)
@@ -17,7 +17,7 @@ tar -xzf
 - You will see Hello World! on your terminal. 
 
 # How to contribute
-Follow this project board to know the latest status of the project: [http://...]([http://...])  
+Follow this project board to know the latest status of the project: [click here](https://trello.com/b/03hQVfXd/fnat-final-project)  
 
 ### How to build
 - Use this github repository: ... 
