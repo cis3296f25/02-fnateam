@@ -5,6 +5,8 @@ extends Node2D
 func _ready() -> void:
 	print("Hello World")
 	pass # Replace with function body.
+	
+	print("hi")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
