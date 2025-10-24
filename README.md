@@ -1,5 +1,5 @@
-# Project Name
-Put here a short paragraph describing your project. 
+# FIVE NIGHTS AT TEMPLE
+This is a FNAF fan game. 
 Adding an screenshot or a mockup of your application in action would be nice.  
 
 ![This is a screenshot.](images.png)
