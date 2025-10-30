@@ -13,3 +13,4 @@ config_version=5
 config/name="fnat-project"
 run/main_scene="uid://babct5l22vq0e"
 config/features=PackedStringArray("4.5", "Forward Plus")
+config/icon="res://icon.svg"
