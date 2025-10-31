@@ -1,0 +1,6 @@
+def quick_test():
+    print("This is a quick test function.")
+
+def main():
+    print("Hello, world! This is the main program.")
+
