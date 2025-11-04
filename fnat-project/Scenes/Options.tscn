@@ -33,8 +33,13 @@ max_value = 1.0
 step = 0.001
 value = 1.0
 
+[node name="MuteCheckBox" type="CheckBox" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Mute"
+
 [node name="UziGold" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_hg628")
 autoplay = true
 
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/VolumeSlider" to="." method="_on_volume_slider_value_changed"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/MuteCheckBox" to="." method="_on_mute_check_box_toggled"]
