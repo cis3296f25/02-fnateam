@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://db45n7f7blfpk"]
+[gd_scene load_steps=6 format=3 uid="uid://db45n7f7blfpk"]
 
+[ext_resource type="Script" uid="uid://syglm7gflboj" path="res://Scripts/main_menu.gd" id="1_853f1"]
 [ext_resource type="Texture2D" uid="uid://c464ixofim8q1" path="res://Assets/MainMenuTempleUImage.jpg" id="1_tt5f1"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_853f1"]
@@ -18,6 +19,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_853f1")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -64,3 +66,5 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_bnhvo")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_bnhvo")
 text = "EXIT
 "
+
+[connection signal="pressed" from="Container/Options" to="." method="_on_options_pressed"]
