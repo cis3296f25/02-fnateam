@@ -48,6 +48,14 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_bnhvo")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_bnhvo")
 text = "START GAME"
 
+[node name="Options" type="Button" parent="Container"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_bnhvo")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_bnhvo")
+text = "OPTIONS"
+
 [node name="Exit" type="Button" parent="Container"]
 layout_mode = 2
 size_flags_vertical = 3
