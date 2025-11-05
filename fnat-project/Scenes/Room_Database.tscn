@@ -4,9 +4,3 @@
 
 [node name="RoomDatabase" type="Node"]
 script = ExtResource("1_h1p80")
-rooms = {
-1: {
-"AdjacentRooms": {},
-"Name": "Test1Low"
-}
-}
