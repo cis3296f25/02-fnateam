@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c603rgefo4g1i"]
+[gd_scene load_steps=4 format=3 uid="uid://c603rgefo4g1i"]
 
 [ext_resource type="Script" uid="uid://divj7fbp3shk2" path="res://Scripts/phillies_fnatic.gd" id="1_rojri"]
 [ext_resource type="Script" uid="uid://dvx0t6redh06t" path="res://Scripts/gritty.gd" id="2_6posk"]
+[ext_resource type="Script" uid="uid://6pvy0w0tki2i" path="res://Scripts/hooters.gd" id="3_aa1zq"]
 
 [node name="Animatronic" type="Node2D"]
 
@@ -17,4 +18,11 @@ script = ExtResource("2_6posk")
 
 [node name="Timer" type="Timer" parent="Gritty"]
 wait_time = 4.98
+autostart = true
+
+[node name="Hooters" type="Node2D" parent="."]
+script = ExtResource("3_aa1zq")
+
+[node name="Timer" type="Timer" parent="Hooters"]
+wait_time = 4.5
 autostart = true
