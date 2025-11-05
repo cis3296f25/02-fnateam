@@ -3,7 +3,7 @@ extends Node2D
 
 
 var rng = RandomNumberGenerator.new()
-var current_room = "stage"
+var current_room = "Storage"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -15,16 +15,25 @@ func timeout() -> void:
 	if randi_range(1,20) <= my_random_number:
 		move()
 		
-		print("Phillies Fnatic has moved to ", current_room)
+		print("Fnatic has moved to ", current_room)
 
 
 func move() -> void:
 	match current_room:
-		"stage":
-			current_room = ["room A", "room B"].pick_random()
-		"room A":
-			current_room = ["room B", "stage"].pick_random()
-		"room B":
-			current_room = ["room A", "stage"].pick_random()
-#Repeat this for each room. Currently just have placeholders in
+		"Storage":
+			current_room = "Lobby"
+		"Lobby":
+			current_room = ["Closet", "Leftlocker", "Storage"].pick_random()
+		"Closet":
+			current_room = "Lobby"
+		"Leftlocker":
+			current_room = ["Gym", "Lobby"].pick_random()
+		"Gym":
+			current_room = ["Lefthallway","Leftlocker"].pick_random()
+		"Lefthallway":
+			current_room = ["Gym", "Office"].pick_random()
+		"Office":
+			print("Game over")
+		
+#repeast this for each room. Currently just have placeholders in
 #because I don't know what the map looks like.
