@@ -5,59 +5,73 @@ extends Node2D
 var current_room : Node = null
 
 var room_paths = {
-	"CamF": "res://scenes/rooms/RoomF.tscn",
-	"CamL1": "res://scenes/rooms/RoomL1.tscn",
-	"CamL2": "res://scenes/rooms/RoomL2.tscn",
-	"CamR1": "res://scenes/rooms/RoomR1.tscn",
-	"CamR2": "res://scenes/rooms/RoomR2.tscn",
-	"CamR3": "res://scenes/rooms/RoomR3.tscn",
-	"CamSec": "res://scenes/rooms/RoomSec.tscn"
+	"Office": "res://scenes/rooms/Room.tscn",
+	"CamGym": "res://scenes/rooms/Room.tscn",
+	"CamRH": "res://scenes/rooms/Room.tscn",
+	"CamLH": "res://scenes/rooms/Room.tscn",
+	"CamBC": "res://scenes/rooms/Room.tscn",
+	"CamRL": "res://scenes/rooms/Room.tscn",
+	"CamLL": "res://scenes/rooms/Room.tscn",
+	"CamLounge": "res://scenes/rooms/Room.tscn",
+	"CamStorage": "res://scenes/rooms/Room.tscn",
+	"CamCafe": "res://scenes/rooms/Room.tscn",
+	"CamCloset": "res://scenes/rooms/Room.tscn",
+	"CamUtility": "res://scenes/rooms/Room.tscn"
 }
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	load_room(room_paths["CamSec"])
+	pass 
+	#load_room(room_paths["Office"])
 
-func load_room(scene_path: String):
-	if current_room:
-		current_room.queue_free()  # remove previous room
+#func load_room(scene_path: String):
+	#if current_room:
+		#current_room.queue_free()  # remove previous room
+#
+	#var new_room_scene = load(scene_path)
+	#var new_room = new_room_scene.instantiate()
+	#room_container.add_child(new_room)
+	#current_room = new_room
 
-	var new_room_scene = load(scene_path)
-	var new_room = new_room_scene.instantiate()
-	room_container.add_child(new_room)
-	current_room = new_room
-
-func _on_f_pressed() -> void:
-	load_room(room_paths["CamF"])
-
-
-func _on_l1_pressed() -> void:
-	load_room(room_paths["CamL1"])
+func _on_cam_gym_pressed() -> void:
+	pass # Replace with function body.
 
 
-func _on_l2_pressed() -> void:
-	load_room(room_paths["CamL2"])
+func _on_cam_rh_pressed() -> void:
+	pass # Replace with function body.
 
 
-func _on_r1_pressed() -> void:
-	load_room(room_paths["CamR1"])
+func _on_cam_lh_pressed() -> void:
+	pass # Replace with function body.
 
 
-func _on_r2_pressed() -> void:
-	load_room(room_paths["CamR2"])
-	
-	
-func _on_r3_pressed() -> void:
-	load_room(room_paths["CamR3"])
+func _on_cam_bc_pressed() -> void:
+	pass # Replace with function body.
 
 
-func _on_sec_pressed() -> void:
-	load_room(room_paths["CamSec"])
+func _on_cam_rl_pressed() -> void:
+	pass # Replace with function body.
 
 
-func _on_switch_button_mouse_entered() -> void:
-	load_room(room_paths["CamSec"])
+func _on_cam_ll_pressed() -> void:
+	pass # Replace with function body.
 
 
-func _on_switch_button_mouse_exited() -> void:
+func _on_cam_lounge_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_cam_storage_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_cam_cafe_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_cam_closet_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_cam_utility_pressed() -> void:
 	pass # Replace with function body.
