@@ -40,6 +40,13 @@ offset_right = 1126.0
 offset_bottom = 559.0
 text = "R2"
 
+[node name="CamR3" type="Button" parent="."]
+offset_left = 1073.0
+offset_top = 572.0
+offset_right = 1131.0
+offset_bottom = 628.0
+text = "R3"
+
 [node name="CamSec" type="Button" parent="."]
 offset_left = 989.0
 offset_top = 575.0
@@ -49,9 +56,20 @@ text = "Sec"
 
 [node name="RoomContainer" type="Node2D" parent="."]
 
+[node name="SwitchButton" type="Button" parent="."]
+offset_left = 345.0
+offset_top = 583.0
+offset_right = 754.0
+offset_bottom = 619.0
+text = "Switch"
+
 [connection signal="pressed" from="CamF" to="." method="_on_f_pressed"]
 [connection signal="pressed" from="CamL1" to="." method="_on_l1_pressed"]
 [connection signal="pressed" from="CamL2" to="." method="_on_l2_pressed"]
 [connection signal="pressed" from="CamR1" to="." method="_on_r1_pressed"]
 [connection signal="pressed" from="CamR2" to="." method="_on_r2_pressed"]
+[connection signal="pressed" from="CamR3" to="." method="_on_r2_pressed"]
+[connection signal="pressed" from="CamR3" to="." method="_on_r3_pressed"]
 [connection signal="pressed" from="CamSec" to="." method="_on_sec_pressed"]
+[connection signal="mouse_entered" from="SwitchButton" to="." method="_on_switch_button_mouse_entered"]
+[connection signal="mouse_exited" from="SwitchButton" to="." method="_on_switch_button_mouse_exited"]

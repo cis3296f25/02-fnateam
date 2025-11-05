@@ -10,6 +10,7 @@ var room_paths = {
 	"CamL2": "res://scenes/rooms/RoomL2.tscn",
 	"CamR1": "res://scenes/rooms/RoomR1.tscn",
 	"CamR2": "res://scenes/rooms/RoomR2.tscn",
+	"CamR3": "res://scenes/rooms/RoomR3.tscn",
 	"CamSec": "res://scenes/rooms/RoomSec.tscn"
 }
 
@@ -44,7 +45,19 @@ func _on_r1_pressed() -> void:
 
 func _on_r2_pressed() -> void:
 	load_room(room_paths["CamR2"])
+	
+	
+func _on_r3_pressed() -> void:
+	load_room(room_paths["CamR3"])
 
 
 func _on_sec_pressed() -> void:
 	load_room(room_paths["CamSec"])
+
+
+func _on_switch_button_mouse_entered() -> void:
+	load_room(room_paths["CamSec"])
+
+
+func _on_switch_button_mouse_exited() -> void:
+	pass # Replace with function body.
