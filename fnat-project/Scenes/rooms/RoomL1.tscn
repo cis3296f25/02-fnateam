@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://we5b8h0j0757"]
+
+[node name="RoomL1" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 388.0
+offset_top = 214.0
+offset_right = 655.0
+offset_bottom = 310.0
+text = "Room L2"
+horizontal_alignment = 1
+vertical_alignment = 1

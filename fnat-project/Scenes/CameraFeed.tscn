@@ -1,3 +1,57 @@
-[gd_scene format=3 uid="uid://cc6yoh43ybaso"]
+[gd_scene load_steps=2 format=3 uid="uid://cc6yoh43ybaso"]
+
+[ext_resource type="Script" uid="uid://o511r4tgf0un" path="res://Scenes/camera_feedS.gd" id="1_ecqx0"]
 
 [node name="CameraFeed" type="Node2D"]
+script = ExtResource("1_ecqx0")
+
+[node name="CamF" type="Button" parent="."]
+offset_left = 990.0
+offset_top = 375.0
+offset_right = 1048.0
+offset_bottom = 431.0
+text = "F"
+
+[node name="CamL1" type="Button" parent="."]
+offset_left = 910.0
+offset_top = 433.0
+offset_right = 968.0
+offset_bottom = 489.0
+text = "L1"
+
+[node name="CamL2" type="Button" parent="."]
+offset_left = 911.0
+offset_top = 514.0
+offset_right = 969.0
+offset_bottom = 570.0
+text = "L2"
+
+[node name="CamR1" type="Button" parent="."]
+offset_left = 1067.0
+offset_top = 429.0
+offset_right = 1125.0
+offset_bottom = 485.0
+text = "R1"
+
+[node name="CamR2" type="Button" parent="."]
+offset_left = 1068.0
+offset_top = 503.0
+offset_right = 1126.0
+offset_bottom = 559.0
+text = "R2"
+
+[node name="CamSec" type="Button" parent="."]
+offset_left = 989.0
+offset_top = 575.0
+offset_right = 1047.0
+offset_bottom = 631.0
+text = "Sec"
+
+[node name="RoomContainer" type="Node2D" parent="."]
+
+[connection signal="pressed" from="CamF" to="." method="_on_f_pressed"]
+[connection signal="pressed" from="CamL1" to="." method="_on_l1_pressed"]
+[connection signal="pressed" from="CamL2" to="." method="_on_l2_pressed"]
+[connection signal="pressed" from="CamR1" to="." method="_on_r1_pressed"]
+[connection signal="pressed" from="CamR2" to="." method="_on_r2_pressed"]
+[connection signal="pressed" from="CamSec" to="." method="_on_sec_pressed"]
