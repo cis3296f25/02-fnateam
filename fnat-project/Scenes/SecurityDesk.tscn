@@ -1,9 +1,0 @@
-[gd_scene format=3 uid="uid://babct5l22vq0e"]
-
-[node name="SecurityDesk" type="Node2D"]
-
-[node name="Camera2D" type="Camera2D" parent="."]
-
-[node name="ColorRect" type="ColorRect" parent="Camera2D"]
-color = Color(1, 0.007843138, 1, 1)
-metadata/Pink = false
