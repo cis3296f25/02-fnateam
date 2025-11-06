@@ -1,3 +1,9 @@
 [gd_scene format=3 uid="uid://c603rgefo4g1i"]
 
-[node name="Animatronic" type="Node2D"]
+[node name="SecurityDesk" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Camera2D"]
+color = Color(1, 0.007843138, 1, 1)
+metadata/Pink = false

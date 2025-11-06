@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bts087ibl2h0w"]
+
+[node name="Roomq" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 1368.0
+offset_top = 37.0
+offset_right = 3058.0
+offset_bottom = 1055.0
+text = "roomq"
+horizontal_alignment = 1
+vertical_alignment = 1

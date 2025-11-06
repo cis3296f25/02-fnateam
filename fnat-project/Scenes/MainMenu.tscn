@@ -1,3 +1,7 @@
 [gd_scene format=3 uid="uid://db45n7f7blfpk"]
 
-[node name="MainMenu" type="Node2D"]
+[node name="SecurityDesk" type="Node2D"]
+
+[node name="CameraSprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+visible = false

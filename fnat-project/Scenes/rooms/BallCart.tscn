@@ -1,3 +1,12 @@
 [gd_scene format=3 uid="uid://mmiks3x21tot"]
 
 [node name="BallCart" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 394.0
+offset_top = 16.0
+offset_right = 590.0
+offset_bottom = 135.0
+text = "Ball cart"
+horizontal_alignment = 1
+vertical_alignment = 1

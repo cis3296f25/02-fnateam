@@ -1,0 +1,104 @@
+Index: fnat-project/Scenes/Animatronic.tscn
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>[gd_scene format=3 uid=\"uid://c603rgefo4g1i\"]\n\n[node name=\"Animatronic\" type=\"Node2D\"]\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/fnat-project/Scenes/Animatronic.tscn b/fnat-project/Scenes/Animatronic.tscn
+--- a/fnat-project/Scenes/Animatronic.tscn	(revision b048f72ea3d44b657e75101be3bb4918f2127cd6)
++++ b/fnat-project/Scenes/Animatronic.tscn	(date 1762373994237)
+@@ -1,3 +1,9 @@
+ [gd_scene format=3 uid="uid://c603rgefo4g1i"]
+ 
+-[node name="Animatronic" type="Node2D"]
++[node name="SecurityDesk" type="Node2D"]
++
++[node name="Camera2D" type="Camera2D" parent="."]
++
++[node name="ColorRect" type="ColorRect" parent="Camera2D"]
++color = Color(1, 0.007843138, 1, 1)
++metadata/Pink = false
+Index: fnat-project/Scenes/MainMenu.tscn
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>[gd_scene format=3 uid=\"uid://db45n7f7blfpk\"]\n\n[node name=\"MainMenu\" type=\"Node2D\"]\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/fnat-project/Scenes/MainMenu.tscn b/fnat-project/Scenes/MainMenu.tscn
+--- a/fnat-project/Scenes/MainMenu.tscn	(revision b048f72ea3d44b657e75101be3bb4918f2127cd6)
++++ b/fnat-project/Scenes/MainMenu.tscn	(date 1762373994241)
+@@ -1,3 +1,7 @@
+ [gd_scene format=3 uid="uid://db45n7f7blfpk"]
+ 
+-[node name="MainMenu" type="Node2D"]
++[node name="SecurityDesk" type="Node2D"]
++
++[node name="CameraSprite" type="Sprite2D" parent="."]
++unique_name_in_owner = true
++visible = false
+Index: fnat-project/Scenes/CameraFeed.tscn
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>[gd_scene load_steps=2 format=3 uid=\"uid://cc6yoh43ybaso\"]\n\n[ext_resource type=\"Script\" uid=\"uid://o511r4tgf0un\" path=\"res://Scenes/camera_feedS.gd\" id=\"1_ecqx0\"]\n\n[node name=\"CameraFeed\" type=\"Node2D\"]\nscript = ExtResource(\"1_ecqx0\")\n\n[node name=\"CamF\" type=\"Button\" parent=\".\"]\noffset_left = 990.0\noffset_top = 375.0\noffset_right = 1048.0\noffset_bottom = 431.0\ntext = \"F\"\n\n[node name=\"CamL1\" type=\"Button\" parent=\".\"]\noffset_left = 910.0\noffset_top = 433.0\noffset_right = 968.0\noffset_bottom = 489.0\ntext = \"L1\"\n\n[node name=\"CamL2\" type=\"Button\" parent=\".\"]\noffset_left = 911.0\noffset_top = 514.0\noffset_right = 969.0\noffset_bottom = 570.0\ntext = \"L2\"\n\n[node name=\"CamR1\" type=\"Button\" parent=\".\"]\noffset_left = 1067.0\noffset_top = 429.0\noffset_right = 1125.0\noffset_bottom = 485.0\ntext = \"R1\"\n\n[node name=\"CamR2\" type=\"Button\" parent=\".\"]\noffset_left = 1068.0\noffset_top = 503.0\noffset_right = 1126.0\noffset_bottom = 559.0\ntext = \"R2\"\n\n[node name=\"CamR3\" type=\"Button\" parent=\".\"]\noffset_left = 1073.0\noffset_top = 572.0\noffset_right = 1131.0\noffset_bottom = 628.0\ntext = \"R3\"\n\n[node name=\"CamSec\" type=\"Button\" parent=\".\"]\noffset_left = 989.0\noffset_top = 575.0\noffset_right = 1047.0\noffset_bottom = 631.0\ntext = \"Sec\"\n\n[node name=\"RoomContainer\" type=\"Node2D\" parent=\".\"]\n\n[node name=\"SwitchButton\" type=\"Button\" parent=\".\"]\noffset_left = 345.0\noffset_top = 583.0\noffset_right = 754.0\noffset_bottom = 619.0\ntext = \"Switch\"\n\n[connection signal=\"pressed\" from=\"CamF\" to=\".\" method=\"_on_f_pressed\"]\n[connection signal=\"pressed\" from=\"CamL1\" to=\".\" method=\"_on_l1_pressed\"]\n[connection signal=\"pressed\" from=\"CamL2\" to=\".\" method=\"_on_l2_pressed\"]\n[connection signal=\"pressed\" from=\"CamR1\" to=\".\" method=\"_on_r1_pressed\"]\n[connection signal=\"pressed\" from=\"CamR2\" to=\".\" method=\"_on_r2_pressed\"]\n[connection signal=\"pressed\" from=\"CamR3\" to=\".\" method=\"_on_r2_pressed\"]\n[connection signal=\"pressed\" from=\"CamR3\" to=\".\" method=\"_on_r3_pressed\"]\n[connection signal=\"pressed\" from=\"CamSec\" to=\".\" method=\"_on_sec_pressed\"]\n[connection signal=\"mouse_entered\" from=\"SwitchButton\" to=\".\" method=\"_on_switch_button_mouse_entered\"]\n[connection signal=\"mouse_exited\" from=\"SwitchButton\" to=\".\" method=\"_on_switch_button_mouse_exited\"]\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/fnat-project/Scenes/CameraFeed.tscn b/fnat-project/Scenes/CameraFeed.tscn
+--- a/fnat-project/Scenes/CameraFeed.tscn	(revision b048f72ea3d44b657e75101be3bb4918f2127cd6)
++++ b/fnat-project/Scenes/CameraFeed.tscn	(date 1762374407763)
+@@ -1,9 +1,6 @@
+-[gd_scene load_steps=2 format=3 uid="uid://cc6yoh43ybaso"]
++[gd_scene format=3 uid="uid://cc6yoh43ybaso"]
+ 
+-[ext_resource type="Script" uid="uid://o511r4tgf0un" path="res://Scenes/camera_feedS.gd" id="1_ecqx0"]
+-
+-[node name="CameraFeed" type="Node2D"]
+-script = ExtResource("1_ecqx0")
++[node name="SecurityDesk" type="Node2D"]
+ 
+ [node name="CamF" type="Button" parent="."]
+ offset_left = 990.0
+@@ -68,8 +65,8 @@
+ [connection signal="pressed" from="CamL2" to="." method="_on_l2_pressed"]
+ [connection signal="pressed" from="CamR1" to="." method="_on_r1_pressed"]
+ [connection signal="pressed" from="CamR2" to="." method="_on_r2_pressed"]
+-[connection signal="pressed" from="CamR3" to="." method="_on_r2_pressed"]
+ [connection signal="pressed" from="CamR3" to="." method="_on_r3_pressed"]
++[connection signal="pressed" from="CamR3" to="." method="_on_r2_pressed"]
+ [connection signal="pressed" from="CamSec" to="." method="_on_sec_pressed"]
+ [connection signal="mouse_entered" from="SwitchButton" to="." method="_on_switch_button_mouse_entered"]
+ [connection signal="mouse_exited" from="SwitchButton" to="." method="_on_switch_button_mouse_exited"]
+Index: fnat-project/Scenes/GameOver.tscn
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>[gd_scene format=3 uid=\"uid://w0vq0vaoqesw\"]\n\n[node name=\"GameOver\" type=\"Node2D\"]\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/fnat-project/Scenes/GameOver.tscn b/fnat-project/Scenes/GameOver.tscn
+--- a/fnat-project/Scenes/GameOver.tscn	(revision b048f72ea3d44b657e75101be3bb4918f2127cd6)
++++ b/fnat-project/Scenes/GameOver.tscn	(date 1762373994248)
+@@ -1,3 +1,3 @@
+-[gd_scene format=3 uid="uid://w0vq0vaoqesw"]
++[gd_scene load_steps=0 format=3 uid="uid://w0vq0vaoqesw"]
+ 
+ [node name="GameOver" type="Node2D"]
+Index: fnat-project/project.godot
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>; Engine configuration file.\n; It's best edited using the editor UI and not directly,\n; since the parameters that go here are not all obvious.\n;\n; Format:\n;   [section] ; section goes between []\n;   param=value ; assign values to parameters\n\nconfig_version=5\n\n[application]\n\nconfig/name=\"fnat-project\"\nrun/main_scene=\"uid://babct5l22vq0e\"\nconfig/features=PackedStringArray(\"4.5\", \"Forward Plus\")\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/fnat-project/project.godot b/fnat-project/project.godot
+--- a/fnat-project/project.godot	(revision b048f72ea3d44b657e75101be3bb4918f2127cd6)
++++ b/fnat-project/project.godot	(date 1762373994250)
+@@ -11,5 +11,5 @@
+ [application]
+ 
+ config/name="fnat-project"
+-run/main_scene="uid://babct5l22vq0e"
++run/main_scene="uid://cc6yoh43ybaso"
+ config/features=PackedStringArray("4.5", "Forward Plus")

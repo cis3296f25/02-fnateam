@@ -1,0 +1,14 @@
+Index: fnat-project/Scenes/rooms/RoomR3.tscn
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>[gd_scene format=3 uid=\"uid://yx715sawkwbt\"]\n\n[node name=\"RoomL3\" type=\"Node2D\"]\n\n[node name=\"Label\" type=\"Label\" parent=\".\"]\noffset_left = 258.0\noffset_top = 126.0\noffset_right = 766.0\noffset_bottom = 337.0\ntext = \"Room R3\"\nhorizontal_alignment = 1\nvertical_alignment = 1\n
+===================================================================
+diff --git a/fnat-project/Scenes/rooms/RoomR3.tscn b/fnat-project/Scenes/rooms/RoomR3.tscn
+--- a/fnat-project/Scenes/rooms/RoomR3.tscn	(revision b048f72ea3d44b657e75101be3bb4918f2127cd6)
++++ b/fnat-project/Scenes/rooms/RoomR3.tscn	(date 1762374007509)
+@@ -1,4 +1,4 @@
+-[gd_scene format=3 uid="uid://yx715sawkwbt"]
++[gd_scene load_steps=0 format=3 uid="uid://yx715sawkwbt"]
+ 
+ [node name="RoomL3" type="Node2D"]
+ 

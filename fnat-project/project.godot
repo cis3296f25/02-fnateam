@@ -11,5 +11,5 @@ config_version=5
 [application]
 
 config/name="fnat-project"
-run/main_scene="uid://babct5l22vq0e"
+run/main_scene="uid://cc6yoh43ybaso"
 config/features=PackedStringArray("4.5", "Forward Plus")

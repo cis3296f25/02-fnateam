@@ -1,3 +1,12 @@
 [gd_scene format=3 uid="uid://dif23oh5srp56"]
 
 [node name="RoomL2" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 252.0
+offset_top = 124.0
+offset_right = 493.0
+offset_bottom = 255.0
+text = "Right Hall"
+horizontal_alignment = 1
+vertical_alignment = 1

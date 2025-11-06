@@ -5,6 +5,55 @@
 [node name="CameraFeed" type="Node2D"]
 script = ExtResource("1_ecqx0")
 
+[node name="CamF" type="Button" parent="."]
+offset_left = 990.0
+offset_top = 375.0
+offset_right = 1048.0
+offset_bottom = 431.0
+text = "F"
+
+[node name="CamL1" type="Button" parent="."]
+offset_left = 910.0
+offset_top = 433.0
+offset_right = 968.0
+offset_bottom = 489.0
+text = "L1"
+
+[node name="CamL2" type="Button" parent="."]
+offset_left = 906.0
+offset_top = 508.0
+offset_right = 964.0
+offset_bottom = 564.0
+text = "L2"
+
+[node name="CamR1" type="Button" parent="."]
+offset_left = 1067.0
+offset_top = 429.0
+offset_right = 1125.0
+offset_bottom = 485.0
+text = "R1"
+
+[node name="CamR2" type="Button" parent="."]
+offset_left = 1068.0
+offset_top = 503.0
+offset_right = 1126.0
+offset_bottom = 559.0
+text = "R2"
+
+[node name="CamR3" type="Button" parent="."]
+offset_left = 1073.0
+offset_top = 572.0
+offset_right = 1131.0
+offset_bottom = 628.0
+text = "R3"
+
+[node name="CamSec" type="Button" parent="."]
+offset_left = 989.0
+offset_top = 575.0
+offset_right = 1047.0
+offset_bottom = 631.0
+text = "Sec"
+
 [node name="RoomContainer" type="Node2D" parent="."]
 
 [node name="SwitchButton" type="Button" parent="."]
@@ -14,113 +63,13 @@ offset_right = 754.0
 offset_bottom = 619.0
 text = "Switch"
 
-[node name="Office" type="Button" parent="."]
-offset_left = 861.0
-offset_top = 313.0
-offset_right = 930.0
-offset_bottom = 369.0
-text = "O (YOU)"
-
-[node name="CamGym" type="Button" parent="."]
-offset_left = 871.0
-offset_top = 445.0
-offset_right = 929.0
-offset_bottom = 501.0
-text = "Gym"
-
-[node name="CamRH" type="Button" parent="."]
-offset_left = 936.0
-offset_top = 370.0
-offset_right = 994.0
-offset_bottom = 426.0
-text = "RH"
-
-[node name="CamLH" type="Button" parent="."]
-offset_left = 802.0
-offset_top = 370.0
-offset_right = 860.0
-offset_bottom = 426.0
-text = "LH"
-
-[node name="CamBC" type="Button" parent="."]
-offset_left = 802.0
-offset_top = 441.0
-offset_right = 860.0
-offset_bottom = 497.0
-text = "BC"
-
-[node name="CamRL" type="Button" parent="."]
-offset_left = 806.0
-offset_top = 510.0
-offset_right = 864.0
-offset_bottom = 566.0
-text = "RL"
-
-[node name="CamLL" type="Button" parent="."]
-offset_left = 936.0
-offset_top = 509.0
-offset_right = 994.0
-offset_bottom = 565.0
-text = "LL"
-
-[node name="CamLounge" type="Button" parent="."]
-offset_left = 1043.0
-offset_top = 514.0
-offset_right = 1108.0
-offset_bottom = 570.0
-text = "Lounge"
-
-[node name="CamStorage" type="Button" parent="."]
-offset_left = 1003.0
-offset_top = 584.0
-offset_right = 1071.0
-offset_bottom = 640.0
-text = "Storage"
-
-[node name="CamCafe" type="Button" parent="."]
-offset_left = 1087.0
-offset_top = 583.0
-offset_right = 1145.0
-offset_bottom = 639.0
-text = "Cafe"
-
-[node name="CamCloset" type="Button" parent="."]
-offset_left = 1012.0
-offset_top = 442.0
-offset_right = 1070.0
-offset_bottom = 498.0
-text = "Closet"
-
-[node name="CamUtility" type="Button" parent="."]
-offset_left = 1082.0
-offset_top = 443.0
-offset_right = 1140.0
-offset_bottom = 499.0
-text = "Utility"
-
+[connection signal="pressed" from="CamF" to="." method="_on_f_pressed"]
+[connection signal="pressed" from="CamL1" to="." method="_on_l1_pressed"]
+[connection signal="pressed" from="CamL2" to="." method="_on_l2_pressed"]
+[connection signal="pressed" from="CamR1" to="." method="_on_r1_pressed"]
+[connection signal="pressed" from="CamR2" to="." method="_on_r2_pressed"]
+[connection signal="pressed" from="CamR3" to="." method="_on_r3_pressed"]
+[connection signal="pressed" from="CamR3" to="." method="_on_r2_pressed"]
+[connection signal="pressed" from="CamSec" to="." method="_on_sec_pressed"]
 [connection signal="mouse_entered" from="SwitchButton" to="." method="_on_switch_button_mouse_entered"]
 [connection signal="mouse_exited" from="SwitchButton" to="." method="_on_switch_button_mouse_exited"]
-[connection signal="pressed" from="Office" to="." method="_on_l1_pressed"]
-[connection signal="pressed" from="CamGym" to="." method="_on_r1_pressed"]
-[connection signal="pressed" from="CamGym" to="." method="_on_cam_gym_pressed"]
-[connection signal="pressed" from="CamRH" to="." method="_on_l2_pressed"]
-[connection signal="pressed" from="CamRH" to="." method="_on_cam_rh_pressed"]
-[connection signal="pressed" from="CamLH" to="." method="_on_cam_lh_pressed"]
-[connection signal="pressed" from="CamLH" to="." method="_on_f_pressed"]
-[connection signal="pressed" from="CamBC" to="." method="_on_r2_pressed"]
-[connection signal="pressed" from="CamBC" to="." method="_on_cam_bc_pressed"]
-[connection signal="pressed" from="CamBC" to="." method="_on_r3_pressed"]
-[connection signal="pressed" from="CamRL" to="." method="_on_sec_pressed"]
-[connection signal="pressed" from="CamRL" to="." method="_on_cam_rl_pressed"]
-[connection signal="pressed" from="CamLL" to="." method="_on_cam_ll_pressed"]
-[connection signal="pressed" from="CamLL" to="." method="_on_r2_pressed"]
-[connection signal="pressed" from="CamLounge" to="." method="_on_r2_pressed"]
-[connection signal="pressed" from="CamLounge" to="." method="_on_cam_lounge_pressed"]
-[connection signal="pressed" from="CamStorage" to="." method="_on_cam_storage_pressed"]
-[connection signal="pressed" from="CamStorage" to="." method="_on_r2_pressed"]
-[connection signal="pressed" from="CamCafe" to="." method="_on_r2_pressed"]
-[connection signal="pressed" from="CamCafe" to="." method="_on_cam_cafe_pressed"]
-[connection signal="pressed" from="CamCloset" to="." method="_on_r2_pressed"]
-[connection signal="pressed" from="CamCloset" to="." method="_on_cam_closet_pressed"]
-[connection signal="pressed" from="CamUtility" to="." method="_on_cam_utility_pressed"]
-[connection signal="pressed" from="CamUtility" to="." method="_on_r2_pressed"]
