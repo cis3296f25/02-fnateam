@@ -24,7 +24,6 @@ autostart = true
 [node name="Hooters" type="Node2D" parent="."]
 script = ExtResource("3_aa1zq")
 room_database_scene = ExtResource("4_71jmn")
-move_interval = 1.0
 
 [node name="Timer" type="Timer" parent="Hooters"]
 wait_time = 4.5
