@@ -7,7 +7,7 @@ extends Node2D
 var room_database : Dictionary
 var current_room_id = 1
 var peak = 0
-var move_timer: Timer
+@onready var move_timer: Timer = $Timer
 var ai_level: int = 5
 
 
@@ -19,8 +19,12 @@ func _ready() -> void:
 
 	#  Access its exported variable that contains the rooms dictionary
 	room_database = db_instance.rooms
-
+	
 	print("Hooter starting in:", room_database[current_room_id]["Name"])
+	
+	# Setting up the timer
+	move_timer.wait_time = move_interval
+	move_timer.timeout.connect(_action)
 
 func _aggro():
 	ai_level = min(ai_level + 1, 20)
@@ -29,6 +33,7 @@ func _action() -> void:
 	var roll = randi() % 21
 	if roll < ai_level:
 		move_to_next_room()
+	
 
 func move_to_next_room():
 	var current_room = room_database[current_room_id]
