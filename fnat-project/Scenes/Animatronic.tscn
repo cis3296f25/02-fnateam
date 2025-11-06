@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://divj7fbp3shk2" path="res://Scripts/phillies_fnatic.gd" id="1_rojri"]
 [ext_resource type="Script" uid="uid://dvx0t6redh06t" path="res://Scripts/gritty.gd" id="2_6posk"]
-[ext_resource type="Script" uid="uid://6pvy0w0tki2i" path="res://Scripts/hooters.gd" id="3_aa1zq"]
+[ext_resource type="Script" uid="uid://6pvy0w0tki2i" path="res://Scripts/Hooters.gd" id="3_aa1zq"]
 
 [node name="Animatronic" type="Node2D"]
 
