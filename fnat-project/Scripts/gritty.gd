@@ -29,7 +29,7 @@ func move() -> void:
 		"Rightlocker":
 			current_room = ["Gym", "Lobby"].pick_random()
 		"Gym":
-			current_room = ["Righthallway","Rightlocker"].pick_random()
+			current_room = ["Righthallway","Righthallway","Righthallway","Righthallway","Rightlocker"].pick_random()
 		"Righthallway":
 			current_room = ["Gym", "Office"].pick_random()
 		"Office":
