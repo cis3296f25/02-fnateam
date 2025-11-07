@@ -1,9 +1,19 @@
-[gd_scene format=3 uid="uid://babct5l22vq0e"]
+[gd_scene load_steps=4 format=3 uid="uid://gqe1bffwwtkk"]
+
+[ext_resource type="PackedScene" uid="uid://c603rgefo4g1i" path="res://Scenes/Animatronic.tscn" id="1_cb5gl"]
+[ext_resource type="Script" uid="uid://jdxxtktnbyel" path="res://Scripts/main_gameloop.gd" id="1_ri7fq"]
+[ext_resource type="PackedScene" uid="uid://cc6yoh43ybaso" path="res://Scenes/CameraFeed.tscn" id="2_8fg2u"]
 
 [node name="SecurityDesk" type="Node2D"]
+script = ExtResource("1_ri7fq")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(578, 330)
 
 [node name="ColorRect" type="ColorRect" parent="Camera2D"]
 color = Color(1, 0.007843138, 1, 1)
 metadata/Pink = false
+
+[node name="CameraFeed" parent="." instance=ExtResource("2_8fg2u")]
+
+[node name="Animatronic" parent="." instance=ExtResource("1_cb5gl")]

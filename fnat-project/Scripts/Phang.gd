@@ -3,6 +3,7 @@ extends Node2D
 @export var room_database_scene: PackedScene
 @export var move_interval: float = 4.98
 @export var max_peaks: int = 3
+var animatronic_name = "Phang"
 
 var room_database : Dictionary
 var current_room_id = 10
@@ -22,7 +23,8 @@ func _ready() -> void:
 	#  Access its exported variable that contains the rooms dictionary
 	room_database = db_instance.rooms
 
-	print("Phang starting in:", room_database[current_room_id]["Name"])
+	GameManager.animatronic_started.emit(animatronic_name, room_database[current_room_id]["Name"])
+	#print("Phang starting in:", room_database[current_room_id]["Name"])
 	
 		# Setting up the timer
 	move_timer.wait_time = move_interval
@@ -50,7 +52,8 @@ func move_to_next_room():
 			adjacent_rooms.erase(next_room_id)
 			continue
 
-		print("Phang moved from %s → %s" % [current_room["Name"], next_room["Name"]])
+		GameManager.animatronic_moved.emit(animatronic_name, current_room["Name"],next_room["Name"] )
+		#print("Phang moved from %s → %s" % [current_room["Name"], next_room["Name"]])
 		current_room["Empty"] = true
 		next_room["Empty"] = false
 		current_room_id = next_room_id

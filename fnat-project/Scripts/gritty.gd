@@ -9,6 +9,7 @@ var current_room_id = 1
 var peak = 0
 @onready var move_timer: Timer = $Timer
 var ai_level: int = 5
+var animatronic_name = "Gritty"
 
 
 func _ready() -> void:
@@ -22,7 +23,9 @@ func _ready() -> void:
 	#  Access its exported variable that contains the rooms dictionary
 	room_database = db_instance.rooms
 
-	print("Gritty starting in:", room_database[current_room_id]["Name"])
+	#Send a Signal to the game saying where the animatronic started
+	GameManager.animatronic_started.emit(animatronic_name, room_database[current_room_id]["Name"])
+	#print("Gritty starting in:", room_database[current_room_id]["Name"])
 	
 		# Setting up the timer
 	move_timer.wait_time = move_interval
@@ -49,8 +52,9 @@ func move_to_next_room():
 		or next_room["SealedDoor"] or not next_room["Empty"]:
 			adjacent_rooms.erase(next_room_id)
 			continue
-
-		print("Gritty moved from %s → %s" % [current_room["Name"], next_room["Name"]])
+		
+		GameManager.animatronic_moved.emit(animatronic_name, current_room["Name"],next_room["Name"] )
+		#print("Gritty moved from %s → %s" % [current_room["Name"], next_room["Name"]])
 		current_room["Empty"] = true
 		next_room["Empty"] = false
 		current_room_id = next_room_id
