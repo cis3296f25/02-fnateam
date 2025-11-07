@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bll4tansiv7j4"]
+
+[node name="Storage" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 420.0
+offset_top = 246.0
+offset_right = 480.0
+offset_bottom = 325.0
+text = "Storage
+"

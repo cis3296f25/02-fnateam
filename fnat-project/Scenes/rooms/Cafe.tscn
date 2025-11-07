@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://mwek34viknyp"]
+
+[node name="Cafe" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 228.0
+offset_top = 147.0
+offset_right = 268.0
+offset_bottom = 196.0
+text = "Cafe
+"

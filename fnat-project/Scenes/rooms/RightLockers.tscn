@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://yx715sawkwbt"]
+
+[node name="Right Lockers" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 258.0
+offset_top = 126.0
+offset_right = 766.0
+offset_bottom = 337.0
+text = "Right Lockers"
+horizontal_alignment = 1
+vertical_alignment = 1
