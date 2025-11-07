@@ -13,9 +13,10 @@ var ai_level: int = 5
 
 func _ready() -> void:
 	randomize()
+	var db_scene = preload("res://Scenes/Room_Database.tscn")
 
+	var db_instance = db_scene.instantiate()
 	#  Instance the room database scene
-	var db_instance = room_database_scene.instantiate()
 
 	#  Access its exported variable that contains the rooms dictionary
 	room_database = db_instance.rooms

@@ -11,7 +11,6 @@
 
 [node name="Phillies_Fnatic" type="Node2D" parent="."]
 script = ExtResource("4_divj7")
-room_database_scene = ExtResource("4_71jmn")
 
 [node name="Timer" type="Timer" parent="Phillies_Fnatic"]
 wait_time = 4.970000000000001
@@ -23,7 +22,6 @@ texture = ExtResource("2_j2o0d")
 
 [node name="Gritty" type="Node2D" parent="."]
 script = ExtResource("2_6posk")
-room_database_scene = ExtResource("4_71jmn")
 
 [node name="Timer" type="Timer" parent="Gritty"]
 wait_time = 4.98
@@ -39,7 +37,6 @@ autostart = true
 
 [node name="Phang" type="Node2D" parent="."]
 script = ExtResource("5_j2o0d")
-room_database_scene = ExtResource("4_71jmn")
 move_interval = 4.97
 
 [node name="Timer" type="Timer" parent="Phang"]
