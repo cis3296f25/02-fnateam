@@ -1,18 +1,18 @@
 extends Node2D
 
 var room_scenes = {
-	"Office": preload("res://scenes/rooms/Office.tscn"),
-	"CamGym": preload("res://scenes/rooms/Gym.tscn"),
-	"CamRH": preload("res://scenes/rooms/RightHall.tscn"),
-	"CamLH": preload("res://scenes/rooms/LeftHall.tscn"),
-	"CamBC": preload("res://scenes/rooms/BallCart.tscn"),
-	"CamRL": preload("res://scenes/rooms/RightLockers.tscn"),
-	"CamLL": preload("res://scenes/rooms/LeftLockers.tscn"),
-	"CamLounge": preload("res://scenes/rooms/Lounge.tscn"),
-	"CamStorage": preload("res://scenes/rooms/Storage.tscn"),
-	"CamCafe": preload("res://scenes/rooms/Cafe.tscn"),
-	"CamCloset": preload("res://scenes/rooms/Closet.tscn"),
-	"CamUtility": preload("res://scenes/rooms/Utility.tscn")
+	"Office": preload("res://Scenes/rooms/Office.tscn"),
+	"CamGym": preload("res://Scenes/rooms/Gym.tscn"),
+	"CamRH": preload("res://Scenes/rooms/RightHall.tscn"),
+	"CamLH": preload("res://Scenes/rooms/LeftHall.tscn"),
+	"CamBC": preload("res://Scenes/rooms/BallCart.tscn"),
+	"CamRL": preload("res://Scenes/rooms/RightLockers.tscn"),
+	"CamLL": preload("res://Scenes/rooms/LeftLockers.tscn"),
+	"CamLounge": preload("res://Scenes/rooms/Lounge.tscn"),
+	"CamStorage": preload("res://Scenes/rooms/Storage.tscn"),
+	"CamCafe": preload("res://Scenes/rooms/Cafe.tscn"),
+	"CamCloset": preload("res://Scenes/rooms/Closet.tscn"),
+	"CamUtility": preload("res://Scenes/rooms/Utility.tscn")
 }
 
 func _ready() -> void: 
