@@ -56,6 +56,21 @@ func move_to_next_room():
 
 	print("Gritty couldn't move from", current_room["Name"], "- no valid rooms available.")
 
+
+func handle_peek(room_name: String) -> void:
+	move_timer.stop()
+	peak += 1
+	print("Hooter is at the %s! Peek count: %d" % [room_name, peak])
+
+	await get_tree().create_timer(1.0).timeout
+
+	if peak >= max_peaks:
+		trigger_attack()
+	else:
+		print("Hooter leaves the hallway after peeking.")
+		move_timer.start()
+
+
 func trigger_attack() -> void:
 	print("Gritty attacks the player! GAME OVER ")
 	move_timer.stop()

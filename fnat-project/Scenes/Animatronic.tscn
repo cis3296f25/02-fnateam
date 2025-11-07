@@ -1,19 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://c603rgefo4g1i"]
+[gd_scene load_steps=6 format=3 uid="uid://c603rgefo4g1i"]
 
-[ext_resource type="Script" path="res://Scripts/phillies_fnatic.gd" id="1_rojri"]
-[ext_resource type="Script" path="res://Scripts/gritty.gd" id="2_6posk"]
+[ext_resource type="Script" uid="uid://dvx0t6redh06t" path="res://Scripts/gritty.gd" id="2_6posk"]
+[ext_resource type="Texture2D" uid="uid://4o7hi1qwkbon" path="res://Assets/Hooter.PNG" id="2_j2o0d"]
 [ext_resource type="Script" uid="uid://6pvy0w0tki2i" path="res://Scripts/Hooters.gd" id="3_aa1zq"]
-[ext_resource type="PackedScene" path="res://Scenes/Room_Database.tscn" id="4_71jmn"]
-[ext_resource type="Script" uid="uid://divj7fbp3shk2" path="res://Scripts/Phang.gd" id="4_divj7"]
+[ext_resource type="PackedScene" uid="uid://c1yfmu81h61n0" path="res://Scenes/Room_Database.tscn" id="4_71jmn"]
+[ext_resource type="Script" uid="uid://divj7fbp3shk2" path="res://Scripts/phillies_fnatic.gd" id="4_divj7"]
 
 [node name="Animatronic" type="Node2D"]
 
 [node name="Phillies_Fnatic" type="Node2D" parent="."]
-script = ExtResource("1_rojri")
+script = ExtResource("4_divj7")
 
 [node name="Timer" type="Timer" parent="Phillies_Fnatic"]
 wait_time = 4.970000000000001
 autostart = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Phillies_Fnatic"]
+texture = ExtResource("2_j2o0d")
 
 [node name="Gritty" type="Node2D" parent="."]
 script = ExtResource("2_6posk")
