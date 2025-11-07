@@ -16,6 +16,7 @@ var room_paths = {
 }
 
 func _ready() -> void: 
+	GameManager.animatronic_moved.connect(update_Animatronics_On_Cam)
 	load_room(room_paths["Office"])
 	
 var office_active = true
@@ -30,6 +31,7 @@ func load_room(scene_path: String) -> void:
 
 	var new_room_scene = load(scene_path)
 	var new_room = new_room_scene.instantiate()
+	GameManager.loaded_new_cam.emit(new_room, new_room.get_name())
 	room_container.add_child(new_room)
 		
 
@@ -38,6 +40,13 @@ func load_room(scene_path: String) -> void:
 		last_room_path = current_room_path
 	current_room_path = scene_path
 	current_room = new_room
+	
+func update_Animatronics_On_Cam(mascot, old_room, new_room) -> void:
+	if old_room == current_room.get_name():
+		print("Static Static, Animatronic has Moved on Cam.")
+		GameManager.loaded_new_cam.emit(current_room, current_room.get_name())
+	
+	
 
 func _on_cam_gym_pressed() -> void:
 	load_room(room_paths["CamGym"])

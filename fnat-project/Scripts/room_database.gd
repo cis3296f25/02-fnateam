@@ -9,13 +9,13 @@ extends Node
 		"Empty" : true
 	},
 	2 : {
-		"Name" : "Lobby", # Main HUB!!
+		"Name" : "Lounge", # Main HUB!!
 		"AdjacentRooms" : [3,4, 5, 6],
 		"SealedDoor" : false,
 		"Empty" : true
 	},
 	3 : { #Alternate Pathing to delay the approach of Gritty
-		"Name" : "Cafeteria", 
+		"Name" : "Cafe", 
 		"AdjacentRooms" : [2],
 		"SealedDoor" : false,
 		"Empty" : true
@@ -27,13 +27,13 @@ extends Node
 		"Empty" : true
 	},
 	5 : { # Connecting section between the Lobby and the Gym
-		"Name" : "Left Locker", 
+		"Name" : "LeftLocker", 
 		"AdjacentRooms" : [2,7],
 		"SealedDoor" : false,
 		"Empty" : true
 	},
 	6 : { # Connecting section between the Lobby and the Gym
-		"Name" : "Right Locker", 
+		"Name" : "Right Lockers", 
 		"AdjacentRooms" : [2,7],
 		"SealedDoor" : false,
 		"Empty" : true
@@ -45,13 +45,13 @@ extends Node
 		"Empty" : true
 	},
 	8 : { # Where the other animatronics will come down to get to the office.
-		"Name" : "Left Hallway", 
+		"Name" : "LeftHall", 
 		"AdjacentRooms" : [7,15],
 		"SealedDoor" : false,
 		"Empty" : true
 	},
 	9 : { # Where the other animatronics will come down to get to the office.
-		"Name" : "Right Hallway", 
+		"Name" : "RightHall", 
 		"AdjacentRooms" : [7,15],
 		"SealedDoor" : false,
 		"Empty" : true
@@ -81,7 +81,7 @@ extends Node
 		"Empty" : true
 	},
 	14 : { # This is where Franklin the Dog will start.
-		"Name" : "Ball Cart", 
+		"Name" : "BallCart", 
 		"AdjacentRooms" : [7],
 		"SealedDoor" : false,
 		"Empty" : true
