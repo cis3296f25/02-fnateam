@@ -1,3 +1,11 @@
 [gd_scene format=3 uid="uid://qbf34ledwe2n"]
 
 [node name="Utility" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 283.0
+offset_top = 159.0
+offset_right = 330.0
+offset_bottom = 208.0
+text = "Utility
+"

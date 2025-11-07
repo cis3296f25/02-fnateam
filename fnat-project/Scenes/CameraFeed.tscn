@@ -7,7 +7,7 @@ script = ExtResource("1_ecqx0")
 
 [node name="RoomContainer" type="Node2D" parent="."]
 
-[node name="SwitchButton" type="Button" parent="."]
+[node name="SwitchButton" type="Button" parent="RoomContainer"]
 offset_left = 345.0
 offset_top = 583.0
 offset_right = 754.0
@@ -98,29 +98,30 @@ offset_right = 1140.0
 offset_bottom = 499.0
 text = "Utility"
 
-[connection signal="mouse_entered" from="SwitchButton" to="." method="_on_switch_button_mouse_entered"]
-[connection signal="mouse_exited" from="SwitchButton" to="." method="_on_switch_button_mouse_exited"]
+[connection signal="focus_entered" from="RoomContainer/SwitchButton" to="." method="_on_switch_button_focus_entered"]
+[connection signal="mouse_entered" from="RoomContainer/SwitchButton" to="." method="_on_switch_button_mouse_entered"]
+[connection signal="mouse_exited" from="RoomContainer/SwitchButton" to="." method="_on_switch_button_mouse_exited"]
 [connection signal="pressed" from="Office" to="." method="_on_l1_pressed"]
-[connection signal="pressed" from="CamGym" to="." method="_on_r1_pressed"]
 [connection signal="pressed" from="CamGym" to="." method="_on_cam_gym_pressed"]
-[connection signal="pressed" from="CamRH" to="." method="_on_l2_pressed"]
+[connection signal="pressed" from="CamGym" to="." method="_on_r1_pressed"]
 [connection signal="pressed" from="CamRH" to="." method="_on_cam_rh_pressed"]
+[connection signal="pressed" from="CamRH" to="." method="_on_l2_pressed"]
 [connection signal="pressed" from="CamLH" to="." method="_on_cam_lh_pressed"]
 [connection signal="pressed" from="CamLH" to="." method="_on_f_pressed"]
-[connection signal="pressed" from="CamBC" to="." method="_on_r2_pressed"]
 [connection signal="pressed" from="CamBC" to="." method="_on_cam_bc_pressed"]
 [connection signal="pressed" from="CamBC" to="." method="_on_r3_pressed"]
-[connection signal="pressed" from="CamRL" to="." method="_on_sec_pressed"]
+[connection signal="pressed" from="CamBC" to="." method="_on_r2_pressed"]
 [connection signal="pressed" from="CamRL" to="." method="_on_cam_rl_pressed"]
+[connection signal="pressed" from="CamRL" to="." method="_on_sec_pressed"]
 [connection signal="pressed" from="CamLL" to="." method="_on_cam_ll_pressed"]
 [connection signal="pressed" from="CamLL" to="." method="_on_r2_pressed"]
-[connection signal="pressed" from="CamLounge" to="." method="_on_r2_pressed"]
 [connection signal="pressed" from="CamLounge" to="." method="_on_cam_lounge_pressed"]
+[connection signal="pressed" from="CamLounge" to="." method="_on_r2_pressed"]
 [connection signal="pressed" from="CamStorage" to="." method="_on_cam_storage_pressed"]
 [connection signal="pressed" from="CamStorage" to="." method="_on_r2_pressed"]
-[connection signal="pressed" from="CamCafe" to="." method="_on_r2_pressed"]
 [connection signal="pressed" from="CamCafe" to="." method="_on_cam_cafe_pressed"]
-[connection signal="pressed" from="CamCloset" to="." method="_on_r2_pressed"]
+[connection signal="pressed" from="CamCafe" to="." method="_on_r2_pressed"]
 [connection signal="pressed" from="CamCloset" to="." method="_on_cam_closet_pressed"]
+[connection signal="pressed" from="CamCloset" to="." method="_on_r2_pressed"]
 [connection signal="pressed" from="CamUtility" to="." method="_on_cam_utility_pressed"]
 [connection signal="pressed" from="CamUtility" to="." method="_on_r2_pressed"]

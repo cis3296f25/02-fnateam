@@ -1,3 +1,10 @@
 [gd_scene format=3 uid="uid://8xbb1wj6po6i"]
 
-[node name="RoomR2" type="Node2D"]
+[node name="LeftLocker" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 271.0
+offset_top = 218.0
+offset_right = 357.0
+offset_bottom = 298.0
+text = "Left Locker"

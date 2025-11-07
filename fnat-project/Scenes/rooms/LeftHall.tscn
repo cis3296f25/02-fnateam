@@ -1,3 +1,11 @@
 [gd_scene format=3 uid="uid://biu38y0q15t5m"]
 
-[node name="RoomR1" type="Node2D"]
+[node name="LeftHall" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 354.0
+offset_top = 180.0
+offset_right = 541.0
+offset_bottom = 229.0
+text = "Left Hall
+"

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://v2it735qn5ge"]
 
-[node name="RoomF" type="Node2D"]
+[node name="Office" type="Node2D"]
 
 [node name="Label" type="Label" parent="."]
 offset_left = 224.0
@@ -8,6 +8,6 @@ offset_top = 97.0
 offset_right = 709.0
 offset_bottom = 280.0
 size_flags_horizontal = 4
-text = "Room F"
+text = "Office"
 horizontal_alignment = 1
 vertical_alignment = 1
