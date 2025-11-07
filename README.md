@@ -1,31 +1,18 @@
 # FIVE NIGHTS AT TEMPLE
 This is a FNAF fan game. 
-Adding an screenshot or a mockup of your application in action would be nice.  
 
 #Project Board
 https://trello.com/b/03hQVfXd/fnat-final-project
 
-![This is a screenshot.](images.png)
-# How to run
-Provide here instructions on how to use your application.   
-- Download the latest binary from the Release section on the right on GitHub.  
-- On the command line uncompress using
-```
-tar -xzf  
-```
-- On the command line run with
-```
-./hello
-```
-- You will see Hello World! on your terminal. 
+## 🕹️ How to Run
 
-# How to contribute
-Follow this project board to know the latest status of the project: [click here](https://trello.com/b/03hQVfXd/fnat-final-project)  
+### Play the Built Game
+1. Go to the [**Releases**](https://github.com/cis3296f25/02-fnateam/releases/) page.
+2. Find the latest release (e.g. **“FNAT DEMO - 1”**).
+3. Under the **Assets** section, download the ZIP file for your operating system:
+   - 💻 **Windows:** `windows-fnat-project-v1.zip`  
+   - 🍎 **macOS:** `mac-fnat-project.zip`
+4. Once downloaded, **extract the entire ZIP file** to a folder.
+5. Open the extracted folder and run the game executable.
 
-### How to build
-- Use this github repository: ... 
-- Specify what branch to use for a more stable release or for cutting edge development.  
-- Use InteliJ 11
-- Specify additional library to download if needed 
-- What file and target to compile and run. 
-- What is expected to happen when the app start. 
+> ⚠️ **Tip:** Do not move or rename files after extracting. The game may fail to load assets if the folder structure changes.

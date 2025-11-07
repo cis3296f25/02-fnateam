@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://d3i7c18jytn5j"]
+
+[node name="Lounge" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 324.0
+offset_top = 176.0
+offset_right = 497.0
+offset_bottom = 289.0
+text = "Lounge
+"

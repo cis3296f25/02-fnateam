@@ -11,6 +11,14 @@ config_version=5
 [application]
 
 config/name="fnat-project"
-run/main_scene="uid://babct5l22vq0e"
+run/main_scene="uid://db45n7f7blfpk"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GameManager="*res://Scripts/main_gameloop.gd"
+
+[rendering]
+
+textures/vram_compression/import_etc2_astc=true
