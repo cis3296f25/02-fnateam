@@ -48,7 +48,7 @@ func move_to_next_room():
 		var next_room_id = adjacent_rooms[randi() % adjacent_rooms.size()]
 		var next_room = room_database[next_room_id]
 
-		if next_room["Name"] in ["Vent Section 1", "Vent Section 2", "Vent Section 3","Closet", "Left Locker","Left Hallway"] \
+		if next_room["Name"] in ["Vent Section 1", "Vent Section 2", "Vent Section 3","Closet", "LeftLocker","LeftHall"] \
 		or next_room["SealedDoor"] or not next_room["Empty"]:
 			adjacent_rooms.erase(next_room_id)
 			continue

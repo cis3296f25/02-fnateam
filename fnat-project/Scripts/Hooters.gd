@@ -56,7 +56,7 @@ func move_to_next_room():
 		next_room["Empty"] = false
 		current_room_id = next_room_id
 
-		if next_room["Name"] in ["Left Hallway", "Right Hallway"]:
+		if next_room["Name"] in ["LeftHall", "RightHall"]:
 			handle_peek(next_room["Name"])
 
 		return

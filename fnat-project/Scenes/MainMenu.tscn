@@ -67,5 +67,6 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_bnhvo")
 text = "EXIT
 "
 
+[connection signal="pressed" from="Container/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Container/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="Container/Exit" to="." method="_on_exit_pressed"]
