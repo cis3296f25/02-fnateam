@@ -1,44 +1,44 @@
 extends Node2D
 
-var room_paths = {
-	"Office": "res://scenes/rooms/Office.tscn",
-	"CamGym": "res://scenes/rooms/Gym.tscn",
-	"CamRH": "res://scenes/rooms/RightHall.tscn",
-	"CamLH": "res://scenes/rooms/LeftHall.tscn",
-	"CamBC": "res://scenes/rooms/BallCart.tscn",
-	"CamRL": "res://scenes/rooms/RightLockers.tscn",
-	"CamLL": "res://scenes/rooms/LeftLockers.tscn",
-	"CamLounge": "res://scenes/rooms/Lounge.tscn",
-	"CamStorage": "res://scenes/rooms/Storage.tscn",
-	"CamCafe": "res://scenes/rooms/Cafe.tscn",
-	"CamCloset": "res://scenes/rooms/Closet.tscn",
-	"CamUtility": "res://scenes/rooms/Utility.tscn"
+var room_scenes = {
+	"Office": preload("res://scenes/rooms/Office.tscn"),
+	"CamGym": preload("res://scenes/rooms/Gym.tscn"),
+	"CamRH": preload("res://scenes/rooms/RightHall.tscn"),
+	"CamLH": preload("res://scenes/rooms/LeftHall.tscn"),
+	"CamBC": preload("res://scenes/rooms/BallCart.tscn"),
+	"CamRL": preload("res://scenes/rooms/RightLockers.tscn"),
+	"CamLL": preload("res://scenes/rooms/LeftLockers.tscn"),
+	"CamLounge": preload("res://scenes/rooms/Lounge.tscn"),
+	"CamStorage": preload("res://scenes/rooms/Storage.tscn"),
+	"CamCafe": preload("res://scenes/rooms/Cafe.tscn"),
+	"CamCloset": preload("res://scenes/rooms/Closet.tscn"),
+	"CamUtility": preload("res://scenes/rooms/Utility.tscn")
 }
 
 func _ready() -> void: 
 	GameManager.animatronic_moved.connect(update_Animatronics_On_Cam)
-	load_room(room_paths["Office"])
+	load_room(room_scenes["Office"])
 	
 var office_active = true
-var last_room_path: String = ""
-var current_room_path: String = room_paths["Office"]
+var last_room_scene = null
+var current_room_scene = room_scenes["Office"]
 var current_room: Node = null
 @onready var room_container = $RoomContainer
 
-func load_room(scene_path: String) -> void:
+func load_room(scene_object) -> void:
 	if current_room:
 		current_room.queue_free()
 
-	var new_room_scene = load(scene_path)
+	var new_room_scene = scene_object
 	var new_room = new_room_scene.instantiate()
 	GameManager.loaded_new_cam.emit(new_room, new_room.get_name())
 	room_container.add_child(new_room)
 		
 
 	# Update state tracking
-	if scene_path != current_room_path:
-		last_room_path = current_room_path
-	current_room_path = scene_path
+	if scene_object != current_room_scene:
+		last_room_scene = current_room_scene
+	current_room_scene = scene_object
 	current_room = new_room
 	
 func update_Animatronics_On_Cam(mascot, old_room, new_room) -> void:
@@ -49,58 +49,58 @@ func update_Animatronics_On_Cam(mascot, old_room, new_room) -> void:
 	
 
 func _on_cam_gym_pressed() -> void:
-	load_room(room_paths["CamGym"])
+	load_room(room_scenes["CamGym"])
 
 
 func _on_cam_rh_pressed() -> void:
-	load_room(room_paths["CamRH"])
+	load_room(room_scenes["CamRH"])
 
 
 func _on_cam_lh_pressed() -> void:
-	load_room(room_paths["CamLH"])
+	load_room(room_scenes["CamLH"])
 
 
 func _on_cam_bc_pressed() -> void:
-	load_room(room_paths["CamBC"])
+	load_room(room_scenes["CamBC"])
 
 
 func _on_cam_rl_pressed() -> void:
-	load_room(room_paths["CamRL"])
+	load_room(room_scenes["CamRL"])
 
 
 func _on_cam_ll_pressed() -> void:
-	load_room(room_paths["CamLL"])
+	load_room(room_scenes["CamLL"])
 
 
 func _on_cam_lounge_pressed() -> void:
-	load_room(room_paths["CamLounge"])
+	load_room(room_scenes["CamLounge"])
 
 
 func _on_cam_storage_pressed() -> void:
-	load_room(room_paths["CamStorage"])
+	load_room(room_scenes["CamStorage"])
 
 
 func _on_cam_cafe_pressed() -> void:
-	load_room(room_paths["CamCafe"])
+	load_room(room_scenes["CamCafe"])
 
 
 func _on_cam_closet_pressed() -> void:
-	load_room(room_paths["CamCloset"])
+	load_room(room_scenes["CamCloset"])
 
 
 func _on_cam_utility_pressed() -> void:
-	load_room(room_paths["CamUtility"])
+	load_room(room_scenes["CamUtility"])
 
 
 func _on_switch_button_mouse_entered() -> void:
 	if office_active:
 		# If last room, go back to it
-		if last_room_path != "":
-			load_room(last_room_path)
+		if last_room_scene != null:
+			load_room(last_room_scene)
 			make_camera_map_visible()
 	else:
 		# Go back to office
-		load_room(room_paths["Office"])
+		load_room(room_scenes["Office"])
 		make_camera_map_invisible()
 
 	office_active = !office_active

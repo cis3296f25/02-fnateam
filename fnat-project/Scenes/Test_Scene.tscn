@@ -1,9 +1,32 @@
-[gd_scene load_steps=3 format=3 uid="uid://cwyfsfrre7abr"]
+[gd_scene load_steps=3 format=3 uid="uid://5e1mg60xxso3"]
 
-[ext_resource type="Script" uid="uid://bwnfo8omquq15" path="res://Scripts/test_scene.gd" id="1_4ms0o"]
-[ext_resource type="PackedScene" uid="uid://c1yfmu81h61n0" path="res://Scenes/Room_Database.tscn" id="2_mrf6p"]
+[ext_resource type="PackedScene" uid="uid://dfg7lcoq8kb0n" path="res://Scenes/Room_Database.tscn" id="2_mrf6p"]
+
+[sub_resource type="GDScript" id="GDScript_4ms0o"]
+script/source = "extends Node2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	print($RoomDatabase.rooms)
+	julesTestFunc()
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+	
+func _thisIsaFunction() -> void:
+	print(\"Dylan Made this\")
+	pass
+
+func julesTestFunc() -> void:
+	print(\"Jules did this\")
+	pass
+"
 
 [node name="TestScene" type="Node2D"]
-script = ExtResource("1_4ms0o")
+script = SubResource("GDScript_4ms0o")
 
 [node name="RoomDatabase" parent="." instance=ExtResource("2_mrf6p")]
