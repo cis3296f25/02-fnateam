@@ -5,5 +5,4 @@ This is a FNAF fan game.
 https://trello.com/b/03hQVfXd/fnat-final-project
 
 # How to run
-Just double-click the .exe for Windows users
-
+export doesn't work
