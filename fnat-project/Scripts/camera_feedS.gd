@@ -17,10 +17,11 @@ var room_scenes = {
 
 func _ready() -> void: 
 	GameManager.animatronic_moved.connect(update_Animatronics_On_Cam)
+	make_camera_map_invisible()
 	load_room(room_scenes["Office"])
 	
 var office_active = true
-var last_room_scene = null
+var last_room_scene = room_scenes["CamStorage"]
 var current_room_scene = room_scenes["Office"]
 var current_room: Node = null
 @onready var room_container = $RoomContainer
@@ -40,6 +41,7 @@ func load_room(scene_object) -> void:
 		last_room_scene = current_room_scene
 	current_room_scene = scene_object
 	current_room = new_room
+	
 	
 func update_Animatronics_On_Cam(mascot, old_room, new_room) -> void:
 	if old_room == current_room.get_name():
@@ -98,6 +100,7 @@ func _on_switch_button_mouse_entered() -> void:
 		if last_room_scene != null:
 			load_room(last_room_scene)
 			make_camera_map_visible()
+			
 	else:
 		# Go back to office
 		load_room(room_scenes["Office"])
