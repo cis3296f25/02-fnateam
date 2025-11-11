@@ -1,5 +1,8 @@
 extends Node2D
 
+signal cams_opened
+signal cams_closed
+
 var room_scenes = {
 	"Office": preload("res://Scenes/rooms/Office.tscn"),
 	"CamGym": preload("res://Scenes/rooms/Gym.tscn"),
@@ -25,6 +28,7 @@ var last_room_scene = room_scenes["CamStorage"]
 var current_room_scene = room_scenes["Office"]
 var current_room: Node = null
 @onready var room_container = $RoomContainer
+
 
 func load_room(scene_object) -> void:
 	if current_room:
@@ -109,14 +113,16 @@ func _on_switch_button_mouse_entered() -> void:
 	office_active = !office_active
 	
 func make_camera_map_invisible():
+	emit_signal("cams_closed")
 	for child in get_children():
 		# Check if the child node is a Button (or inherits from it)
 		if child is Button:
 			# Set the Button's visible property to false
 			child.visible = false
 func make_camera_map_visible():
+	emit_signal("cams_opened")
 	for child in get_children():
 		# Check if the child node is a Button (or inherits from it)
 		if child is Button:
-			# Set the Button's visible property to false
+			# Set the Button's visible property to true
 			child.visible = true
