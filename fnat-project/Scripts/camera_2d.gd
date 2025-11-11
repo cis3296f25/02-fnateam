@@ -5,6 +5,9 @@ extends Camera2D
 @export var max_offset: float = 800.0        # max horizontal offset
 @export var edge_threshold: float = 0.15     # size of activation sides
 
+@export var door1_button: Button
+@export var door2_button: Button
+
 var paused: bool = false
 
 func _ready():
@@ -15,10 +18,14 @@ func _ready():
 
 func pause_camera():
 	paused = true
+	door1_button.disabled = true
+	door2_button.disabled = true
 
 
 func resume_camera():
 	paused = false
+	door1_button.disabled = false
+	door2_button.disabled = false
 
 
 func _process(delta):

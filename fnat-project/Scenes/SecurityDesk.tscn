@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://jdxxtktnbyel" path="res://Scripts/main_gameloop.gd" id="1_ri7fq"]
 [ext_resource type="PackedScene" uid="uid://cc6yoh43ybaso" path="res://Scenes/CameraFeed.tscn" id="2_8fg2u"]
 [ext_resource type="Texture2D" uid="uid://1fesod2mwhib" path="res://Assets/2doors.png" id="2_pme0f"]
-[ext_resource type="Script" uid="uid://dfkmm1qdy5f2q" path="res://Scenes/camera_2d.gd" id="3_pme0f"]
+[ext_resource type="Script" uid="uid://dfkmm1qdy5f2q" path="res://Scripts/camera_2d.gd" id="3_pme0f"]
 
 [node name="SecurityDesk" type="Node2D"]
 script = ExtResource("1_ri7fq")
@@ -14,9 +14,11 @@ position = Vector2(0, 299)
 scale = Vector2(2.77, 0.91)
 texture = ExtResource("2_pme0f")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("door1_button", "door2_button")]
 position = Vector2(0, 324)
 script = ExtResource("3_pme0f")
+door1_button = NodePath("../Door1")
+door2_button = NodePath("../Door2")
 
 [node name="CameraFeed" parent="Camera2D" instance=ExtResource("2_8fg2u")]
 position = Vector2(-578, -330)
