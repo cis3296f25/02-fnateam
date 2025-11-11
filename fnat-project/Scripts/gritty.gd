@@ -11,6 +11,8 @@ var peak = 0
 var ai_level: int = 5
 var animatronic_name = "Gritty"
 
+var flash = false
+
 
 func _ready() -> void:
 	randomize()
@@ -47,9 +49,23 @@ func move_to_next_room():
 	while adjacent_rooms.size() > 0:
 		var next_room_id = adjacent_rooms[randi() % adjacent_rooms.size()]
 		var next_room = room_database[next_room_id]
+		
+		# Check if at the office 
+		if current_room["Name"] == "Office":
+			trigger_attack()
+			return
 
 		if next_room["Name"] in ["Vent Section 1", "Vent Section 2", "Vent Section 3","Closet", "LeftLocker","LeftHall"] \
 		or next_room["SealedDoor"] or not next_room["Empty"]:
+			adjacent_rooms.erase(next_room_id)
+			continue
+		
+		# when ani in the mid hallway and flash is turned on
+		if next_room["Name"] == "Office Right" and flash == true:
+			adjacent_rooms.erase(next_room_id)
+			continue
+		# when ani in at right outside office and flash is turned on
+		if next_room["Name"] == "Office" and flash == true:
 			adjacent_rooms.erase(next_room_id)
 			continue
 		
@@ -61,7 +77,10 @@ func move_to_next_room():
 		return
 
 	print("Gritty couldn't move from", current_room["Name"], "- no valid rooms available.")
+	
 
 func trigger_attack() -> void:
 	print("Gritty attacks the player! GAME OVER ")
 	move_timer.stop()
+	
+	
