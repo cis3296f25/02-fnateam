@@ -53,8 +53,7 @@ func move_to_next_room():
 		current_room["Empty"] = true
 		next_room["Empty"] = false
 		current_room_id = next_room_id
-
-
+		
 		return
 
 	print("Phillies Fnatic couldn't move from", current_room["Name"], "- no valid rooms available.")
