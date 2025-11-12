@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cc6yoh43ybaso"]
+[gd_scene load_steps=5 format=3 uid="uid://cc6yoh43ybaso"]
 
 [ext_resource type="Script" uid="uid://o511r4tgf0un" path="res://Scripts/camera_feedS.gd" id="1_ecqx0"]
+[ext_resource type="PackedScene" uid="uid://bqt1c87shb0uh" path="res://Scenes/TUalert.tscn" id="2_5a7dk"]
 [ext_resource type="Script" uid="uid://7ucvbk8xv4p5" path="res://Scripts/night_cycle.gd" id="2_q7evq"]
+[ext_resource type="Script" uid="uid://pqxni0dbqjen" path="res://Scripts/TUAlert.gd" id="3_k1vqm"]
 
 [node name="CameraFeed" type="Node2D"]
 script = ExtResource("1_ecqx0")
@@ -105,18 +107,8 @@ offset_top = 426.0
 offset_right = 252.0
 offset_bottom = 526.0
 
-[node name="TUalert" parent="TUalert"]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
-position = Vector2(121, 55)
-script = null
+[node name="TUalert" parent="TUalert" instance=ExtResource("2_5a7dk")]
+script = ExtResource("3_k1vqm")
 
 [node name="HUB" type="CanvasLayer" parent="."]
 script = ExtResource("2_q7evq")
