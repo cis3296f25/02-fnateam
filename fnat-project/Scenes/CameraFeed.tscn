@@ -1,6 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cc6yoh43ybaso"]
 
 [ext_resource type="Script" uid="uid://o511r4tgf0un" path="res://Scripts/camera_feedS.gd" id="1_ecqx0"]
+[ext_resource type="PackedScene" uid="uid://bqt1c87shb0uh" path="res://Scenes/TUalert.tscn" id="2_q7evq"]
 [ext_resource type="Script" uid="uid://q5qepplyle0f" path="res://Scripts/night_cycle.gd" id="2_q7evq"]
 
 [node name="CameraFeed" type="Node2D"]
@@ -99,6 +100,14 @@ offset_right = 1140.0
 offset_bottom = 499.0
 text = "Utility"
 
+[node name="TUalert" type="Label" parent="."]
+offset_left = 1.0
+offset_top = 426.0
+offset_right = 252.0
+offset_bottom = 526.0
+
+[node name="TUalert" parent="TUalert" instance=ExtResource("2_q7evq")]
+position = Vector2(121, 55)
 [node name="HUB" type="CanvasLayer" parent="."]
 script = ExtResource("2_q7evq")
 
@@ -120,6 +129,10 @@ vertical_alignment = 1
 [connection signal="pressed" from="CamRH" to="." method="_on_l2_pressed"]
 [connection signal="pressed" from="CamRH" to="." method="_on_cam_rh_pressed"]
 [connection signal="pressed" from="CamLH" to="." method="_on_f_pressed"]
+[connection signal="pressed" from="CamBC" to="." method="_on_cam_bc_pressed"]
+[connection signal="pressed" from="CamBC" to="." method="_on_r2_pressed"]
+[connection signal="pressed" from="CamBC" to="." method="_on_r3_pressed"]
+[connection signal="pressed" from="CamRL" to="." method="_on_cam_rl_pressed"]
 [connection signal="pressed" from="CamLH" to="." method="_on_cam_lh_pressed"]
 [connection signal="pressed" from="CamBC" to="." method="_on_r2_pressed"]
 [connection signal="pressed" from="CamBC" to="." method="_on_r3_pressed"]
