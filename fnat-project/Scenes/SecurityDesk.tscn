@@ -9,9 +9,10 @@
 script = ExtResource("1_ri7fq")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(578, 330)
+position = Vector2(576, 325)
 
 [node name="ColorRect" type="ColorRect" parent="Camera2D"]
+visible = false
 color = Color(1, 0.007843138, 1, 1)
 metadata/Pink = false
 

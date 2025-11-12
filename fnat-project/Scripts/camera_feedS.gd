@@ -54,12 +54,13 @@ func _on_cam_gym_pressed() -> void:
 	load_room(room_scenes["CamGym"])
 
 
-func _on_cam_rh_pressed() -> void:
-	load_room(room_scenes["CamRH"])
+# right and left hall should not have camera connection
+#func _on_cam_rh_pressed() -> void:
+	#load_room(room_scenes["CamRH"])
 
 
-func _on_cam_lh_pressed() -> void:
-	load_room(room_scenes["CamLH"])
+#func _on_cam_lh_pressed() -> void:
+	#load_room(room_scenes["CamLH"])
 
 
 func _on_cam_bc_pressed() -> void:

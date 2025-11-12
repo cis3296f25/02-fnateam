@@ -11,6 +11,8 @@ var peak = 0
 @onready var move_timer: Timer = $Timer
 var ai_level: int = 5
 
+var flash = false
+
 
 func _ready() -> void:
 	randomize()
@@ -47,13 +49,21 @@ func move_to_next_room():
 		or next_room["SealedDoor"] or not next_room["Empty"]:
 			adjacent_rooms.erase(next_room_id)
 			continue
-
+			
+		if next_room["Name"] == "Office Left" and flash == true:
+			adjacent_rooms.erase(next_room_id)
+			continue
+		# when ani in at right outside office and flash is turned on
+		if next_room["Name"] == "Office" and flash == true:
+			adjacent_rooms.erase(next_room_id)
+			continue
+			
 		GameManager.animatronic_moved.emit(animatronic_name, current_room["Name"],next_room["Name"] )
 		#print("Phillies Fnatic moved from %s → %s" % [current_room["Name"], next_room["Name"]])
 		current_room["Empty"] = true
 		next_room["Empty"] = false
 		current_room_id = next_room_id
-		
+
 		return
 
 	print("Phillies Fnatic couldn't move from", current_room["Name"], "- no valid rooms available.")
@@ -61,3 +71,4 @@ func move_to_next_room():
 func trigger_attack() -> void:
 	print("Phillies Fnatic attacks the player! GAME OVER ")
 	move_timer.stop()
+	
