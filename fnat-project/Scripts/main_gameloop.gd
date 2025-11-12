@@ -24,6 +24,11 @@ var aggression_timer: Timer
 var tu_alert_instance: Node = null
 
 
+signal animatronic_flashed(mascot_name)
+
+var animatronics_locations = {}
+var list_of_flashed_animatronics = {}
+# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	randomize()
 
@@ -122,6 +127,7 @@ func _end_aggression_boost():
 	emit_signal("phillie_boost_ended")
 	emit_signal("phang_boost_ended")
 
+	animatronic_flashed.connect(_animatronic_flashed_handler)
 
 func _animatronic_started_handler(mascot_name, room_name):
 	animatronics_locations[mascot_name] = room_name
@@ -157,6 +163,17 @@ func _handle_new_cam(current_cam_node, cam_name):
 		label.position = Vector2(0, 20 * i)
 		mascot_container.add_child(label)
 		i += 1
+		var new_mascot_label = Label.new()
+		new_mascot_label.name = mascot
+		new_mascot_label.text = mascot + " is here!"
+		new_mascot_label.set_position(Vector2(0, 20*current_child))
+		mascot_container.add_child(new_mascot_label)
+		current_child += 1
+	
+	#print(current_cam_node)
+func _animatronic_flashed_handler(mascot_name):
+	list_of_flashed_animatronics[mascot_name] = true
+	print(mascot_name + "was flashed")
 
 func _process(_delta):
 	pass
