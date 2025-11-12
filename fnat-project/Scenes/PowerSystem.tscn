@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://r0ran3o3n73k"]
-
-[ext_resource type="Script" uid="uid://deyx8tk40t788" path="res://Scripts/power_system.gd" id="1_8k27y"]
-
-[node name="PowerSystem" type="Node"]
-script = ExtResource("1_8k27y")
-
-[node name="Timer" type="Timer" parent="."]

@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://gqe1bffwwtkk"]
+[gd_scene load_steps=4 format=3 uid="uid://gqe1bffwwtkk"]
 
 [ext_resource type="PackedScene" uid="uid://c603rgefo4g1i" path="res://Scenes/Animatronic.tscn" id="1_cb5gl"]
 [ext_resource type="Script" uid="uid://jdxxtktnbyel" path="res://Scripts/main_gameloop.gd" id="1_ri7fq"]
 [ext_resource type="PackedScene" uid="uid://cc6yoh43ybaso" path="res://Scenes/CameraFeed.tscn" id="2_8fg2u"]
-[ext_resource type="PackedScene" uid="uid://ri1q3gh5tkcx" path="res://Scenes/FlashLight.tscn" id="4_8fg2u"]
 
 [node name="SecurityDesk" type="Node2D"]
 script = ExtResource("1_ri7fq")
@@ -19,6 +18,3 @@ metadata/Pink = false
 [node name="CameraFeed" parent="." instance=ExtResource("2_8fg2u")]
 
 [node name="Animatronic" parent="." instance=ExtResource("1_cb5gl")]
-
-[node name="FlashLight" parent="." instance=ExtResource("4_8fg2u")]
-position = Vector2(-499, 284)

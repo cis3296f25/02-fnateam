@@ -4,16 +4,13 @@ extends Node2D
 signal animatronic_started(mascot_name, room_name)
 signal animatronic_moved(mascot_name, old_room_name, new_room_name)
 signal loaded_new_cam(current_cam_node, cam_name)
-signal animatronic_flashed(mascot_name)
 
 var animatronics_locations = {}
-var list_of_flashed_animatronics = {}
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	animatronic_started.connect(_animatronic_started_handler)
 	animatronic_moved.connect(_animatronic_moved_handler)
 	loaded_new_cam.connect(_handle_new_cam)
-	animatronic_flashed.connect(_animatronic_flashed_handler)
 
 func _animatronic_started_handler(mascot_name, room_name):
 	animatronics_locations[mascot_name] = room_name
@@ -56,9 +53,7 @@ func _handle_new_cam(current_cam_node, cam_name):
 		current_child += 1
 	
 	#print(current_cam_node)
-func _animatronic_flashed_handler(mascot_name):
-	list_of_flashed_animatronics[mascot_name] = true
-	print(mascot_name + "was flashed")
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
