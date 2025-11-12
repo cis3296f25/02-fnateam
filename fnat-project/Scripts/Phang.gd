@@ -60,8 +60,6 @@ func move_to_next_room():
 		return
 
 	print("Phang couldn't move from", current_room["Name"], "- no valid rooms available.")
-	
-
 
 func trigger_attack() -> void:
 	print("Phang attacks the player! GAME OVER ")
