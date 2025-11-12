@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cc6yoh43ybaso"]
+[gd_scene load_steps=3 format=3 uid="uid://cc6yoh43ybaso"]
 
-[ext_resource type="Script" uid="uid://o511r4tgf0un" path="res://Scenes/camera_feedS.gd" id="1_ecqx0"]
+[ext_resource type="Script" uid="uid://o511r4tgf0un" path="res://Scripts/camera_feedS.gd" id="1_ecqx0"]
+[ext_resource type="PackedScene" uid="uid://bqt1c87shb0uh" path="res://Scenes/TUalert.tscn" id="2_q7evq"]
 
 [node name="CameraFeed" type="Node2D"]
 script = ExtResource("1_ecqx0")
@@ -97,6 +98,15 @@ offset_top = 443.0
 offset_right = 1140.0
 offset_bottom = 499.0
 text = "Utility"
+
+[node name="TUalert" type="Label" parent="."]
+offset_left = 1.0
+offset_top = 426.0
+offset_right = 252.0
+offset_bottom = 526.0
+
+[node name="TUalert" parent="TUalert" instance=ExtResource("2_q7evq")]
+position = Vector2(121, 55)
 
 [connection signal="focus_entered" from="RoomContainer/SwitchButton" to="." method="_on_switch_button_focus_entered"]
 [connection signal="mouse_entered" from="RoomContainer/SwitchButton" to="." method="_on_switch_button_mouse_entered"]
