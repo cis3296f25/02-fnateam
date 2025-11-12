@@ -43,7 +43,7 @@ func load_room(scene_object) -> void:
 	current_room = new_room
 	
 	
-func update_Animatronics_On_Cam(mascot, old_room, new_room) -> void:
+func update_Animatronics_On_Cam(_mascot, old_room, _new_room) -> void:
 	if old_room == current_room.get_name():
 		print("Static Static, Animatronic has Moved on Cam.")
 		GameManager.loaded_new_cam.emit(current_room, current_room.get_name())
