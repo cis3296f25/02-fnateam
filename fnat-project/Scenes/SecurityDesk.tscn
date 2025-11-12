@@ -8,23 +8,14 @@
 [node name="SecurityDesk" type="Node2D"]
 script = ExtResource("1_ri7fq")
 
-[node name="2Doors" type="Sprite2D" parent="."]
-position = Vector2(0, 299)
-scale = Vector2(2.77, 0.91)
-texture = ExtResource("2_pme0f")
-
-[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("door1_button", "door2_button")]
-position = Vector2(0, 324)
-script = ExtResource("3_pme0f")
-door1_button = NodePath("../Door1")
-door2_button = NodePath("../Door2")
-
-[node name="CameraFeed" parent="Camera2D" instance=ExtResource("2_8fg2u")]
-position = Vector2(-578, -330)
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(578, 330)
 
 [node name="ColorRect" type="ColorRect" parent="Camera2D"]
 color = Color(1, 0.007843138, 1, 1)
 metadata/Pink = false
+
+[node name="CameraFeed" parent="." instance=ExtResource("2_8fg2u")]
 
 [node name="Animatronic" parent="." instance=ExtResource("1_cb5gl")]
 
