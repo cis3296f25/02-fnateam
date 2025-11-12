@@ -13,14 +13,8 @@ func _on_back_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/MainMenu.tscn")
 
 
-@onready var previous_window = DisplayServer.window_get_mode()
-@onready var current_window = DisplayServer.window_get_mode()
-func _on_fullscreen_toggle_pressed() -> void:
-	current_window = DisplayServer.window_get_mode()
-	if current_window != 4:
-		previous_window = current_window
-		DisplayServer.window_set_mode(4)
+func _on_fullscreen_toggle_toggled(toggled_on: bool) -> void:
+	if toggled_on == true:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	else:
-		if previous_window == 4:
-			previous_window = 2
-		DisplayServer.window_set_mode(previous_window)
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)

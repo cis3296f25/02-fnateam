@@ -41,9 +41,10 @@ value = 1.0
 layout_mode = 2
 text = "Mute"
 
-[node name="FullscreenToggle" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="FullscreenToggle" type="CheckButton" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Fullscreen Toggle"
+size_flags_horizontal = 0
+text = "Fullscreen"
 
 [node name="BackButton" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -54,5 +55,5 @@ autoplay = true
 
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/VolumeSlider" to="." method="_on_volume_slider_value_changed"]
 [connection signal="toggled" from="MarginContainer/VBoxContainer/MuteCheckBox" to="." method="_on_mute_check_box_toggled"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/FullscreenToggle" to="." method="_on_fullscreen_toggle_pressed"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/FullscreenToggle" to="." method="_on_fullscreen_toggle_toggled"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
