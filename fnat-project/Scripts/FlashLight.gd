@@ -34,7 +34,6 @@ func scareAway() -> void:
 	var mascots := ["Phang", "Phillies Fnatic", "Hooter", "Gritty"]
 	
 	for i in range(4):
-		if GameManager.animatronics_locations[mascots[i]] == "Office" && Flash:
-			GameManager.animatronic_flashed.connect(mascots[i])
-		
+		if GameManager.animatronics_locations[mascots[i]] == "LeftHall" && Flash || GameManager.animatronics_locations[mascots[i]] == "RightHall" && Flash:
+			GameManager.animatronic_flashed.emit(mascots[i])
 		
