@@ -4,15 +4,15 @@ extends Node
 const messages = {
 	0: {
 		"Text": "TUalertEMER: Shooting reported at N Broad St/ Cecil B Moore St.",
-		"Category": "Crime"
+		"Category": "Security"
 	},
 	1: {
-		"Text": "TUalertEMER: Water main break at 9th and Berks. Avoid the area. Mascot of site.",
-		"Category": "Utility"
+		"Text": "TUalertEMER: Water main break at 9th and Berks. Avoid the area. Mascot on site.",
+		"Category": "Mascot"
 	},
 	2: {
 		"Text": "TUalertEMER: Temple University Siren Test. No action needed.",
-		"Category": "Test"
+		"Category": "Utility"
 	},
 	3: {
 		"Text": "TUalertEMER: Mascot activaty reported near the Library. Exercise caution.",
@@ -20,7 +20,7 @@ const messages = {
 	},
 	4: {
 		"Text": "TUalertEMER: Large crowd gathering near the Student Center. Expect delays.",
-		"Category": "Crowd"
+		"Category": "Security"
 	},
 	5: {
 		"Text": "TUalertEMER: Power outage reported in the Morgan Hall.",
@@ -32,11 +32,11 @@ const messages = {
 	},
 	7: {
 		"Text": "TUalertEMER: Severe weather warning in effect for the area. Seek shelter if necessary.",
-		"Category": "Weather"
+		"Category": "Safety"
 	},
 	8: {
 		"Text": "TUalertEMER: Construction work causing noise disturbances near the campus gym.",
-		"Category": "Maintenance"
+		"Category": "Mascot"
 	},
 	9: {
 		"Text": "TUalertEMER: City wide Blackout.",

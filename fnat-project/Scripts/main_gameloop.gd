@@ -7,31 +7,42 @@ signal animatronic_started(mascot_name, room_name)
 signal animatronic_moved(mascot_name, old_room_name, new_room_name)
 signal loaded_new_cam(current_cam_node, cam_name)
 signal troll_message_triggered(message)
-signal aggression_boost_started()
-signal aggression_boost_ended()
+
+signal hooters_boost_started
+signal gritty_boost_started
+signal phillie_boost_started
+signal phang_boost_started
+
+signal hooters_boost_ended
+signal gritty_boost_ended
+signal phillie_boost_ended
+signal phang_boost_ended
 
 var animatronics_locations = {}
-var aggression_multiplier: float = 1.0
 var troll_timer: Timer
 var aggression_timer: Timer
 var tu_alert_instance: Node = null
 
+
 func _ready() -> void:
 	randomize()
 
+	
 	animatronic_started.connect(_animatronic_started_handler)
 	animatronic_moved.connect(_animatronic_moved_handler)
 	loaded_new_cam.connect(_handle_new_cam)
 	troll_message_triggered.connect(_display_troll_message)
 
-	# Instance the TUalert scene once
+
 	tu_alert_instance = TUAlertScene.instantiate()
 	add_child(tu_alert_instance)
 
+
 	_setup_troll_system()
 
+	print("GameManager ready — animatronic system initialized.")
 
-# ===== Troll System =====
+
 func _setup_troll_system():
 	troll_timer = Timer.new()
 	troll_timer.name = "TrollTimer"
@@ -47,10 +58,13 @@ func _setup_troll_system():
 	aggression_timer.timeout.connect(_end_aggression_boost)
 	add_child(aggression_timer)
 
+
 func _restart_troll_timer():
 	var random_interval = randf_range(45.0, 120.0)
 	troll_timer.wait_time = random_interval
 	troll_timer.start()
+	print("📱 Next troll message in %.1f seconds" % random_interval)
+
 
 func _trigger_troll_message():
 	var message_ids = TuAlert_DataBase.get_all_ids()
@@ -60,65 +74,63 @@ func _trigger_troll_message():
 	var message_category = message_data["Category"]
 
 	emit_signal("troll_message_triggered", random_message)
+	_display_troll_message(random_message)
+
 	print("TROLL MESSAGE:", random_message)
 	print("Category:", message_category)
 
-	# Boost aggression temporarily
-	aggression_multiplier = 2.0
-
+	# Trigger animatronic-specific boosts
 	match message_category:
 		"Security":
-			_send_aggression_to_animatronics(["Hooters"])
-			print("Hooters responding to security alert.")
-		"Mascot":
-			_send_aggression_to_animatronics(["Gritty", "PhilliePhanatic"])
-			print("Gritty and PhilliePhanatic responding to mascot alert.")
-		"Utility":
-			_send_aggression_to_animatronics(["Phang"])
-			print("Phang responding to utility alert.")
-		"Safety":
-			_send_aggression_to_animatronics(["Phang", "Gritty", "PhilliePhanatic", "Hooters"])
-			print("All animatronics responding to safety alert.")
+			print("Triggering Hooters boost!")
+			emit_signal("hooters_boost_started")
 
+		"Mascot":
+			print("Triggering Gritty + Phillie boosts!")
+			emit_signal("gritty_boost_started")
+			emit_signal("phillie_boost_started")
+
+		"Utility":
+			print("Triggering Phang boost!")
+			emit_signal("phang_boost_started")
+
+		"Safety":
+			print("Triggering all animatronic boosts!")
+			emit_signal("hooters_boost_started")
+			emit_signal("gritty_boost_started")
+			emit_signal("phillie_boost_started")
+			emit_signal("phang_boost_started")
+
+	# Timer to return aggression to normal
 	aggression_timer.start()
 	_restart_troll_timer()
 
 
-# ===== Display Troll Message =====
+# === Display Alert UI ===
 func _display_troll_message(message: String) -> void:
 	if tu_alert_instance and tu_alert_instance.has_method("show_message"):
 		tu_alert_instance.show_message(message)
 	else:
-		push_warning("⚠ TuAlert scene missing or 'show_message' method not found!")
+		push_warning("TuAlert scene missing or 'show_message' not found!")
 
-
-# ===== Aggression Control =====
-func _send_aggression_to_animatronics(animatronic_names: Array):
-	for name in animatronic_names:
-		var animatronic = get_node_or_null(name)
-		if animatronic and animatronic.has_signal("aggression_boost_started"):
-			animatronic.emit_signal("aggression_boost_started")
-			print(name, "received aggression boost!")
-		else:
-			push_warning("⚠ Animatronic not found or missing signal:", name)
 
 func _end_aggression_boost():
-	aggression_multiplier = 1.0
-	emit_signal("aggression_boost_ended")
-	print("False alarm. Return to your normal activity.")
+	print("Oh wait,False Alert, back to what your doing.")
 
-func get_aggression_multiplier() -> float:
-	return aggression_multiplier
+	emit_signal("hooters_boost_ended")
+	emit_signal("gritty_boost_ended")
+	emit_signal("phillie_boost_ended")
+	emit_signal("phang_boost_ended")
 
 
-# ===== Animatronic & Camera Management =====
 func _animatronic_started_handler(mascot_name, room_name):
 	animatronics_locations[mascot_name] = room_name
-	print(mascot_name, "starting in:", room_name)
+	print(mascot_name, " starting in:", room_name)
 
 func _animatronic_moved_handler(mascot_name, old_room_name, new_room_name):
 	animatronics_locations[mascot_name] = new_room_name
 	print(mascot_name, " moved from %s → %s" % [old_room_name, new_room_name])
+
 
 func _handle_new_cam(current_cam_node, cam_name):
 	var mascots_to_show = []
@@ -126,7 +138,7 @@ func _handle_new_cam(current_cam_node, cam_name):
 	for mascot in animatronics_locations:
 		if animatronics_locations[mascot] == cam_name:
 			mascots_to_show.append(mascot)
-			print(mascot, "should display in Cam:", cam_name)
+			print(mascot, " visible in Cam:", cam_name)
 
 	var mascot_container = current_cam_node.get_node_or_null("Mascot_Container")
 	if mascot_container == null:
@@ -134,21 +146,17 @@ func _handle_new_cam(current_cam_node, cam_name):
 		mascot_container.name = "Mascot_Container"
 		current_cam_node.add_child(mascot_container)
 
-	for mascot_child in mascot_container.get_children():
-		mascot_child.queue_free()
+	for child in mascot_container.get_children():
+		child.queue_free()
 
-	var current_child = 0
-
-
+	var i = 0
 	for mascot in mascots_to_show:
-		var new_mascot_label = Label.new()
-		new_mascot_label.name = mascot
-		new_mascot_label.text = mascot + " is here!"
-		new_mascot_label.set_position(Vector2(0, 20 * current_child))
-		mascot_container.add_child(new_mascot_label)
-		current_child += 1
+		var label = Label.new()
+		label.name = mascot
+		label.text = mascot + " is here!"
+		label.position = Vector2(0, 20 * i)
+		mascot_container.add_child(label)
+		i += 1
 
-
-# ===== Process =====
-func _process(delta: float) -> void:
+func _process(_delta):
 	pass

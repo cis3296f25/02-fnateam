@@ -1,6 +1,5 @@
 extends Node2D
 
-
 @export var room_database_scene: PackedScene
 @export var move_interval: float = 4.98
 @export var max_peaks: int = 3
@@ -10,30 +9,30 @@ var current_room_id = 1
 var peak = 0
 @onready var move_timer: Timer = $Timer
 var ai_level: int = 5
-var animatronic_name = "Phillie Fnatic"
+var animatronic_name = "Phillie Phanatic"
 var aggression_multiplier: float = 1.0
 
 func _ready() -> void:
 	randomize()
 
-	# Instance the room database scene
 	var db_scene = preload("res://Scenes/Room_Database.tscn")
 	var db_instance = db_scene.instantiate()
-
-	# Access exported rooms dictionary
 	room_database = db_instance.rooms
 
-	# Send signal that this animatronic started
+
 	GameManager.animatronic_started.emit(animatronic_name, room_database[current_room_id]["Name"])
 
-	# Set up movement timer
 	move_timer.wait_time = move_interval
 	move_timer.timeout.connect(_action)
+	move_timer.start()
 
-	# Connect to GameManager signals
+	
 	if GameManager:
-		GameManager.aggression_boost_started.connect(_on_aggression_boost_started)
-		GameManager.aggression_boost_ended.connect(_on_aggression_boost_ended)
+		GameManager.phillie_boost_started.connect(_on_aggression_boost_started)
+		GameManager.phillie_boost_ended.connect(_on_aggression_boost_ended)
+
+	print("%s initialized in room: %s" % [animatronic_name, room_database[current_room_id]["Name"]])
+
 
 func _on_aggression_boost_started():
 	aggression_multiplier = 2.0
@@ -41,15 +40,18 @@ func _on_aggression_boost_started():
 
 func _on_aggression_boost_ended():
 	aggression_multiplier = 1.0
-	print("%s calmed down" % animatronic_name)
+	print("%s calmed down." % animatronic_name)
+
+
 
 func _action() -> void:
 	var roll = randi() % 21
 	var effective_ai = int(ai_level * aggression_multiplier)
-	
+
 	if roll < effective_ai:
 		move_to_next_room()
 		print("%s moved! (Roll: %d < Effective AI: %d)" % [animatronic_name, roll, effective_ai])
+
 
 func move_to_next_room():
 	var current_room = room_database[current_room_id]
@@ -68,10 +70,10 @@ func move_to_next_room():
 		current_room["Empty"] = true
 		next_room["Empty"] = false
 		current_room_id = next_room_id
-
 		return
 
 	print("%s couldn't move from %s - no valid rooms available." % [animatronic_name, current_room["Name"]])
+
 
 func trigger_attack() -> void:
 	print("%s attacks the player! GAME OVER" % animatronic_name)

@@ -6,7 +6,7 @@ func show_message(message: String):
 	label.text = message
 	label.visible = true
 	label.modulate = Color(1, 0.2, 0.2)
-	print("📢 TUAlert:", message)
+	print("TUAlert:", message)
 
 	# Optional fade-out effect
 	var tween = create_tween()
