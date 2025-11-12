@@ -46,15 +46,16 @@ extends Node
 	},
 	8 : { # Where the other animatronics will come down to get to the office.
 		"Name" : "LeftHall", 
-		"AdjacentRooms" : [7,15],
+		"AdjacentRooms" : [7,16],
 		"SealedDoor" : false,
 		"Empty" : true
 	},
 	9 : { # Where the other animatronics will come down to get to the office.
 		"Name" : "RightHall", 
-		"AdjacentRooms" : [7,15],
+		"AdjacentRooms" : [7,17],
 		"SealedDoor" : false,
-		"Empty" : true
+		"Empty" : true,
+
 	},
 	10 : { # This is where Phang will start.
 		"Name" : "Utility", 
@@ -89,6 +90,18 @@ extends Node
 	15 : { # This is where the player is going to be at. All Animatronics are trying to get to here.
 		"Name" : "Office", 
 		"AdjacentRooms" : [8,9,13],
+		"SealedDoor" : false,
+		"Empty" : true
+	},
+	16 : { # Where the other animatronics will come down to get to the office.
+		"Name" : "Office Left", 
+		"AdjacentRooms" : [15,8],
+		"SealedDoor" : false,
+		"Empty" : true
+	},
+	17 : { # Where the other animatronics will come down to get to the office.
+		"Name" : "Office Right", 
+		"AdjacentRooms" : [15,9],
 		"SealedDoor" : false,
 		"Empty" : true
 	},

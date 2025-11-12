@@ -1,44 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://gqe1bffwwtkk"]
+[gd_scene load_steps=4 format=3 uid="uid://gqe1bffwwtkk"]
 
 [ext_resource type="PackedScene" uid="uid://c603rgefo4g1i" path="res://Scenes/Animatronic.tscn" id="1_cb5gl"]
 [ext_resource type="Script" uid="uid://jdxxtktnbyel" path="res://Scripts/main_gameloop.gd" id="1_ri7fq"]
 [ext_resource type="PackedScene" uid="uid://cc6yoh43ybaso" path="res://Scenes/CameraFeed.tscn" id="2_8fg2u"]
-[ext_resource type="Texture2D" uid="uid://1fesod2mwhib" path="res://Assets/2doors.png" id="2_pme0f"]
-[ext_resource type="Script" uid="uid://dfkmm1qdy5f2q" path="res://Scripts/camera_2d.gd" id="3_pme0f"]
 
 [node name="SecurityDesk" type="Node2D"]
 script = ExtResource("1_ri7fq")
 
-[node name="2Doors" type="Sprite2D" parent="."]
-position = Vector2(0, 299)
-scale = Vector2(2.77, 0.91)
-texture = ExtResource("2_pme0f")
-
-[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("door1_button", "door2_button")]
-position = Vector2(0, 324)
-script = ExtResource("3_pme0f")
-door1_button = NodePath("../Door1")
-door2_button = NodePath("../Door2")
-
-[node name="CameraFeed" parent="Camera2D" instance=ExtResource("2_8fg2u")]
-position = Vector2(-578, -330)
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 325)
 
 [node name="ColorRect" type="ColorRect" parent="Camera2D"]
+visible = false
 color = Color(1, 0.007843138, 1, 1)
 metadata/Pink = false
 
+[node name="CameraFeed" parent="." instance=ExtResource("2_8fg2u")]
+
 [node name="Animatronic" parent="." instance=ExtResource("1_cb5gl")]
-
-[node name="Door1" type="Button" parent="."]
-offset_left = -953.0
-offset_top = 275.0
-offset_right = -894.0
-offset_bottom = 342.0
-text = "Door1"
-
-[node name="Door2" type="Button" parent="."]
-offset_left = 906.0
-offset_top = 278.0
-offset_right = 965.0
-offset_bottom = 345.0
-text = "Door2"

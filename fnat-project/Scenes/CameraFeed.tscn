@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cc6yoh43ybaso"]
 
-[ext_resource type="Script" uid="uid://o511r4tgf0un" path="res://Scenes/camera_feedS.gd" id="1_ecqx0"]
+[ext_resource type="Script" uid="uid://o511r4tgf0un" path="res://Scripts/camera_feedS.gd" id="1_ecqx0"]
 
 [node name="CameraFeed" type="Node2D"]
 script = ExtResource("1_ecqx0")
@@ -109,8 +109,8 @@ text = "Utility"
 [connection signal="pressed" from="CamLH" to="." method="_on_cam_lh_pressed"]
 [connection signal="pressed" from="CamLH" to="." method="_on_f_pressed"]
 [connection signal="pressed" from="CamBC" to="." method="_on_cam_bc_pressed"]
-[connection signal="pressed" from="CamBC" to="." method="_on_r3_pressed"]
 [connection signal="pressed" from="CamBC" to="." method="_on_r2_pressed"]
+[connection signal="pressed" from="CamBC" to="." method="_on_r3_pressed"]
 [connection signal="pressed" from="CamRL" to="." method="_on_cam_rl_pressed"]
 [connection signal="pressed" from="CamRL" to="." method="_on_sec_pressed"]
 [connection signal="pressed" from="CamLL" to="." method="_on_cam_ll_pressed"]
