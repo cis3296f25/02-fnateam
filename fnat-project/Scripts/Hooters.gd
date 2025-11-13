@@ -67,11 +67,14 @@ func move_to_next_room():
 			break
 
 		# Skip blocked or sealed rooms
+		#if next_room["Name"] in ["Vent Section 1", "Vent Section 2", "Vent Section 3"] \
+		#or next_room["SealedDoor"] or not next_room["Empty"]:
+			#adjacent_rooms.erase(next_room_id)
+			#continue
 		if next_room["Name"] in ["Vent Section 1", "Vent Section 2", "Vent Section 3"] \
-		or next_room["SealedDoor"] or not next_room["Empty"]:
+		or next_room["SealedDoor"]:
 			adjacent_rooms.erase(next_room_id)
 			continue
-		
 		GameManager.animatronic_moved.emit(animatronic_name, current_room["Name"], next_room["Name"])
 
 		current_room["Empty"] = true

@@ -67,7 +67,10 @@ func move_to_next_room():
 			adjacent_rooms.clear()
 			break
 
-		if next_room["Name"] == "Lounge" or next_room["SealedDoor"] or not next_room["Empty"]:
+		#if next_room["Name"] == "Lounge" or next_room["SealedDoor"] or not next_room["Empty"]:
+			#adjacent_rooms.erase(next_room_id)
+			#continue
+		if next_room["Name"] == "Lounge" or next_room["SealedDoor"]:
 			adjacent_rooms.erase(next_room_id)
 			continue
 
