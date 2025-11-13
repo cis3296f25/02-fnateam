@@ -103,3 +103,4 @@ func handle_peek(room_name: String) -> void:
 func trigger_attack() -> void:
 	print("%s attacks the player! GAME OVER" % animatronic_name)
 	move_timer.stop()
+	get_tree().change_scene_to_file("res://Scenes/GameOver.tscn")
