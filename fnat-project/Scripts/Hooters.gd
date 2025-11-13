@@ -11,6 +11,8 @@ var peak = 0
 var ai_level: int = 5
 var animatronic_name = "Hooters"
 var aggression_multiplier: float = 1.0
+var is_agressive: bool = false
+
 
 func _ready() -> void:
 	randomize()
@@ -34,17 +36,20 @@ func _ready() -> void:
 	print("%s initialized in room: %s" % [animatronic_name, room_database[current_room_id]["Name"]])
 
 func _on_aggression_boost_started():
-	aggression_multiplier = 2.0
-	print("%s is now AGGRESSIVE! (2x movement chance)" % animatronic_name)
+	if is_agressive == false:
+		is_agressive = true
+		aggression_multiplier = 2.0
+		print("%s is now AGGRESSIVE! (2x movement chance)" % animatronic_name)
 
 func _on_aggression_boost_ended():
-	aggression_multiplier = 1.0
-	print("%s calmed down." % animatronic_name)
-
+	if is_agressive == true:
+		aggression_multiplier = 1.0
+		is_agressive = false
+		print("%s calmed down." % animatronic_name)
 
 
 func _action() -> void:
-	var roll = randi() % 21
+	var roll = randi() % (20 - 1) + 1
 	var effective_ai = int(ai_level * aggression_multiplier)
 	
 	if roll < effective_ai:

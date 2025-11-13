@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cc6yoh43ybaso" path="res://Scenes/CameraFeed.tscn" id="2_8fg2u"]
 [ext_resource type="Texture2D" uid="uid://1fesod2mwhib" path="res://Assets/2doors.png" id="2_axdon"]
 [ext_resource type="PackedScene" uid="uid://c1uxegj7wkvw1" path="res://Scenes/NightTimer.tscn" id="2_sf8xb"]
-[ext_resource type="Script" uid="uid://c5npocm5c7om1" path="res://Scripts/camera_2d.gd" id="3_xaf5t"]
+[ext_resource type="Script" path="res://Scripts/camera_2d.gd" id="3_xaf5t"]
 [ext_resource type="PackedScene" uid="uid://ri1q3gh5tkcx" path="res://Scenes/FlashLight.tscn" id="4_8fg2u"]
 [ext_resource type="PackedScene" uid="uid://bt4q53glfnuvw" path="res://Scenes/AlertTimer.tscn" id="6_axdon"]
 

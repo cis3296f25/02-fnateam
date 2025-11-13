@@ -24,6 +24,7 @@ func _ready() -> void:
 	load_room(room_scenes["Office"])
 	
 var office_active = true
+@onready var button_container = $ButtonContainer
 var last_room_scene = room_scenes["CamStorage"]
 var current_room_scene = room_scenes["Office"]
 var current_room: Node = null
@@ -113,14 +114,14 @@ func _on_switch_button_mouse_entered() -> void:
 	
 func make_camera_map_invisible():
 	emit_signal("cams_closed")
-	for child in get_children():
+	for child in  button_container.get_children():
 		# Check if the child node is a Button (or inherits from it)
 		if child is Button:
 			# Set the Button's visible property to false
 			child.visible = false
 func make_camera_map_visible():
 	emit_signal("cams_opened")
-	for child in get_children():
+	for child in button_container.get_children():
 		# Check if the child node is a Button (or inherits from it)
 		if child is Button:
 			# Set the Button's visible property to false
