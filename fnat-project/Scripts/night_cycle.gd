@@ -1,6 +1,5 @@
 extends Node
 signal hour_changed(hour_index:int, text:String)
-signal night_finished()
 
 @export var seconds_per_hour: float = 40.0
 @export var total_hours: int = 6
@@ -41,7 +40,7 @@ func _show_6am_and_finish() -> void:
 	if clock_label:
 		clock_label.text = "6 AM"
 	_running = false
-	night_finished.emit()
+	get_tree().change_scene_to_file("res://Scenes/Win.tscn")
 
 func _format_hour_text(i:int) -> String:
 	return "12 AM" if i == 0 else str(i) + " AM"
