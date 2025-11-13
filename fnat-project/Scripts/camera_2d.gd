@@ -11,7 +11,6 @@ extends Camera2D
 var paused: bool = false
 
 func _ready():
-	var cams_ui = $CameraFeed
 	GameManager.cams_opened.connect(Callable(self, "pause_camera"))
 	GameManager.cams_closed.connect(Callable(self, "resume_camera"))
 
