@@ -14,6 +14,9 @@ signal gritty_boost_ended
 signal phillie_boost_ended
 signal phang_boost_ended
 
+signal cams_opened
+signal cams_closed
+
 var animatronics_locations = {}
 
 signal animatronic_flashed(mascot_name)

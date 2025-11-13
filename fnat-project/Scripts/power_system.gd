@@ -2,6 +2,9 @@ extends Node
 
 # We set up the timer
 @onready var Power_Timer: Timer = $Timer
+@onready var Power_Label: Label = $PowerRemaining
+@onready var Usage_Label: Label = $PowerUsage
+
 #We set up the core power usage.
 @export var cur_Power: int = 999 # The main Current Power
 @export var power_usage: int = 1 # This value can be increased by having more doors down and having the camera up
@@ -17,9 +20,17 @@ var charge_time: float = 20;
 var cur_Charge: float  = 0
 var charge_goal: int = 999;
 @export var charging: bool = false;
+var opened_Cameras = false
+
+#POWER USAGE AMOUNT WILL TURN INTO A DATABASE
+var Cam_Power_Usage = 4
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	_Update_Power_Label()
+	_Update_Usage_Label()
+	GameManager.cams_closed.connect(Close_Cameras)
+	GameManager.cams_opened.connect(Open_Cameras)
 	_set_up_active_power_drain_timer()
 	pass # Replace with function body.
 
@@ -44,8 +55,22 @@ func _Drain_Power() -> void:
 	if cur_Power <= 0:
 		_Power_Run_Out()
 		return
+	_Update_Power_Label()
+	pass
+
+func Open_Cameras():
+	if opened_Cameras == false:
+		opened_Cameras = true
+		Add_Power_Usage(Cam_Power_Usage)
 	
-	print(_Return_Current_Power_Displayed_Value(), "%")
+func Close_Cameras():
+	if opened_Cameras == true:
+		opened_Cameras = false
+		Add_Power_Usage(-Cam_Power_Usage)
+
+func Add_Power_Usage(amount:int) -> void:
+	power_usage += amount
+	_Update_Usage_Label()
 	pass
 
 func _Power_Run_Out() -> void:
@@ -69,6 +94,12 @@ func _Finish_Charge() -> void:
 	cur_Power = charge_goal
 #	print("Current Charge: ", cur_Power)
 	_set_up_active_power_drain_timer()
+
+func _Update_Power_Label():
+	Power_Label.text = "POWER: " + str(_Return_Current_Power_Displayed_Value()) +  "%"
+	
+func _Update_Usage_Label():
+	Usage_Label.text = "USAGE: " + str(power_usage) +  ""
 	
 func _Return_Current_Power_Displayed_Value() -> int:
 	var displayed_power: int = floor(cur_Power / 10)

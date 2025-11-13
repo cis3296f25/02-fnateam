@@ -1,8 +1,5 @@
 extends Node2D
 
-signal cams_opened
-signal cams_closed
-
 var room_scenes = {
 	"Office": preload("res://Scenes/rooms/Office.tscn"),
 	"CamGym": preload("res://Scenes/rooms/Gym.tscn"),
@@ -111,16 +108,17 @@ func _on_switch_button_mouse_entered() -> void:
 		make_camera_map_invisible()
 
 	office_active = !office_active
-	
 func make_camera_map_invisible():
-	emit_signal("cams_closed")
+	GameManager.cams_closed.emit()
+	#emit_signal("cams_closed")
 	for child in  button_container.get_children():
 		# Check if the child node is a Button (or inherits from it)
 		if child is Button:
 			# Set the Button's visible property to false
 			child.visible = false
 func make_camera_map_visible():
-	emit_signal("cams_opened")
+	GameManager.cams_opened.emit()
+	#emit_signal("")
 	for child in button_container.get_children():
 		# Check if the child node is a Button (or inherits from it)
 		if child is Button:
