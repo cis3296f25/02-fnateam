@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var label: Label = $TUalert
+@onready var label: Label = $TUalert 
 
 func show_message(message: String):
 	label.text = message
