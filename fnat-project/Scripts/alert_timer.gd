@@ -10,8 +10,8 @@ var tu_alert_instance: Node = null
 @onready var _Troll_Timer: Node = $TrollTimer
 @onready var _Aggro_Timer: Node = $AgressionTimer
 
-@export var time_til_next_Troll = 10
-@export var length_of_aggro = 5
+@export var time_til_next_Troll = 20
+@export var length_of_aggro = 10
 
 
 func _ready() -> void:
