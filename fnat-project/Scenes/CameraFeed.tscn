@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://o511r4tgf0un" path="res://Scripts/camera_feedS.gd" id="1_ecqx0"]
 [ext_resource type="PackedScene" uid="uid://bqt1c87shb0uh" path="res://Scenes/TUalert.tscn" id="2_q7evq"]
+[ext_resource type="Script" uid="uid://q5qepplyle0f" path="res://Scripts/night_cycle.gd" id="2_q7evq"]
 
 [node name="CameraFeed" type="Node2D"]
 script = ExtResource("1_ecqx0")
@@ -107,31 +108,46 @@ offset_bottom = 526.0
 
 [node name="TUalert" parent="TUalert" instance=ExtResource("2_q7evq")]
 position = Vector2(121, 55)
+[node name="HUB" type="CanvasLayer" parent="."]
+script = ExtResource("2_q7evq")
+
+[node name="NightClockLabel" type="Label" parent="HUB"]
+unique_name_in_owner = true
+offset_left = 990.0
+offset_top = 7.0
+offset_right = 1146.0
+offset_bottom = 63.0
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="focus_entered" from="RoomContainer/SwitchButton" to="." method="_on_switch_button_focus_entered"]
 [connection signal="mouse_entered" from="RoomContainer/SwitchButton" to="." method="_on_switch_button_mouse_entered"]
 [connection signal="mouse_exited" from="RoomContainer/SwitchButton" to="." method="_on_switch_button_mouse_exited"]
 [connection signal="pressed" from="Office" to="." method="_on_l1_pressed"]
-[connection signal="pressed" from="CamGym" to="." method="_on_cam_gym_pressed"]
 [connection signal="pressed" from="CamGym" to="." method="_on_r1_pressed"]
-[connection signal="pressed" from="CamRH" to="." method="_on_cam_rh_pressed"]
+[connection signal="pressed" from="CamGym" to="." method="_on_cam_gym_pressed"]
 [connection signal="pressed" from="CamRH" to="." method="_on_l2_pressed"]
-[connection signal="pressed" from="CamLH" to="." method="_on_cam_lh_pressed"]
+[connection signal="pressed" from="CamRH" to="." method="_on_cam_rh_pressed"]
 [connection signal="pressed" from="CamLH" to="." method="_on_f_pressed"]
 [connection signal="pressed" from="CamBC" to="." method="_on_cam_bc_pressed"]
 [connection signal="pressed" from="CamBC" to="." method="_on_r2_pressed"]
 [connection signal="pressed" from="CamBC" to="." method="_on_r3_pressed"]
 [connection signal="pressed" from="CamRL" to="." method="_on_cam_rl_pressed"]
+[connection signal="pressed" from="CamLH" to="." method="_on_cam_lh_pressed"]
+[connection signal="pressed" from="CamBC" to="." method="_on_r2_pressed"]
+[connection signal="pressed" from="CamBC" to="." method="_on_r3_pressed"]
+[connection signal="pressed" from="CamBC" to="." method="_on_cam_bc_pressed"]
 [connection signal="pressed" from="CamRL" to="." method="_on_sec_pressed"]
-[connection signal="pressed" from="CamLL" to="." method="_on_cam_ll_pressed"]
+[connection signal="pressed" from="CamRL" to="." method="_on_cam_rl_pressed"]
 [connection signal="pressed" from="CamLL" to="." method="_on_r2_pressed"]
-[connection signal="pressed" from="CamLounge" to="." method="_on_cam_lounge_pressed"]
+[connection signal="pressed" from="CamLL" to="." method="_on_cam_ll_pressed"]
 [connection signal="pressed" from="CamLounge" to="." method="_on_r2_pressed"]
-[connection signal="pressed" from="CamStorage" to="." method="_on_cam_storage_pressed"]
+[connection signal="pressed" from="CamLounge" to="." method="_on_cam_lounge_pressed"]
 [connection signal="pressed" from="CamStorage" to="." method="_on_r2_pressed"]
-[connection signal="pressed" from="CamCafe" to="." method="_on_cam_cafe_pressed"]
+[connection signal="pressed" from="CamStorage" to="." method="_on_cam_storage_pressed"]
 [connection signal="pressed" from="CamCafe" to="." method="_on_r2_pressed"]
-[connection signal="pressed" from="CamCloset" to="." method="_on_cam_closet_pressed"]
+[connection signal="pressed" from="CamCafe" to="." method="_on_cam_cafe_pressed"]
 [connection signal="pressed" from="CamCloset" to="." method="_on_r2_pressed"]
-[connection signal="pressed" from="CamUtility" to="." method="_on_cam_utility_pressed"]
+[connection signal="pressed" from="CamCloset" to="." method="_on_cam_closet_pressed"]
 [connection signal="pressed" from="CamUtility" to="." method="_on_r2_pressed"]
+[connection signal="pressed" from="CamUtility" to="." method="_on_cam_utility_pressed"]
