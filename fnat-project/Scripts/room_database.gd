@@ -27,13 +27,13 @@ extends Node
 		"Empty" : true
 	},
 	5 : { # Connecting section between the Lobby and the Gym
-		"Name" : "LeftLocker", 
+		"Name" : "LeftLockers", 
 		"AdjacentRooms" : [2,7],
 		"SealedDoor" : false,
 		"Empty" : true
 	},
 	6 : { # Connecting section between the Lobby and the Gym
-		"Name" : "Right Lockers", 
+		"Name" : "RightLockers", 
 		"AdjacentRooms" : [2,7],
 		"SealedDoor" : false,
 		"Empty" : true

@@ -23,7 +23,17 @@ signal animatronic_flashed(mascot_name)
 
 var list_of_flashed_animatronics = {}
 # Called when the node enters the scene tree for the first time.
+
+
+var shared_room_database = null
+signal room_sealed(room_name, is_sealed)
+var room_seal_states = {}
+
 func _ready() -> void:
+	var db_scene = preload("res://Scenes/Room_Database.tscn")
+	shared_room_database = db_scene.instantiate()
+	add_child(shared_room_database)
+	
 	randomize()
 
 	animatronic_started.connect(_animatronic_started_handler)
@@ -41,8 +51,22 @@ func _ready() -> void:
 
 #	_timer_manager.troll_timeout.connect(_trigger_troll_message)
 #	_timer_manager.aggression_timeout.connect(_end_aggression_boost)
+	
+	
 
 	print("GameManager initialized.")
+	
+func seal_room_doors(room_name: String, is_sealed: bool):
+	room_seal_states[room_name] = is_sealed
+	room_sealed.emit(room_name, is_sealed)
+	
+	var rooms = shared_room_database.rooms
+	for room_id in rooms:
+		if rooms[room_id]["Name"] == room_name:
+			rooms[room_id]["SealedDoor"] = is_sealed
+			
+func get_room_seal_state(room_name: String) -> bool:
+	return room_seal_states.get(room_name, false)
 
 func _animatronic_started_handler(mascot_name, room_name):
 	animatronics_locations[mascot_name] = room_name

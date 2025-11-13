@@ -17,11 +17,7 @@ var is_agressive: bool = false
 func _ready() -> void:
 	randomize()
 
-
-	var db_scene = preload("res://Scenes/Room_Database.tscn")
-	var db_instance = db_scene.instantiate()
-	room_database = db_instance.rooms
-
+	room_database = GameManager.shared_room_database.rooms
 
 	GameManager.animatronic_started.emit(animatronic_name, room_database[current_room_id]["Name"])
 
@@ -66,6 +62,10 @@ func move_to_next_room():
 	while adjacent_rooms.size() > 0:
 		var next_room_id = adjacent_rooms[randi() % adjacent_rooms.size()]
 		var next_room = room_database[next_room_id]
+		
+		if current_room["SealedDoor"]:
+			adjacent_rooms.clear()
+			break
 
 		if next_room["Name"] == "Lounge" or next_room["SealedDoor"] or not next_room["Empty"]:
 			adjacent_rooms.erase(next_room_id)

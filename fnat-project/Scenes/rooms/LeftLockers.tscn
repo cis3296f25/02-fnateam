@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://8xbb1wj6po6i"]
+[gd_scene load_steps=2 format=3 uid="uid://8xbb1wj6po6i"]
+
+[ext_resource type="PackedScene" uid="uid://dy73olhrju0qp" path="res://Scenes/SealDoor.tscn" id="1_df6m7"]
 
 [node name="LeftLocker" type="Node2D"]
 
@@ -8,3 +10,9 @@ offset_top = 218.0
 offset_right = 357.0
 offset_bottom = 298.0
 text = "Left Locker"
+
+[node name="SealRoom" parent="." instance=ExtResource("1_df6m7")]
+offset_left = 264.0
+offset_top = 257.0
+offset_right = 264.0
+offset_bottom = 257.0

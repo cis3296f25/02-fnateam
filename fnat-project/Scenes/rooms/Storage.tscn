@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bll4tansiv7j4"]
+[gd_scene load_steps=6 format=3 uid="uid://bll4tansiv7j4"]
 
 [ext_resource type="Texture2D" uid="uid://bdleqnt6ryuwj" path="res://Assets/Storage_Room.jpg" id="1_3qcmu"]
 [ext_resource type="Texture2D" uid="uid://dph2crwrfoge8" path="res://Assets/Static_Image.jpg" id="2_jeveg"]
+[ext_resource type="PackedScene" uid="uid://dy73olhrju0qp" path="res://Scenes/SealDoor.tscn" id="3_jeveg"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jeveg"]
 texture = ExtResource("1_3qcmu")
@@ -35,3 +36,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_6xy5g")
+
+[node name="SealRoom" parent="." instance=ExtResource("3_jeveg")]
+offset_left = 24.0
+offset_top = 580.0
+offset_right = 24.0
+offset_bottom = 580.0

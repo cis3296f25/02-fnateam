@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://mwek34viknyp"]
+[gd_scene load_steps=2 format=3 uid="uid://mwek34viknyp"]
+
+[ext_resource type="PackedScene" uid="uid://dy73olhrju0qp" path="res://Scenes/SealDoor.tscn" id="1_io8pe"]
 
 [node name="Cafe" type="Node2D"]
 
@@ -9,3 +11,9 @@ offset_right = 268.0
 offset_bottom = 196.0
 text = "Cafe
 "
+
+[node name="SealDoor" parent="." instance=ExtResource("1_io8pe")]
+offset_left = 239.0
+offset_top = 195.0
+offset_right = 239.0
+offset_bottom = 195.0

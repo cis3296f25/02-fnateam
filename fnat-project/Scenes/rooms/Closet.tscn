@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://bu4ekjs5d2lmk"]
+[gd_scene load_steps=2 format=3 uid="uid://bu4ekjs5d2lmk"]
+
+[ext_resource type="PackedScene" uid="uid://dy73olhrju0qp" path="res://Scenes/SealDoor.tscn" id="1_ymqt6"]
 
 [node name="Closet" type="Node2D"]
 
@@ -10,3 +12,9 @@ offset_bottom = 358.0
 text = "Closet"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="SealDoor" parent="." instance=ExtResource("1_ymqt6")]
+offset_left = 555.0
+offset_top = 274.0
+offset_right = 555.0
+offset_bottom = 274.0

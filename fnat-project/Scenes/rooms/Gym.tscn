@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://we5b8h0j0757"]
+[gd_scene load_steps=2 format=3 uid="uid://we5b8h0j0757"]
+
+[ext_resource type="PackedScene" uid="uid://dy73olhrju0qp" path="res://Scenes/SealDoor.tscn" id="1_cmccx"]
 
 [node name="Gym" type="Node2D"]
 
@@ -10,3 +12,9 @@ offset_bottom = 310.0
 text = "Gym"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="SealRoom" parent="." instance=ExtResource("1_cmccx")]
+offset_left = 456.0
+offset_top = 288.0
+offset_right = 456.0
+offset_bottom = 288.0

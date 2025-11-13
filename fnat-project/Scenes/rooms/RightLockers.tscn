@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://yx715sawkwbt"]
+[gd_scene load_steps=2 format=3 uid="uid://yx715sawkwbt"]
+
+[ext_resource type="PackedScene" uid="uid://dy73olhrju0qp" path="res://Scenes/SealDoor.tscn" id="1_6gjax"]
 
 [node name="Right Lockers" type="Node2D"]
 
@@ -10,3 +12,9 @@ offset_bottom = 337.0
 text = "Right Lockers"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="SealRoom" parent="." instance=ExtResource("1_6gjax")]
+offset_left = 460.0
+offset_top = 270.0
+offset_right = 460.0
+offset_bottom = 270.0

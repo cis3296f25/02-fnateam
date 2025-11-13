@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://mmiks3x21tot"]
+[gd_scene load_steps=2 format=3 uid="uid://mmiks3x21tot"]
+
+[ext_resource type="PackedScene" uid="uid://dy73olhrju0qp" path="res://Scenes/SealDoor.tscn" id="1_d2w5v"]
 
 [node name="BallCart" type="Node2D"]
 
@@ -8,3 +10,9 @@ offset_top = 219.0
 offset_right = 292.0
 offset_bottom = 242.0
 text = "Ball Cart"
+
+[node name="SealDoor" parent="." instance=ExtResource("1_d2w5v")]
+offset_left = 237.0
+offset_top = 272.0
+offset_right = 237.0
+offset_bottom = 272.0
