@@ -12,8 +12,8 @@ var paused: bool = false
 
 func _ready():
 	var cams_ui = $CameraFeed
-	cams_ui.connect("cams_opened", Callable(self, "pause_camera"))
-	cams_ui.connect("cams_closed", Callable(self, "resume_camera"))
+	GameManager.cams_opened.connect(Callable(self, "pause_camera"))
+	GameManager.cams_closed.connect(Callable(self, "resume_camera"))
 
 
 func pause_camera():
