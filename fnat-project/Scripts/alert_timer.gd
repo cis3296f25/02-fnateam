@@ -24,10 +24,6 @@ var tu_alert_instance: Node = null
 var _timer_manager: Node = null
 
 
-signal animatronic_flashed(mascot_name)
-
-var list_of_flashed_animatronics = {}
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	randomize()
 
@@ -48,8 +44,9 @@ func _ready() -> void:
 	print("GameManager initialized. Waiting for Start Game input.")
 
 
+# Called externally when player presses Start
 func start_game():
-	print("Game started — initializing alert timers.")
+	print("Game started — initializing timers.")
 	_timer_manager.start_troll_timer()
 
 
@@ -72,17 +69,13 @@ func _trigger_troll_message():
 
 	match message_category:
 		"Security":
-			print("Triggering Hooters boost.")
 			emit_signal("hooters_boost_started")
 		"Mascot":
-			print("Triggering Gritty + Phillie boosts.")
 			emit_signal("gritty_boost_started")
 			emit_signal("phillie_boost_started")
 		"Utility":
-			print("Triggering Phang boost.")
 			emit_signal("phang_boost_started")
 		"Safety":
-			print("Triggering all animatronic boosts.")
 			emit_signal("hooters_boost_started")
 			emit_signal("gritty_boost_started")
 			emit_signal("phillie_boost_started")
@@ -95,25 +88,24 @@ func _display_troll_message(message: String) -> void:
 	if tu_alert_instance and tu_alert_instance.has_method("show_message"):
 		tu_alert_instance.show_message(message)
 	else:
-		push_warning("TuAlert scene missing or 'show_message' not found.")
+		push_warning("TuAlert scene missing or 'show_message' method not found.")
 
 
 func _end_aggression_boost():
-	print("Oh wait, False alarm. Everyone back to work.")
+	print("False alarm. Returning animatronics to idle state.")
 	emit_signal("hooters_boost_ended")
 	emit_signal("gritty_boost_ended")
 	emit_signal("phillie_boost_ended")
 	emit_signal("phang_boost_ended")
 
-	animatronic_flashed.connect(_animatronic_flashed_handler)
 
 func _animatronic_started_handler(mascot_name, room_name):
 	animatronics_locations[mascot_name] = room_name
-	print(mascot_name, " starting in:", room_name)
+	print(mascot_name, "starting in:", room_name)
 
 func _animatronic_moved_handler(mascot_name, old_room_name, new_room_name):
 	animatronics_locations[mascot_name] = new_room_name
-	print(mascot_name, " moved from %s → %s" % [old_room_name, new_room_name])
+	print(mascot_name, "moved from %s → %s" % [old_room_name, new_room_name])
 
 
 func _handle_new_cam(current_cam_node, cam_name):
@@ -121,7 +113,7 @@ func _handle_new_cam(current_cam_node, cam_name):
 	for mascot in animatronics_locations:
 		if animatronics_locations[mascot] == cam_name:
 			mascots_to_show.append(mascot)
-			print(mascot, " visible in Cam:", cam_name)
+			print(mascot, "visible in Cam:", cam_name)
 
 	var mascot_container = current_cam_node.get_node_or_null("Mascot_Container")
 	if mascot_container == null:
@@ -140,11 +132,6 @@ func _handle_new_cam(current_cam_node, cam_name):
 		label.position = Vector2(0, 20 * i)
 		mascot_container.add_child(label)
 		i += 1
-	
-	#print(current_cam_node)
-func _animatronic_flashed_handler(mascot_name):
-	list_of_flashed_animatronics[mascot_name] = true
-	print(mascot_name + "was flashed")
 
 
 func _process(_delta):
