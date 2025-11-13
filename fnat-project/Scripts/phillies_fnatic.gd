@@ -75,7 +75,8 @@ func move_to_next_room():
 		current_room["Empty"] = true
 		next_room["Empty"] = false
 		current_room_id = next_room_id
-		
+		if next_room["Name"] == "Office":
+			trigger_attack()
 		return
 
 	print("%s couldn't move from %s - no valid rooms available." % [animatronic_name, current_room["Name"]])
