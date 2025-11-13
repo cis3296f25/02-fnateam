@@ -36,6 +36,8 @@ func _ready() -> void:
 	loaded_new_cam.connect(_handle_new_cam)
 	troll_message_triggered.connect(_display_troll_message)
 
+	animatronic_flashed.connect(_animatronic_flashed_handler)
+
 	tu_alert_instance = TUAlertScene.instantiate()
 	add_child(tu_alert_instance)
 
@@ -144,7 +146,7 @@ func _handle_new_cam(current_cam_node, cam_name):
 	#print(current_cam_node)
 func _animatronic_flashed_handler(mascot_name):
 	list_of_flashed_animatronics[mascot_name] = true
-	print(mascot_name + "was flashed")
+	print(mascot_name + " was flashed")
 
 
 func _process(_delta):
