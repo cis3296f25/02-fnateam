@@ -1,11 +1,37 @@
-[gd_scene format=3 uid="uid://biu38y0q15t5m"]
+[gd_scene load_steps=5 format=3 uid="uid://biu38y0q15t5m"]
+
+[ext_resource type="Texture2D" uid="uid://u5fv18ossq1g" path="res://Assets/LeftHall.jpg" id="1_bqtwd"]
+[ext_resource type="Texture2D" uid="uid://dph2crwrfoge8" path="res://Assets/Static_Image.jpg" id="2_gg0ix"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_glbr3"]
+texture = ExtResource("1_bqtwd")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pjbn1"]
+texture = ExtResource("2_gg0ix")
+modulate_color = Color(0.3137255, 0.3137255, 0.3137255, 0.57254905)
 
 [node name="LeftHall" type="Node2D"]
 
-[node name="Label" type="Label" parent="."]
-offset_left = 354.0
-offset_top = 180.0
-offset_right = 541.0
-offset_bottom = 229.0
-text = "Left Hall
-"
+[node name="MainScreen" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1155.0
+offset_bottom = 655.0
+
+[node name="Background" type="Panel" parent="MainScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_glbr3")
+
+[node name="StaticForeground" type="Panel" parent="MainScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_pjbn1")

@@ -1,15 +1,41 @@
-[gd_scene load_steps=2 format=3 uid="uid://8xbb1wj6po6i"]
+[gd_scene load_steps=6 format=3 uid="uid://8xbb1wj6po6i"]
 
+[ext_resource type="Texture2D" uid="uid://dn360u5m62gil" path="res://Assets/Left_LockerRoom.png" id="1_bvcph"]
 [ext_resource type="PackedScene" uid="uid://dy73olhrju0qp" path="res://Scenes/SealDoor.tscn" id="1_df6m7"]
+[ext_resource type="Texture2D" uid="uid://dph2crwrfoge8" path="res://Assets/Static_Image.jpg" id="2_kt03g"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kpffx"]
+texture = ExtResource("1_bvcph")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oqvrk"]
+texture = ExtResource("2_kt03g")
+modulate_color = Color(0.3137255, 0.3137255, 0.3137255, 0.57254905)
 
 [node name="LeftLocker" type="Node2D"]
 
-[node name="Label" type="Label" parent="."]
-offset_left = 271.0
-offset_top = 218.0
-offset_right = 357.0
-offset_bottom = 298.0
-text = "Left Locker"
+[node name="MainScreen" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1155.0
+offset_bottom = 655.0
+
+[node name="Background" type="Panel" parent="MainScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_kpffx")
+
+[node name="StaticForeground" type="Panel" parent="MainScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_oqvrk")
 
 [node name="SealRoom" parent="." instance=ExtResource("1_df6m7")]
 offset_left = 264.0

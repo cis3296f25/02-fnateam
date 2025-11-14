@@ -1,11 +1,37 @@
-[gd_scene format=3 uid="uid://dif23oh5srp56"]
+[gd_scene load_steps=5 format=3 uid="uid://dif23oh5srp56"]
+
+[ext_resource type="Texture2D" uid="uid://cycnsqm3584s8" path="res://Assets/RightHall.jpg" id="1_6wyt7"]
+[ext_resource type="Texture2D" uid="uid://dph2crwrfoge8" path="res://Assets/Static_Image.jpg" id="2_up41w"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2k8ed"]
+texture = ExtResource("1_6wyt7")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y0wnb"]
+texture = ExtResource("2_up41w")
+modulate_color = Color(0.3137255, 0.3137255, 0.3137255, 0.57254905)
 
 [node name="RightHall" type="Node2D"]
 
-[node name="Label" type="Label" parent="."]
-offset_left = 366.0
-offset_top = 200.0
-offset_right = 441.0
-offset_bottom = 419.0
-text = "Right Hall
-"
+[node name="MainScreen" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1155.0
+offset_bottom = 655.0
+
+[node name="Background" type="Panel" parent="MainScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_2k8ed")
+
+[node name="StaticForeground" type="Panel" parent="MainScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_y0wnb")

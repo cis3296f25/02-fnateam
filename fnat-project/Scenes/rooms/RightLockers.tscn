@@ -1,17 +1,41 @@
-[gd_scene load_steps=2 format=3 uid="uid://yx715sawkwbt"]
+[gd_scene load_steps=6 format=3 uid="uid://yx715sawkwbt"]
 
 [ext_resource type="PackedScene" uid="uid://dy73olhrju0qp" path="res://Scenes/SealDoor.tscn" id="1_6gjax"]
+[ext_resource type="Texture2D" uid="uid://b424bhos4bl77" path="res://Assets/Right_LockerRoom.png" id="1_tei78"]
+[ext_resource type="Texture2D" uid="uid://dph2crwrfoge8" path="res://Assets/Static_Image.jpg" id="2_6jy28"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_56e7k"]
+texture = ExtResource("1_tei78")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2i44s"]
+texture = ExtResource("2_6jy28")
+modulate_color = Color(0.3137255, 0.3137255, 0.3137255, 0.57254905)
 
 [node name="Right Lockers" type="Node2D"]
 
-[node name="Label" type="Label" parent="."]
-offset_left = 258.0
-offset_top = 126.0
-offset_right = 766.0
-offset_bottom = 337.0
-text = "Right Lockers"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="MainScreen" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1155.0
+offset_bottom = 655.0
+
+[node name="Background" type="Panel" parent="MainScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_56e7k")
+
+[node name="StaticForeground" type="Panel" parent="MainScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_2i44s")
 
 [node name="SealRoom" parent="." instance=ExtResource("1_6gjax")]
 offset_left = 460.0
