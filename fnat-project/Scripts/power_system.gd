@@ -31,6 +31,7 @@ func _ready() -> void:
 	_Update_Usage_Label()
 	GameManager.cams_closed.connect(Close_Cameras)
 	GameManager.cams_opened.connect(Open_Cameras)
+	GameManager.room_sealed.connect(Seal_Room_Handler)
 	_set_up_active_power_drain_timer()
 	pass # Replace with function body.
 
@@ -67,6 +68,19 @@ func Close_Cameras():
 	if opened_Cameras == true:
 		opened_Cameras = false
 		Add_Power_Usage(-Cam_Power_Usage)
+
+func Seal_Room_Handler(room_name, is_sealed):
+	print("Seal Room handler")
+	var rooms = GameManager.shared_room_database.rooms
+	for room_id in rooms:
+		if rooms[room_id]["Name"] == room_name:
+			if is_sealed == true:
+				Add_Power_Usage(rooms[room_id]["Usage"])
+				break
+			else:
+				Add_Power_Usage(-(rooms[room_id]["Usage"]))
+				break
+	
 
 func Add_Power_Usage(amount:int) -> void:
 	power_usage += amount
