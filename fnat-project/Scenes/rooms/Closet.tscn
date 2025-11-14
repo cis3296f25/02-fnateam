@@ -1,12 +1,44 @@
-[gd_scene format=3 uid="uid://bu4ekjs5d2lmk"]
+[gd_scene load_steps=6 format=3 uid="uid://bu4ekjs5d2lmk"]
+
+[ext_resource type="Texture2D" uid="uid://dttrbkgpvfw8t" path="res://Assets/Closet.jpg" id="1_haqlt"]
+[ext_resource type="PackedScene" uid="uid://dy73olhrju0qp" path="res://Scenes/SealDoor.tscn" id="1_ymqt6"]
+[ext_resource type="Texture2D" uid="uid://dph2crwrfoge8" path="res://Assets/Static_Image.jpg" id="2_otft1"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ph5up"]
+texture = ExtResource("1_haqlt")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ix1cs"]
+texture = ExtResource("2_otft1")
+modulate_color = Color(0.3137255, 0.3137255, 0.3137255, 0.57254905)
 
 [node name="Closet" type="Node2D"]
 
-[node name="Label" type="Label" parent="."]
-offset_left = 375.0
-offset_top = 171.0
-offset_right = 772.0
-offset_bottom = 358.0
-text = "Closet"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="MainScreen" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1155.0
+offset_bottom = 655.0
+
+[node name="Background" type="Panel" parent="MainScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ph5up")
+
+[node name="StaticForeground" type="Panel" parent="MainScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ix1cs")
+
+[node name="SealDoor" parent="." instance=ExtResource("1_ymqt6")]
+offset_left = 555.0
+offset_top = 274.0
+offset_right = 555.0
+offset_bottom = 274.0

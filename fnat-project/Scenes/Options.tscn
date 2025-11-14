@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://blg7fo2w8v52u"]
+[gd_scene load_steps=2 format=3 uid="uid://blg7fo2w8v52u"]
 
 [ext_resource type="Script" uid="uid://bq73jtaqk2sq4" path="res://Scripts/options.gd" id="1_qqnya"]
-[ext_resource type="AudioStream" uid="uid://d32ahqwgp72dv" path="res://Assets/uziGold.mp3" id="2_hg628"]
 
 [node name="Options" type="Control"]
 layout_mode = 3
@@ -28,28 +27,51 @@ theme_override_constants/margin_bottom = 100
 layout_mode = 2
 alignment = 1
 
-[node name="VolumeLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Volume"
 
-[node name="VolumeSlider" type="HSlider" parent="MarginContainer/VBoxContainer"]
+[node name="VolumeLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+text = "Volume   "
+
+[node name="VolumeSlider" type="HSlider" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
 max_value = 1.0
 step = 0.001
 value = 1.0
 
-[node name="MuteCheckBox" type="CheckBox" parent="MarginContainer/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 text = "Mute"
+
+[node name="MuteCheckBox" type="CheckBox" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_direction = 3
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "Fullscreen"
+
+[node name="FullscreenToggle" type="CheckButton" parent="MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
 
 [node name="BackButton" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Back"
 
-[node name="UziGold" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_hg628")
-autoplay = true
-
-[connection signal="value_changed" from="MarginContainer/VBoxContainer/VolumeSlider" to="." method="_on_volume_slider_value_changed"]
-[connection signal="toggled" from="MarginContainer/VBoxContainer/MuteCheckBox" to="." method="_on_mute_check_box_toggled"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/HBoxContainer/VolumeSlider" to="." method="_on_volume_slider_value_changed"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/HBoxContainer2/MuteCheckBox" to="." method="_on_mute_check_box_toggled"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/HBoxContainer3/FullscreenToggle" to="." method="_on_fullscreen_toggle_toggled"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

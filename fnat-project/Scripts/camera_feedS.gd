@@ -17,10 +17,14 @@ var room_scenes = {
 
 func _ready() -> void: 
 	GameManager.animatronic_moved.connect(update_Animatronics_On_Cam)
+	GameManager.power_ran_out.connect(power_outage_handler)
+	GameManager.power_back.connect(power_return_handler)
 	make_camera_map_invisible()
 	load_room(room_scenes["Office"])
 	
 var office_active = true
+var camera_locked = false
+@onready var button_container = $ButtonContainer
 var last_room_scene = room_scenes["CamStorage"]
 var current_room_scene = room_scenes["Office"]
 var current_room: Node = null
@@ -42,12 +46,20 @@ func load_room(scene_object) -> void:
 	current_room_scene = scene_object
 	current_room = new_room
 	
+func power_outage_handler():
+	camera_locked = true
+	load_room(room_scenes["Office"])
+	make_camera_map_invisible()
+	office_active = true
+
+func power_return_handler():
+	camera_locked = false
 	
-func update_Animatronics_On_Cam(mascot, old_room, new_room) -> void:
-	if old_room == current_room.get_name():
+
+func update_Animatronics_On_Cam(_mascot, old_room, new_room) -> void:
+	if old_room == current_room.get_name() or new_room == current_room.get_name():
 		print("Static Static, Animatronic has Moved on Cam.")
 		GameManager.loaded_new_cam.emit(current_room, current_room.get_name())
-	
 	
 
 func _on_cam_gym_pressed() -> void:
@@ -95,6 +107,9 @@ func _on_cam_utility_pressed() -> void:
 
 
 func _on_switch_button_mouse_entered() -> void:
+	if camera_locked == true:
+		return
+		
 	if office_active:
 		# If last room, go back to it
 		if last_room_scene != null:
@@ -105,17 +120,19 @@ func _on_switch_button_mouse_entered() -> void:
 		# Go back to office
 		load_room(room_scenes["Office"])
 		make_camera_map_invisible()
-
 	office_active = !office_active
-	
 func make_camera_map_invisible():
-	for child in get_children():
+	GameManager.cams_closed.emit()
+	#emit_signal("cams_closed")
+	for child in  button_container.get_children():
 		# Check if the child node is a Button (or inherits from it)
 		if child is Button:
 			# Set the Button's visible property to false
 			child.visible = false
 func make_camera_map_visible():
-	for child in get_children():
+	GameManager.cams_opened.emit()
+	#emit_signal("")
+	for child in button_container.get_children():
 		# Check if the child node is a Button (or inherits from it)
 		if child is Button:
 			# Set the Button's visible property to false

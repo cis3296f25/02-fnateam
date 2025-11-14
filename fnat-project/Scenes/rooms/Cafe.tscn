@@ -1,11 +1,44 @@
-[gd_scene format=3 uid="uid://mwek34viknyp"]
+[gd_scene load_steps=6 format=3 uid="uid://mwek34viknyp"]
+
+[ext_resource type="Texture2D" uid="uid://dimsbrdd5e3ym" path="res://Assets/empty_cafeteria.jpg" id="1_8bjqt"]
+[ext_resource type="PackedScene" uid="uid://dy73olhrju0qp" path="res://Scenes/SealDoor.tscn" id="1_io8pe"]
+[ext_resource type="Texture2D" uid="uid://dph2crwrfoge8" path="res://Assets/Static_Image.jpg" id="2_haf10"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lb0ci"]
+texture = ExtResource("1_8bjqt")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rnpe7"]
+texture = ExtResource("2_haf10")
+modulate_color = Color(0.3137255, 0.3137255, 0.3137255, 0.57254905)
 
 [node name="Cafe" type="Node2D"]
 
-[node name="Label" type="Label" parent="."]
-offset_left = 228.0
-offset_top = 147.0
-offset_right = 268.0
-offset_bottom = 196.0
-text = "Cafe
-"
+[node name="MainScreen" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1155.0
+offset_bottom = 655.0
+
+[node name="Background" type="Panel" parent="MainScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_lb0ci")
+
+[node name="StaticForeground" type="Panel" parent="MainScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_rnpe7")
+
+[node name="SealDoor" parent="." instance=ExtResource("1_io8pe")]
+offset_left = 239.0
+offset_top = 195.0
+offset_right = 239.0
+offset_bottom = 195.0

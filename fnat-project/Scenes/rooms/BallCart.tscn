@@ -1,10 +1,44 @@
-[gd_scene format=3 uid="uid://mmiks3x21tot"]
+[gd_scene load_steps=6 format=3 uid="uid://mmiks3x21tot"]
+
+[ext_resource type="PackedScene" uid="uid://dy73olhrju0qp" path="res://Scenes/SealDoor.tscn" id="1_d2w5v"]
+[ext_resource type="Texture2D" uid="uid://1qec4toh8rki" path="res://Assets/Ball_Cart.png" id="1_ucn3e"]
+[ext_resource type="Texture2D" uid="uid://dph2crwrfoge8" path="res://Assets/Static_Image.jpg" id="2_ycmsj"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lt8h7"]
+texture = ExtResource("1_ucn3e")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0ahy3"]
+texture = ExtResource("2_ycmsj")
+modulate_color = Color(0.3137255, 0.3137255, 0.3137255, 0.57254905)
 
 [node name="BallCart" type="Node2D"]
 
-[node name="Label" type="Label" parent="."]
-offset_left = 226.0
-offset_top = 219.0
-offset_right = 292.0
-offset_bottom = 242.0
-text = "Ball Cart"
+[node name="MainScreen" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1155.0
+offset_bottom = 655.0
+
+[node name="Background" type="Panel" parent="MainScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_lt8h7")
+
+[node name="StaticForeground" type="Panel" parent="MainScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_0ahy3")
+
+[node name="SealDoor" parent="." instance=ExtResource("1_d2w5v")]
+offset_left = 237.0
+offset_top = 272.0
+offset_right = 237.0
+offset_bottom = 272.0

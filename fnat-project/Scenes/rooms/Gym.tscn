@@ -1,12 +1,44 @@
-[gd_scene format=3 uid="uid://we5b8h0j0757"]
+[gd_scene load_steps=6 format=3 uid="uid://we5b8h0j0757"]
+
+[ext_resource type="PackedScene" uid="uid://dy73olhrju0qp" path="res://Scenes/SealDoor.tscn" id="1_cmccx"]
+[ext_resource type="Texture2D" uid="uid://dxuugw0j53elb" path="res://Assets/McGonigleHall.png" id="1_gu5xg"]
+[ext_resource type="Texture2D" uid="uid://dph2crwrfoge8" path="res://Assets/Static_Image.jpg" id="2_2m03d"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p382q"]
+texture = ExtResource("1_gu5xg")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ocdyw"]
+texture = ExtResource("2_2m03d")
+modulate_color = Color(0.3137255, 0.3137255, 0.3137255, 0.57254905)
 
 [node name="Gym" type="Node2D"]
 
-[node name="Label" type="Label" parent="."]
-offset_left = 388.0
-offset_top = 214.0
-offset_right = 655.0
-offset_bottom = 310.0
-text = "Gym"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="MainScreen" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1155.0
+offset_bottom = 655.0
+
+[node name="Background" type="Panel" parent="MainScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_p382q")
+
+[node name="StaticForeground" type="Panel" parent="MainScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ocdyw")
+
+[node name="SealRoom" parent="." instance=ExtResource("1_cmccx")]
+offset_left = 456.0
+offset_top = 288.0
+offset_right = 456.0
+offset_bottom = 288.0

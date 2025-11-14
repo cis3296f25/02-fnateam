@@ -1,11 +1,44 @@
-[gd_scene format=3 uid="uid://d3i7c18jytn5j"]
+[gd_scene load_steps=6 format=3 uid="uid://d3i7c18jytn5j"]
+
+[ext_resource type="Texture2D" uid="uid://twikkvvwynmn" path="res://Assets/Lounge_Temple.jpg" id="1_d8x1j"]
+[ext_resource type="Texture2D" uid="uid://dph2crwrfoge8" path="res://Assets/Static_Image.jpg" id="2_lj2rk"]
+[ext_resource type="PackedScene" uid="uid://dy73olhrju0qp" path="res://Scenes/SealDoor.tscn" id="3_lj2rk"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tx2nq"]
+texture = ExtResource("1_d8x1j")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l1tf7"]
+texture = ExtResource("2_lj2rk")
+modulate_color = Color(0.3137255, 0.3137255, 0.3137255, 0.57254905)
 
 [node name="Lounge" type="Node2D"]
 
-[node name="Label" type="Label" parent="."]
-offset_left = 324.0
-offset_top = 176.0
-offset_right = 497.0
-offset_bottom = 289.0
-text = "Lounge
-"
+[node name="MainScreen" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1155.0
+offset_bottom = 655.0
+
+[node name="Background" type="Panel" parent="MainScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_tx2nq")
+
+[node name="StaticForeground" type="Panel" parent="MainScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_l1tf7")
+
+[node name="SealRoom" parent="." instance=ExtResource("3_lj2rk")]
+offset_left = 54.0
+offset_top = 572.0
+offset_right = 54.0
+offset_bottom = 572.0
