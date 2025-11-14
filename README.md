@@ -16,3 +16,17 @@ https://trello.com/b/03hQVfXd/fnat-final-project
 5. Open the extracted folder and run the game executable.
 
 > ⚠️ **Tip:** Do not move or rename files after extracting. The game may fail to load assets if the folder structure changes.
+
+### On mac you need to follow these steps or the game will not open!
+
+1. On your Mac, choose Apple menu  > System Settings, then click Privacy & Security  in the sidebar. (You may need to scroll down.)
+
+2. Open Privacy & Security settings for me
+
+3. Go to Security, then click Open.
+
+4. Click Open Anyway.
+
+5. This button is available for about an hour after you try to open the app.
+
+6. Enter your login password, then click OK.
