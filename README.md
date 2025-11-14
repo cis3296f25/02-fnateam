@@ -8,10 +8,10 @@ https://trello.com/b/03hQVfXd/fnat-final-project
 
 ### Play the Built Game
 1. Go to the [**Releases**](https://github.com/cis3296f25/02-fnateam/releases/) page.
-2. Find the latest release (e.g. **“FNAT DEMO - 1”**).
+2. Find the latest release (e.g. **“FNAT DEMO - 2”**).
 3. Under the **Assets** section, download the ZIP file for your operating system:
-   - 💻 **Windows:** `windows-fnat-project-v1.zip`  
-   - 🍎 **macOS:** `mac-fnat-project.zip`
+   - 💻 **Windows:** `Windows.Fnat.zip`  
+   - 🍎 **macOS:** `fnat-project.dmg`
 4. Once downloaded, **extract the entire ZIP file** to a folder.
 5. Open the extracted folder and run the game executable.
 
