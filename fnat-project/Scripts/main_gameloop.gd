@@ -44,7 +44,7 @@ func _ready() -> void:
 	animatronic_moved.connect(_animatronic_moved_handler)
 	loaded_new_cam.connect(_handle_new_cam)
 #	troll_message_triggered.connect(_display_troll_message)
-
+	power_ran_out.connect(power_outage_handler)
 	animatronic_flashed.connect(_animatronic_flashed_handler)
 
 #	tu_alert_instance = TUAlertScene.instantiate()
@@ -71,6 +71,19 @@ func seal_room_doors(room_name: String, is_sealed: bool):
 			
 func get_room_seal_state(room_name: String) -> bool:
 	return room_seal_states.get(room_name, false)
+
+func power_outage_handler() -> void:
+	var rooms = shared_room_database.rooms
+	for room_id in rooms:
+		var room_name = rooms[room_id]["Name"]
+		var room_seal_state = get_room_seal_state(room_name)
+		if room_seal_state == null:
+			continue
+			
+		if room_seal_state == true:
+			rooms[room_id]["SealedDoor"] = false
+			room_seal_states[room_name] = false
+			room_sealed.emit(room_name, false)
 
 func _animatronic_started_handler(mascot_name, room_name):
 	animatronics_locations[mascot_name] = room_name
