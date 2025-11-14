@@ -56,11 +56,10 @@ func power_return_handler():
 	camera_locked = false
 	
 
-func update_Animatronics_On_Cam(_mascot, old_room, _new_room) -> void:
-	if old_room == current_room.get_name():
+func update_Animatronics_On_Cam(_mascot, old_room, new_room) -> void:
+	if old_room == current_room.get_name() or new_room == current_room.get_name():
 		print("Static Static, Animatronic has Moved on Cam.")
 		GameManager.loaded_new_cam.emit(current_room, current_room.get_name())
-	
 	
 
 func _on_cam_gym_pressed() -> void:
