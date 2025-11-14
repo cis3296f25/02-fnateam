@@ -8,7 +8,7 @@ var room_database: Dictionary
 var current_room_id = 1
 var peak = 0
 @onready var move_timer: Timer = $Timer
-var ai_level: int = 5
+@export var ai_level: int = 5
 var animatronic_name = "Hooters"
 var aggression_multiplier: float = 1.0
 var is_agressive: bool = false
@@ -20,6 +20,7 @@ func _ready() -> void:
 	room_database = GameManager.shared_room_database.rooms
 	
 	GameManager.animatronic_started.emit(animatronic_name, room_database[current_room_id]["Name"])
+	GameManager.animatronic_flashed.connect(handle_flashed)
 
 	move_timer.wait_time = move_interval
 	move_timer.timeout.connect(_action)
@@ -82,7 +83,7 @@ func move_to_next_room():
 		current_room_id = next_room_id
 
 		# Peek behavior for tension
-		if next_room["Name"] in ["LeftHall", "RightHall"]:
+		if next_room["Name"] in ["LeftOfficerDoor", "RightOfficeDoor"]:
 			handle_peek(next_room["Name"])
 
 		return
@@ -103,6 +104,15 @@ func handle_peek(room_name: String) -> void:
 		print("%s leaves the hallway after peeking." % animatronic_name)
 		move_timer.start()
 
+func handle_flashed(mascot_name) -> void:
+	if mascot_name == animatronic_name:
+		var current_room = room_database[current_room_id]
+		var flashed_room_ID = 2 # Or some random room.
+		var next_room = room_database[flashed_room_ID]
+		GameManager.animatronic_moved.emit(animatronic_name, current_room["Name"], next_room["Name"])
+		current_room["Empty"] = true
+		next_room["Empty"] = false
+		current_room_id = flashed_room_ID
 
 func trigger_attack() -> void:
 	print("%s attacks the player! GAME OVER" % animatronic_name)

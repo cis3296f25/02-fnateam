@@ -8,7 +8,7 @@ var room_database: Dictionary
 var current_room_id = 1
 var peak = 0
 @onready var move_timer: Timer = $Timer
-var ai_level: int = 5
+@export var ai_level: int = 5
 var animatronic_name = "Phillie Phanatic"
 var aggression_multiplier: float = 1.0
 var is_agressive: bool = false
@@ -20,6 +20,7 @@ func _ready() -> void:
 	room_database = GameManager.shared_room_database.rooms
 
 	GameManager.animatronic_started.emit(animatronic_name, room_database[current_room_id]["Name"])
+	GameManager.animatronic_flashed.connect(handle_flashed)
 
 	move_timer.wait_time = move_interval
 	move_timer.timeout.connect(_action)
@@ -70,7 +71,7 @@ func move_to_next_room():
 		#if next_room["Name"] in ["Vent Section 1", "Vent Section 2", "Vent Section 3", "Closet", "LeftLocker", "LeftHall"] \
 		#or next_room["SealedDoor"] or not next_room["Empty"]:
 			#adjacent_rooms.erase(next_room_id)
-		if next_room["Name"] in ["Vent Section 1", "Vent Section 2", "Vent Section 3", "Closet", "LeftLocker", "LeftHall"] \
+		if next_room["Name"] in ["Vent Section 1", "Vent Section 2", "Vent Section 3", "Cafe", "RightLockers", "RightHall", "RightOfficeDoor"] \
 		or next_room["SealedDoor"]:
 			adjacent_rooms.erase(next_room_id)
 			continue
@@ -85,6 +86,15 @@ func move_to_next_room():
 
 	print("%s couldn't move from %s - no valid rooms available." % [animatronic_name, current_room["Name"]])
 
+func handle_flashed(mascot_name) -> void:
+	if mascot_name == animatronic_name:
+		var current_room = room_database[current_room_id]
+		var flashed_room_ID = 7
+		var next_room = room_database[flashed_room_ID]
+		GameManager.animatronic_moved.emit(animatronic_name, current_room["Name"], next_room["Name"])
+		current_room["Empty"] = true
+		next_room["Empty"] = false
+		current_room_id = flashed_room_ID
 
 func trigger_attack() -> void:
 	print("%s attacks the player! GAME OVER" % animatronic_name)

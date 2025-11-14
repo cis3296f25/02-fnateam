@@ -20,6 +20,9 @@ signal cams_closed
 signal power_ran_out
 signal power_back
 
+signal update_vent_status
+signal update_rightDoor_status
+signal update_leftDoor_status
 
 var animatronics_locations = {}
 
@@ -92,6 +95,19 @@ func _animatronic_started_handler(mascot_name, room_name):
 func _animatronic_moved_handler(mascot_name, old_room_name, new_room_name):
 	animatronics_locations[mascot_name] = new_room_name
 	print(mascot_name, " moved from %s → %s" % [old_room_name, new_room_name])
+	if new_room_name == "Vent Section 3":
+		update_vent_status.emit(mascot_name, true)
+	elif new_room_name == "RightOfficeDoor":
+		update_rightDoor_status.emit(mascot_name, true)
+	elif new_room_name == "LeftOfficeDoor":
+		update_leftDoor_status.emit(mascot_name, true)
+		
+	if old_room_name == "Vent Section 3":
+		update_vent_status.emit(mascot_name, false)
+	elif old_room_name == "RightOfficeDoor":
+		update_rightDoor_status.emit(mascot_name, false)
+	elif old_room_name == "LeftOfficeDoor":
+		update_leftDoor_status.emit(mascot_name, false)
 
 
 func _handle_new_cam(current_cam_node, cam_name):
@@ -122,6 +138,7 @@ func _handle_new_cam(current_cam_node, cam_name):
 	#print(current_cam_node)
 func _animatronic_flashed_handler(mascot_name):
 	list_of_flashed_animatronics[mascot_name] = true
+	
 	print(mascot_name + " was flashed")
 
 

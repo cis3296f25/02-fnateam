@@ -1,14 +1,18 @@
-[gd_scene load_steps=10 format=3 uid="uid://gqe1bffwwtkk"]
+[gd_scene load_steps=14 format=3 uid="uid://gqe1bffwwtkk"]
 
 [ext_resource type="PackedScene" uid="uid://c603rgefo4g1i" path="res://Scenes/Animatronic.tscn" id="1_cb5gl"]
 [ext_resource type="Script" uid="uid://jdxxtktnbyel" path="res://Scripts/main_gameloop.gd" id="1_ri7fq"]
 [ext_resource type="PackedScene" uid="uid://cc6yoh43ybaso" path="res://Scenes/CameraFeed.tscn" id="2_8fg2u"]
 [ext_resource type="Texture2D" uid="uid://1fesod2mwhib" path="res://Assets/2doors.png" id="2_axdon"]
 [ext_resource type="PackedScene" uid="uid://c1uxegj7wkvw1" path="res://Scenes/NightTimer.tscn" id="2_sf8xb"]
+[ext_resource type="Script" uid="uid://t3loly8kspvp" path="res://Scenes/vents_status.gd" id="3_2j84s"]
 [ext_resource type="Script" uid="uid://c5npocm5c7om1" path="res://Scripts/camera_2d.gd" id="3_xaf5t"]
 [ext_resource type="PackedScene" uid="uid://r0ran3o3n73k" path="res://Scenes/PowerSystem.tscn" id="4_5d07y"]
 [ext_resource type="PackedScene" uid="uid://ri1q3gh5tkcx" path="res://Scenes/FlashLight.tscn" id="4_8fg2u"]
+[ext_resource type="Script" uid="uid://bpukg6xkgbtyn" path="res://Scenes/left_door_status.gd" id="4_674sq"]
+[ext_resource type="Script" uid="uid://b8g3s5f7si3ev" path="res://Scenes/right_door_status.gd" id="5_tpkrg"]
 [ext_resource type="PackedScene" uid="uid://bt4q53glfnuvw" path="res://Scenes/AlertTimer.tscn" id="6_axdon"]
+[ext_resource type="Script" uid="uid://gw66j1yofubm" path="res://Scripts/flashlight_handler.gd" id="10_f8na0"]
 
 [node name="SecurityDesk" type="Node2D"]
 script = ExtResource("1_ri7fq")
@@ -17,6 +21,52 @@ script = ExtResource("1_ri7fq")
 position = Vector2(0, 333)
 scale = Vector2(2.758, 1)
 texture = ExtResource("2_axdon")
+
+[node name="VentsStatus" type="Label" parent="."]
+offset_left = -72.0
+offset_top = 297.0
+offset_right = 79.0
+offset_bottom = 320.0
+text = "Your Vent is Empty."
+script = ExtResource("3_2j84s")
+
+[node name="LeftDoorStatus" type="Label" parent="."]
+offset_left = -849.0
+offset_top = 294.0
+offset_right = -682.0
+offset_bottom = 317.0
+text = "No one is at the door."
+script = ExtResource("4_674sq")
+
+[node name="RightDoorStatus" type="Label" parent="."]
+offset_left = 697.0
+offset_top = 302.0
+offset_right = 864.0
+offset_bottom = 325.0
+text = "No one is at the door."
+script = ExtResource("5_tpkrg")
+
+[node name="LeftButton" type="Button" parent="."]
+offset_left = -941.0
+offset_top = 330.0
+offset_right = -879.0
+offset_bottom = 399.0
+text = "FLASH"
+
+[node name="MiddleButton" type="Button" parent="."]
+offset_left = -60.0
+offset_top = 335.0
+offset_right = 66.0
+offset_bottom = 404.0
+text = "FLASH VENTS
+"
+
+[node name="RightButton" type="Button" parent="."]
+offset_left = 883.0
+offset_top = 330.0
+offset_right = 945.0
+offset_bottom = 399.0
+text = "FLASH"
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("left_button", "right_button")]
 position = Vector2(0, 324)
@@ -44,14 +94,9 @@ metadata/Pink = false
 
 [node name="Animatronic" parent="." instance=ExtResource("1_cb5gl")]
 
-[node name="LeftButton" type="Button" parent="."]
-offset_left = -941.0
-offset_top = 330.0
-offset_right = -879.0
-offset_bottom = 399.0
+[node name="FlashlightHandler" type="Node" parent="."]
+script = ExtResource("10_f8na0")
 
-[node name="RightButton" type="Button" parent="."]
-offset_left = 883.0
-offset_top = 330.0
-offset_right = 945.0
-offset_bottom = 399.0
+[connection signal="pressed" from="LeftButton" to="FlashlightHandler" method="_on_left_button_pressed"]
+[connection signal="pressed" from="MiddleButton" to="FlashlightHandler" method="_on_middle_button_pressed"]
+[connection signal="pressed" from="RightButton" to="FlashlightHandler" method="_on_right_button_pressed"]
