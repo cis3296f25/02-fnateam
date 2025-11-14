@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://ri1q3gh5tkcx"]
+
+[ext_resource type="Script" uid="uid://3bdu0mse6dd7" path="res://Scripts/FlashLight.gd" id="1_dfmn1"]
+
+[node name="FlashLight" type="Node2D"]
+script = ExtResource("1_dfmn1")
+
+[node name="CheckButton" type="CheckButton" parent="."]
+offset_right = 44.0
+offset_bottom = 24.0
+text = "Flashlight"
+
+[connection signal="toggled" from="CheckButton" to="." method="_on_check_button_toggled"]

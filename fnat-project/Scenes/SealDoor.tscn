@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://dy73olhrju0qp"]
+
+[ext_resource type="Script" uid="uid://bubw6ujwc2sh4" path="res://Scripts/seal_room.gd" id="1_the0y"]
+
+[node name="SealRoom" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_the0y")
+
+[node name="CheckButton" type="CheckButton" parent="."]
+layout_mode = 0
+offset_right = 44.0
+offset_bottom = 24.0
+text = "Seal Room"
+
+[connection signal="toggled" from="CheckButton" to="." method="_on_check_button_toggled"]

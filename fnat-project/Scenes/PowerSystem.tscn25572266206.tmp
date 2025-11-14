@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://r0ran3o3n73k"]
+
+[ext_resource type="Script" uid="uid://deyx8tk40t788" path="res://Scripts/power_system.gd" id="1_8k27y"]
+
+[node name="PowerSystem" type="Node"]
+script = ExtResource("1_8k27y")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="PowerRemaining" type="Label" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -94.0
+offset_right = 377.0
+offset_bottom = -47.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "POWER: XX%"
+
+[node name="PowerUsage" type="Label" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -140.0
+offset_right = 377.0
+offset_bottom = -93.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "POWER: XX%"
