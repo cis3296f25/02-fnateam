@@ -7,14 +7,14 @@ extends Node
 		"AdjacentRooms" : [2],
 		"SealedDoor" : false,
 		"Empty" : true,
-		"Usage" : 10
+		"Usage" : 34
 	},
 	2 : {
 		"Name" : "Lounge", # Main HUB!!
 		"AdjacentRooms" : [3,4, 5, 6],
 		"SealedDoor" : false,
 		"Empty" : true,
-		"Usage" : 10
+		"Usage" : 14
 	},
 	3 : { #Alternate Pathing to delay the approach of Gritty
 		"Name" : "Cafe", 
@@ -49,7 +49,7 @@ extends Node
 		"AdjacentRooms" : [5,6,8,9,14],
 		"SealedDoor" : false,
 		"Empty" : true,
-		"Usage" : 10
+		"Usage" : 24
 	},
 	8 : { # Where the other animatronics will come down to get to the office.
 		"Name" : "LeftHall", 

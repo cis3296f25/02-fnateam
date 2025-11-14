@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://gqe1bffwwtkk"]
+[gd_scene load_steps=13 format=3 uid="uid://gqe1bffwwtkk"]
 
 [ext_resource type="PackedScene" uid="uid://c603rgefo4g1i" path="res://Scenes/Animatronic.tscn" id="1_cb5gl"]
 [ext_resource type="Script" uid="uid://jdxxtktnbyel" path="res://Scripts/main_gameloop.gd" id="1_ri7fq"]
@@ -8,7 +8,6 @@
 [ext_resource type="Script" uid="uid://t3loly8kspvp" path="res://Scenes/vents_status.gd" id="3_2j84s"]
 [ext_resource type="Script" uid="uid://c5npocm5c7om1" path="res://Scripts/camera_2d.gd" id="3_xaf5t"]
 [ext_resource type="PackedScene" uid="uid://r0ran3o3n73k" path="res://Scenes/PowerSystem.tscn" id="4_5d07y"]
-[ext_resource type="PackedScene" uid="uid://ri1q3gh5tkcx" path="res://Scenes/FlashLight.tscn" id="4_8fg2u"]
 [ext_resource type="Script" uid="uid://bpukg6xkgbtyn" path="res://Scenes/left_door_status.gd" id="4_674sq"]
 [ext_resource type="Script" uid="uid://b8g3s5f7si3ev" path="res://Scenes/right_door_status.gd" id="5_tpkrg"]
 [ext_resource type="PackedScene" uid="uid://bt4q53glfnuvw" path="res://Scenes/AlertTimer.tscn" id="6_axdon"]
@@ -73,9 +72,6 @@ position = Vector2(0, 324)
 script = ExtResource("3_xaf5t")
 left_button = NodePath("../LeftButton")
 right_button = NodePath("../RightButton")
-
-[node name="FlashLight" parent="Camera2D" instance=ExtResource("4_8fg2u")]
-position = Vector2(-577, 286)
 
 [node name="CameraFeed" parent="Camera2D" instance=ExtResource("2_8fg2u")]
 position = Vector2(-578, -330)
