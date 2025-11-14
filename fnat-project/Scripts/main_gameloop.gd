@@ -17,6 +17,10 @@ signal phang_boost_ended
 signal cams_opened
 signal cams_closed
 
+signal power_ran_out
+signal power_back
+
+
 var animatronics_locations = {}
 
 signal animatronic_flashed(mascot_name)

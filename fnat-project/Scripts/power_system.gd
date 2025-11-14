@@ -89,6 +89,7 @@ func Add_Power_Usage(amount:int) -> void:
 
 func _Power_Run_Out() -> void:
 	print("Power has run out. Send Out Signal that Power has Run out.")
+	GameManager.power_ran_out.emit()
 	Power_Timer.stop()
 	_Charge_Power()
 	
@@ -106,14 +107,23 @@ func _Finish_Charge() -> void:
 	Power_Timer.stop()
 	charging = false
 	cur_Power = charge_goal
+	_Update_Power_Label()
+	_Update_Usage_Label()
+	GameManager.power_back.emit()
 #	print("Current Charge: ", cur_Power)
 	_set_up_active_power_drain_timer()
 
 func _Update_Power_Label():
-	Power_Label.text = "POWER: " + str(_Return_Current_Power_Displayed_Value()) +  "%"
+	if charging == false:
+		Power_Label.text = "POWER: " + str(_Return_Current_Power_Displayed_Value()) +  "%"
+	else:
+		Power_Label.text = "CHARGING: " + str(floor((cur_Charge / charge_time)*100)) +  "%"
 	
 func _Update_Usage_Label():
-	Usage_Label.text = "USAGE: " + str(power_usage) +  ""
+	if charging == false:
+		Usage_Label.text = "USAGE: " + str(power_usage) +  ""
+	else:
+		Usage_Label.text = "CHARGING PHONE!"
 	
 func _Return_Current_Power_Displayed_Value() -> int:
 	var displayed_power: int = floor(cur_Power / 10)
@@ -123,5 +133,6 @@ func _Return_Current_Power_Displayed_Value() -> int:
 func _process(delta: float) -> void:
 	if charging == true:
 		cur_Charge += delta
-		print("Time Elapsed: ", cur_Charge, "s | Charge Percent: ", floor((cur_Charge / charge_time)*100), "%" )
+		_Update_Power_Label()
+		_Update_Usage_Label()
 	pass
