@@ -63,46 +63,57 @@ func update_Animatronics_On_Cam(_mascot, old_room, new_room) -> void:
 	
 
 func _on_cam_gym_pressed() -> void:
+	SoundEffects.get_node("screenTap").play()
 	load_room(room_scenes["CamGym"])
 
 
 func _on_cam_rh_pressed() -> void:
+	SoundEffects.get_node("screenTap").play()
 	load_room(room_scenes["CamRH"])
 
 
 func _on_cam_lh_pressed() -> void:
+	SoundEffects.get_node("screenTap").play()
 	load_room(room_scenes["CamLH"])
 
 
 func _on_cam_bc_pressed() -> void:
+	SoundEffects.get_node("screenTap").play()
 	load_room(room_scenes["CamBC"])
 
 
 func _on_cam_rl_pressed() -> void:
+	SoundEffects.get_node("screenTap").play()
 	load_room(room_scenes["CamRL"])
 
 
 func _on_cam_ll_pressed() -> void:
+	SoundEffects.get_node("screenTap").play()
 	load_room(room_scenes["CamLL"])
 
 
 func _on_cam_lounge_pressed() -> void:
+	SoundEffects.get_node("screenTap").play()
 	load_room(room_scenes["CamLounge"])
 
 
 func _on_cam_storage_pressed() -> void:
+	SoundEffects.get_node("screenTap").play()
 	load_room(room_scenes["CamStorage"])
 
 
 func _on_cam_cafe_pressed() -> void:
+	SoundEffects.get_node("screenTap").play()
 	load_room(room_scenes["CamCafe"])
 
 
 func _on_cam_closet_pressed() -> void:
+	SoundEffects.get_node("screenTap").play()
 	load_room(room_scenes["CamCloset"])
 
 
 func _on_cam_utility_pressed() -> void:
+	SoundEffects.get_node("screenTap").play()
 	load_room(room_scenes["CamUtility"])
 
 
@@ -122,6 +133,7 @@ func _on_switch_button_mouse_entered() -> void:
 		make_camera_map_invisible()
 	office_active = !office_active
 func make_camera_map_invisible():
+	SoundEffects.get_node("clickClose").play()
 	GameManager.cams_closed.emit()
 	#emit_signal("cams_closed")
 	for child in  button_container.get_children():
@@ -130,6 +142,7 @@ func make_camera_map_invisible():
 			# Set the Button's visible property to false
 			child.visible = false
 func make_camera_map_visible():
+	SoundEffects.get_node("clickOpen").play()
 	GameManager.cams_opened.emit()
 	#emit_signal("")
 	for child in button_container.get_children():

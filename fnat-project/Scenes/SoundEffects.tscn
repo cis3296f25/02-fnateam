@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://duxb5nyw2huei"]
+
+[ext_resource type="AudioStream" uid="uid://bgjl720ausv4l" path="res://Assets/Sounds/computerMouseClick.mp3" id="1_qcviq"]
+[ext_resource type="AudioStream" uid="uid://dpaaya6gkf582" path="res://Assets/Sounds/clickOpen.mp3" id="2_mq6su"]
+[ext_resource type="AudioStream" uid="uid://73hi4xkwcplc" path="res://Assets/Sounds/clickClose.mp3" id="3_kergd"]
+[ext_resource type="AudioStream" uid="uid://b07rg3gsvx2dx" path="res://Assets/Sounds/screenTap.mp3" id="4_nmidg"]
+
+[node name="SoundEffects" type="Node2D"]
+
+[node name="computerMouseClick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_qcviq")
+
+[node name="clickOpen" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_kergd")
+volume_db = 4.293
+
+[node name="clickClose" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_mq6su")
+volume_db = 4.293
+
+[node name="screenTap" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_nmidg")
+volume_db = -5.725
