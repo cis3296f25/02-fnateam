@@ -29,17 +29,28 @@ var animatronics_locations = {}
 signal animatronic_flashed(mascot_name)
 
 var list_of_flashed_animatronics = {}
-# Called when the node enters the scene tree for the first time.
-
 
 var shared_room_database = null
+var night_database = null
 signal room_sealed(room_name, is_sealed)
 var room_seal_states = {}
 
+var current_night = 5
+var nights_beaten = {}
+signal hooters_setAI(start, TwoAMInc, ThreeAMInc, FourAMInc)
+signal gritty_setAI(start, TwoAMInc, ThreeAMInc, FourAMInc)
+signal phillie_setAI(start, TwoAMInc, ThreeAMInc, FourAMInc)
+signal phang_setAI(start, TwoAMInc, ThreeAMInc, FourAMInc)
+
+# Called when the node enters the scene tree for the first time
 func _ready() -> void:
 	var db_scene = preload("res://Scenes/Room_Database.tscn")
 	shared_room_database = db_scene.instantiate()
 	add_child(shared_room_database)
+	
+	var night_db_scene = preload("res://Scenes/Night_Database.tscn")
+	night_database = night_db_scene.instantiate()
+	add_child(night_database)
 	
 	randomize()
 
@@ -63,6 +74,20 @@ func _ready() -> void:
 
 	print("GameManager initialized.")
 	
+	
+func set_night_start_AI(mascot_name: String) -> int:
+	
+	var nightInfo = night_database.Night[current_night]
+	if nightInfo == null:
+		print("NIGHT UNAVAIABLE")	
+		return 0
+	
+	if nightInfo[mascot_name + "AI_Start"] == null:
+		print("Mascot Unavailble")
+		return 0
+		
+	return nightInfo[mascot_name + "AI_Start"]
+
 func seal_room_doors(room_name: String, is_sealed: bool):
 	room_seal_states[room_name] = is_sealed
 	room_sealed.emit(room_name, is_sealed)

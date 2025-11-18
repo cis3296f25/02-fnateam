@@ -1,7 +1,9 @@
 extends Control
 
 func _on_start_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/SecurityDesk.tscn")
+	# When player starts gane, they will go to the night transition scene,
+	#  also we should have a value in GameManager to
+	get_tree().change_scene_to_file("res://Scenes/Night_Transition.tscn")
 
 func _on_options_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/Options.tscn")
