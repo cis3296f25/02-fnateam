@@ -1,0 +1,16 @@
+Index: fnat-project/Scenes/SecurityDesk.tscn
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>[gd_scene format=3 uid=\"uid://babct5l22vq0e\"]\n\n[node name=\"SecurityDesk\" type=\"Node2D\"]\n\n[node name=\"Camera2D\" type=\"Camera2D\" parent=\".\"]\n\n[node name=\"ColorRect\" type=\"ColorRect\" parent=\"Camera2D\"]\ncolor = Color(1, 0.007843138, 1, 1)\nmetadata/Pink = false\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/fnat-project/Scenes/SecurityDesk.tscn b/fnat-project/Scenes/SecurityDesk.tscn
+--- a/fnat-project/Scenes/SecurityDesk.tscn	(revision 5db500fa1b6e2f1999d9715dfab19841f10170d3)
++++ b/fnat-project/Scenes/SecurityDesk.tscn	(date 1762802368630)
+@@ -1,4 +1,4 @@
+-[gd_scene format=3 uid="uid://babct5l22vq0e"]
++[gd_scene load_steps=0 format=3 uid="uid://babct5l22vq0e"]
+ 
+ [node name="SecurityDesk" type="Node2D"]
+ 
