@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="75a51885-fd16-4399-a87e-d0fee00f3d2f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/fnat-project/Scenes/MainMenu.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/fnat-project/Scenes/MainMenu.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fnat-project/Scripts/main_menu.gd" beforeDir="false" afterPath="$PROJECT_DIR$/fnat-project/Scripts/main_menu.gd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fnat-project/Scripts/night_transition.gd" beforeDir="false" afterPath="$PROJECT_DIR$/fnat-project/Scripts/night_transition.gd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fnat-project/project.godot" beforeDir="false" afterPath="$PROJECT_DIR$/fnat-project/project.godot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_10_25_PM2_20_[Changes]1/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,12 +21,12 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "hanwang001"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;hanwang001&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubProjectSettings">
     <option name="branchProtectionPatterns">
       <list>
@@ -36,12 +34,12 @@
       </list>
     </option>
   </component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/cis3296f25/02-fnateam.git",
-    "accountId": "1f1cc887-00bf-47b7-81a4-a2b2fa054741"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/cis3296f25/02-fnateam.git&quot;,
+    &quot;accountId&quot;: &quot;1f1cc887-00bf-47b7-81a4-a2b2fa054741&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
@@ -58,7 +56,6 @@
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "Save-Game-progress",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/hanwang/02-fnateam",
