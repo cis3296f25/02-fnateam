@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dy73olhrju0qp"]
+[gd_scene load_steps=3 format=3 uid="uid://dy73olhrju0qp"]
 
 [ext_resource type="Script" uid="uid://bubw6ujwc2sh4" path="res://Scripts/seal_room.gd" id="1_the0y"]
+[ext_resource type="FontFile" uid="uid://csl47hwukavbv" path="res://Assets/Volter__28Goldfish_29.ttf" id="2_htwid"]
 
 [node name="SealRoom" type="Control"]
 layout_mode = 3
@@ -15,6 +16,7 @@ script = ExtResource("1_the0y")
 layout_mode = 0
 offset_right = 44.0
 offset_bottom = 24.0
-text = "Seal Room"
+theme_override_fonts/font = ExtResource("2_htwid")
+text = "SEAL ROOM"
 
 [connection signal="toggled" from="CheckButton" to="." method="_on_check_button_toggled"]

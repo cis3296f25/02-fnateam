@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cc6yoh43ybaso"]
+[gd_scene load_steps=3 format=3 uid="uid://cc6yoh43ybaso"]
 
 [ext_resource type="Script" uid="uid://o511r4tgf0un" path="res://Scripts/camera_feedS.gd" id="1_ecqx0"]
+[ext_resource type="FontFile" uid="uid://csl47hwukavbv" path="res://Assets/Volter__28Goldfish_29.ttf" id="2_q7evq"]
 
 [node name="CameraFeed" type="Node2D"]
 script = ExtResource("1_ecqx0")
@@ -10,136 +11,168 @@ script = ExtResource("1_ecqx0")
 [node name="ButtonContainer" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Office" type="Button" parent="ButtonContainer"]
-layout_mode = 0
-offset_left = 861.0
-offset_top = 313.0
-offset_right = 930.0
-offset_bottom = 369.0
-text = "O (YOU)"
+offset_left = 751.0
+offset_top = 286.0
+offset_right = 1151.0
+offset_bottom = 649.0
 
 [node name="CamGym" type="Button" parent="ButtonContainer"]
+custom_minimum_size = Vector2(60, 60)
 layout_mode = 0
-offset_left = 871.0
-offset_top = 445.0
-offset_right = 929.0
-offset_bottom = 501.0
-text = "Gym"
+offset_left = 74.0
+offset_top = 96.0
+offset_right = 134.0
+offset_bottom = 156.0
+theme_override_fonts/font = ExtResource("2_q7evq")
+text = "G"
 
 [node name="CamRH" type="Button" parent="ButtonContainer"]
+custom_minimum_size = Vector2(60, 60)
 layout_mode = 0
-offset_left = 936.0
-offset_top = 370.0
-offset_right = 994.0
-offset_bottom = 426.0
+offset_left = 139.0
+offset_top = 16.0
+offset_right = 199.0
+offset_bottom = 76.0
+theme_override_fonts/font = ExtResource("2_q7evq")
 text = "RH"
 
 [node name="CamLH" type="Button" parent="ButtonContainer"]
+custom_minimum_size = Vector2(60, 60)
 layout_mode = 0
-offset_left = 802.0
-offset_top = 370.0
-offset_right = 860.0
-offset_bottom = 426.0
+offset_left = 7.0
+offset_top = 14.0
+offset_right = 67.0
+offset_bottom = 74.0
+theme_override_fonts/font = ExtResource("2_q7evq")
 text = "LH"
 
 [node name="CamBC" type="Button" parent="ButtonContainer"]
+custom_minimum_size = Vector2(60, 60)
 layout_mode = 0
-offset_left = 802.0
-offset_top = 441.0
-offset_right = 860.0
-offset_bottom = 497.0
-text = "BC"
+offset_left = 7.0
+offset_top = 96.0
+offset_right = 67.0
+offset_bottom = 156.0
+theme_override_fonts/font = ExtResource("2_q7evq")
+text = "1G"
 
 [node name="CamRL" type="Button" parent="ButtonContainer"]
+custom_minimum_size = Vector2(60, 60)
 layout_mode = 0
-offset_left = 806.0
-offset_top = 510.0
-offset_right = 864.0
-offset_bottom = 566.0
+offset_left = 140.0
+offset_top = 176.0
+offset_right = 200.0
+offset_bottom = 236.0
+theme_override_fonts/font = ExtResource("2_q7evq")
 text = "RL"
 
 [node name="CamLL" type="Button" parent="ButtonContainer"]
+custom_minimum_size = Vector2(60, 60)
 layout_mode = 0
-offset_left = 936.0
-offset_top = 509.0
-offset_right = 994.0
-offset_bottom = 565.0
+offset_left = 7.0
+offset_top = 176.0
+offset_right = 67.0
+offset_bottom = 236.0
+theme_override_fonts/font = ExtResource("2_q7evq")
 text = "LL"
 
 [node name="CamLounge" type="Button" parent="ButtonContainer"]
+custom_minimum_size = Vector2(60, 60)
 layout_mode = 0
-offset_left = 1043.0
-offset_top = 514.0
-offset_right = 1108.0
-offset_bottom = 570.0
-text = "Lounge"
+offset_left = 280.0
+offset_top = 221.0
+offset_right = 340.0
+offset_bottom = 281.0
+theme_override_fonts/font = ExtResource("2_q7evq")
+text = "L"
 
 [node name="CamStorage" type="Button" parent="ButtonContainer"]
+custom_minimum_size = Vector2(60, 60)
 layout_mode = 0
-offset_left = 1003.0
-offset_top = 584.0
-offset_right = 1071.0
-offset_bottom = 640.0
-text = "Storage"
+offset_left = 228.0
+offset_top = 288.0
+offset_right = 288.0
+offset_bottom = 348.0
+theme_override_fonts/font = ExtResource("2_q7evq")
+text = "1L"
 
 [node name="CamCafe" type="Button" parent="ButtonContainer"]
+custom_minimum_size = Vector2(60, 60)
 layout_mode = 0
-offset_left = 1087.0
-offset_top = 583.0
-offset_right = 1145.0
-offset_bottom = 639.0
-text = "Cafe"
+offset_left = 330.0
+offset_top = 288.0
+offset_right = 390.0
+offset_bottom = 348.0
+theme_override_fonts/font = ExtResource("2_q7evq")
+text = "2L"
 
 [node name="CamCloset" type="Button" parent="ButtonContainer"]
+custom_minimum_size = Vector2(60, 60)
 layout_mode = 0
-offset_left = 1012.0
-offset_top = 442.0
-offset_right = 1070.0
-offset_bottom = 498.0
-text = "Closet"
+offset_left = 228.0
+offset_top = 151.0
+offset_right = 288.0
+offset_bottom = 211.0
+theme_override_fonts/font = ExtResource("2_q7evq")
+text = "3L"
 
 [node name="CamUtility" type="Button" parent="ButtonContainer"]
+custom_minimum_size = Vector2(60, 60)
 layout_mode = 0
-offset_left = 1082.0
-offset_top = 443.0
-offset_right = 1140.0
-offset_bottom = 499.0
-text = "Utility"
+offset_left = 330.0
+offset_top = 151.0
+offset_right = 390.0
+offset_bottom = 211.0
+theme_override_fonts/font = ExtResource("2_q7evq")
+text = "4L"
+
+[node name="YOU" type="Label" parent="ButtonContainer"]
+layout_mode = 0
+offset_left = 85.0
+offset_top = -27.0
+offset_right = 125.0
+offset_bottom = -4.0
+theme_override_fonts/font = ExtResource("2_q7evq")
+text = "YOU"
+
+[node name="RoomLabel" type="Label" parent="ButtonContainer"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = -83.0
+offset_right = 200.0
+offset_bottom = -38.0
+theme_override_fonts/font = ExtResource("2_q7evq")
 
 [node name="SwitchButton" type="Button" parent="."]
-offset_left = 345.0
-offset_top = 583.0
-offset_right = 754.0
-offset_bottom = 650.0
-text = "Switch"
+custom_minimum_size = Vector2(550, 50)
+offset_left = 271.0
+offset_top = 605.0
+offset_right = 821.0
+offset_bottom = 655.0
 
-[connection signal="pressed" from="ButtonContainer/Office" to="." method="_on_l1_pressed"]
 [connection signal="pressed" from="ButtonContainer/CamGym" to="." method="_on_r1_pressed"]
 [connection signal="pressed" from="ButtonContainer/CamGym" to="." method="_on_cam_gym_pressed"]
 [connection signal="pressed" from="ButtonContainer/CamRH" to="." method="_on_l2_pressed"]
 [connection signal="pressed" from="ButtonContainer/CamRH" to="." method="_on_cam_rh_pressed"]
 [connection signal="pressed" from="ButtonContainer/CamLH" to="." method="_on_f_pressed"]
 [connection signal="pressed" from="ButtonContainer/CamLH" to="." method="_on_cam_lh_pressed"]
+[connection signal="pressed" from="ButtonContainer/CamBC" to="." method="_on_r2_pressed"]
 [connection signal="pressed" from="ButtonContainer/CamBC" to="." method="_on_r3_pressed"]
 [connection signal="pressed" from="ButtonContainer/CamBC" to="." method="_on_cam_bc_pressed"]
-[connection signal="pressed" from="ButtonContainer/CamBC" to="." method="_on_r2_pressed"]
 [connection signal="pressed" from="ButtonContainer/CamRL" to="." method="_on_sec_pressed"]
 [connection signal="pressed" from="ButtonContainer/CamRL" to="." method="_on_cam_rl_pressed"]
-[connection signal="pressed" from="ButtonContainer/CamLL" to="." method="_on_cam_ll_pressed"]
 [connection signal="pressed" from="ButtonContainer/CamLL" to="." method="_on_r2_pressed"]
-[connection signal="pressed" from="ButtonContainer/CamLounge" to="." method="_on_cam_lounge_pressed"]
+[connection signal="pressed" from="ButtonContainer/CamLL" to="." method="_on_cam_ll_pressed"]
 [connection signal="pressed" from="ButtonContainer/CamLounge" to="." method="_on_r2_pressed"]
-[connection signal="pressed" from="ButtonContainer/CamStorage" to="." method="_on_cam_storage_pressed"]
+[connection signal="pressed" from="ButtonContainer/CamLounge" to="." method="_on_cam_lounge_pressed"]
 [connection signal="pressed" from="ButtonContainer/CamStorage" to="." method="_on_r2_pressed"]
-[connection signal="pressed" from="ButtonContainer/CamCafe" to="." method="_on_cam_cafe_pressed"]
+[connection signal="pressed" from="ButtonContainer/CamStorage" to="." method="_on_cam_storage_pressed"]
 [connection signal="pressed" from="ButtonContainer/CamCafe" to="." method="_on_r2_pressed"]
-[connection signal="pressed" from="ButtonContainer/CamCloset" to="." method="_on_cam_closet_pressed"]
+[connection signal="pressed" from="ButtonContainer/CamCafe" to="." method="_on_cam_cafe_pressed"]
 [connection signal="pressed" from="ButtonContainer/CamCloset" to="." method="_on_r2_pressed"]
-[connection signal="pressed" from="ButtonContainer/CamUtility" to="." method="_on_cam_utility_pressed"]
+[connection signal="pressed" from="ButtonContainer/CamCloset" to="." method="_on_cam_closet_pressed"]
 [connection signal="pressed" from="ButtonContainer/CamUtility" to="." method="_on_r2_pressed"]
+[connection signal="pressed" from="ButtonContainer/CamUtility" to="." method="_on_cam_utility_pressed"]
 [connection signal="focus_entered" from="SwitchButton" to="." method="_on_switch_button_focus_entered"]
 [connection signal="mouse_entered" from="SwitchButton" to="." method="_on_switch_button_mouse_entered"]
 [connection signal="mouse_exited" from="SwitchButton" to="." method="_on_switch_button_mouse_exited"]
