@@ -1,12 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://bqt1c87shb0uh"]
+[gd_scene load_steps=4 format=3 uid="uid://bqt1c87shb0uh"]
 
 [ext_resource type="Script" uid="uid://pqxni0dbqjen" path="res://Scripts/TUAlert.gd" id="1_bwpl5"]
+[ext_resource type="FontFile" uid="uid://csl47hwukavbv" path="res://Assets/Volter__28Goldfish_29.ttf" id="2_j3fcs"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j3fcs"]
+bg_color = Color(1, 0.2, 0.2, 0.19607843)
 
 [node name="TUalert" type="Node2D"]
 script = ExtResource("1_bwpl5")
 
 [node name="TUalert" type="Label" parent="."]
-offset_left = 1.0
-offset_top = 426.0
-offset_right = 252.0
-offset_bottom = 526.0
+visible = false
+offset_left = 191.0
+offset_top = 6.0
+offset_right = 963.0
+offset_bottom = 77.0
+theme_override_fonts/font = ExtResource("2_j3fcs")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_j3fcs")
+horizontal_alignment = 1
+vertical_alignment = 1
