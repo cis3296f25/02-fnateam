@@ -29,9 +29,14 @@ func _ready() -> void:
 	if GameManager:
 		GameManager.phang_boost_started.connect(_on_aggression_boost_started)
 		GameManager.phang_boost_ended.connect(_on_aggression_boost_ended)
-
+	set_AI_Level(GameManager.set_night_start_AI("Phang"))
 	print("%s initialized in room: %s" % [animatronic_name, room_database[current_room_id]["Name"]])
 
+func set_AI_Level(new_Level : int):
+	ai_level = new_Level
+	print("Updated PHANG AI LEVEL: ", ai_level)
+	pass
+	
 
 func _on_aggression_boost_started():
 	if not is_aggressive:

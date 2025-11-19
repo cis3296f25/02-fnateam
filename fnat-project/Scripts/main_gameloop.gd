@@ -22,6 +22,9 @@ signal cams_closed
 signal power_ran_out
 signal power_back
 
+signal impact_power(amount)
+var has_power = true
+
 signal update_vent_status
 signal update_rightDoor_status
 signal update_leftDoor_status
@@ -31,17 +34,28 @@ var animatronics_locations = {}
 signal animatronic_flashed(mascot_name)
 
 var list_of_flashed_animatronics = {}
-# Called when the node enters the scene tree for the first time.
-
 
 var shared_room_database = null
+var night_database = null
 signal room_sealed(room_name, is_sealed)
 var room_seal_states = {}
 
+var current_night = 1
+var nights_beaten = {}
+signal hooters_setAI(start, TwoAMInc, ThreeAMInc, FourAMInc)
+signal gritty_setAI(start, TwoAMInc, ThreeAMInc, FourAMInc)
+signal phillie_setAI(start, TwoAMInc, ThreeAMInc, FourAMInc)
+signal phang_setAI(start, TwoAMInc, ThreeAMInc, FourAMInc)
+
+# Called when the node enters the scene tree for the first time
 func _ready() -> void:
 	var db_scene = preload("res://Scenes/Room_Database.tscn")
 	shared_room_database = db_scene.instantiate()
 	add_child(shared_room_database)
+	
+	var night_db_scene = preload("res://Scenes/Night_Database.tscn")
+	night_database = night_db_scene.instantiate()
+	add_child(night_database)
 	
 	randomize()
 
@@ -50,6 +64,7 @@ func _ready() -> void:
 	loaded_new_cam.connect(_handle_new_cam)
 #	troll_message_triggered.connect(_display_troll_message)
 	power_ran_out.connect(power_outage_handler)
+	power_back.connect(power_back_handler)
 	animatronic_flashed.connect(_animatronic_flashed_handler)
 
 #	tu_alert_instance = TUAlertScene.instantiate()
@@ -65,6 +80,20 @@ func _ready() -> void:
 
 	print("GameManager initialized.")
 	
+	
+func set_night_start_AI(mascot_name: String) -> int:
+	
+	var nightInfo = night_database.Night[current_night]
+	if nightInfo == null:
+		print("NIGHT UNAVAIABLE")	
+		return 0
+	
+	if nightInfo[mascot_name + "AI_Start"] == null:
+		print("Mascot Unavailble")
+		return 0
+		
+	return nightInfo[mascot_name + "AI_Start"]
+
 func seal_room_doors(room_name: String, is_sealed: bool):
 	room_seal_states[room_name] = is_sealed
 	room_sealed.emit(room_name, is_sealed)
@@ -77,7 +106,11 @@ func seal_room_doors(room_name: String, is_sealed: bool):
 func get_room_seal_state(room_name: String) -> bool:
 	return room_seal_states.get(room_name, false)
 
+func power_back_handler() -> void:
+	has_power = true
+
 func power_outage_handler() -> void:
+	has_power = false
 	var rooms = shared_room_database.rooms
 	for room_id in rooms:
 		var room_name = rooms[room_id]["Name"]

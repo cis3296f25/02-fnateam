@@ -1,5 +1,7 @@
 extends Node
 
+@export var Flash_Power_Use = 10
+@export var Battery_Charges = 12
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -10,8 +12,26 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
+func check_for_power() -> bool:
+	if GameManager.has_power == true:
+		return true
+		
+	if Battery_Charges > 0:
+		return true
+	
+	return false
+
+func impact_power(amount : int) -> void:
+	if GameManager.has_power == true:
+		GameManager.impact_power.emit(amount)
+	else:
+		if Battery_Charges > 0:
+			Battery_Charges -= 1
+			print("Charges LEft: ", Battery_Charges)
 
 func _on_left_button_pressed() -> void:
+	if check_for_power() == false:
+		return
 	var mascots := ["Phillie Phanatic", "Hooters"]
 	var missed = true
 	for i in range(2):
@@ -21,10 +41,14 @@ func _on_left_button_pressed() -> void:
 			
 	if missed == true:
 		print("Missed Target.")
+		
+	impact_power(Flash_Power_Use)
 	pass # Replace with function body.
 
 
 func _on_middle_button_pressed() -> void:
+	if check_for_power() == false:
+		return
 	var mascots := ["Phang"]
 	var missed = true
 	for i in range(1):
@@ -34,10 +58,12 @@ func _on_middle_button_pressed() -> void:
 			
 	if missed == true:
 		print("Missed Target.")
-	pass # Replace with function body.
+	impact_power(Flash_Power_Use)
 
 
 func _on_right_button_pressed() -> void:
+	if check_for_power() == false:
+		return
 	var mascots := ["Hooters", "Gritty"]
 	var missed = true
 	for i in range(2):
@@ -47,4 +73,4 @@ func _on_right_button_pressed() -> void:
 			
 	if missed == true:
 		print("Missed Target.")
-	pass # Replace with function body.
+	impact_power(Flash_Power_Use)

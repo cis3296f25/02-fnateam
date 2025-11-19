@@ -32,6 +32,7 @@ func _ready() -> void:
 	GameManager.cams_closed.connect(Close_Cameras)
 	GameManager.cams_opened.connect(Open_Cameras)
 	GameManager.room_sealed.connect(Seal_Room_Handler)
+	GameManager.impact_power.connect(_Impact_Power)
 	_set_up_active_power_drain_timer()
 	pass # Replace with function body.
 
@@ -51,13 +52,15 @@ func _Drain_Power() -> void:
 		passive_drain_countdown = max_passive_Drain_count
 		drain_amount += passive_drain
 		pass
-	cur_Power -= drain_amount
+	_Impact_Power(drain_amount)
+
+func _Impact_Power(amount : int) -> void:
+	cur_Power -= amount
 #	print("Current Power: ", cur_Power)
 	if cur_Power <= 0:
 		_Power_Run_Out()
 		return
 	_Update_Power_Label()
-	pass
 
 func Open_Cameras():
 	if opened_Cameras == false:
