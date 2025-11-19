@@ -139,29 +139,27 @@ func move_to_next_room():
 		trigger_attack()
 
 
-func handle_flashed(mascot_name):
-	if mascot_name != animatronic_name:
-		return
+func handle_flashed(mascot_name) -> void:
+	if mascot_name == animatronic_name:
+		print("%s was FLASHED!" % animatronic_name)
+		GameManager.reduce_power(FLASH_POWER_COST)
 
-	print("%s was FLASHED!" % animatronic_name)
-	GameManager.reduce_power(FLASH_POWER_COST)
+		stage = 1
+		time_without_check = 0
 
-	stage = 1
-	time_without_check = 0
+		var current_name = room_database[current_room_id]
+		if stage >= 4:
+			_jump_to_opposite_hall()
+			return
 
-	var current_name = room_database[current_room_id]["Name"]
-	if stage >= 4:
-		_jump_to_opposite_hall()
-		return
+		var flashed_room_ID = 2  # Safe room ID
+		var current_room = room_database[current_room_id]
+		var next_room = room_database[flashed_room_ID]
 
-	var safe_room_id = 14
-	var current_room = room_database[current_room_id]
-	var safe_room = room_database[safe_room_id]
-
-	GameManager.animatronic_moved.emit(animatronic_name, current_room["Name"], safe_room["Name"])
-	current_room["Empty"] = true
-	safe_room["Empty"] = false
-	current_room_id = safe_room_id
+		GameManager.animatronic_moved.emit(animatronic_name, current_room["Name"], next_room["Name"])
+		current_room["Empty"] = true
+		next_room["Empty"] = false
+		current_room_id = flashed_room_ID
 
 	print("%s returned to safe room." % animatronic_name)
 

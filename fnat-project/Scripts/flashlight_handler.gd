@@ -27,12 +27,12 @@ func impact_power(amount : int) -> void:
 	else:
 		if Battery_Charges > 0:
 			Battery_Charges -= 1
-			print("Charges LEft: ", Battery_Charges)
+			print("Charges Left: ", Battery_Charges)
 
 func _on_left_button_pressed() -> void:
 	if check_for_power() == false:
 		return
-	var mascots := ["Phillie Phanatic", "Hooters"]
+	var mascots := ["Phillie Phanatic", "Hooters", "Franklin"]
 	var missed = true
 	for i in range(2):
 		if GameManager.animatronics_locations[mascots[i]] == "LeftOfficeDoor" :
@@ -64,7 +64,7 @@ func _on_middle_button_pressed() -> void:
 func _on_right_button_pressed() -> void:
 	if check_for_power() == false:
 		return
-	var mascots := ["Hooters", "Gritty"]
+	var mascots := ["Hooters", "Gritty","Franklin"]
 	var missed = true
 	for i in range(2):
 		if GameManager.animatronics_locations[mascots[i]] == "RightOfficeDoor" :
