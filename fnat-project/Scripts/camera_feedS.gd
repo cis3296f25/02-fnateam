@@ -129,12 +129,12 @@ func make_camera_map_invisible():
 	GameManager.cams_closed.emit()
 	#emit_signal("cams_closed")
 	for child in button_container.get_children():
-		if child is Button or child is Label:
+		if child is Button or child is Label or child is Line2D:
 			child.visible = false
 
 func make_camera_map_visible():
 	GameManager.cams_opened.emit()
 	#emit_signal("")
 	for child in button_container.get_children():
-		if child is Button or child is Label:
+		if child is Button or child is Label or child is Line2D:
 			child.visible = true

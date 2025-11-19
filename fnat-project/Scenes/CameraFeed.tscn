@@ -11,10 +11,10 @@ script = ExtResource("1_ecqx0")
 [node name="ButtonContainer" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 751.0
-offset_top = 286.0
-offset_right = 1151.0
-offset_bottom = 649.0
+offset_left = 717.0
+offset_top = 268.0
+offset_right = 1117.0
+offset_bottom = 631.0
 
 [node name="CamGym" type="Button" parent="ButtonContainer"]
 custom_minimum_size = Vector2(60, 60)
@@ -128,12 +128,15 @@ text = "4L"
 
 [node name="YOU" type="Label" parent="ButtonContainer"]
 layout_mode = 0
-offset_left = 85.0
-offset_top = -27.0
-offset_right = 125.0
-offset_bottom = -4.0
+offset_left = 61.0
+offset_top = -36.0
+offset_right = 144.0
+offset_bottom = 22.0
 theme_override_fonts/font = ExtResource("2_q7evq")
+theme_override_font_sizes/font_size = 25
 text = "YOU"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="RoomLabel" type="Label" parent="ButtonContainer"]
 layout_mode = 0
@@ -142,6 +145,11 @@ offset_top = -83.0
 offset_right = 200.0
 offset_bottom = -38.0
 theme_override_fonts/font = ExtResource("2_q7evq")
+theme_override_font_sizes/font_size = 25
+
+[node name="CamBoarder" type="Line2D" parent="ButtonContainer"]
+points = PackedVector2Array(-703, -249, -702, 365, 416, 369, 421, -253, -705, -250)
+width = 4.0
 
 [node name="SwitchButton" type="Button" parent="."]
 custom_minimum_size = Vector2(550, 50)
