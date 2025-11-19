@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dfg7lcoq8kb0n" path="res://Scenes/Room_Database.tscn" id="4_71jmn"]
 [ext_resource type="Script" uid="uid://divj7fbp3shk2" path="res://Scripts/phillies_fnatic.gd" id="4_divj7"]
 [ext_resource type="Script" uid="uid://dn7p7emsqwfpa" path="res://Scripts/Phang.gd" id="5_j2o0d"]
-[ext_resource type="Script" path="res://Scripts/Franklin.gd" id="7_274wx"]
+[ext_resource type="Script" uid="uid://bkp66hydyhfk1" path="res://Scripts/Franklin.gd" id="7_274wx"]
 
 [node name="Animatronic" type="Node2D"]
 
@@ -53,5 +53,11 @@ autostart = true
 
 [node name="Franklin" type="Node2D" parent="."]
 script = ExtResource("7_274wx")
+move_interval = null
+ai_level = null
+stage_time = null
 
 [node name="Timer" type="Timer" parent="Franklin"]
+
+[node name="stage_time" type="Timer" parent="Franklin"]
+wait_time = 20.0
