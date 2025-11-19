@@ -12,7 +12,8 @@ var room_scenes = {
 	"CamStorage": preload("res://Scenes/rooms/Storage.tscn"),
 	"CamCafe": preload("res://Scenes/rooms/Cafe.tscn"),
 	"CamCloset": preload("res://Scenes/rooms/Closet.tscn"),
-	"CamUtility": preload("res://Scenes/rooms/Utility.tscn")
+	"CamUtility": preload("res://Scenes/rooms/Utility.tscn"),
+	"CamStatic": preload("res://Scenes/StaticScreen.tscn"),
 }
 
 func _ready() -> void: 
@@ -60,13 +61,13 @@ func power_return_handler():
 func update_Animatronics_On_Cam(_mascot, old_room, new_room) -> void:
 	if old_room == current_room.get_name() or new_room == current_room.get_name():
 		print("Static Static, Animatronic has Moved on Cam.")
+		load_room(room_scenes["CamStatic"])
 		GameManager.loaded_new_cam.emit(current_room, current_room.get_name())
 	
 
 func _on_cam_gym_pressed() -> void:
 	load_room(room_scenes["CamGym"])
 	room_label.text = "GYM"
-
 
 func _on_cam_rh_pressed() -> void:
 	load_room(room_scenes["CamRH"])

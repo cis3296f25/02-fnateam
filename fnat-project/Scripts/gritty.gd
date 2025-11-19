@@ -55,7 +55,6 @@ func _action() -> void:
 		move_to_next_room()
 		print("%s moved! (Roll: %d < Effective AI: %d)" % [animatronic_name, roll, effective_ai])
 
-
 func move_to_next_room():
 	var current_room = room_database[current_room_id]
 	var adjacent_rooms = current_room["AdjacentRooms"].duplicate()
