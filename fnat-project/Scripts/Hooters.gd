@@ -8,6 +8,7 @@ var room_database: Dictionary
 var current_room_id = 1
 var peak = 0
 @onready var move_timer: Timer = $Timer
+@onready var taunt: Timer = $TauntTimer
 @export var ai_level: int = 5
 var animatronic_name = "Hooters"
 var aggression_multiplier: float = 1.0
@@ -65,40 +66,62 @@ func move_to_next_room():
 	var current_room = room_database[current_room_id]
 	var adjacent_rooms = current_room["AdjacentRooms"].duplicate()
 
-	while adjacent_rooms.size() > 0:
-		var next_room_id = adjacent_rooms[randi() % adjacent_rooms.size()]
+	# Custom weights for movement preference (RoomName: Weight)
+	var room_weights = {
+		"Office": 4.0,
+		"LeftHall": 3.0,
+		"RightHall": 3.0,
+		"gym": 2.5,
+		"RightLocker": 1.5,
+		"LeftLocker": 1.5,
+		"Storage": 0.5,
+		"Closet": 3.0,
+		"Lounge": 1.0
+	}
+
+	var valid_rooms = []
+	for next_room_id in adjacent_rooms:
 		var next_room = room_database[next_room_id]
-		
-		if current_room["SealedDoor"]:
-			adjacent_rooms.clear()
-			break
 
-		# Skip blocked or sealed rooms
-		#if next_room["Name"] in ["Vent Section 1", "Vent Section 2", "Vent Section 3"] \
-		#or next_room["SealedDoor"] or not next_room["Empty"]:
-			#adjacent_rooms.erase(next_room_id)
-			#continue
-		if next_room["Name"] in ["Vent Section 1", "Vent Section 2", "Vent Section 3"] \
-		or next_room["SealedDoor"]:
-			adjacent_rooms.erase(next_room_id)
+		if next_room["SealedDoor"]:
 			continue
-		GameManager.animatronic_moved.emit(animatronic_name, current_room["Name"], next_room["Name"])
+		if next_room["Name"] in ["Vent Section 1", "Vent Section 2", "Vent Section 3", "Cafe", "LeftLocker", "LeftOfficeDoor"]:
+			continue
 
-		current_room["Empty"] = true
-		next_room["Empty"] = false
-		current_room_id = next_room_id
+		valid_rooms.append(next_room_id)
 
-		# Peek behavior for tension
-		if next_room["Name"] in ["LeftOfficerDoor", "RightOfficeDoor"]:
-			handle_peek(next_room["Name"])
-
+	if valid_rooms.is_empty():
+		print("%s couldn't move from %s - no valid rooms available." % [animatronic_name, current_room["Name"]])
 		return
 
-	print("%s couldn't move from %s - no valid rooms available." % [animatronic_name, current_room["Name"]])
+	# Build weighted list
+	var weighted_rooms: Array = []
+	for next_room_id in valid_rooms:
+		var next_room = room_database[next_room_id]
+		var room_name = next_room["Name"]
+		var weight = room_weights.get(room_name, 1.0)
 
+		# Add weight entries
+		for i in range(int(weight * 10)):  # Weight * 10 smooths probabilities
+			weighted_rooms.append(next_room_id)
+
+	# Randomly select room from weighted array
+	var next_room_id = weighted_rooms[randi() % weighted_rooms.size()]
+	var next_room = room_database[next_room_id]
+
+	GameManager.animatronic_moved.emit(animatronic_name, current_room["Name"], next_room["Name"])
+	current_room["Empty"] = true
+	next_room["Empty"] = false
+	current_room_id = next_room_id
+
+	print("%s moved towards %s (Weighted choice)" % [animatronic_name, next_room["Name"]])
+
+	if next_room["Name"] == "Office":
+		trigger_attack()
 
 func handle_peek(room_name: String) -> void:
 	move_timer.stop()
+	taunt.start()
 	peak += 1
 	print("%s is at the %s! Peek count: %d" % [animatronic_name, room_name, peak])
 
@@ -108,6 +131,7 @@ func handle_peek(room_name: String) -> void:
 		trigger_attack()
 	else:
 		print("%s leaves the hallway after peeking." % animatronic_name)
+		taunt.stop()
 		move_timer.start()
 
 func handle_flashed(mascot_name) -> void:
