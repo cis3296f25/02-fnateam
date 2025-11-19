@@ -30,8 +30,14 @@ func _ready() -> void:
 	if GameManager:
 		GameManager.hooters_boost_started.connect(_on_aggression_boost_started)
 		GameManager.hooters_boost_ended.connect(_on_aggression_boost_ended)
-
+	set_AI_Level(GameManager.set_night_start_AI("Hooter"))
 	print("%s initialized in room: %s" % [animatronic_name, room_database[current_room_id]["Name"]])
+
+func set_AI_Level(new_Level : int):
+	ai_level = new_Level
+	print("Updated HOOTER AI LEVEL: ", ai_level)
+	pass
+	
 
 func _on_aggression_boost_started():
 	if is_agressive == false:
