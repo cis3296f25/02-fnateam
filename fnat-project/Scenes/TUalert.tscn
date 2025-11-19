@@ -4,7 +4,16 @@
 [ext_resource type="FontFile" uid="uid://csl47hwukavbv" path="res://Assets/Volter__28Goldfish_29.ttf" id="2_j3fcs"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j3fcs"]
-bg_color = Color(1, 0.2, 0.2, 0.19607843)
+bg_color = Color(1, 1, 1, 0.5882353)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
 
 [node name="TUalert" type="Node2D"]
 script = ExtResource("1_bwpl5")
