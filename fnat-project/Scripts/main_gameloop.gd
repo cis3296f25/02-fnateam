@@ -20,6 +20,9 @@ signal cams_closed
 signal power_ran_out
 signal power_back
 
+signal impact_power(amount)
+var has_power = true
+
 signal update_vent_status
 signal update_rightDoor_status
 signal update_leftDoor_status
@@ -59,6 +62,7 @@ func _ready() -> void:
 	loaded_new_cam.connect(_handle_new_cam)
 #	troll_message_triggered.connect(_display_troll_message)
 	power_ran_out.connect(power_outage_handler)
+	power_back.connect(power_back_handler)
 	animatronic_flashed.connect(_animatronic_flashed_handler)
 
 #	tu_alert_instance = TUAlertScene.instantiate()
@@ -100,7 +104,11 @@ func seal_room_doors(room_name: String, is_sealed: bool):
 func get_room_seal_state(room_name: String) -> bool:
 	return room_seal_states.get(room_name, false)
 
+func power_back_handler() -> void:
+	has_power = true
+
 func power_outage_handler() -> void:
+	has_power = false
 	var rooms = shared_room_database.rooms
 	for room_id in rooms:
 		var room_name = rooms[room_id]["Name"]
