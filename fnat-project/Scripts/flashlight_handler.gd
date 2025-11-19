@@ -34,7 +34,7 @@ func _on_left_button_pressed() -> void:
 		return
 	var mascots := ["Phillie Phanatic", "Hooters", "Franklin"]
 	var missed = true
-	for i in range(2):
+	for i in range(3):
 		if GameManager.animatronics_locations[mascots[i]] == "LeftOfficeDoor" :
 			missed = false
 			GameManager.animatronic_flashed.emit(mascots[i])
@@ -66,7 +66,7 @@ func _on_right_button_pressed() -> void:
 		return
 	var mascots := ["Hooters", "Gritty","Franklin"]
 	var missed = true
-	for i in range(2):
+	for i in range(3):
 		if GameManager.animatronics_locations[mascots[i]] == "RightOfficeDoor" :
 			missed = false
 			GameManager.animatronic_flashed.emit(mascots[i])
