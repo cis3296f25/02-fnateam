@@ -23,18 +23,51 @@ theme_override_constants/margin_top = 100
 theme_override_constants/margin_right = 100
 theme_override_constants/margin_bottom = 100
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-layout_mode = 2
-alignment = 1
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="HBox" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="VolumeLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Labels" type="VBoxContainer" parent="MarginContainer/HBox"]
 layout_mode = 2
-text = "Volume   "
+theme_override_constants/separation = 6
 
-[node name="VolumeSlider" type="HSlider" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBox/Labels"]
+layout_mode = 2
+
+[node name="MasterVolLabel" type="Label" parent="MarginContainer/HBox/Labels"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Master Volume"
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/HBox/Labels"]
+layout_mode = 2
+
+[node name="Music" type="Label" parent="MarginContainer/HBox/Labels"]
+layout_mode = 2
+text = "Music"
+
+[node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/HBox/Labels"]
+layout_mode = 2
+
+[node name="Effects" type="Label" parent="MarginContainer/HBox/Labels"]
+layout_mode = 2
+text = "Effects"
+
+[node name="MarginContainer4" type="MarginContainer" parent="MarginContainer/HBox/Labels"]
+layout_mode = 2
+
+[node name="FullscreenLabel" type="Label" parent="MarginContainer/HBox/Labels"]
+layout_mode = 2
+text = "Fullscreen"
+
+[node name="OptionsSliders" type="VBoxContainer" parent="MarginContainer/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBox/OptionsSliders"]
+layout_mode = 2
+
+[node name="VolumeSlider" type="HSlider" parent="MarginContainer/HBox/OptionsSliders"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
@@ -42,36 +75,43 @@ max_value = 1.0
 step = 0.001
 value = 1.0
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/HBox/OptionsSliders"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="MusicVolSlider" type="HSlider" parent="MarginContainer/HBox/OptionsSliders"]
 layout_mode = 2
-text = "Mute"
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.001
+value = 1.0
 
-[node name="MuteCheckBox" type="CheckBox" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
-layout_direction = 3
+[node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/HBox/OptionsSliders"]
+layout_mode = 2
+
+[node name="EffectsVolSlider" type="HSlider" parent="MarginContainer/HBox/OptionsSliders"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.001
+value = 1.0
+
+[node name="MarginContainer4" type="MarginContainer" parent="MarginContainer/HBox/OptionsSliders"]
+layout_mode = 2
+
+[node name="FullscreenToggle" type="CheckButton" parent="MarginContainer/HBox/OptionsSliders"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="BackButton" type="Button" parent="MarginContainer"]
 layout_mode = 2
-
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer3"]
-layout_mode = 2
-text = "Fullscreen"
-
-[node name="FullscreenToggle" type="CheckButton" parent="MarginContainer/VBoxContainer/HBoxContainer3"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
-
-[node name="BackButton" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
+size_flags_vertical = 8
 text = "Back"
 
-[connection signal="value_changed" from="MarginContainer/VBoxContainer/HBoxContainer/VolumeSlider" to="." method="_on_volume_slider_value_changed"]
-[connection signal="toggled" from="MarginContainer/VBoxContainer/HBoxContainer2/MuteCheckBox" to="." method="_on_mute_check_box_toggled"]
-[connection signal="toggled" from="MarginContainer/VBoxContainer/HBoxContainer3/FullscreenToggle" to="." method="_on_fullscreen_toggle_toggled"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="value_changed" from="MarginContainer/HBox/OptionsSliders/VolumeSlider" to="." method="_on_volume_slider_value_changed"]
+[connection signal="value_changed" from="MarginContainer/HBox/OptionsSliders/MusicVolSlider" to="." method="_on_music_vol_slider_value_changed"]
+[connection signal="value_changed" from="MarginContainer/HBox/OptionsSliders/EffectsVolSlider" to="." method="_on_effects_vol_slider_value_changed"]
+[connection signal="toggled" from="MarginContainer/HBox/OptionsSliders/FullscreenToggle" to="." method="_on_fullscreen_toggle_toggled"]
+[connection signal="pressed" from="MarginContainer/BackButton" to="." method="_on_back_button_pressed"]
