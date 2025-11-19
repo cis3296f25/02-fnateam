@@ -8,11 +8,13 @@ signal hooters_boost_started
 signal gritty_boost_started
 signal phillie_boost_started
 signal phang_boost_started
+signal franklin_boost_started
 
 signal hooters_boost_ended
 signal gritty_boost_ended
 signal phillie_boost_ended
 signal phang_boost_ended
+signal franklin_boost_ended
 
 signal cams_opened
 signal cams_closed

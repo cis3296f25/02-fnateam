@@ -60,41 +60,72 @@ func move_to_next_room():
 	var current_room = room_database[current_room_id]
 	var adjacent_rooms = current_room["AdjacentRooms"].duplicate()
 
-	while adjacent_rooms.size() > 0:
-		var next_room_id = adjacent_rooms[randi() % adjacent_rooms.size()]
-		var next_room = room_database[next_room_id]
-		
-		if current_room["SealedDoor"]:
-			adjacent_rooms.clear()
-			break
+	# Custom weights for movement preference (RoomName: Weight)
+	var room_weights = {
+		"Office": 4.0,
+		"LeftHall": 3.0,
+		"RightHall": 3.0,
+		"gym": 2.5,
+		"RightLocker": 1.5,
+		"LeftLocker": 1.5,
+		"Storage": 0.5,
+		"Closet": 3.0,
+		"Lounge": 1.0
+	}
 
-		#if next_room["Name"] in ["Vent Section 1", "Vent Section 2", "Vent Section 3", "Closet", "LeftLocker", "LeftHall"] \
-		#or next_room["SealedDoor"] or not next_room["Empty"]:
-			#adjacent_rooms.erase(next_room_id)
-		if next_room["Name"] in ["Vent Section 1", "Vent Section 2", "Vent Section 3", "Cafe", "RightLockers", "RightHall", "RightOfficeDoor"] \
-		or next_room["SealedDoor"]:
-			adjacent_rooms.erase(next_room_id)
+	var valid_rooms = []
+	for next_room_id in adjacent_rooms:
+		var next_room = room_database[next_room_id]
+
+		if next_room["SealedDoor"]:
+			continue
+		if next_room["Name"] in ["Vent Section 1", "Vent Section 2", "Vent Section 3", "Cafe", "LeftLocker", "LeftOfficeDoor"]:
 			continue
 
-		GameManager.animatronic_moved.emit(animatronic_name, current_room["Name"], next_room["Name"])
-		current_room["Empty"] = true
-		next_room["Empty"] = false
-		current_room_id = next_room_id
-		if next_room["Name"] == "Office":
-			trigger_attack()
+		valid_rooms.append(next_room_id)
+
+	if valid_rooms.is_empty():
+		print("%s couldn't move from %s - no valid rooms available." % [animatronic_name, current_room["Name"]])
 		return
 
-	print("%s couldn't move from %s - no valid rooms available." % [animatronic_name, current_room["Name"]])
+	# Build weighted list
+	var weighted_rooms: Array = []
+	for next_room_id in valid_rooms:
+		var next_room = room_database[next_room_id]
+		var room_name = next_room["Name"]
+		var weight = room_weights.get(room_name, 1.0)
+
+		# Add weight entries
+		for i in range(int(weight * 10)):  # Weight * 10 smooths probabilities
+			weighted_rooms.append(next_room_id)
+
+	# Randomly select room from weighted array
+	var next_room_id = weighted_rooms[randi() % weighted_rooms.size()]
+	var next_room = room_database[next_room_id]
+
+	GameManager.animatronic_moved.emit(animatronic_name, current_room["Name"], next_room["Name"])
+	current_room["Empty"] = true
+	next_room["Empty"] = false
+	current_room_id = next_room_id
+
+	print("%s moved towards %s (Weighted choice)" % [animatronic_name, next_room["Name"]])
+
+	if next_room["Name"] == "Office":
+		trigger_attack()
 
 func handle_flashed(mascot_name) -> void:
 	if mascot_name == animatronic_name:
 		var current_room = room_database[current_room_id]
-		var flashed_room_ID = 7
-		var next_room = room_database[flashed_room_ID]
+		var flashed_room_id = 7
+		var next_room = room_database[flashed_room_id]
+
 		GameManager.animatronic_moved.emit(animatronic_name, current_room["Name"], next_room["Name"])
 		current_room["Empty"] = true
 		next_room["Empty"] = false
-		current_room_id = flashed_room_ID
+		current_room_id = flashed_room_id
+		print("%s was flashed and returned to '%s'" % [animatronic_name, next_room["Name"]])
+
+
 
 func trigger_attack() -> void:
 	print("%s attacks the player! GAME OVER" % animatronic_name)

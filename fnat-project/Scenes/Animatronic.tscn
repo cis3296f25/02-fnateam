@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c603rgefo4g1i"]
+[gd_scene load_steps=8 format=3 uid="uid://c603rgefo4g1i"]
 
 [ext_resource type="Script" uid="uid://dvx0t6redh06t" path="res://Scripts/gritty.gd" id="2_6posk"]
 [ext_resource type="Texture2D" uid="uid://4o7hi1qwkbon" path="res://Assets/Hooter.PNG" id="2_j2o0d"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dfg7lcoq8kb0n" path="res://Scenes/Room_Database.tscn" id="4_71jmn"]
 [ext_resource type="Script" uid="uid://divj7fbp3shk2" path="res://Scripts/phillies_fnatic.gd" id="4_divj7"]
 [ext_resource type="Script" uid="uid://dn7p7emsqwfpa" path="res://Scripts/Phang.gd" id="5_j2o0d"]
+[ext_resource type="Script" uid="uid://bkp66hydyhfk1" path="res://Scripts/Franklin.gd" id="7_274wx"]
 
 [node name="Animatronic" type="Node2D"]
 
@@ -38,6 +39,9 @@ ai_level = 20
 wait_time = 4.5
 autostart = true
 
+[node name="TauntTimer" type="Timer" parent="Hooters"]
+wait_time = 3.0
+
 [node name="Phang" type="Node2D" parent="."]
 script = ExtResource("5_j2o0d")
 move_interval = 4.97
@@ -46,3 +50,8 @@ ai_level = 20
 [node name="Timer" type="Timer" parent="Phang"]
 wait_time = 5.0
 autostart = true
+
+[node name="Franklin" type="Node2D" parent="."]
+script = ExtResource("7_274wx")
+
+[node name="Timer" type="Timer" parent="Franklin"]
