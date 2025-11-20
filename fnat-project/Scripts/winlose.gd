@@ -8,7 +8,7 @@ func _ready() -> void:
 		
 	if winGame == true:
 		print("Play animation of the win")
-		await get_tree().create_timer(3.5).timeout
+		await get_tree().create_timer(5).timeout
 		print("Transition to next night.")
 		var new_night = GameManager.Advance_To_Next_Night()
 		if new_night == -1:
