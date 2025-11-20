@@ -124,6 +124,7 @@ func _on_switch_button_mouse_entered() -> void:
 		load_room(room_scenes["Office"])
 		make_camera_map_invisible()
 	office_active = !office_active
+	
 
 func make_camera_map_invisible():
 	GameManager.cams_closed.emit()
