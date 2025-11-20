@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://t3loly8kspvp" path="res://Scripts/vents_status.gd" id="3_2j84s"]
 [ext_resource type="Script" uid="uid://c5npocm5c7om1" path="res://Scripts/camera_2d.gd" id="3_xaf5t"]
 [ext_resource type="PackedScene" uid="uid://r0ran3o3n73k" path="res://Scenes/PowerSystem.tscn" id="4_5d07y"]
-[ext_resource type="Script" path="res://Scripts/left_door_status.gd" id="4_674sq"]
+[ext_resource type="Script" uid="uid://bpukg6xkgbtyn" path="res://Scripts/left_door_status.gd" id="4_674sq"]
 [ext_resource type="Script" uid="uid://b8g3s5f7si3ev" path="res://Scripts/right_door_status.gd" id="5_tpkrg"]
 [ext_resource type="PackedScene" uid="uid://bt4q53glfnuvw" path="res://Scenes/AlertTimer.tscn" id="6_axdon"]
 [ext_resource type="Script" uid="uid://gw66j1yofubm" path="res://Scripts/flashlight_handler.gd" id="10_f8na0"]

@@ -73,6 +73,20 @@ func _ready() -> void:
 
 	print("GameManager initialized.")
 
+func Reset_Night() -> void:
+	room_seal_states = {}
+	animatronics_locations = {}
+	has_power = true
+	current_hour = 0
+	list_of_flashed_animatronics = {}
+	
+func Advance_To_Next_Night() -> int:
+	if current_night < 5:
+		current_night += 1
+		return current_night
+		
+	return -1 # -1 Means that it could not return a night and therefore will send back to main menu.
+	
 
 func _process(_delta: float) -> void:
 	if not night_cycle_connected:

@@ -67,11 +67,13 @@ grow_vertical = 0
 theme_override_constants/separation = 114
 
 [node name="MainMenu" type="Button" parent="HBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Main Menu"
 
 [node name="Exit" type="Button" parent="HBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Exit"
