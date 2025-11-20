@@ -15,6 +15,7 @@ var _hour_index := 0
 var _elapsed := 0.0
 
 func _ready() -> void:
+	add_to_group("NightCycle")  # <<< IMPORTANT
 	if clock_label == null:
 		clock_label = get_node_or_null("NightClockLabel")
 	if clock_label == null:
