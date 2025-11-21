@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c7pp3gqc1m0f3"]
 
-[ext_resource type="Script" uid="uid://cn503uo438r4e" path="res://Scenes/newspaper.gd" id="1_73wpm"]
+[ext_resource type="Script" uid="uid://cn503uo438r4e" path="res://Scripts/newspaper.gd" id="1_73wpm"]
 [ext_resource type="Texture2D" uid="uid://dg4rgq4fbd5kg" path="res://Assets/NewspaperPreNight1.png" id="2_kw64y"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2hvl5"]

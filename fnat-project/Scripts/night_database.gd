@@ -4,8 +4,8 @@ extends Node
 	1 : {
 		"PhangAI_Start" : 0,
 		"PhangAI_2AMIncr" : 0,
-        "PhangAI_3AMIncr" : 0,
-        "PhangAI_4AMIncr" : 0,
+		"PhangAI_3AMIncr" : 0,
+		"PhangAI_4AMIncr" : 0,
 
 		"PhanaticAI_Start" : 0,
 		"PhanaticAI_2AMIncr" : 1,

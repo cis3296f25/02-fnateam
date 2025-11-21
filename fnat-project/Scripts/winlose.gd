@@ -22,6 +22,7 @@ func _ready() -> void:
 		get_tree().change_scene_to_file("res://Scenes/Night_Transition.tscn")
 	else:
 		print("Play Transition for loss.")
+		await get_tree().create_timer(5).timeout
 		get_tree().change_scene_to_file("res://Scenes/MainMenu.tscn")
 	pass
 
