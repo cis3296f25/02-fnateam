@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://6pvy0w0tki2i" path="res://Scripts/Hooters.gd" id="3_aa1zq"]
 [ext_resource type="Texture2D" uid="uid://64a2m3q14sqp" path="res://Assets/GrittyJumpscare_final.png" id="4_27vyj"]
 [ext_resource type="PackedScene" uid="uid://dfg7lcoq8kb0n" path="res://Scenes/Room_Database.tscn" id="4_71jmn"]
+[ext_resource type="Texture2D" uid="uid://b87cdhsqlm8k" path="res://Assets/Gritty.png" id="4_274wx"]
 [ext_resource type="Script" uid="uid://divj7fbp3shk2" path="res://Scripts/phillies_fnatic.gd" id="4_divj7"]
 [ext_resource type="Script" uid="uid://dn7p7emsqwfpa" path="res://Scripts/Phang.gd" id="5_j2o0d"]
 [ext_resource type="Script" uid="uid://bkp66hydyhfk1" path="res://Scripts/Franklin.gd" id="7_274wx"]

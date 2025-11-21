@@ -76,7 +76,6 @@ func _update_ai_for_hour():
 
 	last_hour_applied = hour
 
-
 func move_to_next_room():
 	var current_room = room_database[current_room_id]
 	var adjacent_rooms = current_room["AdjacentRooms"].duplicate()
