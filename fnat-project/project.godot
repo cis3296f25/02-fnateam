@@ -24,6 +24,7 @@ SaveManager="*res://Scripts/SaveManager.gd"
 [display]
 
 window/stretch/mode="viewport"
+mouse_cursor/custom_image="uid://wka3xq5h3yqy"
 
 [rendering]
 
