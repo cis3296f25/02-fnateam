@@ -122,9 +122,9 @@ extends Node
 	},
 
 	5 : {
-		"PhangAI_Start" : 5,
+		"PhangAI_Start" : 10,
 		"PhangAI_2AMIncr" : 0,
-		"PhangAI_3AMIncr" : 1,
+		"PhangAI_3AMIncr" : 2,
 		"PhangAI_4AMIncr" : 1,
 
 		"PhanaticAI_Start" : 12,

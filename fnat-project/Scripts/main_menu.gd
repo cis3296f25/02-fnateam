@@ -9,8 +9,8 @@ func _on_start_pressed() -> void:
 	print(">>> Start pressed")
 	SoundEffects.get_node("computerMouseClick").play()
 
-	GameManager.current_night = 1
-	SaveManager.current_night = 1
+	GameManager.current_night = 5
+	SaveManager.current_night = 5
 	GameManager.Reset_Night()
 	SaveManager.save_game()
 	
