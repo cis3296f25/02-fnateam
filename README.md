@@ -26,7 +26,7 @@ https://trello.com/b/03hQVfXd/fnat-final-project
 
 ### Play the Built Game
 1. Go to the [**Releases**](https://github.com/cis3296f25/02-fnateam/releases/) page.
-2. Find the latest release (e.g. **“FNAT DEMO - 2”**).
+2. Find the latest release (e.g. **“FNAT DEMO - 3”**).
 3. Under the **Assets** section, download the ZIP file for your operating system:
    - 💻 **Windows:** `Windows.Fnat.zip`  
    - 🍎 **macOS:** `fnat-project.dmg`
