@@ -125,12 +125,7 @@ func move_to_next_room():
 			continue
 
 		if not next_room["Empty"]:
-			for next_room_id in valid_rooms:
-				var next_room = room_database[next_room_id]
-				var weight = room_weights.get(next_room["Name"], 1.0)
-
-				for i in range(int(weight * 10)):
-					weighted_rooms.append(next_room_id)
+			continue
 
 		valid_rooms.append(next_room_id)
 
