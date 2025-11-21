@@ -1,40 +1,82 @@
-[gd_scene load_steps=8 format=3 uid="uid://c603rgefo4g1i"]
+[gd_scene load_steps=17 format=3 uid="uid://c603rgefo4g1i"]
 
 [ext_resource type="Script" uid="uid://dvx0t6redh06t" path="res://Scripts/gritty.gd" id="2_6posk"]
-[ext_resource type="Texture2D" uid="uid://4o7hi1qwkbon" path="res://Assets/Hooter.PNG" id="2_j2o0d"]
+[ext_resource type="Texture2D" uid="uid://cvymdbaia047" path="res://Assets/PhanticJumpscare_Final.png" id="2_274wx"]
 [ext_resource type="Script" uid="uid://6pvy0w0tki2i" path="res://Scripts/Hooters.gd" id="3_aa1zq"]
+[ext_resource type="Texture2D" uid="uid://64a2m3q14sqp" path="res://Assets/GrittyJumpscare_final.png" id="4_27vyj"]
 [ext_resource type="PackedScene" uid="uid://dfg7lcoq8kb0n" path="res://Scenes/Room_Database.tscn" id="4_71jmn"]
 [ext_resource type="Texture2D" uid="uid://b87cdhsqlm8k" path="res://Assets/Gritty.png" id="4_274wx"]
 [ext_resource type="Script" uid="uid://divj7fbp3shk2" path="res://Scripts/phillies_fnatic.gd" id="4_divj7"]
 [ext_resource type="Script" uid="uid://dn7p7emsqwfpa" path="res://Scripts/Phang.gd" id="5_j2o0d"]
 [ext_resource type="Script" uid="uid://bkp66hydyhfk1" path="res://Scripts/Franklin.gd" id="7_274wx"]
+[ext_resource type="Texture2D" uid="uid://duqte8ii6xisj" path="res://Assets/HooterJumpscare_Final.png" id="7_kipk0"]
+[ext_resource type="Texture2D" uid="uid://c0aqelsoslx1v" path="res://Assets/PhangJumpscare_final.png" id="9_l7g6t"]
+[ext_resource type="Texture2D" uid="uid://d02q58iyu1vo0" path="res://Assets/FranklinJumpscare_final.png" id="11_yw2oc"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y2htd"]
+resource_local_to_scene = true
+resource_name = "Phantic"
+texture = ExtResource("2_274wx")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8326d"]
+resource_local_to_scene = true
+resource_name = "Gritty"
+texture = ExtResource("4_27vyj")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_223ss"]
+resource_local_to_scene = true
+resource_name = "Hooter"
+texture = ExtResource("7_kipk0")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a71c2"]
+resource_local_to_scene = true
+resource_name = "Phang"
+texture = ExtResource("9_l7g6t")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pt3ov"]
+resource_local_to_scene = true
+resource_name = "Franklin"
+texture = ExtResource("11_yw2oc")
 
 [node name="Animatronic" type="Node2D"]
 
 [node name="Phillies_Fnatic" type="Node2D" parent="."]
 script = ExtResource("4_divj7")
-ai_level = 20
 
 [node name="Timer" type="Timer" parent="Phillies_Fnatic"]
 wait_time = 4.970000000000001
 autostart = true
 
-[node name="Sprite2D" type="Sprite2D" parent="Phillies_Fnatic"]
+[node name="Jumpscare" type="CanvasLayer" parent="Phillies_Fnatic"]
+layer = 2
+
+[node name="JumpImage" type="Panel" parent="Phillies_Fnatic/Jumpscare"]
 visible = false
-texture = ExtResource("2_j2o0d")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_y2htd")
 
 [node name="Gritty" type="Node2D" parent="."]
 script = ExtResource("2_6posk")
-ai_level = 20
 
 [node name="Timer" type="Timer" parent="Gritty"]
 wait_time = 4.98
 autostart = true
 
-[node name="GrittySprite1" type="Sprite2D" parent="Gritty"]
+[node name="Jumpscare" type="CanvasLayer" parent="Gritty"]
+layer = 2
+
+[node name="JumpImage" type="Panel" parent="Gritty/Jumpscare"]
 visible = false
-position = Vector2(332, 315)
-texture = ExtResource("4_274wx")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_8326d")
 
 [node name="Hooters" type="Node2D" parent="."]
 script = ExtResource("3_aa1zq")
@@ -48,22 +90,58 @@ autostart = true
 [node name="TauntTimer" type="Timer" parent="Hooters"]
 wait_time = 3.0
 
+[node name="Jumpscare" type="CanvasLayer" parent="Hooters"]
+layer = 2
+
+[node name="JumpImage" type="Panel" parent="Hooters/Jumpscare"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_223ss")
+
 [node name="Phang" type="Node2D" parent="."]
 script = ExtResource("5_j2o0d")
 move_interval = 4.97
-ai_level = 20
 
 [node name="Timer" type="Timer" parent="Phang"]
 wait_time = 5.0
 autostart = true
 
+[node name="Jumpscare" type="CanvasLayer" parent="Phang"]
+layer = 2
+
+[node name="JumpImage" type="Panel" parent="Phang/Jumpscare"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_a71c2")
+
 [node name="Franklin" type="Node2D" parent="."]
 script = ExtResource("7_274wx")
-move_interval = null
-ai_level = null
-stage_time = null
 
 [node name="Timer" type="Timer" parent="Franklin"]
 
 [node name="stage_time" type="Timer" parent="Franklin"]
 wait_time = 20.0
+
+[node name="Jumpscare" type="CanvasLayer" parent="Franklin"]
+layer = 2
+
+[node name="JumpImage" type="Panel" parent="Franklin/Jumpscare"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 190.0
+offset_top = -8.0
+offset_right = -129.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_pt3ov")

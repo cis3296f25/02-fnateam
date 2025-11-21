@@ -8,6 +8,8 @@ var room_database: Dictionary
 var current_room_id = 1
 var peak = 0
 @onready var move_timer: Timer = $Timer
+@onready var Jumpscare: CanvasLayer = $Jumpscare
+@onready var JumpScare_Image = Jumpscare.get_node("JumpImage")
 
 var animatronic_name = "Gritty"
 
@@ -19,7 +21,7 @@ var last_hour_applied: int = 0
 
 func _ready() -> void:
 	randomize()
-
+	JumpScare_Image.visible = false
 	room_database = GameManager.shared_room_database.rooms
 
 	GameManager.animatronic_started.emit(animatronic_name, room_database[current_room_id]["Name"])
@@ -82,7 +84,7 @@ func move_to_next_room():
 		"Office": 4.0,
 		"LeftHall": 3.0,
 		"RightHall": 3.0,
-		"gym": 2.5,
+		"Gym": 2.5,
 		"RightLocker": 1.5,
 		"LeftLocker": 1.5,
 		"Storage": 0.5,
@@ -141,6 +143,12 @@ func handle_flashed(mascot_name) -> void:
 		print("%s was flashed and returned to %s" % [animatronic_name, next_room["Name"]])
 
 
+func Show_Jumpscare() -> void:
+	JumpScare_Image.visible = true
+	print("Done Jumpscare.")
+
 func trigger_attack() -> void:
+	Show_Jumpscare()
 	move_timer.stop()
+	await get_tree().create_timer(0.8).timeout 
 	get_tree().change_scene_to_file("res://Scenes/GameOver.tscn")
