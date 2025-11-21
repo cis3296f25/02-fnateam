@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://b87cdhsqlm8k" path="res://Assets/Gritty.png" id="4_274wx"]
 [ext_resource type="Script" uid="uid://divj7fbp3shk2" path="res://Scripts/phillies_fnatic.gd" id="4_divj7"]
 [ext_resource type="Script" uid="uid://dn7p7emsqwfpa" path="res://Scripts/Phang.gd" id="5_j2o0d"]
+[ext_resource type="Script" uid="uid://bkp66hydyhfk1" path="res://Scripts/Franklin.gd" id="7_274wx"]
 
 [node name="Animatronic" type="Node2D"]
 
@@ -44,6 +45,9 @@ ai_level = 20
 wait_time = 4.5
 autostart = true
 
+[node name="TauntTimer" type="Timer" parent="Hooters"]
+wait_time = 3.0
+
 [node name="Phang" type="Node2D" parent="."]
 script = ExtResource("5_j2o0d")
 move_interval = 4.97
@@ -52,3 +56,14 @@ ai_level = 20
 [node name="Timer" type="Timer" parent="Phang"]
 wait_time = 5.0
 autostart = true
+
+[node name="Franklin" type="Node2D" parent="."]
+script = ExtResource("7_274wx")
+move_interval = null
+ai_level = null
+stage_time = null
+
+[node name="Timer" type="Timer" parent="Franklin"]
+
+[node name="stage_time" type="Timer" parent="Franklin"]
+wait_time = 20.0

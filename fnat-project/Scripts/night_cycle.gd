@@ -7,6 +7,7 @@ signal hour_changed(hour_index:int, text:String)
 @export var start_paused: bool = false
 
 @onready var clock_label: Label = %NightClockLabel
+@onready var night_label: Label = %NightIndicator
 
 var _running := false
 var _paused := false
@@ -14,12 +15,14 @@ var _hour_index := 0
 var _elapsed := 0.0
 
 func _ready() -> void:
+	add_to_group("NightCycle")  # <<< IMPORTANT
 	if clock_label == null:
 		clock_label = get_node_or_null("NightClockLabel")
 	if clock_label == null:
 		push_error("NightClockLabel not found.")
 		return
 	_update_label()
+	_update_night()
 	_running = auto_start
 	_paused = start_paused
 
@@ -48,6 +51,10 @@ func _format_hour_text(i:int) -> String:
 func _update_label() -> void:
 	if clock_label:
 		clock_label.text = _format_hour_text(_hour_index)
+		
+func _update_night() -> void:
+	if night_label:
+		night_label.text = "Night " + str(GameManager.current_night)
 
 func start(): _running = true; _paused = false
 func pause_cycle(): _paused = true

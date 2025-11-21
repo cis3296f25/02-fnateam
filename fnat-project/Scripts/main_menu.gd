@@ -1,14 +1,32 @@
 extends Control
 
-func _on_start_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/SecurityDesk.tscn")
+func _ready() -> void:
+	$Container/Continue.disabled = not SaveManager.has_save
+	print("Main menu ready. has_save =", SaveManager.has_save)
 
-func _on_options_pressed() -> void:
+
+func _on_start_pressed() -> void:
+	print(">>> Start pressed")
+
+	GameManager.current_night = 1
+	SaveManager.current_night = 1
+	SaveManager.save_game()
+
+	get_tree().change_scene_to_file("res://Scenes/Night_Transition.tscn")
+
+func _on_Continue_pressed() -> void:
+	print(">>> Continue pressed")
+
+	SaveManager.load_game()
+	GameManager.current_night = SaveManager.current_night
+
+	get_tree().change_scene_to_file("res://Scenes/Night_Transition.tscn")
+
+
+func _on_Options_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/Options.tscn")
 
 
-func _on_exit_pressed() -> void:
-	# notification alerts all other nodes of the program termination
-	# we can use this to save game before closing
+func _on_Exit_pressed() -> void:
 	get_tree().root.propagate_notification(NOTIFICATION_WM_CLOSE_REQUEST)
 	get_tree().quit()

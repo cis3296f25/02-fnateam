@@ -22,5 +22,20 @@ offset_right = 1146.0
 offset_bottom = 63.0
 theme_override_fonts/font = ExtResource("2_uqc6r")
 theme_override_font_sizes/font_size = 25
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "12 AM"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NightIndicator" type="Label" parent="HUB"]
+unique_name_in_owner = true
+offset_left = 990.0
+offset_top = 55.0
+offset_right = 1146.0
+offset_bottom = 111.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 28
+text = "Test"
 horizontal_alignment = 1
 vertical_alignment = 1

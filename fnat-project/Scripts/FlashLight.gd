@@ -18,7 +18,7 @@ func _process(_delta: float) -> void:
 
 		
 func scareAway() -> void:
-	var mascots := ["Phang", "Phillie Phanatic", "Hooters", "Gritty"]
+	var mascots := ["Phang", "Phillie Phanatic", "Hooters", "Gritty", "Franklin"]
 	
 	for i in range(4):
 		if GameManager.animatronics_locations[mascots[i]] == "LeftHall" && Flash || GameManager.animatronics_locations[mascots[i]] == "RightHall" && Flash:
