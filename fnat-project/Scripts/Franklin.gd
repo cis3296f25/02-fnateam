@@ -138,7 +138,7 @@ func _action() -> void:
 	if stage >= 4:
 		return
 
-	var roll = randi() % 20
+	var roll = randi() % 20 + 1
 	var effective_ai = int(ai_level * aggression_multiplier)
 
 	if roll < effective_ai:
