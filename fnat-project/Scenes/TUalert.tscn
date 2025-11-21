@@ -19,6 +19,7 @@ corner_radius_bottom_left = 6
 script = ExtResource("1_bwpl5")
 
 [node name="TUalert" type="Label" parent="."]
+visible = false
 offset_left = 191.0
 offset_top = 6.0
 offset_right = 963.0
