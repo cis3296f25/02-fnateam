@@ -1,18 +1,33 @@
-[gd_scene load_steps=14 format=3 uid="uid://gqe1bffwwtkk"]
+[gd_scene load_steps=20 format=3 uid="uid://gqe1bffwwtkk"]
 
 [ext_resource type="PackedScene" uid="uid://c603rgefo4g1i" path="res://Scenes/Animatronic.tscn" id="1_cb5gl"]
 [ext_resource type="Script" uid="uid://jdxxtktnbyel" path="res://Scripts/main_gameloop.gd" id="1_ri7fq"]
 [ext_resource type="PackedScene" uid="uid://cc6yoh43ybaso" path="res://Scenes/CameraFeed.tscn" id="2_8fg2u"]
 [ext_resource type="Texture2D" uid="uid://1fesod2mwhib" path="res://Assets/2doors.png" id="2_axdon"]
 [ext_resource type="PackedScene" uid="uid://c1uxegj7wkvw1" path="res://Scenes/NightTimer.tscn" id="2_sf8xb"]
-[ext_resource type="Script" uid="uid://t3loly8kspvp" path="res://Scripts/vents_status.gd" id="3_2j84s"]
+[ext_resource type="Script" path="res://Scripts/vents_status.gd" id="3_2j84s"]
 [ext_resource type="Script" uid="uid://c5npocm5c7om1" path="res://Scripts/camera_2d.gd" id="3_xaf5t"]
 [ext_resource type="PackedScene" uid="uid://r0ran3o3n73k" path="res://Scenes/PowerSystem.tscn" id="4_5d07y"]
 [ext_resource type="Script" path="res://Scripts/left_door_status.gd" id="4_674sq"]
-[ext_resource type="Script" uid="uid://b8g3s5f7si3ev" path="res://Scripts/right_door_status.gd" id="5_tpkrg"]
+[ext_resource type="Script" path="res://Scripts/right_door_status.gd" id="5_tpkrg"]
 [ext_resource type="PackedScene" uid="uid://bt4q53glfnuvw" path="res://Scenes/AlertTimer.tscn" id="6_axdon"]
 [ext_resource type="Script" uid="uid://gw66j1yofubm" path="res://Scripts/flashlight_handler.gd" id="10_f8na0"]
-[ext_resource type="FontFile" path="res://Assets/Volter__28Goldfish_29.ttf" id="20_font"]
+[ext_resource type="FontFile" uid="uid://csl47hwukavbv" path="res://Assets/Volter__28Goldfish_29.ttf" id="20_font"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_674sq"]
+bg_color = Color(1, 1, 1, 0.5882353)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tpkrg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2r0gi"]
+bg_color = Color(1, 1, 1, 0.5882353)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u2gp5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cbevk"]
+bg_color = Color(1, 1, 1, 0.5882353)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4nixr"]
 
 [node name="SecurityDesk" type="Node2D"]
 script = ExtResource("1_ri7fq")
@@ -53,6 +68,8 @@ offset_top = 339.0
 offset_right = -879.0
 offset_bottom = 399.0
 theme_override_fonts/font = ExtResource("20_font")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_674sq")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tpkrg")
 text = "FLASH"
 
 [node name="MiddleButton" type="Button" parent="."]
@@ -62,6 +79,8 @@ offset_top = 336.0
 offset_right = 32.0
 offset_bottom = 396.0
 theme_override_fonts/font = ExtResource("20_font")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2r0gi")
+theme_override_styles/hover = SubResource("StyleBoxFlat_u2gp5")
 text = "FLASH"
 
 [node name="RightButton" type="Button" parent="."]
@@ -71,6 +90,8 @@ offset_top = 339.0
 offset_right = 945.0
 offset_bottom = 399.0
 theme_override_fonts/font = ExtResource("20_font")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cbevk")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4nixr")
 text = "FLASH"
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("left_button", "right_button")]
