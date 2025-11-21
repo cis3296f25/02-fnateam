@@ -149,6 +149,7 @@ func Show_Jumpscare() -> void:
 
 func trigger_attack() -> void:
 	Show_Jumpscare()
+	SoundEffects.get_node("jumpscare1").play()
 	move_timer.stop()
 	await get_tree().create_timer(0.8).timeout 
 	get_tree().change_scene_to_file("res://Scenes/GameOver.tscn")

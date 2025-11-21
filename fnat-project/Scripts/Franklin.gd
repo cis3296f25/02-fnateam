@@ -236,6 +236,7 @@ func Show_Jumpscare() -> void:
 
 func trigger_attack():
 	Show_Jumpscare()
+	SoundEffects.get_node("jumpscare1").play()
 	print("%s attacks the player!" % animatronic_name)
 	move_timer.stop()
 	stage_timer.stop()
