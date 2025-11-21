@@ -141,14 +141,10 @@ func make_camera_map_invisible():
 	SoundEffects.get_node("clickClose").play()
 	GameManager.cams_closed.emit()
 	#emit_signal("cams_closed")
-	for child in button_container.get_children():
-		if child is Button or child is Label or child is Line2D or child is TextureRect:
-			child.visible = false
+	button_container.visible = false
 
 func make_camera_map_visible():
 	SoundEffects.get_node("clickOpen").play()
 	GameManager.cams_opened.emit()
 	#emit_signal("")
-	for child in button_container.get_children():
-		if child is Button or child is Label or child is Line2D or child is TextureRect:
-			child.visible = true
+	button_container.visible = true
