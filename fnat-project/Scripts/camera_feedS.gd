@@ -66,46 +66,57 @@ func update_Animatronics_On_Cam(_mascot, old_room, new_room) -> void:
 	
 
 func _on_cam_gym_pressed() -> void:
+	SoundEffects.get_node("screenTap").play()
 	load_room(room_scenes["CamGym"])
 	room_label.text = "GYM"
 
 func _on_cam_rh_pressed() -> void:
+	SoundEffects.get_node("screenTap").play()
 	load_room(room_scenes["CamRH"])
 	room_label.text = "RIGHT HALLWAY"
 
 func _on_cam_lh_pressed() -> void:
+	SoundEffects.get_node("screenTap").play()
 	load_room(room_scenes["CamLH"])
 	room_label.text = "LEFT HALLWAY"
 
 func _on_cam_bc_pressed() -> void:
+	SoundEffects.get_node("screenTap").play()
 	load_room(room_scenes["CamBC"])
 	room_label.text = "BALL CART"
 
 func _on_cam_rl_pressed() -> void:
+	SoundEffects.get_node("screenTap").play()
 	load_room(room_scenes["CamRL"])
 	room_label.text = "RIGHT LOCKERS"
 
 func _on_cam_ll_pressed() -> void:
+	SoundEffects.get_node("screenTap").play()
 	load_room(room_scenes["CamLL"])
 	room_label.text = "LEFT LOCKERS"
 
 func _on_cam_lounge_pressed() -> void:
+	SoundEffects.get_node("screenTap").play()
 	load_room(room_scenes["CamLounge"])
 	room_label.text = "LOUNGE"
 
 func _on_cam_storage_pressed() -> void:
+	SoundEffects.get_node("screenTap").play()
 	load_room(room_scenes["CamStorage"])
 	room_label.text = "STORAGE"
 
 func _on_cam_cafe_pressed() -> void:
+	SoundEffects.get_node("screenTap").play()
 	load_room(room_scenes["CamCafe"])
 	room_label.text = "CAFE"
 
 func _on_cam_closet_pressed() -> void:
+	SoundEffects.get_node("screenTap").play()
 	load_room(room_scenes["CamCloset"])
 	room_label.text = "CLOSET"
 
 func _on_cam_utility_pressed() -> void:
+	SoundEffects.get_node("screenTap").play()
 	load_room(room_scenes["CamUtility"])
 	room_label.text = "UTILITY"
 
@@ -127,6 +138,7 @@ func _on_switch_button_mouse_entered() -> void:
 	
 
 func make_camera_map_invisible():
+	SoundEffects.get_node("clickClose").play()
 	GameManager.cams_closed.emit()
 	#emit_signal("cams_closed")
 	for child in button_container.get_children():
@@ -134,6 +146,7 @@ func make_camera_map_invisible():
 			child.visible = false
 
 func make_camera_map_visible():
+	SoundEffects.get_node("clickOpen").play()
 	GameManager.cams_opened.emit()
 	#emit_signal("")
 	for child in button_container.get_children():

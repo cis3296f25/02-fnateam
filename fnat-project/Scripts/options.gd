@@ -4,12 +4,8 @@ func _on_volume_slider_value_changed(value):
 	AudioServer.set_bus_volume_db(0,linear_to_db(value))
 
 
-
-func _on_mute_check_box_toggled(toggled_on: bool) -> void:
-	AudioServer.set_bus_mute(0,toggled_on)
-
-
 func _on_back_button_pressed() -> void:
+	SoundEffects.get_node("computerMouseClick").play()
 	get_tree().change_scene_to_file("res://Scenes/MainMenu.tscn")
 
 
@@ -18,3 +14,11 @@ func _on_fullscreen_toggle_toggled(toggled_on: bool) -> void:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	else:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+
+
+func _on_music_vol_slider_value_changed(value: float) -> void:
+	AudioServer.set_bus_volume_db(1,linear_to_db(value))
+
+
+func _on_effects_vol_slider_value_changed(value: float) -> void:
+	AudioServer.set_bus_volume_db(2,linear_to_db(value))

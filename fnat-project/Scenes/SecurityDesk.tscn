@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://b8g3s5f7si3ev" path="res://Scripts/right_door_status.gd" id="5_tpkrg"]
 [ext_resource type="PackedScene" uid="uid://bt4q53glfnuvw" path="res://Scenes/AlertTimer.tscn" id="6_axdon"]
 [ext_resource type="Script" uid="uid://gw66j1yofubm" path="res://Scripts/flashlight_handler.gd" id="10_f8na0"]
+[ext_resource type="AudioStream" uid="uid://dm5vie77ehq3x" path="res://Assets/Sounds/bgNoise.mp3" id="13_674sq"]
 [ext_resource type="FontFile" uid="uid://csl47hwukavbv" path="res://Assets/Volter__28Goldfish_29.ttf" id="20_font"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_674sq"]
@@ -119,6 +120,12 @@ metadata/Pink = false
 
 [node name="FlashlightHandler" type="Node" parent="."]
 script = ExtResource("10_f8na0")
+
+[node name="BackgroundNoise" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_674sq")
+autoplay = true
+bus = &"Effects"
+parameters/looping = true
 
 [connection signal="pressed" from="LeftButton" to="FlashlightHandler" method="_on_left_button_pressed"]
 [connection signal="pressed" from="MiddleButton" to="FlashlightHandler" method="_on_middle_button_pressed"]
