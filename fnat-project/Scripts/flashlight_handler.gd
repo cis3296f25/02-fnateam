@@ -32,7 +32,7 @@ func impact_power(amount : int) -> void:
 func _on_left_button_pressed() -> void:
 	if check_for_power() == false:
 		return
-  SoundEffects.get_node("flashlightOn").play()
+	SoundEffects.get_node("flashlightOn").play()
 	var mascots := ["Phillie Phanatic", "Hooters", "Franklin"]
 	var missed = true
 	for i in range(3):
@@ -50,7 +50,7 @@ func _on_left_button_pressed() -> void:
 func _on_middle_button_pressed() -> void:
 	if check_for_power() == false:
 		return
-  SoundEffects.get_node("flashlightOn").play()
+	SoundEffects.get_node("flashlightOn").play()
 	var mascots := ["Phang"]
 	var missed = true
 	for i in range(1):
@@ -66,7 +66,7 @@ func _on_middle_button_pressed() -> void:
 func _on_right_button_pressed() -> void:
 	if check_for_power() == false:
 		return
-  SoundEffects.get_node("flashlightOn").play()
+	SoundEffects.get_node("flashlightOn").play()
 	var mascots := ["Hooters", "Gritty","Franklin"]
 	var missed = true
 	for i in range(3):
