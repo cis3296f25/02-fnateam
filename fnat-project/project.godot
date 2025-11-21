@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GameManager="*res://Scripts/main_gameloop.gd"
 SoundEffects="*res://Scenes/SoundEffects.tscn"
+SaveManager="*res://Scripts/SaveManager.gd"
 
 [display]
 
