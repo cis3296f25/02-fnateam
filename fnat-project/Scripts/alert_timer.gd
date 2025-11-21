@@ -71,6 +71,7 @@ func _trigger_troll_message():
 			GameManager.gritty_boost_started.emit()
 			GameManager.phillie_boost_started.emit()
 			GameManager.phang_boost_started.emit()
+			GameManager.franklin_boost_started.emit()
 	_Troll_Timer.stop()
 	_Aggro_Timer.start()
 #	_timer_manager.start_aggression_timer()
