@@ -8,12 +8,12 @@ extends Node
 		"PhangAI_4AMIncr" : 0,
 
 		"PhanaticAI_Start" : 0,
-		"PhanaticAI_2AMIncr" : 1,
+		"PhanaticAI_2AMIncr" : 3,
 		"PhanaticAI_3AMIncr" : 2,
 		"PhanaticAI_4AMIncr" : 1,
 
 		"GrittyAI_Start" : 0,
-		"GrittyAI_2AMIncr" : 0,
+		"GrittyAI_2AMIncr" : 3,
 		"GrittyAI_3AMIncr" : 1,
 		"GrittyAI_4AMIncr" : 1,
 
