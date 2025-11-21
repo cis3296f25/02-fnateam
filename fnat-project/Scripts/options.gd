@@ -5,6 +5,7 @@ func _on_volume_slider_value_changed(value):
 
 
 func _on_back_button_pressed() -> void:
+	SoundEffects.get_node("computerMouseClick").play()
 	get_tree().change_scene_to_file("res://Scenes/MainMenu.tscn")
 
 

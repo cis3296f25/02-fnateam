@@ -12,6 +12,7 @@ func _process(delta: float) -> void:
 
 
 func _on_left_button_pressed() -> void:
+	SoundEffects.get_node("flashlightOn").play()
 	var mascots := ["Phillie Phanatic", "Hooters"]
 	var missed = true
 	for i in range(2):
@@ -25,6 +26,7 @@ func _on_left_button_pressed() -> void:
 
 
 func _on_middle_button_pressed() -> void:
+	SoundEffects.get_node("flashlightOn").play()
 	var mascots := ["Phang"]
 	var missed = true
 	for i in range(1):
@@ -38,6 +40,7 @@ func _on_middle_button_pressed() -> void:
 
 
 func _on_right_button_pressed() -> void:
+	SoundEffects.get_node("flashlightOn").play()
 	var mascots := ["Hooters", "Gritty"]
 	var missed = true
 	for i in range(2):
