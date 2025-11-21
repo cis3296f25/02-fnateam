@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://b8g3s5f7si3ev" path="res://Scripts/right_door_status.gd" id="5_tpkrg"]
 [ext_resource type="PackedScene" uid="uid://bt4q53glfnuvw" path="res://Scenes/AlertTimer.tscn" id="6_axdon"]
 [ext_resource type="Script" uid="uid://gw66j1yofubm" path="res://Scripts/flashlight_handler.gd" id="10_f8na0"]
+[ext_resource type="FontFile" path="res://Assets/Volter__28Goldfish_29.ttf" id="20_font"]
 
 [node name="SecurityDesk" type="Node2D"]
 script = ExtResource("1_ri7fq")
@@ -51,7 +52,7 @@ offset_left = -941.0
 offset_top = 339.0
 offset_right = -879.0
 offset_bottom = 399.0
-theme_override_fonts/font = ExtResource("6_674sq")
+theme_override_fonts/font = ExtResource("20_font")
 text = "FLASH"
 
 [node name="MiddleButton" type="Button" parent="."]
@@ -60,9 +61,8 @@ offset_left = -30.0
 offset_top = 336.0
 offset_right = 32.0
 offset_bottom = 396.0
-theme_override_fonts/font = ExtResource("6_674sq")
-text = "FLASH
-"
+theme_override_fonts/font = ExtResource("20_font")
+text = "FLASH"
 
 [node name="RightButton" type="Button" parent="."]
 custom_minimum_size = Vector2(60, 60)
@@ -70,7 +70,7 @@ offset_left = 883.0
 offset_top = 339.0
 offset_right = 945.0
 offset_bottom = 399.0
-theme_override_fonts/font = ExtResource("6_674sq")
+theme_override_fonts/font = ExtResource("20_font")
 text = "FLASH"
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("left_button", "right_button")]
