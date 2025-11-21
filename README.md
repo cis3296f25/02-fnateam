@@ -1,22 +1,23 @@
 # FIVE NIGHTS AT TEMPLE
 This is a FNAF fan game.
+
 You work as a security guard at Temple University, working the night shifts. On the campus, there exist 5 animatronic where each of them resembles mascot for each of the sports teams of Philadelphia. These "mascots" was a final project created by students from the art and engineering students. On first night of your shifts, the mascots malfunctioned due to unknown circumstance that causes them to become more violent and willing to kil anyone on site.
 
 Objective:
-Starting at your office, your task for beating the game is to survive 5 nights to get your paycheck.
-There are 5 mascots and each starts in a specific rooms :
-   Hooter, Gritty and Philly Phanatic starting at the lounge
-   Phang starts in the utilty room
-   Franklin starts in the BallCart
-Each mascot will randomly move to adjacent rooms where eventually they will reach the office where you reside.
-There is also a TU Alert, that will be sent to the player randomly, and depending on the type of message, certain mascot will be more aggressive and move more often.
+1. Starting at your office, your task for beating the game is to survive 5 nights to get your paycheck.
+2. There are 5 mascots and each starts in a specific rooms :
+   - Hooter, Gritty and Philly Phanatic starting at the lounge
+   - Phang starts in the utilty room
+   - Franklin starts in the BallCart
+3. Each mascot will randomly move to adjacent rooms where eventually they will reach the office where you reside.
+4. There is also a TU Alert, that will be sent to the player randomly, and depending on the type of message, certain mascot will be more aggressive and move more often.
 
-To defend yourself, there are 2 methods:
-   -In the office, there are 2 doors and 1 vent where you can use the flashlight to scare off the mascots at the door/vent
-   -Each rooms you see on the camera have a seal door feature that prevents the mascot from entering or leaving the room.
+5. To defend yourself, there are 2 methods:
+   - In the office, there are 2 doors and 1 vent where you can use the flashlight to scare off the mascots at the door/vent
+   - Each rooms you see on the camera have a seal door feature that prevents the mascot from entering or leaving the room.
 
-Finally, there is a power system where the actions you do such as opening the camera, sealing the rooms, or flashing the doors/vent will take a certain percentage of the power.
-When the power reaches 0, it will autamatically go into a recharge state, where you are essentially a sitting duck.
+6. Finally, there is a power system where the actions you do such as opening the camera, sealing the rooms, or flashing the doors/vent will take a certain percentage of the power.
+   - When the power reaches 0, it will autamatically go into a recharge state, where you are essentially a sitting duck.
 
 
 #Project Board
