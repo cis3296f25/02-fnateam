@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://dd5fvuystvi6e"]
+
+[ext_resource type="Texture2D" uid="uid://bv7l30bphtli6" path="res://Assets/TV-Static-Glitch-Overlay-Absolute-Horror-Sound-Effects.jpg" id="1_btu0u"]
+[ext_resource type="Texture2D" uid="uid://csm5m7fuye2wi" path="res://Assets/2TV-Static-Glitch-Overlay-Absolute-Horror-Sound-Effects.jpg" id="2_r1q8a"]
+[ext_resource type="FontFile" uid="uid://csl47hwukavbv" path="res://Assets/Volter__28Goldfish_29.ttf" id="3_r1q8a"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mgmwj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_btu0u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_r1q8a")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="StaticScreen" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(584, 328)
+sprite_frames = SubResource("SpriteFrames_mgmwj")
+frame = 1
+
+[node name="Label" type="Label" parent="."]
+offset_top = 32.0
+offset_right = 1149.0
+offset_bottom = 108.0
+theme_override_fonts/font = ExtResource("3_r1q8a")
+theme_override_font_sizes/font_size = 25
+text = "-CAMERA DISABLED-"
+horizontal_alignment = 1
+vertical_alignment = 1

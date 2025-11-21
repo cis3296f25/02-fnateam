@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bt4q53glfnuvw"]
+
+[ext_resource type="Script" uid="uid://da2lyxtgco6wv" path="res://Scripts/alert_timer.gd" id="1_kyvbt"]
+
+[node name="AlertTimer" type="Node2D"]
+script = ExtResource("1_kyvbt")
+
+[node name="TrollTimer" type="Timer" parent="."]
+
+[node name="AgressionTimer" type="Timer" parent="."]

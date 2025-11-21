@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dw4ah63ybdkh5"]
+
+[ext_resource type="Script" uid="uid://dahab4aif0icl" path="res://Scripts/night_database.gd" id="1_os227"]
+
+[node name="NightDatabase" type="Node"]
+script = ExtResource("1_os227")
