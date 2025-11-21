@@ -132,7 +132,7 @@ extends Node
 		"PhanaticAI_3AMIncr" : 1,
 		"PhanaticAI_4AMIncr" : 2,
 
-		"GrittyAI_Start" : 12,
+		"GrittyAI_Start" : 12, #Orignally 12
 		"GrittyAI_2AMIncr" : 1,
 		"GrittyAI_3AMIncr" : 1,
 		"GrittyAI_4AMIncr" : 2,
