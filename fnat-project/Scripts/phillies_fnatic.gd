@@ -83,7 +83,9 @@ func move_to_next_room() -> void:
 	var adjacent_rooms: Array = current_room["AdjacentRooms"].duplicate()
 
 	var room_weights = {
-		"Office": 4.0,
+		"Office": 10.0,
+		"LeftOfficeDoor" : 6.0,
+		"RightOfficeDoor" : 6.0,
 		"LeftHall": 3.0,
 		"RightHall": 3.0,
 		"Gym": 2.5,
