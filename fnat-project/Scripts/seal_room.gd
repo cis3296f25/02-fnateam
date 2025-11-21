@@ -3,6 +3,7 @@ extends Control
 var room_sealed = false;
 
 func _ready() -> void:
+	position = Vector2(500, 180) 
 	restore_button_state()
 	
 func _process(_delta: float) -> void:

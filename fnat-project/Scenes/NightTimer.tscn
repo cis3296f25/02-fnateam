@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://c1uxegj7wkvw1"]
+[gd_scene load_steps=3 format=3 uid="uid://c1uxegj7wkvw1"]
 
 [ext_resource type="Script" uid="uid://7ucvbk8xv4p5" path="res://Scripts/night_cycle.gd" id="1_6cxjv"]
+[ext_resource type="FontFile" uid="uid://csl47hwukavbv" path="res://Assets/Volter__28Goldfish_29.ttf" id="2_uqc6r"]
 
 [node name="NightTimer" type="Control"]
 layout_mode = 3
@@ -19,6 +20,8 @@ offset_left = 990.0
 offset_top = 7.0
 offset_right = 1146.0
 offset_bottom = 63.0
+theme_override_fonts/font = ExtResource("2_uqc6r")
+theme_override_font_sizes/font_size = 25
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
 text = "12 AM"
