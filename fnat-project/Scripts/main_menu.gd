@@ -8,12 +8,18 @@ func _ready() -> void:
 # ------------------------
 # Start Game
 # ------------------------
+var is_Test = true
 func _on_start_pressed() -> void:
 	print(">>> Start pressed")
 	SoundEffects.get_node("computerMouseClick").play()
-
-	GameManager.current_night = 1
-	SaveManager.current_night = 1
+	
+	if is_Test == true:
+		GameManager.current_night = 6
+	#	SaveManager.current_night = 1
+	else:
+		GameManager.current_night = 1
+		SaveManager.current_night = 1
+	
 	GameManager.Reset_Night()
 	SaveManager.save_game()
 	
