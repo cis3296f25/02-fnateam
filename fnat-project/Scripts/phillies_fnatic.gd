@@ -89,8 +89,8 @@ func move_to_next_room() -> void:
 		"LeftHall": 3.0,
 		"RightHall": 3.0,
 		"Gym": 2.5,
-		"RightLocker": 1.5,
-		"LeftLocker": 1.5,
+		"RightLockers": 1.5,
+		"LeftLockers": 1.5,
 		"Storage": 0,
 		"Closet": 3.0,
 		"Lounge": 1.0

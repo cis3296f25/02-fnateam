@@ -61,7 +61,9 @@ func power_return_handler():
 func update_Animatronics_On_Cam(_mascot, old_room, new_room) -> void:
 	if old_room == current_room.get_name() or new_room == current_room.get_name():
 		print("Static Static, Animatronic has Moved on Cam.")
-		load_room(room_scenes["CamStatic"])
+		if not current_room.get_name() == "Office":
+			load_room(room_scenes["CamStatic"])
+
 		GameManager.loaded_new_cam.emit(current_room, current_room.get_name())
 	
 
