@@ -41,7 +41,7 @@ var night_database = null
 signal room_sealed(room_name, is_sealed)
 var room_seal_states := {}
 
-var current_night := 1
+var current_night := 5
 var nights_beaten := {}
 
 signal hooters_setAI(start, TwoAMInc, ThreeAMInc, FourAMInc)
