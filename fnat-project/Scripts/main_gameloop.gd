@@ -211,6 +211,53 @@ func _animatronic_flashed_handler(mascot_name: String) -> void:
 	list_of_flashed_animatronics[mascot_name] = true
 	print(mascot_name + " was flashed")
 
+func Emit_Boost_Start_By_Category(category: String) -> void:
+	match category:
+		"Mascot":
+			gritty_boost_started.emit()
+			phillie_boost_started.emit()
+			phanatic_boost_started.emit()
+
+		"Security":
+			franklin_boost_started.emit()
+
+		"Safety":
+			hooters_boost_started.emit()
+			gritty_boost_started.emit()
+			phanatic_boost_started.emit()
+			phillie_boost_started.emit()
+			phang_boost_started.emit()
+
+		"Utility":
+			phang_boost_started.emit()
+
+		_:
+			print("Unknown category: ", category)
+
+
+func Emit_Boost_End_By_Category(category: String) -> void:
+	match category:
+		"Mascot":
+			gritty_boost_ended.emit()
+			phillie_boost_ended.emit()
+			phanatic_boost_ended.emit()
+
+		"Security":
+			franklin_boost_ended.emit()
+
+		"Safety":
+			hooters_boost_ended.emit()
+			gritty_boost_ended.emit()
+			phanatic_boost_ended.emit()
+			phillie_boost_ended.emit()
+			phang_boost_ended.emit()
+
+		"Utility":
+			phang_boost_ended.emit()
+
+		_:
+			print("Unknown category: ", category)
+
 
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_READY:

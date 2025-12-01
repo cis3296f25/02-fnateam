@@ -5,7 +5,6 @@
 [ext_resource type="Script" uid="uid://6pvy0w0tki2i" path="res://Scripts/Hooters.gd" id="3_aa1zq"]
 [ext_resource type="Texture2D" uid="uid://64a2m3q14sqp" path="res://Assets/GrittyJumpscare_final.png" id="4_27vyj"]
 [ext_resource type="PackedScene" uid="uid://dfg7lcoq8kb0n" path="res://Scenes/Room_Database.tscn" id="4_71jmn"]
-[ext_resource type="Texture2D" uid="uid://b87cdhsqlm8k" path="res://Assets/Gritty.png" id="4_274wx"]
 [ext_resource type="Script" uid="uid://divj7fbp3shk2" path="res://Scripts/phillies_fnatic.gd" id="4_divj7"]
 [ext_resource type="Script" uid="uid://dn7p7emsqwfpa" path="res://Scripts/Phang.gd" id="5_j2o0d"]
 [ext_resource type="Script" uid="uid://bkp66hydyhfk1" path="res://Scripts/Franklin.gd" id="7_274wx"]
@@ -127,8 +126,20 @@ script = ExtResource("7_274wx")
 
 [node name="Timer" type="Timer" parent="Franklin"]
 
-[node name="stage_time" type="Timer" parent="Franklin"]
+[node name="stage_time1" type="Timer" parent="Franklin"]
+wait_time = 50.0
+
+[node name="stage_time2" type="Timer" parent="Franklin"]
+wait_time = 35.0
+
+[node name="stage_time3" type="Timer" parent="Franklin"]
+wait_time = 25.0
+
+[node name="stage_time4" type="Timer" parent="Franklin"]
 wait_time = 20.0
+
+[node name="stage_time5" type="Timer" parent="Franklin"]
+wait_time = 15.0
 
 [node name="Jumpscare" type="CanvasLayer" parent="Franklin"]
 layer = 2
