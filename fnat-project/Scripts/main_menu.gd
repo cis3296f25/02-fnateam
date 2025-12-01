@@ -10,6 +10,7 @@ func _ready() -> void:
 # ------------------------
 func _on_start_pressed() -> void:
 	print(">>> Start pressed")
+	$BGMusic.stream_paused = true
 	SoundEffects.get_node("computerMouseClick").play()
 
 	GameManager.current_night = 1
