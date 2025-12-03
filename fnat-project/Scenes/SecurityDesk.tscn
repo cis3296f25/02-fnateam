@@ -1,15 +1,15 @@
-[gd_scene load_steps=21 format=3 uid="uid://gqe1bffwwtkk"]
+[gd_scene load_steps=25 format=3 uid="uid://gqe1bffwwtkk"]
 
 [ext_resource type="PackedScene" uid="uid://c603rgefo4g1i" path="res://Scenes/Animatronic.tscn" id="1_cb5gl"]
 [ext_resource type="Script" uid="uid://jdxxtktnbyel" path="res://Scripts/main_gameloop.gd" id="1_ri7fq"]
 [ext_resource type="PackedScene" uid="uid://cc6yoh43ybaso" path="res://Scenes/CameraFeed.tscn" id="2_8fg2u"]
 [ext_resource type="Texture2D" uid="uid://1fesod2mwhib" path="res://Assets/2doors.png" id="2_axdon"]
 [ext_resource type="PackedScene" uid="uid://c1uxegj7wkvw1" path="res://Scenes/NightTimer.tscn" id="2_sf8xb"]
-[ext_resource type="Script" path="res://Scripts/vents_status.gd" id="3_2j84s"]
+[ext_resource type="Script" uid="uid://t3loly8kspvp" path="res://Scripts/vents_status.gd" id="3_2j84s"]
 [ext_resource type="Script" uid="uid://c5npocm5c7om1" path="res://Scripts/camera_2d.gd" id="3_xaf5t"]
 [ext_resource type="PackedScene" uid="uid://r0ran3o3n73k" path="res://Scenes/PowerSystem.tscn" id="4_5d07y"]
-[ext_resource type="Script" path="res://Scripts/left_door_status.gd" id="4_674sq"]
-[ext_resource type="Script" path="res://Scripts/right_door_status.gd" id="5_tpkrg"]
+[ext_resource type="Script" uid="uid://bpukg6xkgbtyn" path="res://Scripts/left_door_status.gd" id="4_674sq"]
+[ext_resource type="Script" uid="uid://b8g3s5f7si3ev" path="res://Scripts/right_door_status.gd" id="5_tpkrg"]
 [ext_resource type="PackedScene" uid="uid://bt4q53glfnuvw" path="res://Scenes/AlertTimer.tscn" id="6_axdon"]
 [ext_resource type="Script" uid="uid://gw66j1yofubm" path="res://Scripts/flashlight_handler.gd" id="10_f8na0"]
 [ext_resource type="AudioStream" uid="uid://dm5vie77ehq3x" path="res://Assets/Sounds/bgNoise.mp3" id="13_674sq"]
@@ -29,6 +29,130 @@ bg_color = Color(1, 1, 1, 0.5882353)
 bg_color = Color(1, 1, 1, 0.5882353)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4nixr"]
+
+[sub_resource type="Animation" id="Animation_tpkrg"]
+resource_name = "OpenCamera"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D/CameraFeed:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.01, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-578, -330), Vector2(-578, 335), Vector2(-578, -330)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D/CameraFeed:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.01, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera2D/CameraFeed:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.01, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.9, 0.9), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_2r0gi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D/CameraFeed:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-578, -330)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D/CameraFeed:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera2D/CameraFeed:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_u2gp5"]
+resource_name = "CloseCamera"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D/CameraFeed:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.301),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-578, -330), Vector2(-578, 333), Vector2(-578, -330)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D/CameraFeed:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.301),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera2D/CameraFeed:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u2gp5"]
+_data = {
+&"CloseCamera": SubResource("Animation_u2gp5"),
+&"OpenCamera": SubResource("Animation_tpkrg"),
+&"RESET": SubResource("Animation_2r0gi")
+}
 
 [node name="SecurityDesk" type="Node2D"]
 script = ExtResource("1_ri7fq")
@@ -126,6 +250,11 @@ stream = ExtResource("13_674sq")
 autoplay = true
 bus = &"Effects"
 parameters/looping = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_u2gp5")
+}
 
 [connection signal="pressed" from="LeftButton" to="FlashlightHandler" method="_on_left_button_pressed"]
 [connection signal="pressed" from="MiddleButton" to="FlashlightHandler" method="_on_middle_button_pressed"]
