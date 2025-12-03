@@ -1,13 +1,16 @@
 [gd_scene load_steps=2 format=3 uid="uid://ce7nevtgm5aom"]
 
-[ext_resource type="Script" uid="uid://7qp1goemqef8" path="res://Scripts/CustomizeNight.gd" id="1_eo5ub"]
+[ext_resource type="Script" uid="uid://dtxq3isbqouma" path="res://Scripts/CustomizeNight.gd" id="1_eo5ub"]
 
 [node name="CustomizeNight" type="Control"]
 layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = -1152.0
 offset_bottom = -648.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_eo5ub")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -145,6 +148,34 @@ text = "0"
 layout_mode = 2
 text = ">"
 
+[node name="Phang" type="VBoxContainer" parent="MarginContainer/VBoxContainer/CharactersRow"]
+layout_mode = 2
+
+[node name="NameLabel4" type="Label" parent="MarginContainer/VBoxContainer/CharactersRow/Phang"]
+layout_mode = 2
+
+[node name="Icon4" type="TextureRect" parent="MarginContainer/VBoxContainer/CharactersRow/Phang"]
+layout_mode = 2
+
+[node name="AILabel4" type="Label" parent="MarginContainer/VBoxContainer/CharactersRow/Phang"]
+layout_mode = 2
+text = "A.I. Level"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/CharactersRow/Phang"]
+layout_mode = 2
+
+[node name="LeftButton4" type="Button" parent="MarginContainer/VBoxContainer/CharactersRow/Phang/HBoxContainer"]
+layout_mode = 2
+text = "<"
+
+[node name="ValueLabel4" type="Label" parent="MarginContainer/VBoxContainer/CharactersRow/Phang/HBoxContainer"]
+layout_mode = 2
+text = "0"
+
+[node name="RightButton4" type="Button" parent="MarginContainer/VBoxContainer/CharactersRow/Phang/HBoxContainer"]
+layout_mode = 2
+text = ">"
+
 [node name="RangeLabel" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 
@@ -168,5 +199,7 @@ text = "Ready"
 [connection signal="pressed" from="MarginContainer/VBoxContainer/CharactersRow/Franklin/HBoxContainer/RightButton2" to="." method="_on_right_button_2_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/CharactersRow/Hooters/HBoxContainer/LeftButton3" to="." method="_on_left_button_3_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/CharactersRow/Hooters/HBoxContainer/RightButton3" to="." method="_on_right_button_3_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/CharactersRow/Phang/HBoxContainer/LeftButton4" to="." method="_on_left_button_4_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/CharactersRow/Phang/HBoxContainer/RightButton4" to="." method="_on_right_button_4_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonsRow/BackButton" to="." method="_on_BackButton_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonsRow/ReadyButton" to="." method="_on_ReadyButton_pressed"]

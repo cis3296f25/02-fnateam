@@ -7,7 +7,7 @@ signal loaded_new_cam(current_cam_node, cam_name)
 var current_night := 5
 var nights_beaten := {}
 
-var ai_levels: Array[int] = [0, 0, 0, 0]
+var ai_levels: Array[int] = [0, 0, 0, 0, 0]
 
 func set_ai_level(index: int, level: int) -> void:
 	if index < 0 or index >= ai_levels.size():
@@ -152,6 +152,12 @@ func set_night_start_AI(ai_key: String) -> int:
 	if night_info == null:
 		return 0
 	return int(night_info.get(ai_key + "AI_Start", 0))
+	
+func custom_night_update_AI(ai_key: String, newAI_Level : int) -> void:
+	var night_info = night_database.Night.get(8, null) #GOES TO THE CUSTOM NIGHT MODE.
+	if night_info[ai_key + "AI_Start"] != null:
+		night_info[ai_key + "AI_Start"] = newAI_Level
+	
 
 
 func seal_room_doors(room_name: String, is_sealed: bool) -> void:

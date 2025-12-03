@@ -4,14 +4,24 @@ const CHARACTER_NAMES := [
 	"Phanatic",
 	"Gritty",
 	"Franklin",
-	"Hooters"
+	"Hooters",
+	"Phang"
 ]
 
 const CHARACTER_NODES := [
 	"Phanatic",
 	"Gritty",
 	"Franklin",
-	"Hooters"
+	"Hooters",
+	"Phang"
+]
+
+const Night_Database := [
+	"Phanatic",
+	"Gritty",
+	"Franklin",
+	"Hooter",
+	"Phang"
 ]
 
 func _ready() -> void:
@@ -21,7 +31,7 @@ func _ready() -> void:
 		_update_character(i)
 
 	$MarginContainer/VBoxContainer/RangeLabel.text = \
-		"(0–4) → Night 1    (5–8) → Night 2    (9–12) → Night 3    (13–16) → Night 4    (17–20) → Night 5"
+		"(0–4) → Very Easy    (5–8) → Easy    (9–12) → Medium    (13–15) → Hard    (15+) → Extreme"
 
 	$MarginContainer/VBoxContainer/TitleLabel.text = "Customize Night"
 
@@ -29,7 +39,7 @@ func _ready() -> void:
 func _set_character_names() -> void:
 	var row: HBoxContainer = $MarginContainer/VBoxContainer/CharactersRow
 
-	for i in range(4):
+	for i in range(5):
 		var node_name: String = CHARACTER_NODES[i]
 		var char_node: Control = row.get_node(node_name)
 		var name_label: Label = char_node.get_node("NameLabel%d" % i)
@@ -77,10 +87,22 @@ func _on_left_button_3_pressed() -> void:
 func _on_right_button_3_pressed() -> void:
 	_change_level(3, +1)
 
+func _on_left_button_4_pressed() -> void:
+	_change_level(4, -1)
+
+func _on_right_button_4_pressed() -> void:
+	_change_level(4, +1)
+
 
 func _on_BackButton_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/MainMenu.tscn")
 
 
 func _on_ReadyButton_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/MainMenu.tscn")
+	GameManager.current_night = 8
+	for i in range(5):
+		var node_name: String = Night_Database[i]
+		GameManager.custom_night_update_AI(node_name,  GameManager.get_ai_level(i))
+		
+	GameManager.Reset_Night()
+	get_tree().change_scene_to_file("res://Scenes/Night_Transition.tscn")

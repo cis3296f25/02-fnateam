@@ -71,4 +71,4 @@ func _on_reset_dialog_confirmed() -> void:
 
 func _on_customize_night_pressed() -> void:
 	SoundEffects.get_node("computerMouseClick").play()
-	get_tree().change_scene_to_file("res://Scenes/rooms/CustomizeNight.tscn")
+	get_tree().change_scene_to_file("res://Scenes/CustomizeNight.tscn")
