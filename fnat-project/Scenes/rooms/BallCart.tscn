@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://mmiks3x21tot"]
 
 [ext_resource type="PackedScene" uid="uid://dy73olhrju0qp" path="res://Scenes/SealDoor.tscn" id="1_d2w5v"]
-[ext_resource type="Texture2D" uid="uid://1qec4toh8rki" path="res://Assets/Ball_Cart.png" id="1_ucn3e"]
+[ext_resource type="Texture2D" uid="uid://2i2gq6tbbt8c" path="res://Assets/TemplePhotos/ballcart.png" id="1_ucn3e"]
 [ext_resource type="Texture2D" uid="uid://dph2crwrfoge8" path="res://Assets/Static_Image.jpg" id="2_ycmsj"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lt8h7"]

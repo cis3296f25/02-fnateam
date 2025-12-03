@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://yx715sawkwbt"]
 
 [ext_resource type="PackedScene" uid="uid://dy73olhrju0qp" path="res://Scenes/SealDoor.tscn" id="1_6gjax"]
-[ext_resource type="Texture2D" uid="uid://b424bhos4bl77" path="res://Assets/Right_LockerRoom.png" id="1_tei78"]
+[ext_resource type="Texture2D" uid="uid://b47rwid4q27a2" path="res://Assets/TemplePhotos/rightlockers.png" id="1_tei78"]
 [ext_resource type="Texture2D" uid="uid://dph2crwrfoge8" path="res://Assets/Static_Image.jpg" id="2_6jy28"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_56e7k"]

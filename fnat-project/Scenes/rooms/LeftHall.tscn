@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://biu38y0q15t5m"]
 
-[ext_resource type="Texture2D" uid="uid://u5fv18ossq1g" path="res://Assets/LeftHall.jpg" id="1_bqtwd"]
+[ext_resource type="Texture2D" uid="uid://bmn7ard2sd5kk" path="res://Assets/TemplePhotos/hall2.png" id="1_bqtwd"]
 [ext_resource type="Texture2D" uid="uid://dph2crwrfoge8" path="res://Assets/Static_Image.jpg" id="2_gg0ix"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_glbr3"]

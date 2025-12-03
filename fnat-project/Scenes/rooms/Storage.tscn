@@ -1,11 +1,11 @@
 [gd_scene load_steps=6 format=3 uid="uid://bll4tansiv7j4"]
 
-[ext_resource type="Texture2D" uid="uid://bdleqnt6ryuwj" path="res://Assets/Storage_Room.jpg" id="1_3qcmu"]
+[ext_resource type="Texture2D" uid="uid://dxbw1m7snsphi" path="res://Assets/TemplePhotos/storage.png" id="1_jeveg"]
 [ext_resource type="Texture2D" uid="uid://dph2crwrfoge8" path="res://Assets/Static_Image.jpg" id="2_jeveg"]
 [ext_resource type="PackedScene" uid="uid://dy73olhrju0qp" path="res://Scenes/SealDoor.tscn" id="3_jeveg"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jeveg"]
-texture = ExtResource("1_3qcmu")
+texture = ExtResource("1_jeveg")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6xy5g"]
 texture = ExtResource("2_jeveg")

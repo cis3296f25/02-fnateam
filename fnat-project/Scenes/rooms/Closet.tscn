@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bu4ekjs5d2lmk"]
 
-[ext_resource type="Texture2D" uid="uid://dttrbkgpvfw8t" path="res://Assets/Closet.jpg" id="1_haqlt"]
+[ext_resource type="Texture2D" uid="uid://4kva40gmw1r4" path="res://Assets/TemplePhotos/closet.png" id="1_haqlt"]
 [ext_resource type="PackedScene" uid="uid://dy73olhrju0qp" path="res://Scenes/SealDoor.tscn" id="1_ymqt6"]
 [ext_resource type="Texture2D" uid="uid://dph2crwrfoge8" path="res://Assets/Static_Image.jpg" id="2_otft1"]
 
