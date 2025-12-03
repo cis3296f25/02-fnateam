@@ -4,6 +4,34 @@ signal animatronic_started(mascot_name, room_name)
 signal animatronic_moved(mascot_name, old_room_name, new_room_name)
 signal loaded_new_cam(current_cam_node, cam_name)
 
+var current_night := 5
+var nights_beaten := {}
+
+var ai_levels: Array[int] = [0, 0, 0, 0]
+
+func set_ai_level(index: int, level: int) -> void:
+	if index < 0 or index >= ai_levels.size():
+		return
+	ai_levels[index] = clamp(level, 0, 20)
+
+func get_ai_level(index: int) -> int:
+	if index < 0 or index >= ai_levels.size():
+		return 0
+	return ai_levels[index]
+
+func night_from_level(level: int) -> int:
+	if level <= 4:
+		return 1
+	elif level <= 8:
+		return 2
+	elif level <= 12:
+		return 3
+	elif level <= 16:
+		return 4
+	else:
+		return 5
+
+
 signal hooters_boost_started
 signal gritty_boost_started
 signal phillie_boost_started
@@ -41,8 +69,6 @@ var night_database = null
 signal room_sealed(room_name, is_sealed)
 var room_seal_states := {}
 
-var current_night := 5
-var nights_beaten := {}
 
 signal hooters_setAI(start, TwoAMInc, ThreeAMInc, FourAMInc)
 signal gritty_setAI(start, TwoAMInc, ThreeAMInc, FourAMInc)

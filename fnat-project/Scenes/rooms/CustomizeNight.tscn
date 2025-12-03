@@ -1,0 +1,172 @@
+[gd_scene load_steps=2 format=3 uid="uid://ce7nevtgm5aom"]
+
+[ext_resource type="Script" uid="uid://7qp1goemqef8" path="res://Scripts/CustomizeNight.gd" id="1_eo5ub"]
+
+[node name="CustomizeNight" type="Control"]
+layout_mode = 3
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1152.0
+offset_bottom = -648.0
+script = ExtResource("1_eo5ub")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_top = -3.0
+offset_right = 1143.0
+offset_bottom = 656.0
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_top = 200
+theme_override_constants/margin_right = 120
+theme_override_constants/margin_bottom = 120
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Customize Night
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CharactersRow" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Phanatic" type="VBoxContainer" parent="MarginContainer/VBoxContainer/CharactersRow"]
+layout_mode = 2
+
+[node name="NameLabel0" type="Label" parent="MarginContainer/VBoxContainer/CharactersRow/Phanatic"]
+layout_mode = 2
+
+[node name="Icon0" type="TextureRect" parent="MarginContainer/VBoxContainer/CharactersRow/Phanatic"]
+layout_mode = 2
+
+[node name="AILabel0" type="Label" parent="MarginContainer/VBoxContainer/CharactersRow/Phanatic"]
+layout_mode = 2
+text = "A.I. Level"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/CharactersRow/Phanatic"]
+layout_mode = 2
+
+[node name="LeftButton0" type="Button" parent="MarginContainer/VBoxContainer/CharactersRow/Phanatic/HBoxContainer"]
+layout_mode = 2
+text = "<"
+
+[node name="ValueLabel0" type="Label" parent="MarginContainer/VBoxContainer/CharactersRow/Phanatic/HBoxContainer"]
+layout_mode = 2
+text = "0"
+
+[node name="RightButton0" type="Button" parent="MarginContainer/VBoxContainer/CharactersRow/Phanatic/HBoxContainer"]
+layout_mode = 2
+text = ">"
+
+[node name="Gritty" type="VBoxContainer" parent="MarginContainer/VBoxContainer/CharactersRow"]
+layout_mode = 2
+
+[node name="NameLabel1" type="Label" parent="MarginContainer/VBoxContainer/CharactersRow/Gritty"]
+layout_mode = 2
+
+[node name="Icon1" type="TextureRect" parent="MarginContainer/VBoxContainer/CharactersRow/Gritty"]
+layout_mode = 2
+
+[node name="AILabel1" type="Label" parent="MarginContainer/VBoxContainer/CharactersRow/Gritty"]
+layout_mode = 2
+text = "A.I. Level"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/CharactersRow/Gritty"]
+layout_mode = 2
+
+[node name="LeftButton1" type="Button" parent="MarginContainer/VBoxContainer/CharactersRow/Gritty/HBoxContainer"]
+layout_mode = 2
+text = "<"
+
+[node name="ValueLabel1" type="Label" parent="MarginContainer/VBoxContainer/CharactersRow/Gritty/HBoxContainer"]
+layout_mode = 2
+text = "0"
+
+[node name="RightButton1" type="Button" parent="MarginContainer/VBoxContainer/CharactersRow/Gritty/HBoxContainer"]
+layout_mode = 2
+text = ">"
+
+[node name="Franklin" type="VBoxContainer" parent="MarginContainer/VBoxContainer/CharactersRow"]
+layout_mode = 2
+
+[node name="NameLabel2" type="Label" parent="MarginContainer/VBoxContainer/CharactersRow/Franklin"]
+layout_mode = 2
+
+[node name="Icon2" type="TextureRect" parent="MarginContainer/VBoxContainer/CharactersRow/Franklin"]
+layout_mode = 2
+
+[node name="AILabel2" type="Label" parent="MarginContainer/VBoxContainer/CharactersRow/Franklin"]
+layout_mode = 2
+text = "A.I. Level"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/CharactersRow/Franklin"]
+layout_mode = 2
+
+[node name="LeftButton2" type="Button" parent="MarginContainer/VBoxContainer/CharactersRow/Franklin/HBoxContainer"]
+layout_mode = 2
+text = "<"
+
+[node name="ValueLabel2" type="Label" parent="MarginContainer/VBoxContainer/CharactersRow/Franklin/HBoxContainer"]
+layout_mode = 2
+text = "0"
+
+[node name="RightButton2" type="Button" parent="MarginContainer/VBoxContainer/CharactersRow/Franklin/HBoxContainer"]
+layout_mode = 2
+text = ">"
+
+[node name="Hooters" type="VBoxContainer" parent="MarginContainer/VBoxContainer/CharactersRow"]
+layout_mode = 2
+
+[node name="NameLabel3" type="Label" parent="MarginContainer/VBoxContainer/CharactersRow/Hooters"]
+layout_mode = 2
+
+[node name="Icon3" type="TextureRect" parent="MarginContainer/VBoxContainer/CharactersRow/Hooters"]
+layout_mode = 2
+
+[node name="AILabel3" type="Label" parent="MarginContainer/VBoxContainer/CharactersRow/Hooters"]
+layout_mode = 2
+text = "A.I. Level"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/CharactersRow/Hooters"]
+layout_mode = 2
+
+[node name="LeftButton3" type="Button" parent="MarginContainer/VBoxContainer/CharactersRow/Hooters/HBoxContainer"]
+layout_mode = 2
+text = "<"
+
+[node name="ValueLabel3" type="Label" parent="MarginContainer/VBoxContainer/CharactersRow/Hooters/HBoxContainer"]
+layout_mode = 2
+text = "0"
+
+[node name="RightButton3" type="Button" parent="MarginContainer/VBoxContainer/CharactersRow/Hooters/HBoxContainer"]
+layout_mode = 2
+text = ">"
+
+[node name="RangeLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ButtonsRow" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="MarginContainer/VBoxContainer/ButtonsRow"]
+layout_mode = 2
+text = "Back
+"
+
+[node name="ReadyButton" type="Button" parent="MarginContainer/VBoxContainer/ButtonsRow"]
+layout_mode = 2
+text = "Ready"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/CharactersRow/Phanatic/HBoxContainer/LeftButton0" to="." method="_on_left_button_0_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/CharactersRow/Phanatic/HBoxContainer/RightButton0" to="." method="_on_right_button_0_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/CharactersRow/Gritty/HBoxContainer/LeftButton1" to="." method="_on_left_button_1_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/CharactersRow/Gritty/HBoxContainer/RightButton1" to="." method="_on_right_button_1_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/CharactersRow/Franklin/HBoxContainer/LeftButton2" to="." method="_on_left_button_2_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/CharactersRow/Franklin/HBoxContainer/RightButton2" to="." method="_on_right_button_2_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/CharactersRow/Hooters/HBoxContainer/LeftButton3" to="." method="_on_left_button_3_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/CharactersRow/Hooters/HBoxContainer/RightButton3" to="." method="_on_right_button_3_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonsRow/BackButton" to="." method="_on_BackButton_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonsRow/ReadyButton" to="." method="_on_ReadyButton_pressed"]
