@@ -160,6 +160,8 @@ func _on_switch_button_mouse_entered() -> void:
 			
 	else:
 		anim_player.play("CloseCamera")
+		await get_tree().create_timer(.3).timeout # Wait for 2 seconds
+		
 		# Go back to office
 		load_room(room_scenes["Office"])
 		make_camera_map_invisible()

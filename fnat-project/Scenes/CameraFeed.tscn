@@ -111,10 +111,10 @@ text = "1L"
 [node name="CamCafe" type="Button" parent="ButtonContainer"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 0
-offset_left = 330.0
-offset_top = 288.0
-offset_right = 390.0
-offset_bottom = 348.0
+offset_left = 215.0
+offset_top = 277.0
+offset_right = 275.0
+offset_bottom = 337.0
 theme_override_fonts/font = ExtResource("2_q7evq")
 text = "2L"
 
@@ -152,10 +152,10 @@ vertical_alignment = 1
 
 [node name="RoomLabel" type="Label" parent="ButtonContainer"]
 layout_mode = 0
-offset_left = 26.0
-offset_top = -187.0
-offset_right = 219.0
-offset_bottom = -142.0
+offset_left = -668.0
+offset_top = -233.0
+offset_right = -475.0
+offset_bottom = -188.0
 theme_override_fonts/font = ExtResource("2_q7evq")
 theme_override_font_sizes/font_size = 28
 

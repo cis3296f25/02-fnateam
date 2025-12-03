@@ -202,7 +202,7 @@ func _handle_new_cam(current_cam_node, cam_name: String) -> void:
 		var label := Label.new()
 		label.name = mascot
 		label.text = mascot + " is here!"
-		label.position = Vector2(0, 20 * i)
+		label.position = Vector2(50, 100 * i)
 		mascot_container.add_child(label)
 		i += 1
 
