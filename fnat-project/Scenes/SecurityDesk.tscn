@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://gqe1bffwwtkk"]
+[gd_scene load_steps=26 format=3 uid="uid://gqe1bffwwtkk"]
 
 [ext_resource type="PackedScene" uid="uid://c603rgefo4g1i" path="res://Scenes/Animatronic.tscn" id="1_cb5gl"]
 [ext_resource type="Script" uid="uid://jdxxtktnbyel" path="res://Scripts/main_gameloop.gd" id="1_ri7fq"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bt4q53glfnuvw" path="res://Scenes/AlertTimer.tscn" id="6_axdon"]
 [ext_resource type="Script" uid="uid://gw66j1yofubm" path="res://Scripts/flashlight_handler.gd" id="10_f8na0"]
 [ext_resource type="AudioStream" uid="uid://dm5vie77ehq3x" path="res://Assets/Sounds/bgNoise.mp3" id="13_674sq"]
+[ext_resource type="PackedScene" uid="uid://rendii2rp1m2" path="res://Scenes/Phone_Call.tscn" id="15_2r0gi"]
 [ext_resource type="FontFile" uid="uid://csl47hwukavbv" path="res://Assets/Volter__28Goldfish_29.ttf" id="20_font"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_674sq"]
@@ -255,6 +256,8 @@ parameters/looping = true
 libraries = {
 &"": SubResource("AnimationLibrary_u2gp5")
 }
+
+[node name="PhoneCall" parent="." instance=ExtResource("15_2r0gi")]
 
 [connection signal="pressed" from="LeftButton" to="FlashlightHandler" method="_on_left_button_pressed"]
 [connection signal="pressed" from="MiddleButton" to="FlashlightHandler" method="_on_middle_button_pressed"]
