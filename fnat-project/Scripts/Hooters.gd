@@ -67,10 +67,13 @@ func _on_aggression_boost_ended():
 
 func _action() -> void:
 	apply_hour_increments()
-
+	
 	var roll = randi() % 20 + 1
 	var effective_ai = int(ai_level * aggression_multiplier)
-
+	if GameManager.get_cam_state() == true:
+		effective_ai = 0
+		print("HOOTER IS CAMERA STALLED!!")
+		
 	if roll < effective_ai:
 		move_to_next_room()
 		print("%s moved! (Roll: %d < EffectiveAI: %d)" %
@@ -198,18 +201,7 @@ func handle_peek(room_name: String) -> void:
 
 func handle_flashed(mascot_name):
 	if mascot_name == animatronic_name:
-		var current_room = room_database[current_room_id]
-		var flashed_room_id = 2
-		var next_room = room_database[flashed_room_id]
-
-		GameManager.animatronic_moved.emit(animatronic_name,
-			current_room["Name"], next_room["Name"])
-
-		current_room["Empty"] = true
-		next_room["Empty"] = false
-
-		last_room_id = current_room_id
-		current_room_id = flashed_room_id
+		trigger_attack()
 
 func Show_Jumpscare() -> void:
 	JumpScare_Image.visible = true

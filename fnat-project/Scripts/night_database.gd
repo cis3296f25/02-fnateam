@@ -167,12 +167,12 @@ extends Node
 		"GrittyAI_3AMIncr" : 0,
 		"GrittyAI_4AMIncr" : 0,
 
-		"HooterAI_Start" : 20,
+		"HooterAI_Start" : 0,
 		"HooterAI_2AMIncr" : 0,
 		"HooterAI_3AMIncr" : 0,
 		"HooterAI_4AMIncr" : 0,
 
-		"FranklinAI_Start" : 0,
+		"FranklinAI_Start" : 20,
 		"FranklinAI_2AMIncr" : 0,
 		"FranklinAI_3AMIncr" : 0,
 		"FranklinAI_4AMIncr" : 0,

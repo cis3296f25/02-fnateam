@@ -58,7 +58,9 @@ func _action() -> void:
 
 	var roll = randi() % 20 + 1
 	var effective_ai = int(ai_level * aggression_multiplier)
-
+	if GameManager.get_cam_state() == true:
+		effective_ai = 0
+		print("Phang CAMERA STALLED!!")
 	if roll < effective_ai:
 		move_to_next_room()
 		print("%s moved! (Roll: %d < Effective AI: %d)" %
