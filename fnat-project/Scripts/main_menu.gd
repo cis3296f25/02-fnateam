@@ -11,6 +11,7 @@ func _ready() -> void:
 var is_Test = true
 func _on_start_pressed() -> void:
 	print(">>> Start pressed")
+	$BGMusic.stream_paused = true
 	SoundEffects.get_node("computerMouseClick").play()
 	
 	if is_Test == true:
