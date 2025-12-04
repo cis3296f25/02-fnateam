@@ -20,6 +20,7 @@ var is_agressive: bool = false
 var stage: int = 1
 var last_hour_applied: int = 0
 
+var stun_time := 0
 
 func _ready() -> void:
 	randomize()
@@ -47,7 +48,7 @@ func _ready() -> void:
 
 func _setup_stage_timer():
 	stage_timer.one_shot = false
-	stage_timer.timeout.connect(_on_stage_tick)
+	#stage_timer.timeout.connect(_on_stage_tick)
 	_update_stage_timer_state()
 
 
@@ -84,13 +85,88 @@ func _on_stage_tick():
 	ai_level += 1
 	print("%s advanced to STAGE %d → AI %d" % [animatronic_name, stage, ai_level])
 
-
-	if stage == 4:
-		_run_to_office_door()
-	if stage >= 5:
-		trigger_attack()
+	match stage:
+		2:
+			_get_up()
+		3:
+			_run_to_hall()
+		4:
+			_run_to_office_door()
+		5: 
+			trigger_attack()
 
 	_update_stage_timer_state()
+
+func _get_up():
+	var target = "Gym"
+	
+	var door_id = _get_room_id_by_name(target)
+	if door_id == -1:
+		return
+
+	var current_room = room_database[current_room_id]
+	var next_room = room_database[door_id]
+
+	GameManager.animatronic_moved.emit(
+		animatronic_name,
+		current_room["Name"],
+		next_room["Name"]
+	)
+
+	current_room["Empty"] = true
+	next_room["Empty"] = false
+	current_room_id = door_id
+
+	print("%s rushed to %s (Stage 2 trigger)" % [animatronic_name, target])
+	
+func _run_to_hall():
+	var target = ""
+	if randf() < 0.5:
+		target = "LeftHall"
+	else:
+		target = "RightHall"
+
+	var door_id = _get_room_id_by_name(target)
+	if door_id == -1:
+		return
+
+	var current_room = room_database[current_room_id]
+	var gym_id = _get_room_id_by_name("Gym")
+	var gym_room = room_database[gym_id]
+	var next_room = room_database[door_id]
+	if gym_room["SealedDoor"] == true or current_room["SealedDoor"] == true:
+		stage = 1
+		ai_level = GameManager.set_night_start_AI("Franklin")
+		_update_stage_timer_state()
+
+		var ballcart_id = _get_room_id_by_name("BallCart")
+
+		next_room = room_database[ballcart_id]
+
+		GameManager.animatronic_moved.emit(
+			animatronic_name,
+			current_room["Name"],
+			next_room["Name"]
+		)
+
+		current_room["Empty"] = true
+		next_room["Empty"] = false
+		current_room_id = ballcart_id
+		stun_time = 5
+		print("%s HIT A DOOR → returned to BallCart." % animatronic_name)
+		return
+	
+	GameManager.animatronic_moved.emit(
+		animatronic_name,
+		current_room["Name"],
+		next_room["Name"]
+	)
+
+	current_room["Empty"] = true
+	next_room["Empty"] = false
+	current_room_id = door_id
+
+	print("%s rushed to %s (Stage 3 trigger)" % [animatronic_name, target])
 
 
 func _run_to_office_door():
@@ -135,14 +211,16 @@ func _on_aggression_boost_ended():
 func _action() -> void:
 	apply_hourly_increments()
 
-	if stage >= 4:
-		return
-
 	var roll = randi() % 20 + 1
 	var effective_ai = int(ai_level * aggression_multiplier)
-
+	
+	if stun_time > 0:
+		stun_time -= 1
+		print("Franklin is stunned!")
+		return
+	
 	if roll < effective_ai:
-		move_to_next_room()
+		_on_stage_tick()
 		print("%s moved! Roll %d < AI %d" %
 			[animatronic_name, roll, effective_ai])
 
