@@ -212,6 +212,7 @@ func _animatronic_flashed_handler(mascot_name: String) -> void:
 	print(mascot_name + " was flashed")
 
 
+
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_READY:
 		call_deferred("_connect_night_cycle")

@@ -44,12 +44,14 @@ func _on_aggression_boost_started():
 	if not is_aggressive:
 		is_aggressive = true
 		aggression_multiplier = 2.0
+		print("%s is now AGGRESSIVE!" % animatronic_name)
 
 
 func _on_aggression_boost_ended():
 	if is_aggressive:
 		is_aggressive = false
 		aggression_multiplier = 1.0
+		print("%s calmed down." % animatronic_name)
 
 
 func _action() -> void:
