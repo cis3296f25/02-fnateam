@@ -66,7 +66,7 @@ func _select_stage_timer():
 		active_stage_timer = stage_timer_n5
 
 func _setup_stage_timer():
-	stage_timer.one_shot = false
+#	stage_timer.one_shot = false
 	#stage_timer.timeout.connect(_on_stage_tick)
 	_update_stage_timer_state()
 

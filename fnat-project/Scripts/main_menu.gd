@@ -8,7 +8,7 @@ func _ready() -> void:
 # ------------------------
 # Start Game
 # ------------------------
-var is_Test = true
+var is_Test = false
 func _on_start_pressed() -> void:
 	print(">>> Start pressed")
 	$BGMusic.stream_paused = true
