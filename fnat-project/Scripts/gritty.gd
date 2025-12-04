@@ -83,15 +83,15 @@ func move_to_next_room():
 	var adjacent_rooms = current_room["AdjacentRooms"].duplicate()
 
 	var room_weights = {
-		"Office": 10.0,
-		"LeftOfficeDoor" : 6.0,
-		"RightOfficeDoor" : 6.0,
-		"LeftHall": 3.0,
-		"RightHall": 3.0,
-		"Gym": 2.5,
-		"RightLocker": 1.5,
-		"LeftLocker": 1.5,
-		"Storage": 0.5,
+		"Office": 200.0,
+		"LeftOfficeDoor" : 10.0,
+		"RightOfficeDoor" : 10.0,
+		"LeftHall": 9.0,
+		"RightHall": 9.0,
+		"Gym": 3.0,
+		"RightLockers": 6.0,
+		"LeftLockers": 6.0,
+		"Storage": 0,
 		"Cafe": 3.0,
 		"Lounge": 1.0
 	}
@@ -103,7 +103,7 @@ func move_to_next_room():
 		if next_room["SealedDoor"]:
 			continue
 
-		if next_room["Name"] in ["Vent Section 1", "Vent Section 2", "Vent Section 3", "Closet", "LeftLocker", "LeftOfficeDoor"]:
+		if next_room["Name"] in ["Vent Section 1", "Vent Section 2", "Vent Section 3", "Closet", "LeftLockers","LeftHall", "LeftOfficeDoor"]:
 			continue
 
 		valid_rooms.append(next_room_id)

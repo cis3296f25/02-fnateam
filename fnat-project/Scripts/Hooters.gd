@@ -13,6 +13,7 @@ var peak = 0
 @onready var taunt: Timer = $TauntTimer
 @onready var Jumpscare: CanvasLayer = $Jumpscare
 @onready var JumpScare_Image = Jumpscare.get_node("JumpImage")
+@onready var Peek_Image = Jumpscare.get_node("PeekImage")
 
 @export var ai_level: int = 5
 var animatronic_name = "Hooters"
@@ -25,6 +26,7 @@ var last_hour_applied := 0
 func _ready() -> void:
 	randomize()
 	JumpScare_Image.visible = false
+	Peek_Image.visible = false
 	room_database = GameManager.shared_room_database.rooms
 	
 	GameManager.animatronic_started.emit(animatronic_name, room_database[current_room_id]["Name"])
@@ -65,10 +67,13 @@ func _on_aggression_boost_ended():
 
 func _action() -> void:
 	apply_hour_increments()
-
+	
 	var roll = randi() % 20 + 1
 	var effective_ai = int(ai_level * aggression_multiplier)
-
+	if GameManager.get_cam_state() == true:
+		effective_ai = 0
+		print("HOOTER IS CAMERA STALLED!!")
+		
 	if roll < effective_ai:
 		move_to_next_room()
 		print("%s moved! (Roll: %d < EffectiveAI: %d)" %
@@ -102,10 +107,10 @@ func move_to_next_room():
 		"LeftHall": 3.0,
 		"RightHall": 3.0,
 		"Gym": 2.5,
-		"RightLocker": 1.5,
-		"LeftLocker": 1.5,
-		"Storage": 0.5,
-		"Closet": 3.0,
+		"RightLockers": 2.0,
+		"LeftLockers": 2.0,
+		"Storage": 0,
+		"Closet": 1.0,
 		"Lounge": 1.0
 	}
 
@@ -117,11 +122,11 @@ func move_to_next_room():
 		if next_room["SealedDoor"]:
 			continue
 
-		if next_room["Name"] in ["Vent Section 1", "Vent Section 2", "Vent Section 3", "Cafe", "LeftLocker", "LeftOfficeDoor"]:
+		if next_room["Name"] in ["Vent Section 1", "Vent Section 2", "Vent Section 3", "Cafe", "LeftLockers", "LeftHall", "LeftOfficeDoor"]:
 			continue
 
 		# === NO MOVING BACKWARDS ===
-		if next_room_id == last_room_id:
+		if next_room_id == last_room_id and adjacent_rooms.size() > 1 :
 			continue
 
 		if not next_room["Empty"]:
@@ -158,7 +163,7 @@ func move_to_next_room():
 	print("%s moved to %s" % [animatronic_name, next_room["Name"]])
 
 	if next_room["Name"] == "Office":
-		trigger_attack()
+		handle_peek(next_room["Name"])
 
 
 func handle_peek(room_name: String) -> void:
@@ -168,21 +173,18 @@ func handle_peek(room_name: String) -> void:
 
 	print("%s is at %s! Peek %d" %
 		[animatronic_name, room_name, peak])
-
-	await get_tree().create_timer(1.0).timeout
+	#SoundEffects.get_node()
+	
 
 	if peak >= max_peaks:
 		trigger_attack()
 	else:
-		taunt.stop()
-		move_timer.start()
-
-
-func handle_flashed(mascot_name):
-	if mascot_name == animatronic_name:
+		Peek_Image.visible = true
+		await get_tree().create_timer(1.0).timeout
 		var current_room = room_database[current_room_id]
-		var flashed_room_id = 2
-		var next_room = room_database[flashed_room_id]
+		var possible_rooms = [2, 5, 6]
+		var peak_room_id = possible_rooms[randi() % possible_rooms.size()]
+		var next_room = room_database[peak_room_id]
 
 		GameManager.animatronic_moved.emit(animatronic_name,
 			current_room["Name"], next_room["Name"])
@@ -191,9 +193,21 @@ func handle_flashed(mascot_name):
 		next_room["Empty"] = false
 
 		last_room_id = current_room_id
-		current_room_id = flashed_room_id
+		current_room_id = peak_room_id
+		Peek_Image.visible = false
+		taunt.stop()
+		move_timer.start()
+
+
+func handle_flashed(mascot_name):
+	if mascot_name == animatronic_name:
+		trigger_attack()
 
 func Show_Jumpscare() -> void:
+	JumpScare_Image.visible = true
+	print("Done Jumpscare.")
+	
+func Show_Peek() -> void:
 	JumpScare_Image.visible = true
 	print("Done Jumpscare.")
 
