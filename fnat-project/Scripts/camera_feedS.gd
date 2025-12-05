@@ -42,7 +42,7 @@ var static_timer: Timer
 	
 
 func get_all_mascots() -> Array:
-	return ["Gritty", "Hooters", "Phillies_Fnatic", "Phang", "Franklin"]
+	return ["Gritty", "Hooters", "Phillies Phanatic", "Phang", "Franklin"]
 	
 func hide_all_animatronic_sprites():
 	var all_mascots = get_all_mascots()

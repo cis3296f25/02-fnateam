@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c603rgefo4g1i"]
+[gd_scene load_steps=24 format=3 uid="uid://c603rgefo4g1i"]
 
 [ext_resource type="Script" uid="uid://dvx0t6redh06t" path="res://Scripts/gritty.gd" id="2_6posk"]
 [ext_resource type="Texture2D" uid="uid://cvymdbaia047" path="res://Assets/Phantic.png" id="2_274wx"]
@@ -50,17 +50,17 @@ texture = ExtResource("11_yw2oc")
 
 [node name="Animatronic" type="Node2D"]
 
-[node name="Phillies_Fnatic" type="Node2D" parent="."]
+[node name="Phillies Phanatic" type="Node2D" parent="."]
 script = ExtResource("4_divj7")
 
-[node name="Timer" type="Timer" parent="Phillies_Fnatic"]
+[node name="Timer" type="Timer" parent="Phillies Phanatic"]
 wait_time = 4.970000000000001
 autostart = true
 
-[node name="Jumpscare" type="CanvasLayer" parent="Phillies_Fnatic"]
+[node name="Jumpscare" type="CanvasLayer" parent="Phillies Phanatic"]
 layer = 2
 
-[node name="JumpImage" type="Panel" parent="Phillies_Fnatic/Jumpscare"]
+[node name="JumpImage" type="Panel" parent="Phillies Phanatic/Jumpscare"]
 visible = false
 anchors_preset = 15
 anchor_right = 1.0
@@ -69,7 +69,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_y2htd")
 
-[node name="sprite" type="Sprite2D" parent="Phillies_Fnatic"]
+[node name="sprite" type="Sprite2D" parent="Phillies Phanatic"]
 visible = false
 position = Vector2(965.0156, 499.64066)
 scale = Vector2(0.24818125, 0.24964903)
@@ -124,12 +124,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_223ss")
 
-[node name="sprite" type="Sprite2D" parent="Hooters"]
-visible = false
-position = Vector2(413.99997, 496.99997)
-scale = Vector2(0.23657225, 0.24450685)
-texture = ExtResource("10_yw2oc")
-
 [node name="PeekImage" type="Panel" parent="Hooters/Jumpscare"]
 visible = false
 anchors_preset = 15
@@ -138,6 +132,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_l7g6t")
+
+[node name="sprite" type="Sprite2D" parent="Hooters"]
+visible = false
+position = Vector2(413.99997, 496.99997)
+scale = Vector2(0.23657225, 0.24450685)
+texture = ExtResource("10_yw2oc")
 
 [node name="Phang" type="Node2D" parent="."]
 script = ExtResource("5_j2o0d")
