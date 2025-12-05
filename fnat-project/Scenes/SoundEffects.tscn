@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://duxb5nyw2huei"]
+[gd_scene load_steps=22 format=3 uid="uid://duxb5nyw2huei"]
 
 [ext_resource type="AudioStream" uid="uid://bgjl720ausv4l" path="res://Assets/Sounds/computerMouseClick.mp3" id="1_qcviq"]
 [ext_resource type="AudioStream" uid="uid://dpaaya6gkf582" path="res://Assets/Sounds/clickOpen.mp3" id="2_mq6su"]
@@ -19,6 +19,8 @@
 [ext_resource type="AudioStream" uid="uid://bxvif1nm4gwtg" path="res://Assets/Sounds/scream3.wav" id="17_f04gl"]
 [ext_resource type="AudioStream" uid="uid://ba7b0ub2c35iu" path="res://Assets/Sounds/belltower.wav" id="18_bwvec"]
 [ext_resource type="AudioStream" uid="uid://cso4c2s6diwot" path="res://Assets/Sounds/woosh.wav" id="18_rdrjo"]
+[ext_resource type="AudioStream" uid="uid://bdc30f7sbfl7f" path="res://Assets/Sounds/rightDoor.wav" id="20_pawqu"]
+[ext_resource type="AudioStream" uid="uid://bt3glm3qgru2u" path="res://Assets/Sounds/leftDoor.wav" id="21_i3lm8"]
 
 [node name="SoundEffects" type="Node2D"]
 
@@ -104,4 +106,12 @@ bus = &"Effects"
 [node name="Woosh" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("18_rdrjo")
 volume_db = -4.294
+bus = &"Effects"
+
+[node name="RightDoor" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("20_pawqu")
+bus = &"Effects"
+
+[node name="LeftDoor" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("21_i3lm8")
 bus = &"Effects"
