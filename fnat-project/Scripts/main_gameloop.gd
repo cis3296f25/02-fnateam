@@ -41,7 +41,7 @@ var night_database = null
 signal room_sealed(room_name, is_sealed)
 var room_seal_states := {}
 
-var current_night := 5
+var current_night := 0
 var nights_beaten := {}
 
 signal hooters_setAI(start, TwoAMInc, ThreeAMInc, FourAMInc)
@@ -51,6 +51,9 @@ signal phang_setAI(start, TwoAMInc, ThreeAMInc, FourAMInc)
 
 var current_hour := 0
 var night_cycle_connected := false
+
+var random_sound_timer := 0.0
+var next_sound_time := 0.0
 
 
 func _ready() -> void:
@@ -73,6 +76,7 @@ func _ready() -> void:
 	cams_opened.connect(set_cam_open)
 	cams_closed.connect(set_cam_closed)
 	print("GameManager initialized.")
+	_schedule_next_random_sound()
 
 func Reset_Night() -> void:
 	room_seal_states = {}
@@ -96,6 +100,7 @@ func _process(_delta: float) -> void:
 			night_cycle.hour_changed.connect(_on_hour_changed)
 			night_cycle_connected = true
 			print("NightCycle connected.")
+	_random_sound_logic(_delta)
 
 
 func _on_hour_changed(hour_index: int, _txt: String) -> void:
@@ -236,3 +241,45 @@ func _connect_night_cycle() -> void:
 		night_cycle.hour_changed.connect(_on_hour_changed)
 		night_cycle_connected = true
 		print("NightCycle connected via _connect_night_cycle()")
+
+
+func _schedule_next_random_sound():
+	next_sound_time = randf_range(32.0, 70.0)  # adjust as needed
+	random_sound_timer = 0.0
+
+func _random_sound_logic(delta: float) -> void:
+	random_sound_timer += delta
+	if current_hour >= 2:
+		if random_sound_timer >= next_sound_time:
+			_schedule_next_random_sound()
+			_play_random_sound()
+
+func _play_random_sound():
+	print("Playing Sound Randomly")
+	var n = randi_range(1, 100)
+	print(n)
+	if n <= 5:
+		SoundEffects.get_node("TforTU").play()
+	elif n <= 10:
+		SoundEffects.get_node("Hooing").play()
+	elif n <= 20:
+		var scream_num = randi_range(1, 3)
+		SoundEffects.get_node("Scream" + str(scream_num)).play()
+	elif n <= 40:
+		SoundEffects.get_node("Tension").play()
+	elif n <= 60:
+		SoundEffects.get_node("Nothingness").play()
+	elif n <= 80:
+		SoundEffects.get_node("EvilCue").play()
+	else:
+		SoundEffects.get_node("Woosh").play()
+
+"""
+	"TforTU": 5,       # rare
+    "Hooing": 5,       # rare
+    "Scream": 10,      # uncommon, choose 1 of 3 if selected
+    "Tension": 20,     # common
+    "Nothingness": 20, # common
+    "Clank": 20,       # common
+    "Groan": 20        # common
+"""

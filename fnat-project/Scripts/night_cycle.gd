@@ -13,6 +13,7 @@ var _running := false
 var _paused := false
 var _hour_index := 0
 var _elapsed := 0.0
+var playing := false
 
 func _ready() -> void:
 	add_to_group("NightCycle")  # <<< IMPORTANT
@@ -25,6 +26,7 @@ func _ready() -> void:
 	_update_night()
 	_running = auto_start
 	_paused = start_paused
+	playing = false
 
 func _process(delta: float) -> void:
 	if not _running or _paused:
@@ -38,6 +40,9 @@ func _process(delta: float) -> void:
 			hour_changed.emit(_hour_index, _format_hour_text(_hour_index))
 		else:
 			_show_6am_and_finish()
+	if _hour_index == 5 and _elapsed >= 32.0 and not playing:
+		SoundEffects.get_node("Belltower").play()
+		playing = true
 
 func _show_6am_and_finish() -> void:
 	if clock_label:
