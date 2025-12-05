@@ -103,6 +103,7 @@ func load_room(scene_object) -> void:
 		new_room.queue_free()
 		new_room_scene = room_scenes["CamStatic"]
 		new_room = new_room_scene.instantiate()
+		
 	GameManager.loaded_new_cam.emit(new_room, new_room.get_name())
 	room_container.add_child(new_room)
 

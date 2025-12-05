@@ -198,23 +198,23 @@ func _handle_new_cam(current_cam_node, cam_name: String) -> void:
 		if animatronics_locations[mascot] == cam_name:
 			mascots_to_show.append(mascot)
 			
-	var mascot_container = current_cam_node.get_node_or_null("Mascot_Container")
+	var mainScreen =  current_cam_node.get_node_or_null("MainScreen")
+	if mainScreen == null:
+		return
+		
+	var mascot_container =mainScreen.get_node_or_null("MascotContainer")
 	if mascot_container == null:
-		mascot_container = Container.new()
-		mascot_container.name = "Mascot_Container"
-		current_cam_node.add_child(mascot_container)
+		return
 
 	for child in mascot_container.get_children():
-		child.queue_free()
-
-	var i := 0
+		child.visible = false
+		
 	for mascot in mascots_to_show:
-		var label := Label.new()
-		label.name = mascot
-		label.text = mascot + " is here!"
-		label.position = Vector2(50, 100 * i)
-		mascot_container.add_child(label)
-		i += 1
+		print(mascot, " to show")
+		var mascotSprite = mascot_container.get_node_or_null(mascot)
+		if mascotSprite != null:
+			mascotSprite.visible = true
+			
 
 
 func _animatronic_flashed_handler(mascot_name: String) -> void:
