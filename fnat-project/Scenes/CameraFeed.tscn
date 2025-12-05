@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cc6yoh43ybaso"]
+[gd_scene load_steps=5 format=3 uid="uid://cc6yoh43ybaso"]
 
 [ext_resource type="Script" uid="uid://o511r4tgf0un" path="res://Scripts/camera_feedS.gd" id="1_ecqx0"]
 [ext_resource type="Texture2D" uid="uid://be17p232mrwv5" path="res://Assets/fnatmap.png" id="2_1jrrd"]
 [ext_resource type="FontFile" uid="uid://csl47hwukavbv" path="res://Assets/Volter__28Goldfish_29.ttf" id="2_q7evq"]
+[ext_resource type="Texture2D" uid="uid://wbuotcqhtadp" path="res://Assets/tablet_FNAT913.png" id="4_5a7dk"]
 
 [node name="CameraFeed" type="Node2D"]
 script = ExtResource("1_ecqx0")
@@ -19,19 +20,20 @@ offset_bottom = 631.0
 
 [node name="MapOutline" type="TextureRect" parent="ButtonContainer"]
 layout_mode = 0
-offset_left = -398.0
-offset_top = -580.0
-offset_right = 696.0
-offset_bottom = 865.0
+offset_left = -523.0
+offset_top = -610.0
+offset_right = 571.0
+offset_bottom = 835.0
+mouse_filter = 2
 texture = ExtResource("2_1jrrd")
 expand_mode = 4
 
 [node name="CamGym" type="Button" parent="ButtonContainer"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 0
-offset_left = 74.0
+offset_left = -52.0
 offset_top = 96.0
-offset_right = 134.0
+offset_right = 8.0
 offset_bottom = 156.0
 theme_override_fonts/font = ExtResource("2_q7evq")
 text = "G"
@@ -39,109 +41,109 @@ text = "G"
 [node name="CamRH" type="Button" parent="ButtonContainer"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 0
-offset_left = 139.0
-offset_top = 16.0
-offset_right = 199.0
-offset_bottom = 76.0
+offset_left = 8.0
+offset_top = -22.0
+offset_right = 68.0
+offset_bottom = 38.0
 theme_override_fonts/font = ExtResource("2_q7evq")
 text = "RH"
 
 [node name="CamLH" type="Button" parent="ButtonContainer"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 0
-offset_left = 7.0
-offset_top = 14.0
-offset_right = 67.0
-offset_bottom = 74.0
+offset_left = -127.0
+offset_top = -20.0
+offset_right = -67.0
+offset_bottom = 40.0
 theme_override_fonts/font = ExtResource("2_q7evq")
 text = "LH"
 
 [node name="CamBC" type="Button" parent="ButtonContainer"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 0
-offset_left = 7.0
-offset_top = 96.0
-offset_right = 67.0
-offset_bottom = 156.0
+offset_left = -140.0
+offset_top = 77.0
+offset_right = -80.0
+offset_bottom = 137.0
 theme_override_fonts/font = ExtResource("2_q7evq")
 text = "1G"
 
 [node name="CamRL" type="Button" parent="ButtonContainer"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 0
-offset_left = 140.0
-offset_top = 176.0
-offset_right = 200.0
-offset_bottom = 236.0
+offset_left = -7.0
+offset_top = 194.0
+offset_right = 53.0
+offset_bottom = 254.0
 theme_override_fonts/font = ExtResource("2_q7evq")
 text = "RL"
 
 [node name="CamLL" type="Button" parent="ButtonContainer"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 0
-offset_left = 7.0
-offset_top = 176.0
-offset_right = 67.0
-offset_bottom = 236.0
+offset_left = -92.0
+offset_top = 193.0
+offset_right = -32.0
+offset_bottom = 253.0
 theme_override_fonts/font = ExtResource("2_q7evq")
 text = "LL"
 
 [node name="CamLounge" type="Button" parent="ButtonContainer"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 0
-offset_left = 280.0
-offset_top = 221.0
-offset_right = 340.0
-offset_bottom = 281.0
+offset_left = 166.0
+offset_top = 184.0
+offset_right = 226.0
+offset_bottom = 244.0
 theme_override_fonts/font = ExtResource("2_q7evq")
 text = "L"
 
 [node name="CamStorage" type="Button" parent="ButtonContainer"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 0
-offset_left = 228.0
-offset_top = 288.0
-offset_right = 288.0
-offset_bottom = 348.0
+offset_left = 109.0
+offset_top = 269.0
+offset_right = 169.0
+offset_bottom = 329.0
 theme_override_fonts/font = ExtResource("2_q7evq")
 text = "1L"
 
 [node name="CamCafe" type="Button" parent="ButtonContainer"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 0
-offset_left = 330.0
-offset_top = 288.0
-offset_right = 390.0
-offset_bottom = 348.0
+offset_left = 215.0
+offset_top = 277.0
+offset_right = 275.0
+offset_bottom = 337.0
 theme_override_fonts/font = ExtResource("2_q7evq")
 text = "2L"
 
 [node name="CamCloset" type="Button" parent="ButtonContainer"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 0
-offset_left = 228.0
-offset_top = 151.0
-offset_right = 288.0
-offset_bottom = 211.0
+offset_left = 107.0
+offset_top = 106.0
+offset_right = 167.0
+offset_bottom = 166.0
 theme_override_fonts/font = ExtResource("2_q7evq")
 text = "3L"
 
 [node name="CamUtility" type="Button" parent="ButtonContainer"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 0
-offset_left = 330.0
-offset_top = 151.0
-offset_right = 390.0
-offset_bottom = 211.0
+offset_left = 212.0
+offset_top = 94.0
+offset_right = 272.0
+offset_bottom = 154.0
 theme_override_fonts/font = ExtResource("2_q7evq")
 text = "4L"
 
 [node name="YOU" type="Label" parent="ButtonContainer"]
 layout_mode = 0
-offset_left = 61.0
-offset_top = -44.0
-offset_right = 144.0
-offset_bottom = 14.0
+offset_left = -66.0
+offset_top = -76.0
+offset_right = 17.0
+offset_bottom = -18.0
 theme_override_fonts/font = ExtResource("2_q7evq")
 theme_override_font_sizes/font_size = 16
 text = "YOU"
@@ -150,23 +152,30 @@ vertical_alignment = 1
 
 [node name="RoomLabel" type="Label" parent="ButtonContainer"]
 layout_mode = 0
-offset_left = 69.0
-offset_top = -145.0
-offset_right = 262.0
-offset_bottom = -100.0
+offset_left = -668.0
+offset_top = -233.0
+offset_right = -475.0
+offset_bottom = -188.0
 theme_override_fonts/font = ExtResource("2_q7evq")
 theme_override_font_sizes/font_size = 28
 
 [node name="CamBoarder" type="Line2D" parent="ButtonContainer"]
-points = PackedVector2Array(-703, -249, -702, 365, 416, 369, 421, -253, -705, -250)
+position = Vector2(-4.2603655, 6.5127)
+scale = Vector2(0.95590633, 0.98253953)
+points = PackedVector2Array(-703, -249, -702.8537, 361.8406, 420.81567, 360.78677, 421, -253, -704.90247, -250.91301)
 width = 4.0
+
+[node name="TabletFnat913" type="Sprite2D" parent="ButtonContainer"]
+position = Vector2(-139.50006, 61)
+scale = Vector2(0.3366762, 0.29442504)
+texture = ExtResource("4_5a7dk")
 
 [node name="SwitchButton" type="Button" parent="."]
 custom_minimum_size = Vector2(550, 50)
-offset_left = 271.0
-offset_top = 605.0
-offset_right = 821.0
-offset_bottom = 655.0
+offset_left = 244.0
+offset_top = 574.0
+offset_right = 794.0
+offset_bottom = 624.0
 
 [connection signal="pressed" from="ButtonContainer/CamGym" to="." method="_on_r1_pressed"]
 [connection signal="pressed" from="ButtonContainer/CamGym" to="." method="_on_cam_gym_pressed"]
@@ -174,8 +183,8 @@ offset_bottom = 655.0
 [connection signal="pressed" from="ButtonContainer/CamRH" to="." method="_on_cam_rh_pressed"]
 [connection signal="pressed" from="ButtonContainer/CamLH" to="." method="_on_f_pressed"]
 [connection signal="pressed" from="ButtonContainer/CamLH" to="." method="_on_cam_lh_pressed"]
-[connection signal="pressed" from="ButtonContainer/CamBC" to="." method="_on_r3_pressed"]
 [connection signal="pressed" from="ButtonContainer/CamBC" to="." method="_on_r2_pressed"]
+[connection signal="pressed" from="ButtonContainer/CamBC" to="." method="_on_r3_pressed"]
 [connection signal="pressed" from="ButtonContainer/CamBC" to="." method="_on_cam_bc_pressed"]
 [connection signal="pressed" from="ButtonContainer/CamRL" to="." method="_on_sec_pressed"]
 [connection signal="pressed" from="ButtonContainer/CamRL" to="." method="_on_cam_rl_pressed"]

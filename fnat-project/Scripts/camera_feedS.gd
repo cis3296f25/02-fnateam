@@ -13,10 +13,11 @@ var room_scenes = {
 	"CamCafe": preload("res://Scenes/rooms/Cafe.tscn"),
 	"CamCloset": preload("res://Scenes/rooms/Closet.tscn"),
 	"CamUtility": preload("res://Scenes/rooms/Utility.tscn"),
-	"CamStatic": preload("res://Scenes/StaticScreen.tscn"),
+	"CamStatic": preload("res://Scenes/StaticScreen.tscn")
 }
 
 func _ready() -> void: 
+	add_to_group("camera_feed")
 	GameManager.animatronic_moved.connect(update_Animatronics_On_Cam)
 	GameManager.power_ran_out.connect(power_outage_handler)
 	GameManager.power_back.connect(power_return_handler)
@@ -33,20 +34,88 @@ var current_room_scene = room_scenes["Office"]
 var current_room: Node = null
 @onready var room_container = $RoomContainer
 
+#which rooms are static affected in real time
+var static_affected_rooms = {}
+var static_timer: Timer
+
+
+	
+
+func get_all_mascots() -> Array:
+	return ["Gritty", "Hooters", "Phillies_Fnatic", "Phang", "Franklin"]
+	
+func hide_all_animatronic_sprites():
+	var all_mascots = get_all_mascots()
+	for mascot in all_mascots:
+		var animatronic_node = get_tree().get_first_node_in_group(mascot)
+		if animatronic_node:
+			var sprite = animatronic_node.find_child("sprite", true, false)
+			if sprite:
+				sprite.visible = false
+
+func show_animatronic_sprite(mascot):
+	var all_mascots = get_all_mascots()
+	if mascot in all_mascots:
+		var animatronic_node = get_tree().get_first_node_in_group(mascot)
+		if animatronic_node:
+			
+			var sprite = animatronic_node.find_child("sprite", true, false)
+			if sprite:
+				sprite.visible = true
+ 
+func handle_animatronic_on_cam():
+	if not current_room:
+		return
+		
+	hide_all_animatronic_sprites()
+	var room_name = current_room.get_name()
+	for mascot in GameManager.animatronics_locations:
+		if GameManager.animatronics_locations[mascot] == room_name:
+			
+			show_animatronic_sprite(mascot)
+
+func update_Animatronics_On_Cam(_mascot, old_room, new_room) -> void:
+	if old_room == current_room.get_name() or new_room == current_room.get_name():
+		print("Static Static, Animatronic has Moved on Cam.")
+		
+	if old_room == current_room.get_name():
+		static_affected_rooms[old_room] = true
+		if not static_timer or static_timer.is_stopped():
+			if not static_timer:
+				static_timer = Timer.new()
+				add_child(static_timer)
+				static_timer.timeout.connect(_on_static_timeout)
+				
+			static_timer.wait_time = 3.0
+			static_timer.start()
+		load_room(room_scenes["CamStatic"])
+
+
 func load_room(scene_object) -> void:
 	if current_room:
 		current_room.queue_free()
 		
 	var new_room_scene = scene_object
 	var new_room = new_room_scene.instantiate()
+	var room_name = new_room.get_name()
+	
+	if room_name in static_affected_rooms and static_affected_rooms[room_name]:
+		new_room.queue_free()
+		new_room_scene = room_scenes["CamStatic"]
+		new_room = new_room_scene.instantiate()
 	GameManager.loaded_new_cam.emit(new_room, new_room.get_name())
 	room_container.add_child(new_room)
-	
-	# Update state tracking
+
 	if scene_object != current_room_scene:
 		last_room_scene = current_room_scene
+		
 	current_room_scene = scene_object
 	current_room = new_room
+	
+	handle_animatronic_on_cam()
+	
+func _on_static_timeout():
+	static_affected_rooms.clear()
 	
 func power_outage_handler():
 	camera_locked = true
@@ -56,13 +125,6 @@ func power_outage_handler():
 
 func power_return_handler():
 	camera_locked = false
-	
-
-func update_Animatronics_On_Cam(_mascot, old_room, new_room) -> void:
-	if old_room == current_room.get_name() or new_room == current_room.get_name():
-		print("Static Static, Animatronic has Moved on Cam.")
-		load_room(room_scenes["CamStatic"])
-		GameManager.loaded_new_cam.emit(current_room, current_room.get_name())
 	
 
 func _on_cam_gym_pressed() -> void:
@@ -123,14 +185,21 @@ func _on_cam_utility_pressed() -> void:
 func _on_switch_button_mouse_entered() -> void:
 	if camera_locked == true:
 		return
+	var anim_player = get_node("/root").get_node("SecurityDesk/AnimationPlayer")
+
 		
 	if office_active:
 		#go back to last room
+		anim_player.play("OpenCamera")
+
 		if last_room_scene != null:
 			load_room(last_room_scene)
 			make_camera_map_visible()
 			
 	else:
+		anim_player.play("CloseCamera")
+		await get_tree().create_timer(.3).timeout # Wait for .3 seconds
+		
 		# Go back to office
 		load_room(room_scenes["Office"])
 		make_camera_map_invisible()

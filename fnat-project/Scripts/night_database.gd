@@ -122,9 +122,9 @@ extends Node
 	},
 
 	5 : {
-		"PhangAI_Start" : 5,
+		"PhangAI_Start" : 10,
 		"PhangAI_2AMIncr" : 0,
-		"PhangAI_3AMIncr" : 1,
+		"PhangAI_3AMIncr" : 2,
 		"PhangAI_4AMIncr" : 1,
 
 		"PhanaticAI_Start" : 12,
@@ -132,7 +132,7 @@ extends Node
 		"PhanaticAI_3AMIncr" : 1,
 		"PhanaticAI_4AMIncr" : 2,
 
-		"GrittyAI_Start" : 12,
+		"GrittyAI_Start" : 12, #Orignally 12
 		"GrittyAI_2AMIncr" : 1,
 		"GrittyAI_3AMIncr" : 1,
 		"GrittyAI_4AMIncr" : 2,
@@ -146,6 +146,36 @@ extends Node
 		"FranklinAI_2AMIncr" : 0,
 		"FranklinAI_3AMIncr" : 1,
 		"FranklinAI_4AMIncr" : 1,
+
+		"PassiveDrain" : 0,
+		"MaxDrainCountdown" : 6
+	},
+	
+	6 : { # TEst  NIGHT
+		"PhangAI_Start" : 0,
+		"PhangAI_2AMIncr" : 0,
+		"PhangAI_3AMIncr" : 0,
+		"PhangAI_4AMIncr" : 0,
+
+		"PhanaticAI_Start" : 20,
+		"PhanaticAI_2AMIncr" : 0,
+		"PhanaticAI_3AMIncr" : 0,
+		"PhanaticAI_4AMIncr" : 0,
+
+		"GrittyAI_Start" : 20, #Orignally 12
+		"GrittyAI_2AMIncr" : 0,
+		"GrittyAI_3AMIncr" : 0,
+		"GrittyAI_4AMIncr" : 0,
+
+		"HooterAI_Start" : 0,
+		"HooterAI_2AMIncr" : 0,
+		"HooterAI_3AMIncr" : 0,
+		"HooterAI_4AMIncr" : 0,
+
+		"FranklinAI_Start" : 0,
+		"FranklinAI_2AMIncr" : 0,
+		"FranklinAI_3AMIncr" : 0,
+		"FranklinAI_4AMIncr" : 0,
 
 		"PassiveDrain" : 0,
 		"MaxDrainCountdown" : 6
