@@ -11,7 +11,7 @@ var peak := 0
 @onready var Jumpscare: CanvasLayer = $Jumpscare
 @onready var JumpScare_Image = Jumpscare.get_node("JumpImage")
 
-var animatronic_name := "Phillies_Fnatic"
+var animatronic_name := "Phillies Phanatic"
 var ai_key := "Phanatic"
 
 var ai_level: int = 0
