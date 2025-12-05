@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1uxegj7wkvw1"]
+
+[ext_resource type="Script" uid="uid://7ucvbk8xv4p5" path="res://Scripts/night_cycle.gd" id="1_6cxjv"]
+[ext_resource type="FontFile" uid="uid://csl47hwukavbv" path="res://Assets/Volter__28Goldfish_29.ttf" id="2_uqc6r"]
+
+[node name="NightTimer" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HUB" type="CanvasLayer" parent="."]
+script = ExtResource("1_6cxjv")
+
+[node name="NightClockLabel" type="Label" parent="HUB"]
+unique_name_in_owner = true
+offset_left = 945.0
+offset_top = 40.0
+offset_right = 1101.0
+offset_bottom = 96.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_uqc6r")
+theme_override_font_sizes/font_size = 28
+text = "12 AM"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NightIndicator" type="Label" parent="HUB"]
+unique_name_in_owner = true
+offset_left = 944.0
+offset_top = 79.0
+offset_right = 1100.0
+offset_bottom = 135.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_uqc6r")
+theme_override_font_sizes/font_size = 28
+text = "Test"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,0 +1,117 @@
+[gd_scene load_steps=22 format=3 uid="uid://duxb5nyw2huei"]
+
+[ext_resource type="AudioStream" uid="uid://bgjl720ausv4l" path="res://Assets/Sounds/computerMouseClick.mp3" id="1_qcviq"]
+[ext_resource type="AudioStream" uid="uid://dpaaya6gkf582" path="res://Assets/Sounds/clickOpen.mp3" id="2_mq6su"]
+[ext_resource type="AudioStream" uid="uid://73hi4xkwcplc" path="res://Assets/Sounds/clickClose.mp3" id="3_kergd"]
+[ext_resource type="AudioStream" uid="uid://b07rg3gsvx2dx" path="res://Assets/Sounds/screenTap.mp3" id="4_nmidg"]
+[ext_resource type="AudioStream" uid="uid://c37sdy8m18isd" path="res://Assets/Sounds/flashlightOn.mp3" id="5_nmidg"]
+[ext_resource type="AudioStream" uid="uid://b2aegt5vq70b7" path="res://Assets/Sounds/flashlightOff.mp3" id="6_54y0u"]
+[ext_resource type="AudioStream" uid="uid://cipjc7c72r4tu" path="res://Assets/Sounds/jumpscare1.mp3" id="7_k0o5r"]
+[ext_resource type="AudioStream" uid="uid://c27pssao06ec0" path="res://Assets/Sounds/jumpscare2.wav" id="8_77107"]
+[ext_resource type="AudioStream" uid="uid://bgjdrqrpbyayw" path="res://Assets/Sounds/ventSqueak.wav" id="9_77107"]
+[ext_resource type="AudioStream" uid="uid://0j4ikvrx1ffd" path="res://Assets/Sounds/TforTU.wav" id="10_rgs83"]
+[ext_resource type="AudioStream" uid="uid://k0cfeay6ampr" path="res://Assets/Sounds/tension.mp3" id="11_bn27d"]
+[ext_resource type="AudioStream" uid="uid://dx872a6r1ce73" path="res://Assets/Sounds/nothingness.wav" id="11_g7kl5"]
+[ext_resource type="AudioStream" uid="uid://cj55dxf1r6yoj" path="res://Assets/Sounds/hooing.wav" id="12_bwvec"]
+[ext_resource type="AudioStream" uid="uid://thmeo1las31k" path="res://Assets/Sounds/evilCue.wav" id="14_87ky8"]
+[ext_resource type="AudioStream" uid="uid://cr7elkt8btqt3" path="res://Assets/Sounds/scream1.wav" id="15_pawqu"]
+[ext_resource type="AudioStream" uid="uid://hcxvcoc58e5o" path="res://Assets/Sounds/scream2.wav" id="16_i3lm8"]
+[ext_resource type="AudioStream" uid="uid://bxvif1nm4gwtg" path="res://Assets/Sounds/scream3.wav" id="17_f04gl"]
+[ext_resource type="AudioStream" uid="uid://ba7b0ub2c35iu" path="res://Assets/Sounds/belltower.wav" id="18_bwvec"]
+[ext_resource type="AudioStream" uid="uid://cso4c2s6diwot" path="res://Assets/Sounds/woosh.wav" id="18_rdrjo"]
+[ext_resource type="AudioStream" uid="uid://bdc30f7sbfl7f" path="res://Assets/Sounds/rightDoor.wav" id="20_pawqu"]
+[ext_resource type="AudioStream" uid="uid://bt3glm3qgru2u" path="res://Assets/Sounds/leftDoor.wav" id="21_i3lm8"]
+
+[node name="SoundEffects" type="Node2D"]
+
+[node name="computerMouseClick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_qcviq")
+bus = &"Effects"
+
+[node name="clickOpen" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_kergd")
+volume_db = 4.293
+bus = &"Effects"
+
+[node name="clickClose" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_mq6su")
+volume_db = 4.293
+bus = &"Effects"
+
+[node name="screenTap" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_nmidg")
+volume_db = -5.725
+bus = &"Effects"
+
+[node name="flashlightOn" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_nmidg")
+bus = &"Effects"
+
+[node name="flashlightOff" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_54y0u")
+bus = &"Effects"
+
+[node name="jumpscare1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_k0o5r")
+volume_db = 1.908
+bus = &"Effects"
+
+[node name="jumpscare2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_77107")
+volume_db = 1.908
+bus = &"Effects"
+
+[node name="ventSqueak" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_77107")
+volume_db = -1.908
+bus = &"Effects"
+
+[node name="TforTU" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_rgs83")
+bus = &"Effects"
+
+[node name="Nothingness" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_g7kl5")
+bus = &"Effects"
+
+[node name="Hooing" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_bwvec")
+bus = &"Effects"
+
+[node name="Tension" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_bn27d")
+volume_db = -12.621
+bus = &"Effects"
+
+[node name="EvilCue" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_87ky8")
+bus = &"Effects"
+
+[node name="Scream1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_pawqu")
+bus = &"Effects"
+
+[node name="Scream2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_i3lm8")
+bus = &"Effects"
+
+[node name="Scream3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_f04gl")
+bus = &"Effects"
+
+[node name="Belltower" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_bwvec")
+bus = &"Effects"
+
+[node name="Woosh" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_rdrjo")
+volume_db = -4.294
+bus = &"Effects"
+
+[node name="RightDoor" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("20_pawqu")
+bus = &"Effects"
+
+[node name="LeftDoor" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("21_i3lm8")
+bus = &"Effects"
