@@ -27,7 +27,7 @@ func used_flash(missed):
 	
 func update_Text_To_Something(mascot_name, entered):
 	if entered == true:
-		#Play Sound for Animatronic Being here
+		SoundEffects.get_node("LeftDoor").play()
 		text = "You see %s at your door!" % mascot_name
 	else:
 		update_Text_To_Nothing()
