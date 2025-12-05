@@ -16,10 +16,10 @@ script = ExtResource("1_6cxjv")
 
 [node name="NightClockLabel" type="Label" parent="HUB"]
 unique_name_in_owner = true
-offset_left = 945.0
-offset_top = 40.0
-offset_right = 1101.0
-offset_bottom = 96.0
+offset_left = 994.0
+offset_top = 24.0
+offset_right = 1150.0
+offset_bottom = 80.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_uqc6r")
 theme_override_font_sizes/font_size = 28
@@ -29,10 +29,10 @@ vertical_alignment = 1
 
 [node name="NightIndicator" type="Label" parent="HUB"]
 unique_name_in_owner = true
-offset_left = 944.0
-offset_top = 79.0
-offset_right = 1100.0
-offset_bottom = 135.0
+offset_left = 993.0
+offset_top = 73.0
+offset_right = 1149.0
+offset_bottom = 129.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_uqc6r")
 theme_override_font_sizes/font_size = 28

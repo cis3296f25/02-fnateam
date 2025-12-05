@@ -8,19 +8,12 @@ func _ready() -> void:
 # ------------------------
 # Start Game
 # ------------------------
-var is_Test = false
 func _on_start_pressed() -> void:
 	print(">>> Start pressed")
-	$BGMusic.stream_paused = true
 	SoundEffects.get_node("computerMouseClick").play()
-	
-	if is_Test == true:
-		GameManager.current_night = 6
-	#	SaveManager.current_night = 1
-	else:
-		GameManager.current_night = 1
-		SaveManager.current_night = 1
-	
+
+	GameManager.current_night = 1
+	SaveManager.current_night = 1
 	GameManager.Reset_Night()
 	SaveManager.save_game()
 	
@@ -73,3 +66,8 @@ func _on_reset_dialog_confirmed() -> void:
 	$Container/Continue.disabled = true
 
 	print("All save data cleared.")
+
+
+func _on_customize_night_pressed() -> void:
+	SoundEffects.get_node("computerMouseClick").play()
+	get_tree().change_scene_to_file("res://Scenes/CustomizeNight.tscn")

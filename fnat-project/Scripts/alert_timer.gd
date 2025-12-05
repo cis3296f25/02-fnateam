@@ -61,21 +61,17 @@ func _trigger_troll_message():
 	match message_category:
 		"Security":
 			GameManager.hooters_boost_started.emit()
-			print("Hooters alerted!")
 		"Mascot":
 			GameManager.gritty_boost_started.emit()
 			GameManager.phillie_boost_started.emit()
-			print("Gritty and Phillie alerted!")
 		"Utility":
 			GameManager.phang_boost_started.emit()
-			print("Phang alerted!")
 		"Safety":
 			GameManager.hooters_boost_started.emit()
 			GameManager.gritty_boost_started.emit()
 			GameManager.phillie_boost_started.emit()
 			GameManager.phang_boost_started.emit()
 			GameManager.franklin_boost_started.emit()
-			print("All animatronics alerted!")
 	_Troll_Timer.stop()
 	_Aggro_Timer.start()
 #	_timer_manager.start_aggression_timer()

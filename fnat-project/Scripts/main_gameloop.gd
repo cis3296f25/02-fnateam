@@ -4,6 +4,34 @@ signal animatronic_started(x, room_name)
 signal animatronic_moved(mascot_name, old_room_name, new_room_name)
 signal loaded_new_cam(current_cam_node, cam_name)
 
+var current_night := 5
+var nights_beaten := {}
+
+var ai_levels: Array[int] = [0, 0, 0, 0, 0]
+
+func set_ai_level(index: int, level: int) -> void:
+	if index < 0 or index >= ai_levels.size():
+		return
+	ai_levels[index] = clamp(level, 0, 20)
+
+func get_ai_level(index: int) -> int:
+	if index < 0 or index >= ai_levels.size():
+		return 0
+	return ai_levels[index]
+
+func night_from_level(level: int) -> int:
+	if level <= 4:
+		return 1
+	elif level <= 8:
+		return 2
+	elif level <= 12:
+		return 3
+	elif level <= 16:
+		return 4
+	else:
+		return 5
+
+
 signal hooters_boost_started
 signal gritty_boost_started
 signal phillie_boost_started
@@ -41,8 +69,6 @@ var night_database = null
 signal room_sealed(room_name, is_sealed)
 var room_seal_states := {}
 
-var current_night := 5
-var nights_beaten := {}
 
 signal hooters_setAI(start, TwoAMInc, ThreeAMInc, FourAMInc)
 signal gritty_setAI(start, TwoAMInc, ThreeAMInc, FourAMInc)
@@ -70,8 +96,7 @@ func _ready() -> void:
 	power_ran_out.connect(power_outage_handler)
 	power_back.connect(power_back_handler)
 	animatronic_flashed.connect(_animatronic_flashed_handler)
-	cams_opened.connect(set_cam_open)
-	cams_closed.connect(set_cam_closed)
+
 	print("GameManager initialized.")
 
 func Reset_Night() -> void:
@@ -127,6 +152,12 @@ func set_night_start_AI(ai_key: String) -> int:
 	if night_info == null:
 		return 0
 	return int(night_info.get(ai_key + "AI_Start", 0))
+	
+func custom_night_update_AI(ai_key: String, newAI_Level : int) -> void:
+	var night_info = night_database.Night.get(8, null) #GOES TO THE CUSTOM NIGHT MODE.
+	if night_info[ai_key + "AI_Start"] != null:
+		night_info[ai_key + "AI_Start"] = newAI_Level
+	
 
 
 func seal_room_doors(room_name: String, is_sealed: bool) -> void:
@@ -145,16 +176,7 @@ func get_room_seal_state(room_name: String) -> bool:
 
 func power_back_handler() -> void:
 	has_power = true
-var cam_open := false
-func set_cam_open() -> void:
-	cam_open = true
-	
-func set_cam_closed() -> void:
-	cam_open = false
-	
-func get_cam_state() -> bool:
-	return cam_open
-	
+
 
 func power_outage_handler() -> void:
 	has_power = false
@@ -212,7 +234,7 @@ func _handle_new_cam(current_cam_node, cam_name: String) -> void:
 		var label := Label.new()
 		label.name = mascot
 		label.text = mascot + " is here!"
-		label.position = Vector2(50, 100 * i)
+		label.position = Vector2(0, 20 * i)
 		mascot_container.add_child(label)
 		i += 1
 
@@ -220,7 +242,6 @@ func _handle_new_cam(current_cam_node, cam_name: String) -> void:
 func _animatronic_flashed_handler(mascot_name: String) -> void:
 	list_of_flashed_animatronics[mascot_name] = true
 	print(mascot_name + " was flashed")
-
 
 
 func _notification(what: int) -> void:
