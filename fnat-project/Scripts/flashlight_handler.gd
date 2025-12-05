@@ -33,7 +33,7 @@ func _on_left_button_pressed() -> void:
 	if check_for_power() == false:
 		return
 	SoundEffects.get_node("flashlightOn").play()
-	var mascots := ["Phillie Phanatic", "Hooters", "Franklin"]
+	var mascots := ["Phillies Phanatic", "Hooters", "Franklin"]
 	var missed = true
 	for i in range(3):
 		if GameManager.animatronics_locations[mascots[i]] == "LeftOfficeDoor" :
@@ -43,7 +43,9 @@ func _on_left_button_pressed() -> void:
 	if missed == true:
 		print("Missed Target.")
 		
+	GameManager.left_flash_used.emit(missed)
 	impact_power(Flash_Power_Use)
+	
 	pass # Replace with function body.
 
 
@@ -60,7 +62,10 @@ func _on_middle_button_pressed() -> void:
 			
 	if missed == true:
 		print("Missed Target.")
+		
+	GameManager.vent_flash_used.emit(missed)
 	impact_power(Flash_Power_Use)
+	
 
 
 func _on_right_button_pressed() -> void:
@@ -76,4 +81,7 @@ func _on_right_button_pressed() -> void:
 			
 	if missed == true:
 		print("Missed Target.")
+		
+	GameManager.right_flash_used.emit(missed)
 	impact_power(Flash_Power_Use)
+	

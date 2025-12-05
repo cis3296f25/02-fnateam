@@ -1,6 +1,6 @@
 extends Node2D
 
-signal animatronic_started(mascot_name, room_name)
+signal animatronic_started(x, room_name)
 signal animatronic_moved(mascot_name, old_room_name, new_room_name)
 signal loaded_new_cam(current_cam_node, cam_name)
 
@@ -24,6 +24,10 @@ signal cams_closed
 signal power_ran_out
 signal power_back
 
+signal left_flash_used(missed)
+signal vent_flash_used(missed)
+signal right_flash_used(missed)
+
 signal impact_power(amount)
 var has_power := true
 
@@ -41,7 +45,7 @@ var night_database = null
 signal room_sealed(room_name, is_sealed)
 var room_seal_states := {}
 
-var current_night := 1
+var current_night := 0
 var nights_beaten := {}
 
 signal hooters_setAI(start, TwoAMInc, ThreeAMInc, FourAMInc)
@@ -51,6 +55,9 @@ signal phang_setAI(start, TwoAMInc, ThreeAMInc, FourAMInc)
 
 var current_hour := 0
 var night_cycle_connected := false
+
+var random_sound_timer := 0.0
+var next_sound_time := 0.0
 
 
 func _ready() -> void:
@@ -70,8 +77,10 @@ func _ready() -> void:
 	power_ran_out.connect(power_outage_handler)
 	power_back.connect(power_back_handler)
 	animatronic_flashed.connect(_animatronic_flashed_handler)
-
+	cams_opened.connect(set_cam_open)
+	cams_closed.connect(set_cam_closed)
 	print("GameManager initialized.")
+	_schedule_next_random_sound()
 
 func Reset_Night() -> void:
 	room_seal_states = {}
@@ -95,6 +104,7 @@ func _process(_delta: float) -> void:
 			night_cycle.hour_changed.connect(_on_hour_changed)
 			night_cycle_connected = true
 			print("NightCycle connected.")
+	_random_sound_logic(_delta)
 
 
 func _on_hour_changed(hour_index: int, _txt: String) -> void:
@@ -144,7 +154,16 @@ func get_room_seal_state(room_name: String) -> bool:
 
 func power_back_handler() -> void:
 	has_power = true
-
+var cam_open := false
+func set_cam_open() -> void:
+	cam_open = true
+	
+func set_cam_closed() -> void:
+	cam_open = false
+	
+func get_cam_state() -> bool:
+	return cam_open
+	
 
 func power_outage_handler() -> void:
 	has_power = false
@@ -187,29 +206,30 @@ func _handle_new_cam(current_cam_node, cam_name: String) -> void:
 	for mascot in animatronics_locations:
 		if animatronics_locations[mascot] == cam_name:
 			mascots_to_show.append(mascot)
-
-	var mascot_container = current_cam_node.get_node_or_null("Mascot_Container")
+			
+	var mainScreen =  current_cam_node.get_node_or_null("MainScreen")
+	if mainScreen == null:
+		return
+		
+	var mascot_container =mainScreen.get_node_or_null("MascotContainer")
 	if mascot_container == null:
-		mascot_container = Container.new()
-		mascot_container.name = "Mascot_Container"
-		current_cam_node.add_child(mascot_container)
+		return
 
 	for child in mascot_container.get_children():
-		child.queue_free()
-
-	var i := 0
+		child.visible = false
+		
 	for mascot in mascots_to_show:
-		var label := Label.new()
-		label.name = mascot
-		label.text = mascot + " is here!"
-		label.position = Vector2(0, 20 * i)
-		mascot_container.add_child(label)
-		i += 1
+		print(mascot, " to show")
+		var mascotSprite = mascot_container.get_node_or_null(mascot)
+		if mascotSprite != null:
+			mascotSprite.visible = true
+			
 
 
 func _animatronic_flashed_handler(mascot_name: String) -> void:
 	list_of_flashed_animatronics[mascot_name] = true
 	print(mascot_name + " was flashed")
+
 
 
 func _notification(what: int) -> void:
@@ -225,3 +245,45 @@ func _connect_night_cycle() -> void:
 		night_cycle.hour_changed.connect(_on_hour_changed)
 		night_cycle_connected = true
 		print("NightCycle connected via _connect_night_cycle()")
+
+
+func _schedule_next_random_sound():
+	next_sound_time = randf_range(32.0, 70.0)  # adjust as needed
+	random_sound_timer = 0.0
+
+func _random_sound_logic(delta: float) -> void:
+	random_sound_timer += delta
+	if current_hour >= 2:
+		if random_sound_timer >= next_sound_time:
+			_schedule_next_random_sound()
+			_play_random_sound()
+
+func _play_random_sound():
+	print("Playing Sound Randomly")
+	var n = randi_range(1, 100)
+	print(n)
+	if n <= 5:
+		SoundEffects.get_node("TforTU").play()
+	elif n <= 10:
+		SoundEffects.get_node("Hooing").play()
+	elif n <= 20:
+		var scream_num = randi_range(1, 3)
+		SoundEffects.get_node("Scream" + str(scream_num)).play()
+	elif n <= 40:
+		SoundEffects.get_node("Tension").play()
+	elif n <= 60:
+		SoundEffects.get_node("Nothingness").play()
+	elif n <= 80:
+		SoundEffects.get_node("EvilCue").play()
+	else:
+		SoundEffects.get_node("Woosh").play()
+
+"""
+	"TforTU": 5,       # rare
+	"Hooing": 5,       # rare
+	"Scream": 10,      # uncommon, choose 1 of 3 if selected
+	"Tension": 20,     # common
+	"Nothingness": 20, # common
+	"Clank": 20,       # common
+	"Groan": 20        # common
+"""

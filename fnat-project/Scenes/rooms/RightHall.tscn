@@ -1,10 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://dif23oh5srp56"]
+[gd_scene load_steps=10 format=3 uid="uid://dif23oh5srp56"]
 
-[ext_resource type="Texture2D" uid="uid://cycnsqm3584s8" path="res://Assets/RightHall.jpg" id="1_6wyt7"]
+[ext_resource type="Texture2D" uid="uid://e0y8g7068e05" path="res://Assets/newCams/hall1.png" id="1_0rcfx"]
+[ext_resource type="Texture2D" uid="uid://dsa1p8i2gxnmj" path="res://Assets/Hooterr.png" id="2_0rcfx"]
 [ext_resource type="Texture2D" uid="uid://dph2crwrfoge8" path="res://Assets/Static_Image.jpg" id="2_up41w"]
+[ext_resource type="Texture2D" uid="uid://dab3unqx3iflw" path="res://Assets/Fanatic.png" id="3_s7vor"]
+[ext_resource type="Texture2D" uid="uid://b87cdhsqlm8k" path="res://Assets/Gritty.png" id="4_nf2lf"]
+[ext_resource type="Texture2D" uid="uid://qsvahkn6nwym" path="res://Assets/Phang.png" id="5_awadi"]
+[ext_resource type="Texture2D" uid="uid://fyysr1b7oucl" path="res://Assets/Franklin.png" id="6_rjv5k"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2k8ed"]
-texture = ExtResource("1_6wyt7")
+texture = ExtResource("1_0rcfx")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y0wnb"]
 texture = ExtResource("2_up41w")
@@ -26,6 +31,36 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_2k8ed")
+
+[node name="MascotContainer" type="Control" parent="MainScreen"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Hooters" type="Sprite2D" parent="MainScreen/MascotContainer"]
+position = Vector2(205.99997, 451)
+scale = Vector2(0.35021976, 0.32440186)
+texture = ExtResource("2_0rcfx")
+
+[node name="Phillies Phanatic" type="Sprite2D" parent="MainScreen/MascotContainer"]
+position = Vector2(462.00003, 461)
+scale = Vector2(0.30893692, 0.31183624)
+texture = ExtResource("3_s7vor")
+
+[node name="Gritty" type="Sprite2D" parent="MainScreen/MascotContainer"]
+position = Vector2(952.00006, 417.00003)
+scale = Vector2(0.58591485, 0.5761719)
+texture = ExtResource("4_nf2lf")
+
+[node name="Phang" type="Sprite2D" parent="MainScreen/MascotContainer"]
+position = Vector2(661.00006, 442.00003)
+scale = Vector2(0.27681753, 0.27577972)
+texture = ExtResource("5_awadi")
+
+[node name="Franklin" type="Sprite2D" parent="MainScreen/MascotContainer"]
+position = Vector2(782, 496.00003)
+scale = Vector2(0.43652344, 0.3792114)
+texture = ExtResource("6_rjv5k")
 
 [node name="StaticForeground" type="Panel" parent="MainScreen"]
 layout_mode = 1

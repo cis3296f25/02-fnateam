@@ -5,6 +5,7 @@ const SAVE_PATH := "user://savegame.json"
 var current_night: int = 1
 var has_save: bool = false
 
+
 func _ready() -> void:
 	load_game()
 
@@ -41,3 +42,13 @@ func load_game() -> void:
 		print("SaveManager: bad save file, resetting")
 		current_night = 1
 		has_save = false
+
+
+func reset_save() -> void:
+	if FileAccess.file_exists(SAVE_PATH):
+		DirAccess.remove_absolute(SAVE_PATH)
+
+	current_night = 1
+	has_save = false
+
+	print("SaveManager: save data reset")
