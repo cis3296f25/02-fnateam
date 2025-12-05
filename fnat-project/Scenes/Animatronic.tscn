@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 [gd_scene load_steps=22 format=3 uid="uid://c603rgefo4g1i"]
-=======
-[gd_scene load_steps=19 format=3 uid="uid://c603rgefo4g1i"]
->>>>>>> 034ea900cefdc4df20095ec9d375bea60f2c7216
 
 [ext_resource type="Script" uid="uid://dvx0t6redh06t" path="res://Scripts/gritty.gd" id="2_6posk"]
 [ext_resource type="Texture2D" uid="uid://cvymdbaia047" path="res://Assets/Phantic.png" id="2_274wx"]
@@ -15,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://b87cdhsqlm8k" path="res://Assets/Gritty.png" id="6_l7g6t"]
 [ext_resource type="Script" uid="uid://bkp66hydyhfk1" path="res://Scripts/Franklin.gd" id="7_274wx"]
 [ext_resource type="Texture2D" uid="uid://duqte8ii6xisj" path="res://Assets/HooterJumpscare_Final.png" id="7_kipk0"]
-[ext_resource type="Texture2D" uid="uid://k5mwvv107uh7" path="res://Assets/HooterPeak_Final.png" id="8_kipk0"]
 [ext_resource type="Texture2D" uid="uid://c0aqelsoslx1v" path="res://Assets/PhangJumpscare_final.png" id="9_l7g6t"]
 [ext_resource type="Texture2D" uid="uid://dsa1p8i2gxnmj" path="res://Assets/Hooterr.png" id="10_yw2oc"]
 [ext_resource type="Texture2D" uid="uid://d02q58iyu1vo0" path="res://Assets/FranklinJumpscare_final.png" id="11_yw2oc"]
@@ -36,11 +31,6 @@ texture = ExtResource("4_27vyj")
 resource_local_to_scene = true
 resource_name = "Hooter"
 texture = ExtResource("7_kipk0")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l7g6t"]
-resource_local_to_scene = true
-resource_name = "Hooter"
-texture = ExtResource("8_kipk0")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a71c2"]
 resource_local_to_scene = true
@@ -128,22 +118,11 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_223ss")
 
-<<<<<<< HEAD
 [node name="sprite" type="Sprite2D" parent="Hooters"]
 visible = false
 position = Vector2(413.99997, 496.99997)
 scale = Vector2(0.23657225, 0.24450685)
 texture = ExtResource("10_yw2oc")
-=======
-[node name="PeekImage" type="Panel" parent="Hooters/Jumpscare"]
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_l7g6t")
->>>>>>> 034ea900cefdc4df20095ec9d375bea60f2c7216
 
 [node name="Phang" type="Node2D" parent="."]
 script = ExtResource("5_j2o0d")
@@ -176,20 +155,8 @@ script = ExtResource("7_274wx")
 
 [node name="Timer" type="Timer" parent="Franklin"]
 
-[node name="stage_time1" type="Timer" parent="Franklin"]
-wait_time = 50.0
-
-[node name="stage_time2" type="Timer" parent="Franklin"]
-wait_time = 35.0
-
-[node name="stage_time3" type="Timer" parent="Franklin"]
-wait_time = 25.0
-
-[node name="stage_time4" type="Timer" parent="Franklin"]
+[node name="stage_time" type="Timer" parent="Franklin"]
 wait_time = 20.0
-
-[node name="stage_time5" type="Timer" parent="Franklin"]
-wait_time = 15.0
 
 [node name="Jumpscare" type="CanvasLayer" parent="Franklin"]
 layer = 2
