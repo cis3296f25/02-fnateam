@@ -14,6 +14,7 @@ var peak = 0
 @onready var Jumpscare: CanvasLayer = $Jumpscare
 @onready var JumpScare_Image = Jumpscare.get_node("JumpImage")
 @onready var sprite: Sprite2D = $sprite
+@onready var Peek_Image = Jumpscare.get_node("PeekImage")
 
 @export var ai_level: int = 5
 var animatronic_name = "Hooters"
