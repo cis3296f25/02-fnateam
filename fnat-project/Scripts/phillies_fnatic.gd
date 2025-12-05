@@ -44,14 +44,13 @@ func _on_aggression_boost_started() -> void:
 	if not is_aggressive:
 		is_aggressive = true
 		aggression_multiplier = 2.0
-		print(animatronic_name, "AGGRESSIVE (x2)")
-
+		print("%s is now AGGRESSIVE!" % animatronic_name)
 
 func _on_aggression_boost_ended() -> void:
 	if is_aggressive:
 		is_aggressive = false
 		aggression_multiplier = 1.0
-		print(animatronic_name, "calmed down")
+		print("%s calmed down." % animatronic_name)
 
 
 func _action() -> void:
@@ -84,15 +83,15 @@ func move_to_next_room() -> void:
 	var adjacent_rooms: Array = current_room["AdjacentRooms"].duplicate()
 
 	var room_weights = {
-		"Office": 10.0,
-		"LeftOfficeDoor" : 6.0,
-		"RightOfficeDoor" : 6.0,
-		"LeftHall": 3.0,
-		"RightHall": 3.0,
-		"Gym": 2.5,
-		"RightLocker": 1.5,
-		"LeftLocker": 1.5,
-		"Storage": 0.5,
+		"Office": 200.0,
+		"LeftOfficeDoor" : 10.0,
+		"RightOfficeDoor" : 10.0,
+		"LeftHall": 9.0,
+		"RightHall": 9.0,
+		"Gym": 3.0,
+		"RightLockers": 6.0,
+		"LeftLockers": 6.0,
+		"Storage": 0,
 		"Closet": 3.0,
 		"Lounge": 1.0
 	}
@@ -102,7 +101,7 @@ func move_to_next_room() -> void:
 		var room = room_database[id]
 		if room["SealedDoor"]:
 			continue
-		if room["Name"] in ["Vent Section 1", "Vent Section 2", "Vent Section 3", "Cafe", "LeftLocker", "LeftOfficeDoor"]:
+		if room["Name"] in ["Vent Section 1", "Vent Section 2", "Vent Section 3", "Cafe", "RightLockers", "RightHall", "RightOfficeDoor"]:
 			continue
 		valid.append(id)
 

@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://db45n7f7blfpk"]
+[gd_scene load_steps=7 format=3 uid="uid://db45n7f7blfpk"]
 
 [ext_resource type="Script" uid="uid://syglm7gflboj" path="res://Scripts/main_menu.gd" id="1_853f1"]
 [ext_resource type="Texture2D" uid="uid://c464ixofim8q1" path="res://Assets/MainMenuTempleUImage.jpg" id="1_tt5f1"]
+[ext_resource type="AudioStream" uid="uid://bn5fhx10cyjsj" path="res://Assets/Sounds/mainmenuambience.mp3" id="3_8saeu"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_853f1"]
 texture = ExtResource("1_tt5f1")
@@ -51,7 +52,7 @@ size_flags_vertical = 3
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_bnhvo")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_bnhvo")
-text = "START GAME"
+text = "NEW GAME"
 
 [node name="Continue" type="Button" parent="Container"]
 layout_mode = 2
@@ -72,14 +73,6 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_bnhvo")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_bnhvo")
 text = "OPTIONS"
 
-[node name="CustomizeNight" type="Button" parent="Container"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_bnhvo")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_bnhvo")
-text = "CUSTOMIZE NIGHT"
-
 [node name="Exit" type="Button" parent="Container"]
 layout_mode = 2
 size_flags_vertical = 3
@@ -89,10 +82,15 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_bnhvo")
 text = "EXIT
 "
 
+[node name="BGMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_8saeu")
+autoplay = true
+bus = &"BGMusic"
+parameters/looping = true
+
 [connection signal="confirmed" from="Panel/ResetDialog" to="." method="_on_reset_dialog_confirmed"]
 [connection signal="pressed" from="Container/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Container/Continue" to="." method="_on_Continue_pressed"]
 [connection signal="pressed" from="Container/Reset" to="." method="_on_reset_pressed"]
 [connection signal="pressed" from="Container/Options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="Container/CustomizeNight" to="." method="_on_customize_night_pressed"]
 [connection signal="pressed" from="Container/Exit" to="." method="_on_exit_pressed"]
