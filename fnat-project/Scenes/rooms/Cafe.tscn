@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://mwek34viknyp"]
 
-[ext_resource type="Texture2D" uid="uid://dimsbrdd5e3ym" path="res://Assets/empty_cafeteria.jpg" id="1_8bjqt"]
+[ext_resource type="Texture2D" uid="uid://2qid3ciegqdn" path="res://Assets/newCams/cafe.png" id="1_hfbwt"]
 [ext_resource type="PackedScene" uid="uid://dy73olhrju0qp" path="res://Scenes/SealDoor.tscn" id="1_io8pe"]
 [ext_resource type="Texture2D" uid="uid://dph2crwrfoge8" path="res://Assets/Static_Image.jpg" id="2_haf10"]
 [ext_resource type="Texture2D" uid="uid://dsa1p8i2gxnmj" path="res://Assets/Hooterr.png" id="2_hfbwt"]
@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://fyysr1b7oucl" path="res://Assets/Franklin.png" id="6_81tmv"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lb0ci"]
-texture = ExtResource("1_8bjqt")
+texture = ExtResource("1_hfbwt")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rnpe7"]
 texture = ExtResource("2_haf10")

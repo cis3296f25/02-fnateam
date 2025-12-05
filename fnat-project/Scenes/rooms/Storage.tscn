@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://bll4tansiv7j4"]
 
-[ext_resource type="Texture2D" uid="uid://bdleqnt6ryuwj" path="res://Assets/Storage_Room.jpg" id="1_3qcmu"]
+[ext_resource type="Texture2D" uid="uid://dpg4j0bb6nyjb" path="res://Assets/newCams/storage.png" id="1_snspp"]
 [ext_resource type="Texture2D" uid="uid://dph2crwrfoge8" path="res://Assets/Static_Image.jpg" id="2_jeveg"]
 [ext_resource type="Texture2D" uid="uid://dsa1p8i2gxnmj" path="res://Assets/Hooterr.png" id="2_pxfwc"]
 [ext_resource type="PackedScene" uid="uid://dy73olhrju0qp" path="res://Scenes/SealDoor.tscn" id="3_jeveg"]
@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://fyysr1b7oucl" path="res://Assets/Franklin.png" id="6_qhv3u"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jeveg"]
-texture = ExtResource("1_3qcmu")
+texture = ExtResource("1_snspp")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6xy5g"]
 texture = ExtResource("2_jeveg")

@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://8xbb1wj6po6i"]
 
-[ext_resource type="Texture2D" uid="uid://dn360u5m62gil" path="res://Assets/Left_LockerRoom.png" id="1_bvcph"]
 [ext_resource type="PackedScene" uid="uid://dy73olhrju0qp" path="res://Scenes/SealDoor.tscn" id="1_df6m7"]
+[ext_resource type="Texture2D" uid="uid://buryglxd0ych0" path="res://Assets/newCams/leftlockers.png" id="1_w7ef7"]
 [ext_resource type="Texture2D" uid="uid://dph2crwrfoge8" path="res://Assets/Static_Image.jpg" id="2_kt03g"]
 [ext_resource type="Texture2D" uid="uid://dsa1p8i2gxnmj" path="res://Assets/Hooterr.png" id="3_w7ef7"]
 [ext_resource type="Texture2D" uid="uid://dab3unqx3iflw" path="res://Assets/Fanatic.png" id="4_330dr"]
@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://fyysr1b7oucl" path="res://Assets/Franklin.png" id="7_45bxv"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kpffx"]
-texture = ExtResource("1_bvcph")
+texture = ExtResource("1_w7ef7")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oqvrk"]
 texture = ExtResource("2_kt03g")
@@ -32,15 +32,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_kpffx")
-
-[node name="StaticForeground" type="Panel" parent="MainScreen"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_oqvrk")
 
 [node name="MascotContainer" type="Control" parent="MainScreen"]
 anchors_preset = 0
@@ -71,6 +62,15 @@ texture = ExtResource("6_va820")
 position = Vector2(198.99998, 498.3125)
 scale = Vector2(0.43652344, 0.3792114)
 texture = ExtResource("7_45bxv")
+
+[node name="StaticForeground" type="Panel" parent="MainScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_oqvrk")
 
 [node name="SealRoom" parent="." instance=ExtResource("1_df6m7")]
 offset_left = 264.0

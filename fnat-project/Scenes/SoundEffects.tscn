@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://duxb5nyw2huei"]
+[gd_scene load_steps=10 format=3 uid="uid://duxb5nyw2huei"]
 
 [ext_resource type="AudioStream" uid="uid://bgjl720ausv4l" path="res://Assets/Sounds/computerMouseClick.mp3" id="1_qcviq"]
 [ext_resource type="AudioStream" uid="uid://dpaaya6gkf582" path="res://Assets/Sounds/clickOpen.mp3" id="2_mq6su"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://b2aegt5vq70b7" path="res://Assets/Sounds/flashlightOff.mp3" id="6_54y0u"]
 [ext_resource type="AudioStream" uid="uid://cipjc7c72r4tu" path="res://Assets/Sounds/jumpscare1.mp3" id="7_k0o5r"]
 [ext_resource type="AudioStream" uid="uid://c27pssao06ec0" path="res://Assets/Sounds/jumpscare2.wav" id="8_77107"]
+[ext_resource type="AudioStream" uid="uid://bgjdrqrpbyayw" path="res://Assets/Sounds/ventSqueak.wav" id="9_77107"]
 
 [node name="SoundEffects" type="Node2D"]
 
@@ -45,3 +46,6 @@ bus = &"Effects"
 [node name="jumpscare2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_77107")
 bus = &"Effects"
+
+[node name="ventSqueak" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_77107")

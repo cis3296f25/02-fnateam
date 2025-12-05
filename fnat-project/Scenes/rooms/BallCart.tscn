@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://mmiks3x21tot"]
 
+[ext_resource type="Texture2D" uid="uid://2cgc5txylq1w" path="res://Assets/newCams/ballcart.png" id="1_cgefj"]
 [ext_resource type="PackedScene" uid="uid://dy73olhrju0qp" path="res://Scenes/SealDoor.tscn" id="1_d2w5v"]
-[ext_resource type="Texture2D" uid="uid://1qec4toh8rki" path="res://Assets/Ball_Cart.png" id="1_ucn3e"]
 [ext_resource type="Texture2D" uid="uid://dsa1p8i2gxnmj" path="res://Assets/Hooterr.png" id="2_cgefj"]
 [ext_resource type="Texture2D" uid="uid://dph2crwrfoge8" path="res://Assets/Static_Image.jpg" id="2_ycmsj"]
 [ext_resource type="Texture2D" uid="uid://dab3unqx3iflw" path="res://Assets/Fanatic.png" id="3_armek"]
@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://fyysr1b7oucl" path="res://Assets/Franklin.png" id="6_1co24"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lt8h7"]
-texture = ExtResource("1_ucn3e")
+texture = ExtResource("1_cgefj")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0ahy3"]
 texture = ExtResource("2_ycmsj")

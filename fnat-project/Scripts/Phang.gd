@@ -137,7 +137,8 @@ func move_to_next_room():
 
 	if next_room["Name"] == "Office":
 		trigger_attack()
-
+	elif current_room["Name"] == "Utility" and next_room["Name"] == "Vent Section 1":
+		SoundEffects.get_node("ventSqueak").play()
 
 func handle_flashed(mascot_name) -> void:
 	if mascot_name != animatronic_name:
