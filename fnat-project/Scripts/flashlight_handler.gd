@@ -33,7 +33,7 @@ func _on_left_button_pressed() -> void:
 	if check_for_power() == false:
 		return
 	SoundEffects.get_node("flashlightOn").play()
-	var mascots := ["Phillie Phanatic", "Hooters", "Franklin"]
+	var mascots := ["Phillies Phanatic", "Hooters", "Franklin"]
 	var missed = true
 	for i in range(3):
 		if GameManager.animatronics_locations[mascots[i]] == "LeftOfficeDoor" :
