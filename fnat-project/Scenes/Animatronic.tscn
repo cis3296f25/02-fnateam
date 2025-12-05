@@ -125,13 +125,12 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_223ss")
 
-<<<<<<< HEAD
 [node name="sprite" type="Sprite2D" parent="Hooters"]
 visible = false
 position = Vector2(413.99997, 496.99997)
 scale = Vector2(0.23657225, 0.24450685)
 texture = ExtResource("10_yw2oc")
-=======
+
 [node name="PeekImage" type="Panel" parent="Hooters/Jumpscare"]
 visible = false
 anchors_preset = 15
@@ -140,7 +139,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_l7g6t")
->>>>>>> 034ea900cefdc4df20095ec9d375bea60f2c7216
 
 [node name="Phang" type="Node2D" parent="."]
 script = ExtResource("5_j2o0d")
