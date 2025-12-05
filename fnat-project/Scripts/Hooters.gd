@@ -13,11 +13,8 @@ var peak = 0
 @onready var taunt: Timer = $TauntTimer
 @onready var Jumpscare: CanvasLayer = $Jumpscare
 @onready var JumpScare_Image = Jumpscare.get_node("JumpImage")
-<<<<<<< HEAD
 @onready var sprite: Sprite2D = $sprite
-=======
 @onready var Peek_Image = Jumpscare.get_node("PeekImage")
->>>>>>> 034ea900cefdc4df20095ec9d375bea60f2c7216
 
 @export var ai_level: int = 5
 var animatronic_name = "Hooters"

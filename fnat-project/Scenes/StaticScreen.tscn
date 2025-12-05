@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dd5fvuystvi6e"]
 
 [ext_resource type="Texture2D" uid="uid://bv7l30bphtli6" path="res://Assets/TV-Static-Glitch-Overlay-Absolute-Horror-Sound-Effects.jpg" id="1_btu0u"]
-[ext_resource type="Script" uid="uid://ddw5na5wxc2lf" path="res://Scenes/static_screen.gd" id="1_mgmwj"]
+[ext_resource type="Script" path="res://Scripts/static_screen.gd" id="1_mgmwj"]
 [ext_resource type="Texture2D" uid="uid://csm5m7fuye2wi" path="res://Assets/2TV-Static-Glitch-Overlay-Absolute-Horror-Sound-Effects.jpg" id="2_r1q8a"]
 [ext_resource type="FontFile" uid="uid://csl47hwukavbv" path="res://Assets/Volter__28Goldfish_29.ttf" id="3_r1q8a"]
 

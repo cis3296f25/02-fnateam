@@ -1,6 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://rendii2rp1m2"]
+[gd_scene load_steps=9 format=3 uid="uid://b8jvr0cdswbuq"]
 
-[ext_resource type="Script" uid="uid://stge8rt4rtqm" path="res://Scripts/phone_call.gd" id="1_hry82"]
+[ext_resource type="Script" path="res://Scripts/phone_call.gd" id="1_hry82"]
 [ext_resource type="AudioStream" uid="uid://dwh8d5fmvxru" path="res://Assets/Sounds/Phone Ringing.mp3" id="2_nltei"]
 [ext_resource type="AudioStream" uid="uid://bvif2h75t6udl" path="res://Assets/Sounds/NightTwoPhoneCall.mp3" id="2_nw5vr"]
 [ext_resource type="AudioStream" uid="uid://ci42lx0l0ycx7" path="res://Assets/Sounds/NightOnePhoneCall.mp3" id="3_10nle"]
