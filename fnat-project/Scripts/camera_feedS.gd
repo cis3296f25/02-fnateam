@@ -58,15 +58,9 @@ func show_animatronic_sprite(mascot):
 	if mascot in all_mascots:
 		var animatronic_node = get_tree().get_first_node_in_group(mascot)
 		if animatronic_node:
-			var mascot_container = current_room.get_node_or_null("Mascot_Container")
-			if mascot_container == null:
-				mascot_container = Container.new()
-				mascot_container.name = "Mascot_Container"
-				current_room.add_child(mascot_container)
 			
 			var sprite = animatronic_node.find_child("sprite", true, false)
 			if sprite:
-				sprite.reparent(mascot_container)
 				sprite.visible = true
  
 func handle_animatronic_on_cam():
