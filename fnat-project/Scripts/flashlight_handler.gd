@@ -43,8 +43,9 @@ func _on_left_button_pressed() -> void:
 	if missed == true:
 		print("Missed Target.")
 		
+	GameManager.left_flash_used.emit(missed)
 	impact_power(Flash_Power_Use)
-	GameManager.left_flash_used.emit()
+	
 	pass # Replace with function body.
 
 
@@ -61,8 +62,10 @@ func _on_middle_button_pressed() -> void:
 			
 	if missed == true:
 		print("Missed Target.")
+		
+	GameManager.vent_flash_used.emit(missed)
 	impact_power(Flash_Power_Use)
-	GameManager.vent_flash_used.emit()
+	
 
 
 func _on_right_button_pressed() -> void:
@@ -78,5 +81,7 @@ func _on_right_button_pressed() -> void:
 			
 	if missed == true:
 		print("Missed Target.")
+		
+	GameManager.right_flash_used.emit(missed)
 	impact_power(Flash_Power_Use)
-	GameManager.right_flash_used.emit()
+	

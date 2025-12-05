@@ -1,6 +1,6 @@
 extends Label
 
-
+var showingFlash = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	update_Text_To_Nothing()
@@ -13,12 +13,13 @@ func update_Text_To_Nothing():
 	#Stop Sound for Animatronic Being here
 	text = "No one is at your door."
 
-var showingFlash = false
 
-func used_flash():
+func used_flash(missed):
 	if showingFlash == false:
 		showingFlash = true
 		visible = true
+		if missed == false:
+			text = "Something Moved Away!"
 		await get_tree().create_timer(2).timeout 
 		visible = false
 		showingFlash = false

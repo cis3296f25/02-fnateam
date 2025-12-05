@@ -24,9 +24,9 @@ signal cams_closed
 signal power_ran_out
 signal power_back
 
-signal left_flash_used
-signal vent_flash_used
-signal right_flash_used
+signal left_flash_used(missed)
+signal vent_flash_used(missed)
+signal right_flash_used(missed)
 
 signal impact_power(amount)
 var has_power := true
