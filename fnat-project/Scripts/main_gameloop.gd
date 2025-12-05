@@ -280,10 +280,10 @@ func _play_random_sound():
 
 """
 	"TforTU": 5,       # rare
-    "Hooing": 5,       # rare
-    "Scream": 10,      # uncommon, choose 1 of 3 if selected
-    "Tension": 20,     # common
-    "Nothingness": 20, # common
-    "Clank": 20,       # common
-    "Groan": 20        # common
+	"Hooing": 5,       # rare
+	"Scream": 10,      # uncommon, choose 1 of 3 if selected
+	"Tension": 20,     # common
+	"Nothingness": 20, # common
+	"Clank": 20,       # common
+	"Groan": 20        # common
 """

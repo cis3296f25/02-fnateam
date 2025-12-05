@@ -10,6 +10,7 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func update_Text_To_Nothing():
+	#Stop Sound for Animatronic Being here
 	text = "You see nothing in your vent."
 	
 var showingFlash = false
@@ -24,6 +25,7 @@ func used_flash():
 	
 func update_Text_To_Something(mascot_name, entered):
 	if entered == true:
+		#Play Sound for Animatronic Being here
 		text = "You see %s in your vent." % mascot_name
 	else:
 		update_Text_To_Nothing()
