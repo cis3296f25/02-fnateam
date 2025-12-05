@@ -70,7 +70,8 @@ func _ready() -> void:
 	power_ran_out.connect(power_outage_handler)
 	power_back.connect(power_back_handler)
 	animatronic_flashed.connect(_animatronic_flashed_handler)
-
+	cams_opened.connect(set_cam_open)
+	cams_closed.connect(set_cam_closed)
 	print("GameManager initialized.")
 
 func Reset_Night() -> void:
@@ -144,7 +145,16 @@ func get_room_seal_state(room_name: String) -> bool:
 
 func power_back_handler() -> void:
 	has_power = true
-
+var cam_open := false
+func set_cam_open() -> void:
+	cam_open = true
+	
+func set_cam_closed() -> void:
+	cam_open = false
+	
+func get_cam_state() -> bool:
+	return cam_open
+	
 
 func power_outage_handler() -> void:
 	has_power = false
@@ -202,7 +212,7 @@ func _handle_new_cam(current_cam_node, cam_name: String) -> void:
 		var label := Label.new()
 		label.name = mascot
 		label.text = mascot + " is here!"
-		label.position = Vector2(0, 20 * i)
+		label.position = Vector2(50, 100 * i)
 		mascot_container.add_child(label)
 		i += 1
 
@@ -210,6 +220,7 @@ func _handle_new_cam(current_cam_node, cam_name: String) -> void:
 func _animatronic_flashed_handler(mascot_name: String) -> void:
 	list_of_flashed_animatronics[mascot_name] = true
 	print(mascot_name + " was flashed")
+
 
 
 func _notification(what: int) -> void:

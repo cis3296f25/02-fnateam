@@ -185,14 +185,21 @@ func _on_cam_utility_pressed() -> void:
 func _on_switch_button_mouse_entered() -> void:
 	if camera_locked == true:
 		return
+	var anim_player = get_node("/root").get_node("SecurityDesk/AnimationPlayer")
+
 		
 	if office_active:
 		#go back to last room
+		anim_player.play("OpenCamera")
+
 		if last_room_scene != null:
 			load_room(last_room_scene)
 			make_camera_map_visible()
 			
 	else:
+		anim_player.play("CloseCamera")
+		await get_tree().create_timer(.3).timeout # Wait for .3 seconds
+		
 		# Go back to office
 		load_room(room_scenes["Office"])
 		make_camera_map_invisible()
