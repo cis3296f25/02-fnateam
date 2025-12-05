@@ -1,8 +1,5 @@
-<<<<<<< HEAD
 [gd_scene load_steps=22 format=3 uid="uid://c603rgefo4g1i"]
-=======
 [gd_scene load_steps=19 format=3 uid="uid://c603rgefo4g1i"]
->>>>>>> 034ea900cefdc4df20095ec9d375bea60f2c7216
 
 [ext_resource type="Script" uid="uid://dvx0t6redh06t" path="res://Scripts/gritty.gd" id="2_6posk"]
 [ext_resource type="Texture2D" uid="uid://cvymdbaia047" path="res://Assets/Phantic.png" id="2_274wx"]
