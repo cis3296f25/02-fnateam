@@ -20,6 +20,7 @@ var is_aggressive: bool = false
 var last_hour_applied: int = 0
 
 func _ready() -> void:
+	add_to_group("Gritty")
 	randomize()
 	JumpScare_Image.visible = false
 	room_database = GameManager.shared_room_database.rooms

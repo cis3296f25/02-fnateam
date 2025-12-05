@@ -38,6 +38,42 @@ var current_room: Node = null
 var static_affected_rooms = {}
 var static_timer: Timer
 
+
+	
+
+func get_all_mascots() -> Array:
+	return ["Gritty", "Hooters", "Phillies_Fnatic", "Phang", "Franklin"]
+	
+func hide_all_animatronic_sprites():
+	var all_mascots = get_all_mascots()
+	for mascot in all_mascots:
+		var animatronic_node = get_tree().get_first_node_in_group(mascot)
+		if animatronic_node:
+			var sprite = animatronic_node.find_child("sprite", true, false)
+			if sprite:
+				sprite.visible = false
+
+func show_animatronic_sprite(mascot):
+	var all_mascots = get_all_mascots()
+	if mascot in all_mascots:
+		var animatronic_node = get_tree().get_first_node_in_group(mascot)
+		if animatronic_node:
+			
+			var sprite = animatronic_node.find_child("sprite", true, false)
+			if sprite:
+				sprite.visible = true
+ 
+func handle_animatronic_on_cam():
+	if not current_room:
+		return
+		
+	hide_all_animatronic_sprites()
+	var room_name = current_room.get_name()
+	for mascot in GameManager.animatronics_locations:
+		if GameManager.animatronics_locations[mascot] == room_name:
+			
+			show_animatronic_sprite(mascot)
+
 func update_Animatronics_On_Cam(_mascot, old_room, new_room) -> void:
 	if old_room == current_room.get_name() or new_room == current_room.get_name():
 		print("Static Static, Animatronic has Moved on Cam.")
@@ -75,6 +111,8 @@ func load_room(scene_object) -> void:
 		
 	current_room_scene = scene_object
 	current_room = new_room
+	
+	handle_animatronic_on_cam()
 	
 func _on_static_timeout():
 	static_affected_rooms.clear()

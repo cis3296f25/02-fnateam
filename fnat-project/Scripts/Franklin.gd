@@ -22,6 +22,7 @@ var last_hour_applied: int = 0
 
 
 func _ready() -> void:
+	add_to_group("Franklin")
 	randomize()
 	JumpScare_Image.visible = false
 	room_database = GameManager.shared_room_database.rooms

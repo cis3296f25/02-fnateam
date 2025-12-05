@@ -1,17 +1,21 @@
-[gd_scene load_steps=17 format=3 uid="uid://c603rgefo4g1i"]
+[gd_scene load_steps=22 format=3 uid="uid://c603rgefo4g1i"]
 
 [ext_resource type="Script" uid="uid://dvx0t6redh06t" path="res://Scripts/gritty.gd" id="2_6posk"]
-[ext_resource type="Texture2D" uid="uid://cvymdbaia047" path="res://Assets/PhanticJumpscare_Final.png" id="2_274wx"]
+[ext_resource type="Texture2D" uid="uid://cvymdbaia047" path="res://Assets/Phantic.png" id="2_274wx"]
 [ext_resource type="Script" uid="uid://6pvy0w0tki2i" path="res://Scripts/Hooters.gd" id="3_aa1zq"]
+[ext_resource type="Texture2D" uid="uid://dab3unqx3iflw" path="res://Assets/Fanatic.png" id="3_kipk0"]
 [ext_resource type="Texture2D" uid="uid://64a2m3q14sqp" path="res://Assets/GrittyJumpscare_final.png" id="4_27vyj"]
 [ext_resource type="PackedScene" uid="uid://dfg7lcoq8kb0n" path="res://Scenes/Room_Database.tscn" id="4_71jmn"]
-[ext_resource type="Texture2D" uid="uid://b87cdhsqlm8k" path="res://Assets/Gritty.png" id="4_274wx"]
 [ext_resource type="Script" uid="uid://divj7fbp3shk2" path="res://Scripts/phillies_fnatic.gd" id="4_divj7"]
 [ext_resource type="Script" uid="uid://dn7p7emsqwfpa" path="res://Scripts/Phang.gd" id="5_j2o0d"]
+[ext_resource type="Texture2D" uid="uid://b87cdhsqlm8k" path="res://Assets/Gritty.png" id="6_l7g6t"]
 [ext_resource type="Script" uid="uid://bkp66hydyhfk1" path="res://Scripts/Franklin.gd" id="7_274wx"]
 [ext_resource type="Texture2D" uid="uid://duqte8ii6xisj" path="res://Assets/HooterJumpscare_Final.png" id="7_kipk0"]
 [ext_resource type="Texture2D" uid="uid://c0aqelsoslx1v" path="res://Assets/PhangJumpscare_final.png" id="9_l7g6t"]
+[ext_resource type="Texture2D" uid="uid://dsa1p8i2gxnmj" path="res://Assets/Hooterr.png" id="10_yw2oc"]
 [ext_resource type="Texture2D" uid="uid://d02q58iyu1vo0" path="res://Assets/FranklinJumpscare_final.png" id="11_yw2oc"]
+[ext_resource type="Texture2D" uid="uid://qsvahkn6nwym" path="res://Assets/Phang.png" id="13_y2htd"]
+[ext_resource type="Texture2D" uid="uid://fyysr1b7oucl" path="res://Assets/Franklin.png" id="16_8326d"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y2htd"]
 resource_local_to_scene = true
@@ -59,6 +63,12 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_y2htd")
 
+[node name="sprite" type="Sprite2D" parent="Phillies_Fnatic"]
+visible = false
+position = Vector2(965.0156, 499.64066)
+scale = Vector2(0.24818125, 0.24964903)
+texture = ExtResource("3_kipk0")
+
 [node name="Gritty" type="Node2D" parent="."]
 script = ExtResource("2_6posk")
 
@@ -77,6 +87,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_8326d")
+
+[node name="sprite" type="Sprite2D" parent="Gritty"]
+visible = false
+position = Vector2(145, 449)
+scale = Vector2(0.49612784, 0.49296877)
+texture = ExtResource("6_l7g6t")
 
 [node name="Hooters" type="Node2D" parent="."]
 script = ExtResource("3_aa1zq")
@@ -102,6 +118,12 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_223ss")
 
+[node name="sprite" type="Sprite2D" parent="Hooters"]
+visible = false
+position = Vector2(413.99997, 496.99997)
+scale = Vector2(0.23657225, 0.24450685)
+texture = ExtResource("10_yw2oc")
+
 [node name="Phang" type="Node2D" parent="."]
 script = ExtResource("5_j2o0d")
 move_interval = 4.97
@@ -121,6 +143,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_a71c2")
+
+[node name="sprite" type="Sprite2D" parent="Phang"]
+visible = false
+position = Vector2(725, 460)
+scale = Vector2(0.24709459, 0.23690796)
+texture = ExtResource("13_y2htd")
 
 [node name="Franklin" type="Node2D" parent="."]
 script = ExtResource("7_274wx")
@@ -145,3 +173,9 @@ offset_bottom = -8.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_pt3ov")
+
+[node name="sprite" type="Sprite2D" parent="Franklin"]
+visible = false
+position = Vector2(743, 492.00003)
+scale = Vector2(0.43359375, 0.37561032)
+texture = ExtResource("16_8326d")

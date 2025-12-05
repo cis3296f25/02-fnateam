@@ -1,6 +1,6 @@
 extends Node2D
 
-signal animatronic_started(mascot_name, room_name)
+signal animatronic_started(x, room_name)
 signal animatronic_moved(mascot_name, old_room_name, new_room_name)
 signal loaded_new_cam(current_cam_node, cam_name)
 
@@ -187,7 +187,7 @@ func _handle_new_cam(current_cam_node, cam_name: String) -> void:
 	for mascot in animatronics_locations:
 		if animatronics_locations[mascot] == cam_name:
 			mascots_to_show.append(mascot)
-
+			
 	var mascot_container = current_cam_node.get_node_or_null("Mascot_Container")
 	if mascot_container == null:
 		mascot_container = Container.new()

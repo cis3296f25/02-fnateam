@@ -95,6 +95,10 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_cbevk")
 theme_override_styles/hover = SubResource("StyleBoxFlat_4nixr")
 text = "FLASH"
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Animatronic" parent="CanvasLayer" instance=ExtResource("1_cb5gl")]
+
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("left_button", "right_button")]
 position = Vector2(0, 324)
 script = ExtResource("3_xaf5t")
@@ -115,8 +119,6 @@ color = Color(1, 0.007843138, 1, 1)
 metadata/Pink = false
 
 [node name="NightTimer" parent="." instance=ExtResource("2_sf8xb")]
-
-[node name="Animatronic" parent="." instance=ExtResource("1_cb5gl")]
 
 [node name="FlashlightHandler" type="Node" parent="."]
 script = ExtResource("10_f8na0")

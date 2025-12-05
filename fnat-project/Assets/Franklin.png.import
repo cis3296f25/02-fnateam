@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4o7hi1qwkbon"
-path="res://.godot/imported/Hooter.PNG-c5d545e06bfc8be8279748f535c9824d.ctex"
+uid="uid://fyysr1b7oucl"
+path="res://.godot/imported/Franklin.png-67b3a958fbfa90c80c0cefc08048035a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Hooter.PNG"
-dest_files=["res://.godot/imported/Hooter.PNG-c5d545e06bfc8be8279748f535c9824d.ctex"]
+source_file="res://Assets/Franklin.png"
+dest_files=["res://.godot/imported/Franklin.png-67b3a958fbfa90c80c0cefc08048035a.ctex"]
 
 [params]
 

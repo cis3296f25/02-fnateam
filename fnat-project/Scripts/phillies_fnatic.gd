@@ -11,7 +11,7 @@ var peak := 0
 @onready var Jumpscare: CanvasLayer = $Jumpscare
 @onready var JumpScare_Image = Jumpscare.get_node("JumpImage")
 
-var animatronic_name := "Phillie Phanatic"
+var animatronic_name := "Phillies_Fnatic"
 var ai_key := "Phanatic"
 
 var ai_level: int = 0
@@ -21,6 +21,7 @@ var last_hour_applied := 0
 
 
 func _ready() -> void:
+	add_to_group("Phillies_Fnatic")
 	randomize()
 	JumpScare_Image.visible = false
 	room_database = GameManager.shared_room_database.rooms

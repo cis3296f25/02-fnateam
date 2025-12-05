@@ -13,6 +13,7 @@ var peak = 0
 @onready var taunt: Timer = $TauntTimer
 @onready var Jumpscare: CanvasLayer = $Jumpscare
 @onready var JumpScare_Image = Jumpscare.get_node("JumpImage")
+@onready var sprite: Sprite2D = $sprite
 
 @export var ai_level: int = 5
 var animatronic_name = "Hooters"
@@ -23,6 +24,7 @@ var last_hour_applied := 0
 
 
 func _ready() -> void:
+	add_to_group("Hooters")
 	randomize()
 	JumpScare_Image.visible = false
 	room_database = GameManager.shared_room_database.rooms
@@ -203,3 +205,9 @@ func trigger_attack() -> void:
 	move_timer.stop()
 	await get_tree().create_timer(0.8).timeout 
 	get_tree().change_scene_to_file("res://Scenes/GameOver.tscn")
+
+#func show_mascot() -> void:
+	#sprite.visible = true
+#
+#func hide_mascot() -> void:
+	#sprite.visible = false;
