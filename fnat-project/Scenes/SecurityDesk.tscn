@@ -1,35 +1,21 @@
-[gd_scene load_steps=26 format=3 uid="uid://gqe1bffwwtkk"]
+[gd_scene format=3 uid="uid://gqe1bffwwtkk"]
 
 [ext_resource type="PackedScene" uid="uid://c603rgefo4g1i" path="res://Scenes/Animatronic.tscn" id="1_cb5gl"]
 [ext_resource type="Script" uid="uid://jdxxtktnbyel" path="res://Scripts/main_gameloop.gd" id="1_ri7fq"]
 [ext_resource type="PackedScene" uid="uid://cc6yoh43ybaso" path="res://Scenes/CameraFeed.tscn" id="2_8fg2u"]
 [ext_resource type="Texture2D" uid="uid://1fesod2mwhib" path="res://Assets/2doors.png" id="2_axdon"]
 [ext_resource type="PackedScene" uid="uid://c1uxegj7wkvw1" path="res://Scenes/NightTimer.tscn" id="2_sf8xb"]
-[ext_resource type="Script" path="res://Scripts/vents_status.gd" id="3_2j84s"]
+[ext_resource type="Script" uid="uid://t3loly8kspvp" path="res://Scripts/vents_status.gd" id="3_2j84s"]
 [ext_resource type="Script" uid="uid://c5npocm5c7om1" path="res://Scripts/camera_2d.gd" id="3_xaf5t"]
 [ext_resource type="PackedScene" uid="uid://r0ran3o3n73k" path="res://Scenes/PowerSystem.tscn" id="4_5d07y"]
-[ext_resource type="Script" path="res://Scripts/left_door_status.gd" id="4_674sq"]
-[ext_resource type="Script" path="res://Scripts/right_door_status.gd" id="5_tpkrg"]
+[ext_resource type="Script" uid="uid://bpukg6xkgbtyn" path="res://Scripts/left_door_status.gd" id="4_674sq"]
+[ext_resource type="Script" uid="uid://b8g3s5f7si3ev" path="res://Scripts/right_door_status.gd" id="5_tpkrg"]
 [ext_resource type="PackedScene" uid="uid://bt4q53glfnuvw" path="res://Scenes/AlertTimer.tscn" id="6_axdon"]
+[ext_resource type="Texture2D" uid="uid://b28type174pq" path="res://Scenes/lightswitch-off.png" id="6_u2gp5"]
+[ext_resource type="Texture2D" uid="uid://nu0bgaxgywts" path="res://Scenes/lightswitch-on.png" id="7_cbevk"]
 [ext_resource type="Script" uid="uid://gw66j1yofubm" path="res://Scripts/flashlight_handler.gd" id="10_f8na0"]
 [ext_resource type="AudioStream" uid="uid://dm5vie77ehq3x" path="res://Assets/Sounds/bgNoise.mp3" id="13_674sq"]
 [ext_resource type="PackedScene" uid="uid://b8jvr0cdswbuq" path="res://Scenes/Phone_Call.tscn" id="15_2r0gi"]
-[ext_resource type="FontFile" uid="uid://csl47hwukavbv" path="res://Assets/Volter__28Goldfish_29.ttf" id="20_font"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_674sq"]
-bg_color = Color(1, 1, 1, 0.5882353)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tpkrg"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2r0gi"]
-bg_color = Color(1, 1, 1, 0.5882353)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u2gp5"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cbevk"]
-bg_color = Color(1, 1, 1, 0.5882353)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4nixr"]
 
 [sub_resource type="Animation" id="Animation_u2gp5"]
 resource_name = "CloseCamera"
@@ -155,15 +141,15 @@ _data = {
 &"RESET": SubResource("Animation_2r0gi")
 }
 
-[node name="SecurityDesk" type="Node2D"]
+[node name="SecurityDesk" type="Node2D" unique_id=946200475]
 script = ExtResource("1_ri7fq")
 
-[node name="2Doors" type="Sprite2D" parent="."]
+[node name="2Doors" type="Sprite2D" parent="." unique_id=793259696]
 position = Vector2(0, 333)
 scale = Vector2(2.758, 1)
 texture = ExtResource("2_axdon")
 
-[node name="VentsStatus" type="Label" parent="."]
+[node name="VentsStatus" type="Label" parent="." unique_id=613338063]
 offset_left = -72.0
 offset_top = 297.0
 offset_right = 79.0
@@ -171,7 +157,7 @@ offset_bottom = 320.0
 text = "Your Vent is Empty."
 script = ExtResource("3_2j84s")
 
-[node name="LeftDoorStatus" type="Label" parent="."]
+[node name="LeftDoorStatus" type="Label" parent="." unique_id=1252489210]
 offset_left = -849.0
 offset_top = 294.0
 offset_right = -682.0
@@ -179,7 +165,7 @@ offset_bottom = 317.0
 text = "No one is at the door."
 script = ExtResource("4_674sq")
 
-[node name="RightDoorStatus" type="Label" parent="."]
+[node name="RightDoorStatus" type="Label" parent="." unique_id=518788718]
 offset_left = 697.0
 offset_top = 302.0
 offset_right = 864.0
@@ -187,79 +173,74 @@ offset_bottom = 325.0
 text = "No one is at the door."
 script = ExtResource("5_tpkrg")
 
-[node name="LeftButton" type="Button" parent="."]
+[node name="LeftButton" type="TextureButton" parent="." unique_id=1083670086]
 custom_minimum_size = Vector2(60, 60)
-offset_left = -941.0
-offset_top = 339.0
-offset_right = -879.0
-offset_bottom = 399.0
-theme_override_fonts/font = ExtResource("20_font")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_674sq")
-theme_override_styles/hover = SubResource("StyleBoxFlat_tpkrg")
-text = "FLASH"
+offset_left = -999.00006
+offset_top = 302.0
+offset_right = -619.00006
+offset_bottom = 1204.0
+scale = Vector2(0.17917271, 0.15801202)
+texture_normal = ExtResource("6_u2gp5")
+texture_pressed = ExtResource("7_cbevk")
 
-[node name="MiddleButton" type="Button" parent="."]
+[node name="MiddleButton" type="TextureButton" parent="." unique_id=1067843827]
 custom_minimum_size = Vector2(60, 60)
-offset_left = -30.0
-offset_top = 336.0
-offset_right = 32.0
-offset_bottom = 396.0
-theme_override_fonts/font = ExtResource("20_font")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_2r0gi")
-theme_override_styles/hover = SubResource("StyleBoxFlat_u2gp5")
-text = "FLASH"
+offset_left = -76.0
+offset_top = 332.0
+offset_right = 304.0
+offset_bottom = 1168.0
+scale = Vector2(0.17290895, 0.1309837)
+texture_normal = ExtResource("6_u2gp5")
+texture_pressed = ExtResource("7_cbevk")
 
-[node name="RightButton" type="Button" parent="."]
+[node name="RightButton" type="TextureButton" parent="." unique_id=528737797]
 custom_minimum_size = Vector2(60, 60)
-offset_left = 883.0
-offset_top = 339.0
-offset_right = 945.0
-offset_bottom = 399.0
-theme_override_fonts/font = ExtResource("20_font")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_cbevk")
-theme_override_styles/hover = SubResource("StyleBoxFlat_4nixr")
-text = "FLASH"
+offset_left = 943.0
+offset_top = 311.0
+offset_right = 1323.0
+offset_bottom = 1147.0
+scale = Vector2(0.18522274, 0.1167778)
+texture_normal = ExtResource("6_u2gp5")
+texture_pressed = ExtResource("7_cbevk")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=236804495]
 
-[node name="Animatronic" parent="CanvasLayer" instance=ExtResource("1_cb5gl")]
+[node name="Animatronic" parent="CanvasLayer" unique_id=1495875852 instance=ExtResource("1_cb5gl")]
 
-[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("left_button", "right_button")]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1717833740 node_paths=PackedStringArray("left_button", "right_button")]
 position = Vector2(0, 324)
 script = ExtResource("3_xaf5t")
-left_button = NodePath("../LeftButton")
-right_button = NodePath("../RightButton")
+left_button = NodePath("")
+right_button = NodePath("")
 
-[node name="CameraFeed" parent="Camera2D" instance=ExtResource("2_8fg2u")]
+[node name="CameraFeed" parent="Camera2D" unique_id=602564034 instance=ExtResource("2_8fg2u")]
 position = Vector2(-578, -330)
 
-[node name="PowerSystem" parent="Camera2D" instance=ExtResource("4_5d07y")]
+[node name="PowerSystem" parent="Camera2D" unique_id=545911504 instance=ExtResource("4_5d07y")]
 position = Vector2(-580, -340)
 
-[node name="AlertTimer" parent="Camera2D" instance=ExtResource("6_axdon")]
+[node name="AlertTimer" parent="Camera2D" unique_id=200629995 instance=ExtResource("6_axdon")]
 position = Vector2(-578, -330)
 
-[node name="ColorRect" type="ColorRect" parent="Camera2D"]
+[node name="ColorRect" type="ColorRect" parent="Camera2D" unique_id=1422959341]
 color = Color(1, 0.007843138, 1, 1)
 metadata/Pink = false
 
-[node name="NightTimer" parent="." instance=ExtResource("2_sf8xb")]
+[node name="NightTimer" parent="." unique_id=1871360410 instance=ExtResource("2_sf8xb")]
 
-[node name="FlashlightHandler" type="Node" parent="."]
+[node name="FlashlightHandler" type="Node" parent="." unique_id=952441013]
 script = ExtResource("10_f8na0")
 
-[node name="BackgroundNoise" type="AudioStreamPlayer" parent="."]
+[node name="BackgroundNoise" type="AudioStreamPlayer" parent="." unique_id=1616046634]
 stream = ExtResource("13_674sq")
 autoplay = true
 bus = &"Effects"
 parameters/looping = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_u2gp5")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=600647228]
+libraries/ = SubResource("AnimationLibrary_u2gp5")
 
-[node name="PhoneCall" parent="." instance=ExtResource("15_2r0gi")]
+[node name="PhoneCall" parent="." unique_id=1333687453 instance=ExtResource("15_2r0gi")]
 
 [connection signal="pressed" from="LeftButton" to="FlashlightHandler" method="_on_left_button_pressed"]
 [connection signal="pressed" from="MiddleButton" to="FlashlightHandler" method="_on_middle_button_pressed"]
